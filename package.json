@@ -10,6 +10,7 @@
   "dependencies": {
     "@slidev/theme-default": "latest",
     "@slidev/theme-seriph": "latest",
+    "pdf-parse": "^2.1.7",
     "slidev-theme-frankfurt": "^1.0.8",
     "slidev-theme-takahashi": "^1.0.0",
     "vue": "^3.5.21"

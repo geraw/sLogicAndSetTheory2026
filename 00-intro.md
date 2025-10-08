@@ -9,10 +9,12 @@ htmlAttrs:
 mdc: true
 download: true
 ---
-#  לוגיקה ותורת הקבוצות
+# מבוא ללוגיקה ותורת הקבוצות
 
 
  מרצה: פרופ. גרא וייס
+---
+section: פתיחה
 ---
 
 # למה אנחנו כאן?
@@ -29,6 +31,11 @@ download: true
 <img src="/images/למה אנחנו כאן.png" class="absolute top-40 right-180 w-100 h-100 opacity-80" />
 
 
+
+<!-- ####################################################################################################################### -->
+
+---
+section: מנהלות
 ---
 
 # מבנה ההערכה
@@ -99,7 +106,7 @@ download: true
 
 ---
 
-## משאבים
+# משאבים
 
 אנחנו מספקים משאבים רבים באתר הקורס ומצפים מהסטודנטים לקרוא אותם.
 
@@ -138,7 +145,12 @@ download: true
 - מומלץ מאוד לבוא לכל השיעורים והתרגולים, לשאול שאלות ולבקש הבהרות
 
 
+<!-- ####################################################################################################################### -->
+
 ---
+section: מבוא לשפה המתמטית ולוגיקה
+---
+
 
 # פתח דבר
 
@@ -158,25 +170,261 @@ download: true
 
 ---
 
-# מבוא לשפה המתמטית וללוגיקה
+# מבוא לשפה המתמטית ולוגיקה
 
-- בשפה המתמטית טענות מורכבות נוצרות מטענות פשוטות ומילות קישור - "לבנים וטיט" של השפה.  
+- טענות מתמטיות בנויות מטענות פשוטות ומילות קישור - ה"לבנים" של השפה.  
 
-- מילות הקישור מתחלקות לשני סוגים עיקריים:
-  - קשרים לוגיים: <span style="color:#d6336c">וגם</span>, <span style="color:red">או</span>, <span style="color:#d6336c">לא</span>, <span style="color:#d6336c">גורר</span>, …
-  - כמתים: <span style="color:#0d6efd">לכל</span> ו־<span style="color:#0d6efd">יש</span>
+ - מילות הקישור הן הקַשָרים הלוגיים והכַמָתים:
+   - קשרים: "‏אם ... אז ...", "‏וגם", "‏או", "‏לא"
+   - כמתים: "לכל ...", "יש ..."
 
-- דגשים מעשיים:
-  -  נשתמש גם בסמלים פורמליים (כמו $\forall,\exists,\neg,\wedge,\vee,\to$)  וגם בביטויים מילוליים לאורך הקורס.
-   
-  - נבחין בין תחביר (מבנה הביטוי) לסמנטיקה (ערכי אמת).
+-  למשל בטענה הבאה, הכמתים והקשרים מודגשים:
+  "<span style="color:#0d6efd">לכל</span> זוג מספרים $a,b$, <span style="color:red">אם</span> $a\neq b$ <span style="color:red">אז</span> <span style="color:#0d6efd">יש</span> $q\in\mathbb{Q}$ כך ש $a<q<b$ <span style="color:red">או</span> $b<q<a$."
+  - נבדיל בין מבנה ומשמעות: 
+    - זה משפט במבנה "<span style="color:#0d6efd">לכל</span> ... <span style="color:red">אם</span> ... <span style="color:red">אז</span> ... <span style="color:#0d6efd">יש</span> ... <span style="color:red">או</span> ...".
+    - הוא אומר אמירה מתמטית נכונה - ערך האמת שלו הוא True.
 
-- דוגמה (הכמתים מודגשים בצבע כחול והקשרים בצבע אדום):  
-  - <span style="color:#0d6efd">לכל</span>  זוג מספרים $a,b$, <span style="color:red">אם</span> $a\neq b$ <span style="color:red">אז</span> <span style="color:#0d6efd">יש</span> מספר רציונלי $q$ כך ש $a<q<b$ <span style="color:red">או</span> $b<q<a$.
 
-  - זהו פסוק מהצורה "לכל ... אם ... אז יש ... כך ש ... או ..." והוא אמת.
+
+- יש סמלים מקובלים לסימון הקשרים והכמתים, ואנחנו נשתמש גם בסמלים אלו, ולא רק במילות
+הקישור והכימות.
 
 ---
 
+# בניית טענות מתמטיות
+
+- קשרים - מרכיבים טענות חדשות מטענות קיימות:
+  - $\alpha\vee\beta$ <span style="color:#2563eb;"> ⟶ <em>"$\alpha$ או $\beta$". נקרא קשר הדיסיונקציה (disjunction).</em></span>
+  - $\alpha\wedge\beta$ <span style="color:#2563eb;"> ⟶ <em>"$\alpha$ וגם $\beta$". נקרא קשר הקונקונקציה (conjunction).</em></span>
+  - $\alpha\to\beta$ <span style="color:#2563eb;"> ⟶ <em>"אם $\alpha$ אז $\beta$" / "$\alpha$ גורר $\beta$". נקרא קשר הגרירה (implication).</em></span>
+  - $\alpha\leftrightarrow\beta$ <span style="color:#2563eb;"> ⟶ <em>"$\alpha$ אם ורק אם $\beta$". נקרא קשר האם־ורק־אם (biconditional / iff).</em></span>
+  - $\neg\alpha$ <span style="color:#2563eb;"> ⟶ <em>"לא $\alpha$". נקרא קשר ההשלילה (negation).</em></span>
+
+- כמתים - כאשר הטענה תלויה במשתנה $x$:
+  - $\forall x\,(\alpha)$ → <span style="color:#2563eb;"><em>"לכל $x$ מתקיים $\alpha$". נקרא הכמת הכולל (universal quantifier).</em></span>
+  - $\exists x\,(\alpha)$ → <span style="color:#2563eb;"><em>"יש $x$ כזה ש־$\alpha$". נקרא הכמת הקיומי (existential quantifier).</em></span>
+
+  
+- השפה המתמטית גמישה: אותו רעיון ניתן לנסח בכמה אופנים.  
+  אל תשננו נוסח מילולי בלבד - הבינו את המשמעות ובחרו ניסוח שנוח לכם.
+
+---
+
+# טבלאות אמת
+
+טבלאות האמת מסכמות את התנהגות הקשרים; $T$ = אמת, $F$ = שקר.
 
 
+<div style="display: flex; justify-content: center;">
+<div class="truth-table">
+
+| $\alpha$ | $\beta$ | $\neg\alpha$ | $\alpha\vee\beta$ | $\alpha\wedge\beta$ | $\alpha\to\beta$ | $\alpha\leftrightarrow\beta$ |
+|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
+| $T$ | $T$ | $F$ | $T$ | $T$ | $T$ | $T$ |
+| $T$ | $F$ | $F$ | $T$ | $F$ | $F$ | $F$ |
+| $F$ | $T$ | $T$ | $T$ | $F$ | $T$ | $F$ |
+| $F$ | $F$ | $T$ | $F$ | $F$ | $T$ | $T$ |
+
+</div>
+</div>
+
+הטבלה מגדירה איך אנחנו בונים טענות מורכבות מתוך טענות פשוטות.
+
+
+נשתמש בטבלאות אמת כדי להוכיח שקילות בין טענות.
+
+---
+
+# שקילות לוגית
+
+- שתי טענות, $\alpha$ ו־$\beta$, ייקראו **שקולות לוגית** אם יש להן אותו ערך אמת בכל מצב.
+- במילים אחרות, בכל שורה בטבלת האמת, ערכי האמת של $\alpha$ ו־$\beta$ זהים.
+- כאשר שתי טענות שקולות, נסמן זאת $\alpha \equiv \beta$.
+  
+- ההבדל בין $\alpha \leftrightarrow \beta$ לבין $\alpha \equiv \beta$ הוא:
+  - $\alpha \leftrightarrow \beta$ הוא **פסוק** בשפה הפורמלית, שיכול להיות אמיתי או שקרי.
+  - $\alpha \equiv \beta$ הוא **טענה שלנו** (במטא-שפה) על כך שהפסוק $\alpha \leftrightarrow \beta$ הוא טאוטולוגיה (אמיתי תמיד).
+
+- נלמד שקילויות שימושיות רבות ונשתמש בהן כדי לפשט טענות מורכבות.
+- נראה גם כיצד להוכיח שקילות בין טענות באמצעות טבלאות אמת.
+
+---
+
+#  הוכחת שקילויות באמצעות טבלאות אמת
+
+
+ 
+<div style="display: flex; justify-content: center; margin-top: 70px;">
+<div class="truth-table">
+
+| $\alpha$ | $\beta$ | $\neg\alpha$ | $\neg\alpha\to\beta$ | $\alpha\vee\beta$ |
+|:--:|:--:|:--:|:--:|:--:|
+| $T$ | $T$ | $F$ | $T$ | $T$ |
+| $T$ | $F$ | $F$ | $T$ | $T$ |
+| $F$ | $T$ | $T$ | $T$ | $T$ |
+| $F$ | $F$ | $T$ | $F$ | $F$ |
+
+</div>
+</div>
+
+<img v-click class="absolute top-40 right-190 w-80 h-90" src="/images/טבלת אמת.png" />
+<img v-click class="absolute top-60 right-20  w-80 h-90" src="/images/טבלת אמת2.png" />
+
+---
+
+# שלילת טענות
+
+שלילת טענות היא כלי בסיסי וחיוני. עם תרגול, המעבר מטענה לשלילתה הופך טבעי ומהיר:
+
+
+- **שלילה כפולה:** $\alpha \equiv \neg(\neg\alpha)$ <span style="color:#2563eb;">⟶ שלילת השלילה שקולה לטענה המקורית.</span>  
+
+- **שלילת קוניונקציה:** $\neg(\alpha\wedge\beta)\equiv \neg\alpha\vee\neg\beta$ <span style="color:#2563eb;">⟶ שימושי בהוכחות בשלילה.</span>  
+
+- **שלילת דיסיונקציה:** $\neg(\alpha\vee\beta)\equiv \neg\alpha\wedge\neg\beta$ <span style="color:#2563eb;">⟶ כלל דה־מורגן.</span>  
+
+- **שלילת גרירה:** $\neg(\alpha\to\beta)\equiv \alpha\wedge\neg\beta$ <span style="color:#2563eb;">⟶ משמעות של “אם לא אז”.</span>  
+
+- **כלל ההיפוך (קונטרפוזיציה):** $\alpha\to\beta \equiv \neg\beta\to\neg\alpha$ <span style="color:#2563eb;">⟶ מאפשר להחליף הנחות ומסקנות.</span>
+
+---
+
+# כמתים
+
+- כמו הקשרים, גם הכמתים משמשים ליצירת טענות מורכבות. למשל:
+  > "לכל מספר טבעי $n$ יש מספר ראשוני $p$ כך ש־$n < p$."
+
+- אפשר היה לנסח זאת ללא משתנים ("לכל מספר טבעי, יש מספר ראשוני שגדול ממנו"), אך שימוש במשתנים ($n, p$) מבהיר את מבנה הטענה.
+  - **המלצה:** להתרגל להשתמש במשתנים גם בניסוח בעברית.
+
+- אם $\alpha$ היא טענה התלויה במשתנה $x$, אז הטענות $\forall x\,(\alpha)$ ו־$\exists x\,(\alpha)$ נקראות **"טענות מכומתות"**:
+  - $\forall x\,(\alpha)$: טוענת שהנוסחה $\alpha$ נכונה **לכל** $x$.
+  - $\exists x\,(\alpha)$: טוענת ש**קיים** לפחות $x$ אחד שעבורו $\alpha$ מתקיימת.
+
+
+---
+
+# שלילת טענות המכילות כמתים
+
+
+- **שלילת כמת כולל:** השלילה של "כל $x$ מקיים את $\alpha$" היא "קיים $x$ שעבורו $\alpha$ שקרי".
+
+
+- **שלילת כמת קיומי:** השלילה של "קיים $x$ המקיים את $\alpha$" היא "לכל $x$, $\alpha$ אינה נכונה".
+
+
+- **חלחול שלילה:** ניתן להפעיל כללים אלו מספר פעמים. סימן השלילה "מחלחל פנימה" והופך כל כמת בדרכו:
+
+
+- **דוגמה:** שלילת הטענה "לכל מספר, אם הוא גדול משתיים, אז הוא גדול מאחת".
+  1. **ניסוח פורמלי:** $\forall x (x>2 \to x>1)$
+  2. **הוספת שלילה:** $\neg \forall x (x>2 \to x>1)$
+  3. **הכנסת שלילה פנימה (הופכת כמת):** $\exists x \neg (x>2 \to x>1)$
+  4. **שלילת גרירה:** $\exists x (x>2 \wedge \neg(x>1))$
+  5. **פישוט:** $\exists x (x>2 \wedge x \le 1)$
+- כלומר: $\neg \forall x (x>2 \to x>1) \equiv \exists x (x>2 \wedge x \le 1)$
+
+<div class="floating-formula" style="--formula-top: 10rem; --formula-left: 2rem; --formula-font-size: 1.2rem;">
+  
+  $\neg \forall x\, (\alpha) \equiv \exists x\, (\neg\alpha)$
+</div>
+
+<div class="floating-formula" style="--formula-top: 16rem; --formula-left: 2rem; --formula-font-size: 1.2rem;">
+  
+  $\neg \exists x\, (\alpha) \equiv \forall x\, (\neg\alpha)$
+</div>
+
+<div class="floating-formula" style="--formula-top: 22rem; --formula-left: 2rem; --formula-font-size: 1.2rem;">
+
+  $\neg \forall x (\exists y (\forall z (\alpha))) \equiv \exists x (\forall y (\exists z (\neg\alpha)))$
+</div>
+
+<style>
+/* Apply margin only to top-level list items */
+.slidev-layout > ul > li,
+.slidev-layout > ol > li {
+  margin-top: 2rem;
+}
+</style>
+
+
+<!-- ######################################################################################################################## -->
+
+---
+section: הוכחות
+layout: two-cols-header
+---
+
+# כללי הוכחה 
+
+::left::
+
+
+## **הוכחת גרירה ($\alpha \to \beta$):**
+  
+  - **ישירה:** מניחים את נכונות $\alpha$ ומוכיחים את $\beta$.
+
+  - **קונטרפוזיציה:** מוכיחים את הטענה השקולה $\neg\beta \to \neg\alpha$ (מניחים את שלילת $\beta$ ומסיקים את שלילת $\alpha$).
+
+  - **שלילה:** מניחים $\neg(\alpha \to \beta)$, כלומר $\alpha \wedge \neg\beta$, ומגיעים לסתירה.
+
+
+## **הוכחת דיסיונקציה ($\alpha \vee \beta$):**
+  
+  - **גרירה שקולה:** מוכיחים $\neg\alpha \to \beta$ או $\neg\beta \to \alpha$.
+  
+  - **שלילה:** מניחים $\neg(\alpha \vee \beta)$, כלומר $\neg\alpha \wedge \neg\beta$, ומגיעים לסתירה.
+
+::right::
+
+
+## **הוכחת קוניונקציה ($\alpha \wedge \beta$):**
+
+<br>
+
+  - מוכיחים כל טענה בנפרד: מוכיחים את $\alpha$ ומוכיחים את $\beta$.
+
+
+
+## **פיצול למקרים ($( \alpha \vee \beta ) \to \gamma$):**
+  
+  - מוכיחים בנפרד $\alpha \to \gamma$ וגם $\beta \to \gamma$.
+  
+  - שקילות: $(\alpha \vee \beta) \to \gamma \equiv (\alpha \to \gamma) \wedge (\beta \to \gamma)$.
+  <!-- - **דוגמה:** "אם תבואו ב-10:00 **או** ב-13:00, תמצאו את הילדים בחצר". כדי לאמת זאת, עליכם לבדוק גם ב-10:00 **וגם** ב-13:00. -->
+
+## **הוכחה באמצעות טענת ביניים:**
+  <br>
+
+  - כדי להוכיח $\alpha \to \beta$, ניתן למצוא טענת ביניים $\gamma$ <br>
+    ולהוכיח $\alpha \to \gamma$ וגם $\gamma \to \beta$.
+
+<style>
+.two-cols-header {
+  column-gap: 40px; /* Adjust the gap size as needed */
+  /* Optional: add some padding for better readability */
+  padding: 30px 40px 30px 20px;
+}
+.two-cols-header li strong {
+  color: #2563eb;
+}
+.two-cols-header h2 {
+  margin-top: 3rem;
+}
+.two-cols-header h2:first-of-type {
+  margin-top: 0;
+}
+</style>
+
+---
+
+# הוכחת טענות כוללות
+
+- מציאת דרך טובה להוכחת טענה כוללת, כלומר טענה מהצורה $\forall x\, \alpha$, עשויה להיות משימה קשה. אין "מתכון" יחיד, ולכן חשוב לרכוש ניסיון בטכניקות הוכחה שונות.
+
+- **הגישה האלמנטרית:**
+  - כדי להוכיח $\forall x\, \alpha$, עלינו להראות שהטענה $\alpha$ אמיתית לכל ערך של $x$.
+  - מתחילים את ההוכחה עם משתנה $x$ **כללי**, ללא הנחות מוקדמות, ומוכיחים עבורו את נכונות $\alpha$.
+
+- **דוגמה:** הוכחת הטענה "לכל מספר טבעי $n$, אם הוא מתחלק ב-4, אז הוא מתחלק גם ב-2".
+  - **הוכחה:** יהי $n$ מספר טבעי כלשהו. עלינו להוכיח טענת גרירה: אם הטענה ש-$n$ מתחלק ב-4 היא אמת, אז גם הטענה ש-$n$ מתחלק ב-2 היא אמת.

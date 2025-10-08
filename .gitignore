@@ -5,3 +5,5 @@ dist
 .vite-inspect
 .remote-assets
 components.d.ts
+00-intro_files/
+00-intro.html

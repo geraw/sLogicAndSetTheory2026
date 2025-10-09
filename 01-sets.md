@@ -8,5 +8,14 @@ htmlAttrs:
   lang: heb
 mdc: true
 download: true
-src: 00-intro.md
 ---
+# מבוא ללוגיקה ותורת הקבוצות
+
+
+ מרצה: פרופ. גרא וייס
+---
+section: קבוצות
+---
+
+
+

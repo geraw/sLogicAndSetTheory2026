@@ -1,6 +1,5 @@
 {
     "slidev.include": [
-        "**/slides.md",
-        "00-intro.md"
+        "**/??-*.md"
     ]
 }

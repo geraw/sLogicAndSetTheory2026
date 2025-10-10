@@ -106,4 +106,8 @@
   direction: ltr;
 }
 
+strong {
+  color: #1e40af; /* Dark blue for all bold text */
+}
+
 

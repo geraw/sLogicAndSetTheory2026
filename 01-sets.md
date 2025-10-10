@@ -525,59 +525,10 @@ layout: two-cols-header
   <path d="M 400 445 C 200 450, -100 350, 470 145" stroke="#2563eb" stroke-width="2" fill="none" marker-end="url(#arrowhead1)" />
 </svg>
 
----
-
-# Test
-
-<div class="mx-auto" style="width:460px">
-<svg viewBox="0 0 460 330" width="100%" aria-label="Venn diagram A B C">
-  <defs>
-    <style>
-      .set { fill-opacity:.40; stroke:#333; stroke-width:2 }
-      .label { font: 600 18px/1 system-ui, sans-serif; fill:#111; text-align:center; }
-      .note  { font: 13px system-ui, sans-serif; fill:#111; text-align:center; }
-    </style>
-  </defs>
-
-  <!-- positions: upward triangle layout -->
-  <circle cx="200" cy="150" r="95" fill="#60a5fa" class="set"/>   <!-- A -->
-  <circle cx="260" cy="150" r="95" fill="#f59e0b" class="set"/>   <!-- B -->
-  <circle cx="230" cy="210" r="95" fill="#34d399" class="set"/>   <!-- C -->
-
-  <!-- labels -->
-  <foreignObject x="140" y="35" width="50" height="50">
-    $A$
-  </foreignObject>
-  <foreignObject x="240" y="35" width="50" height="50">
-    $B$
-  </foreignObject>
-  <foreignObject x="195" y="305" width="50" height="50">
-    $C$
-  </foreignObject>
-
-  <foreignObject x="180" y="155" width="100" height="50">
-    <div class="katex note">$$A \cap B \cap C$$</div>
-  </foreignObject>
-</svg>
-</div>
-
-
-<script setup>
-import 'katex/dist/katex.min.css'
-import renderMathInElement from 'katex/contrib/auto-render'
-import { onMounted } from 'vue'
-onMounted(() => renderMathInElement(document.body, { delimiters: [
-  { left: '\\(', right: '\\)', display: false },
-  { left: '\\[', right: '\\]', display: true },
-  { left: '$$', right: '$$', display: true },
-  { left: '$', right: '$', display: false },
-], throwOnError:false }))
-</script>
-
 
 ---
 
-# :-(
+# הוכחת השוויון $(A \setminus B) \cup (A \cap C) = A \setminus (B \setminus C)$
 
 
   <!-- Define reusable SVG elements -->
@@ -616,9 +567,9 @@ onMounted(() => renderMathInElement(document.body, { delimiters: [
 </svg>
 
 
-<div class="grid grid-cols-2 " style="width:auto;margin:-90px 0 0 0px">
+<div class="grid grid-cols-[10fr_auto_1fr] gap-10" style="width: 100%; margin-top: -90px;">
 
-<div class="grid grid-cols-3 grid-rows-2 gap-0" style="scale:.6;width:500px;margin:auto">
+<div class="grid grid-cols-3 grid-rows-2 gap-0" style="scale:.6;width:400px;margin:auto">
 
 
   <div style="width:420px;margin:auto">
@@ -682,8 +633,9 @@ onMounted(() => renderMathInElement(document.body, { delimiters: [
 
 </div>
 
+<div class="w-10px h-96 bg-gray-300 self-center"></div>
 
-  <div class="grid grid-cols-3 grid-rows-2 gap-0" style="scale:.6;width:500px;margin:auto">
+  <div class="grid grid-cols-3 grid-rows-2 gap-0" style="scale:.6;width:400px;margin:0 0 0 0">
 
   <div style="width:420px;margin:auto">
     <svg viewBox="-10 -10 170 170" width="50%" height="100%" aria-label="Venn A \ B">

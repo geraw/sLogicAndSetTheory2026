@@ -30,6 +30,8 @@ jobs:
 
       - name: Build Slidev
         run: npm run build
+        env:
+          SLIDEV_EXPORT: ""   # force-disable if something sets it globally
 
       # SPA fallback for deep links
       - name: Add 404 fallback

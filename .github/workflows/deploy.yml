@@ -27,6 +27,7 @@ jobs:
 
       - name: Install deps
         run: npm ci
+        run: npm i -D playwright-chromium
 
       - name: Build Slidev
         run: npm run build

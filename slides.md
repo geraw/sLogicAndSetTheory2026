@@ -8,6 +8,7 @@ htmlAttrs:
   lang: heb
 mdc: true
 download: true
+export: false
 ---
 # מבוא ללוגיקה ותורת הקבוצות
 

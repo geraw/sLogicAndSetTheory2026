@@ -28,7 +28,7 @@ jobs:
       - name: Install deps
         run: npm ci
 
-      - name: Install Playwright Browsers
+      - name: Install Playwright 
         run: npm i -D playwright-chromium
 
       - name: Build Slidev

@@ -19,5 +19,7 @@
   },
   "devDependencies": {
     "@slidev/cli": "^52.2.4"
-  }
+  },
+  "slidev": { "base": "/sLogicAndSetTheory2026/" }
+
 }

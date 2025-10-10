@@ -11,12 +11,13 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
+  group: "pages"
   cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
 
@@ -25,19 +26,21 @@ jobs:
           node-version: 20
           cache: npm
 
-      - name: Install deps
+      - name: Install dependencies
         run: npm ci
 
-      - name: Install Playwright 
-        run: npm i -D playwright-chromium
+      # ✅ Installs Playwright Chromium browser dependencies
+      - uses: microsoft/playwright-github-action@v1
 
-      - name: Build Slidev
-        run: npm run build
+      - name: Build Slidev with correct base (no export)
+        run: npx slidev build --base "/sLogicAndSetTheory2026/"
         env:
-          SLIDEV_EXPORT: ""   # force-disable if something sets it globally
+          SLIDEV_EXPORT: ""   # ensures Slidev doesn't auto-export PDF
 
-      # SPA fallback for deep links
-      - name: Add 404 fallback
+      # optional: generate PDF/PNG exports if desired
+      # - run: npm run export
+
+      - name: Add SPA fallback (for GitHub Pages)
         run: cp dist/index.html dist/404.html
 
       - name: Upload artifact

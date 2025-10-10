@@ -33,7 +33,7 @@ jobs:
 
       - name: Build Slidev
         #run: npm run build
-        run: npx slidev build --base "/sLogicAndSetTheory2026/"
+        run: npx slidev build *.md --base "/sLogicAndSetTheory2026/"
 
         env:
           SLIDEV_EXPORT: ""   # force-disable if something sets it globally

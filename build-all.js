@@ -8,6 +8,7 @@ const decks = fs
     .filter(f => /^\d{2}[-_].*\.md$/.test(f));
 
 
+
 fs.rmSync("dist", { recursive: true, force: true });
 fs.mkdirSync("dist");
 
@@ -23,17 +24,26 @@ for (const file of decks) {
     fs.copyFileSync(`dist/${base}/index.html`, `dist/${base}/404.html`);
 }
 
-// Also build index.md if it exists
-if (fs.existsSync("index.md")) {
-    console.log(`\n▶ Building index.md ...`);
-    execSync(
-        `npx slidev build index.md --base "/${REPO}/" -o dist/index`,
-        { stdio: "inherit" }
+// Redirect to 99-index.md if it exists
+if (fs.existsSync("99-index.md")) {
+    // console.log(`\n▶ Building index.md ...`);
+    // execSync(
+    //     `npx slidev build index.md --base "/${REPO}/" -o dist/index`,
+    //     { stdio: "inherit" }
+    // );
+
+    // Add a redirect from /index.html to index/index.html
+    fs.writeFileSync(
+        "dist/99-index.html",
+        `<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; url=99-index/index.html"></head><body>If you are not redirected automatically, follow this <a href="99-index/index.html">link to the main page</a>.</body></html>`
     );
 
-    // Copy dist/index to dist recursively
-    fs.cpSync("dist/index", "dist", { recursive: true });
+    // // Copy dist/index to dist recursively
+    // fs.cpSync("dist/index", "dist", { recursive: true });
     
+
+
+
 } else {
     // create simple index.html linking to all decks
     const indexHtml = `<!doctype html><html><head>

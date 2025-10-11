@@ -34,7 +34,7 @@ if (fs.existsSync("99-index.md")) {
 
     // Add a redirect from /index.html to index/index.html
     fs.writeFileSync(
-        "dist/99-index.html",
+        "dist/index.html",
         `<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; url=99-index/index.html"></head><body>If you are not redirected automatically, follow this <a href="99-index/index.html">link to the main page</a>.</body></html>`
     );
 

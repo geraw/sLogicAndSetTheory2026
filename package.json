@@ -12,7 +12,5 @@
     "@slidev/theme-seriph": "latest",
     "slidev-theme-frankfurt": "^1.0.8",
     "playwright-chromium": "^1.37.0",
-    "antfu/ni": "^0.16.5"
-
   }
 }

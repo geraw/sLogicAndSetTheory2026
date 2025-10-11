@@ -1,5 +1,14 @@
-# Logic and Set Theory — Winter 25-26
+---
+title: "Course Overview"
+layout: index
+dir: rtl
+---
 
 
-- [Weeks 1-2 – Propositional Logic](../00-intro/1) 
-- [Weeks 3-5 – Sets](../01-sets/1) 
+
+# מבוא ללוגיקה ותורת הקבוצות
+## מרצה: פרופ. גרא וייס
+
+- [שבועות 1-2 – קשרים וכמתים לוגיים](../00-intro)
+
+- [שבועות 3-5 – קבוצות](../01-sets)

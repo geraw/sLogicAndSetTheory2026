@@ -4,8 +4,14 @@ import fs from "fs";
 const REPO = "sLogicAndSetTheory2026";
 
 const decks = fs
-    .readdirSync(".")
-    .filter(f => /^\d{2}[-_].*\.md$/.test(f));
+  .readdirSync(process.cwd(), { withFileTypes: true })
+  .filter(dirent => dirent.isFile() && dirent.name.endsWith(".md"))
+  .map(dirent => dirent.name);
+
+if (decks.length === 0) {
+  console.error("No .md decks found in the current directory.");
+  process.exit(1);
+}
 
 fs.rmSync("dist", { recursive: true, force: true });
 fs.mkdirSync("dist");

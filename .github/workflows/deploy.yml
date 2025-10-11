@@ -28,8 +28,8 @@ jobs:
       - name: Setup @antfu/ni
         run: npm i -g @antfu/ni
 
-      # - name: Install Playwright for pre-rendering
-      #   run: npm i -D playwright-chromium
+      - name: Install Playwright for pre-rendering
+        run: npm i -D playwright-chromium
 
       - name: Install dependencies
         run: nci

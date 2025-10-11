@@ -19,8 +19,8 @@ for (const file of decks) {
         { stdio: "inherit" }
     );
 
-    //   // SPA fallback for deep links like /2
-    //   fs.copyFileSync(`dist/${base}/index.html`, `dist/${base}/404.html`);
+    // SPA fallback for deep links like /2
+    fs.copyFileSync(`dist/${base}/index.html`, `dist/${base}/404.html`);
 }
 
 // Also build index.md if it exists

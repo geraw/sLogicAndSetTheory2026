@@ -10,6 +10,6 @@
     "@slidev/cli": "^52.2.4",
     "@slidev/theme-default": "latest",
     "@slidev/theme-seriph": "latest",
-    "slidev-theme-frankfurt": "^1.0.8",
+    "slidev-theme-frankfurt": "^1.0.8"
   }
 }

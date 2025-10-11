@@ -35,7 +35,8 @@ jobs:
         run: nci
 
       - name: Build
-        run: nr build *.md --base /${{github.event.repository.name}}/
+        # run: nr build *.md --base /${{github.event.repository.name}}/
+        run: nr build:all
 
       # - name: Copy Index files
       #   run: cp -r dist/*/* dist/

@@ -30,5 +30,5 @@ for (const file of decks) {
 }
 
 // SPA fallback for deep links like /2
-fs.copyFileSync(`dist/${base}/index.html`, `dist/${base}/404.html`);
+fs.copyFileSync(`dist/index.html`, `dist/404.html`);
 

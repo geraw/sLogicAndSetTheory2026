@@ -7,10 +7,6 @@ const decks = fs
   .readdirSync(".")
   .filter(f => /^\d{2}[-_].*\.md$/.test(f));
 
-// add index.md to the decks list if exists
-if (fs.existsSync("index.md")) {
-  decks.unshift("index");
-}
 
 fs.rmSync("dist", { recursive: true, force: true });
 fs.mkdirSync("dist");
@@ -22,16 +18,24 @@ for (const file of decks) {
     `npx slidev build ${file} --base "/${REPO}/${base}/" -o dist/${base}`,
     { stdio: "inherit" }
   );
+  
+  // Also build index.md if it exists
+  if (fs.existsSync("index.md")) {
+      console.log(`\n▶ Building index.md ...`);
+      execSync(
+          `npx slidev build index.md --base "/${REPO}/" -o dist`,
+          { stdio: "inherit" }
+      );
+  }
+
+
+
   // SPA fallback for deep links like /2
   fs.copyFileSync(`dist/${base}/index.html`, `dist/${base}/404.html`);
 }
 
 
 if (fs.existsSync("index.md")) {
-    // Copy index/index.html to dist/
-    fs.copyFileSync("dist/index/index.html", "dist/index.html");
-    fs.copyFileSync("dist/index/404.html", "dist/404.html");
-    console.log("\n✅ Index deck built amd copied successfully.");
 } else {
     // create simple index.html linking to all decks
     const indexHtml = `<!doctype html><html><head>

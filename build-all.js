@@ -30,7 +30,10 @@ if (fs.existsSync("index.md")) {
         `npx slidev build index.md --base "/${REPO}/" -o dist/index`,
         { stdio: "inherit" }
     );
-    fs.copyFileSync(`dist/index/index.html`, `dist/index.html`);
+
+    // Copy dist/index to dist recursively
+    fs.cpSync("dist/index", "dist", { recursive: true });
+    
 } else {
     // create simple index.html linking to all decks
     const indexHtml = `<!doctype html><html><head>

@@ -4,6 +4,4 @@ node_modules
 .vite-inspect
 .remote-assets
 components.d.ts
-00-intro_files/
-00-intro.html
 package-lock.json

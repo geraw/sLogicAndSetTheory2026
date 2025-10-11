@@ -18,24 +18,18 @@ for (const file of decks) {
     `npx slidev build ${file} --base "/${REPO}/${base}/" -o dist/${base}`,
     { stdio: "inherit" }
   );
-  
-  // Also build index.md if it exists
-  if (fs.existsSync("index.md")) {
-      console.log(`\n▶ Building index.md ...`);
-      execSync(
-          `npx slidev build index.md --base "/${REPO}/" -o dist`,
-          { stdio: "inherit" }
-      );
-  }
-
-
 
   // SPA fallback for deep links like /2
   fs.copyFileSync(`dist/${base}/index.html`, `dist/${base}/404.html`);
 }
 
-
+// Also build index.md if it exists
 if (fs.existsSync("index.md")) {
+    console.log(`\n▶ Building index.md ...`);
+    execSync(
+        `npx slidev build index.md --base "/${REPO}/" -o dist`,
+        { stdio: "inherit" }
+    );
 } else {
     // create simple index.html linking to all decks
     const indexHtml = `<!doctype html><html><head>

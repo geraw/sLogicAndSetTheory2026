@@ -1,6 +1,7 @@
 {
   "name": "sLogicAndSetTheory2026",
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "slidev build",
     "build:all": "node build-all.js",

@@ -4,8 +4,8 @@ import fs from "fs";
 const REPO = "sLogicAndSetTheory2026";
 
 const decks = fs
-  .readdirSync(".")
-  .filter(f => /^\d{2}[-_].*\.md$/.test(f));
+    .readdirSync(".")
+    .filter(f => /^\d{2}[-_].*\.md$/.test(f));
 
 
 fs.rmSync("dist", { recursive: true, force: true });
@@ -15,8 +15,8 @@ for (const file of decks) {
     const base = file.replace(/\.md$/, "");
     console.log(`\n▶ Building ${file} ...`);
     execSync(
-    `npx slidev build ${file} --base "/${REPO}/${base}/" -o dist/${base}`,
-    { stdio: "inherit" }
+        `npx slidev build ${file} --base "/${REPO}/${base}/" -o dist/${base}`,
+        { stdio: "inherit" }
     );
 
     //   // SPA fallback for deep links like /2
@@ -43,9 +43,9 @@ if (fs.existsSync("index.md")) {
     <h1>Logic and Set Theory 2026 — Slide Decks</h1>
     <ul>
     ${decks.map(f => {
-    const n = f.replace(/\.md$/, "");
-    const title = n.replace(/^\d{2}[-_]/, "").replace(/[-_]/g, " ");
-    return `<li><a href="./${n}/">${title}</a></li>`;
+        const n = f.replace(/\.md$/, "");
+        const title = n.replace(/^\d{2}[-_]/, "").replace(/[-_]/g, " ");
+        return `<li><a href="./${n}/">${title}</a></li>`;
     }).join("\n")}
     </ul>
     </body></html>`;

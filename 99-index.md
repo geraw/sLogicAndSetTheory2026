@@ -2,6 +2,7 @@
 title: "Course Overview"
 layout: index
 dir: rtl
+lang: heb
 ---
 
 
@@ -12,3 +13,5 @@ dir: rtl
 - [שבועות 1-2 – קשרים וכמתים לוגיים](/../00-intro/)
 
 - [שבועות 3-5 – קבוצות](/../01-sets/)
+- 
+- [שבועות 6-8 – פונקציות](/../02-functions/)

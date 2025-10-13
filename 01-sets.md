@@ -284,8 +284,34 @@ section: יחסים בין קבוצות
   - $\emptyset \subseteq \{1\}$, אך $\emptyset \notin \{1\}$.
   - $\emptyset \notin \emptyset$ (כי שום איבר אינו שייך לקבוצה הריקה).
 
+- **גודל קבוצה:**
+  - גודל קבוצה הוא מספר האיברים שבה.
+  - לדוגמה, $|\emptyset|=0$, $|\{a\}|=1$, $|\{a,b,c\}|=3$.
+  - גודל קבוצה יכול להיות סופי או אינסופי (כמו $\mathbb{N}$).
 
-<!-- ############################################################################s -->
+
+<img src="/images/5.png" class="absolute top-1.8/3 right-2/3 w-60 h-45" />
+
+<div class="katex label absolute top-2.5/3 right-2.21/3">
+
+$|A|=5$
+</div>
+
+<img src="/images/2.png" class="absolute top-1/3 right-1.85/3 w-40 h-45" />
+
+<div class="katex label absolute top-1.6/3 right-1.96/3">
+
+$|A|=2$
+</div>
+
+
+
+<img src="/images/1.png" class="absolute top-.5/3 right-2.3/3 w-50 h-45" />
+
+<div class="katex label absolute top-1.13/3 right-2.47/3">
+
+$|A|=1$
+</div>
 
 ---
 section: תרגילים פתורים
@@ -341,7 +367,7 @@ section: תרגילים פתורים
 
 ---
 
-# הוכיחו: $\{\emptyset\} \neq \{\!\{\emptyset\}\!\}$
+# הוכיחו: $\{\emptyset\} \neq \{\!\{\emptyemptyset\}\!\}$
 
 ## הוכחה א' (בדרך השלילה):
 - נניח בשלילה ש- $\{\emptyset\} = \{\!\{\emptyset\}\!\}$.
@@ -376,7 +402,7 @@ section: תרגילים פתורים
 <!-- ############################################################################s -->
 
 ---
-section: פעולות בוליאניות על קבוצות
+section: פעולות על קבוצות
 ---
 # פעולות בוליאניות על קבוצות
 
@@ -831,6 +857,8 @@ $$
 - ניתן להשתמש בכל אחת מההגדרות לפי הנוחות.
 
 
+<img src="/images/הפרש סימטרי.png" class="absolute top-1.6/3 right-1.8/3 w-70 h-60" />
+
 ---
 section: קבוצת החזקה
 ---
@@ -961,4 +989,46 @@ $P(B) = \{\emptyset, \{a\}, \{b\}, \{c\}, \{a,b\}, \{a,c\}, \{b,c\}, \{a,b,c\}\}
 
 
 
+---
 
+#   $A \subseteq B$ אם ורק אם $P(A) \subseteq P(B)$
+
+**פתרון:** נשים לב שאנו מתבקשים להוכיח טענה שהמבנה הלוגי שלה הוא $\alpha \leftrightarrow \beta$.
+
+נזכיר שטענה כזו שקולה לקוניונקציה: $(\alpha \to \beta) \land (\beta \to \alpha)$. כלומר עלינו להוכיח שתי טענות גרירה: כיוון אחד $\alpha \to \beta$ וכיוון שני $\beta \to \alpha$.
+
+<br>
+
+**כיוון ראשון:** יש להוכיח שלכל שתי קבוצות $A, B$ אם $A \subseteq B$ אז $P(A) \subseteq P(B)$.
+
+**הוכחה:** יהיו $A, B$ שתי קבוצות ונניח כי $A \subseteq B$. עלינו להראות $P(A) \subseteq P(B)$. תהי $X$ קבוצה כך ש $X \in P(A)$. מהגדרת קבוצת החזקה נסיק כי $X \subseteq A$. מאחר והנחנו כי $A \subseteq B$, אזי מטרנזיטיביות יחס ההכלה נסיק כי $X \subseteq B$ ומהגדרת קבוצת החזקה נקבל ש- $X \in P(B)$.
+
+<br>
+
+**כיוון שני:** יש להוכיח שלכל שתי קבוצות $A, B$ אם $P(A) \subseteq P(B)$ אז $A \subseteq B$.
+
+**הוכחה:** יהיו $A, B$ שתי קבוצות ונניח כי $P(A) \subseteq P(B)$. עלינו להראות $A \subseteq B$. יהי $x$ איבר ונניח כי $x \in A$. לכן היחידון $\{x\} \subseteq A$ ומהגדרת קבוצת החזקה $\{x\} \in P(A)$. מאחר והנחנו $P(A) \subseteq P(B)$, נסיק כי $\{x\} \in P(B)$. מהגדרת קבוצת החזקה נקבל כי $\{x\} \subseteq B$ ולכן $x \in B$.
+
+
+---
+
+# האם ניתן להחליף בשקף הקודם את סימן ההכלה בסימן השיוויון?
+
+- האם נכונה הטענה שלכל שתי קבוצות $A, B$ מתקיים: $A = B$ אם ורק אם $P(A) = P(B)$?
+
+<span v-click="1">
+
+-  **תשובה:** 
+
+     - נזכיר ששוויון קבוצות מוגדר כך: 
+      
+     $$A = B \iff A \subseteq B \land B \subseteq A$$
+
+     - לכן, לפי הטענה שהוכחה בשקף הקודם, מתקיים:
+       $$\begin{aligned}
+       A = B &\iff A \subseteq B \land B \subseteq A\\[1em]
+       &\iff P(A) \subseteq P(B) \land P(B) \subseteq P(A)\\[1em]
+       &\iff P(A) = P(B)
+       \end{aligned}$$
+
+</span>

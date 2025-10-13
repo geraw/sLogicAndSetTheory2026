@@ -1085,6 +1085,7 @@ layout: two-cols-header
     - **כיוון שני ($\supseteq$):** תהי $X \in P(A) \cup P(B)$. אם $X \in P(A)$, אז $X \subseteq A \subseteq A \cup B$, ולכן $X \in P(A \cup B)$. אם $X \in P(B)$, אז $X \subseteq B \subseteq A \cup B$, ולכן $X \in P(A \cup B)$.
 
     - המקרה כאשר $B \subseteq A$ דומה.
+
 </span>
 
 ---

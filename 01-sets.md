@@ -1032,3 +1032,57 @@ $P(B) = \{\emptyset, \{a\}, \{b\}, \{c\}, \{a,b\}, \{a,c\}, \{b,c\}, \{a,b,c\}\}
        \end{aligned}$$
 
 </span>
+
+---
+layout: two-cols-header
+---
+# $P(A \cap B) = P(A) \cap P(B)$
+
+
+נוכיח הכלה בשני הכיוונים:
+
+<br>
+
+
+
+::left::
+
+
+- **כיוון ראשון ($\subseteq$):**
+  - תהי $X \in P(A \cap B)$.
+ 
+  - לפי הגדרת קבוצת החזקה, $X \subseteq A \cap B$.
+  - לפי הגדרת חיתוך, $X \subseteq A$ ו-$X \subseteq B$.
+  - לכן, $X \in P(A)$ ו-$X \in P(B)$.
+  - לפי הגדרת חיתוך, $X \in P(A) \cap P(B)$.
+
+::right::
+
+- **כיוון שני ($\supseteq$):**
+  - תהי $X \in P(A) \cap P(B)$.
+  
+  - לפי הגדרת חיתוך, $X \in P(A)$ ו-$X \in P(B)$.
+  - לפי הגדרת קבוצת החזקה, $X \subseteq A$ ו-$X \subseteq B$.
+  - לפי הגדרת חיתוך, $X \subseteq A \cap B$.
+  - לכן, $X \in P(A \cap B)$.
+
+---
+
+# האם מתקיים גם $P(A \cup B) = P(A) \cup P(B)$?
+
+<span v-click="1">
+
+- **הפרכה:** ניקח $A = \{1\}$, $B = \{2\}$. אז $A \cup B = \{1,2\}$.
+   - $P(A \cup B) = \{\emptyset, \{1\}, \{2\}, \{1,2\}\}$.
+   - $P(A) \cup P(B) = \{\emptyset, \{1\}\} \cup \{\emptyset, \{2\}\} = \{\emptyset, \{1\}, \{2\}\}$.
+   - ברור ש-$\{1,2\} \in P(A \cup B)$ אך $\{1,2\} \notin P(A) \cup P(B)$.
+
+- הטענה על איחוד נכונה כאשר $A \subseteq B$ או $B \subseteq A$.
+  - **הוכחה:** נניח $A \subseteq B$. יש להראות $P(A \cup B) = P(A) \cup P(B)$.
+
+    - **כיוון ראשון ($\subseteq$):** תהי $X \in P(A \cup B)$. אז $X \subseteq A \cup B$. אם $X \subseteq A$, אז $X \in P(A) \subseteq P(A) \cup P(B)$. אם $X \not\subseteq A$, אז יש $x \in X$ עם $x \notin A$, אך $x \in A \cup B$, ולכן $x \in B$. מאחר ו-$X \subseteq A \cup B$ ו-$A \subseteq B$, אז $X \subseteq B$, ולכן $X \in P(B) \subseteq P(A) \cup P(B)$.
+
+    - **כיוון שני ($\supseteq$):** תהי $X \in P(A) \cup P(B)$. אם $X \in P(A)$, אז $X \subseteq A \subseteq A \cup B$, ולכן $X \in P(A \cup B)$. אם $X \in P(B)$, אז $X \subseteq B \subseteq A \cup B$, ולכן $X \in P(A \cup B)$.
+
+    - המקרה כאשר $B \subseteq A$ דומה.
+</span>

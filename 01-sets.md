@@ -291,6 +291,44 @@ section: יחסים בין קבוצות
 section: תרגילים פתורים
 ---
 
+# תרגיל: הוכיחו שכל קבוצה מוכלת בעצמה
+
+**טענה:** לכל קבוצה $A$ מתקיים $A \subseteq A$.
+
+**הוכחה:**
+
+1. תהי $A$ קבוצה כלשהי.
+
+2. כדי להוכיח $A \subseteq A$, עלינו להראות ש: $\forall x (x \in A \to x \in A)$.
+
+3. יהי $x$ איבר כלשהו, ונניח ש-$x \in A$.
+
+4. מההנחה נובע ישירות ש-$x \in A$ (זהו משפט טאוטולוגי: $p \to p$).
+
+5. הראינו שאם $x \in A$ אז $x \in A$, ולכן $A \subseteq A$. ∎
+
+---
+
+# תרגיל: הוכיחו שהקבוצה הריקה מוכלת בכל קבוצה
+
+**טענה:** לכל קבוצה $A$ מתקיים $\emptyset \subseteq A$.
+
+**הוכחה (בדרך השלילה):**
+
+1. תהי $A$ קבוצה כלשהי.
+
+2. נניח בשלילה ש-$\emptyset \not\subseteq A$.
+
+3. לפי הגדרת שלילת ההכלה, קיים איבר $x$ כך ש-$x \in \emptyset$ וגם $x \notin A$.
+
+4. אבל לפי הגדרת הקבוצה הריקה, $\forall x (x \notin \emptyset)$.
+
+5. זו סתירה להנחה שקיים $x$ כך ש-$x \in \emptyset$.
+
+6. לכן ההנחה שגויה, ומתקיים $\emptyset \subseteq A$. ∎
+
+
+---
 
 # הוכיחו: $\emptyset \neq \{\emptyset\}$
 <br>
@@ -323,7 +361,7 @@ section: תרגילים פתורים
 
 ---
 
-# הוכיחו: $\{\emptyset\} \subsetneq \{\emptyset, \{\emptyset\}\}$
+# הוכיחו: $\{\emptyset\} \subseteq \{\emptyset, \{\emptyset\}\}$
 
 <br>
 
@@ -518,11 +556,11 @@ layout: two-cols-header
   <defs>
     <marker id="arrowhead1" viewBox="0 0 10 10" refX="3" refY="5"
         markerWidth="6" markerHeight="6" orient="auto">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2563eb"></path>
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#cad0dcff"></path>
     </marker>
   </defs>
 
-  <path d="M 400 445 C 200 450, -100 350, 470 145" stroke="#2563eb" stroke-width="2" fill="none" marker-end="url(#arrowhead1)" />
+  <path d="M 400 445 C 200 450, -100 350, 470 145" stroke="#bec4cfff" stroke-width="2" fill="none" marker-end="url(#arrowhead1)" />
 </svg>
 
 
@@ -700,4 +738,213 @@ $A \setminus  (B \setminus C)$
 
 </div>
 </div>
+
+<!-- ########################################################################################### -->
+
+---
+section: הפרש סימטרי
+---
+
+# טענה: $A \Delta B = (A\cup B)\setminus(A\cap B)$
+
+<div class="katex label" style="position:relative;right:0px;font-size:1rem;color:#111">
+
+  
+$$
+\begin{aligned}
+x \in A \Delta B 
+&\iff (x \in A \land x \notin B) \lor (x \notin A \land x \in B) &&\text{(הגדרת הפרש סימטרי)}\\[1em]
+&\iff \big((x\in A\land x\notin B)\lor x\notin A\big)\land\big((x\in A\land x\notin B)\lor x\in B\big) &&\text{(דיסטריבוטיביות)}\\[1em]
+&\iff \big((x\in A)\lor(x\notin A)\big)\land\big((x\notin B)\lor(x\notin A)\big)\land\big((x\in A)\lor(x\in B)\big)\land\big((x\notin B)\lor(x\in B)\big) &&\text{(פיצול)}\\[1em]
+&\iff \big((x\notin B)\lor(x\notin A)\big)\land\big((x\in A)\lor(x\in B)\big) &&\text{(הסרת טאוטולוגיות)}\\[1em]
+&\iff \big((x\notin A)\lor(x\notin B)\big)\land\big((x\in A)\lor(x\in B)\big) &&\text{(קומוטטיביות)}\\[1em]
+&\iff \neg\big((x\in A)\land(x\in B)\big)\land\big((x\in A)\lor(x\in B)\big) &&\text{(דה־מורגן)}\\[1em]
+&\iff \big((x\in A)\lor(x\in B)\big)\land\neg\big((x\in A)\land(x\in B)\big) &&\text{(החלפת סדר)}\\[1em]
+&\iff x\in(A\cup B)\land x\notin(A\cap B) &&\text{(הגדרות איחוד וחיתוך)}\\[1em]
+&\iff x\in(A\cup B)\setminus(A\cap B) &&\text{(הגדרת הפרש)}
+\end{aligned}
+$$
+
+</div>
+
+<!-- ---
+
+# הוכחה אלגברית: $A \Delta B = (A\cup B)\setminus(A\cap B)$
+
+**הוכחה באמצעות תכונות פעולות על קבוצות:**
+
+נתחיל מההגדרה $A \Delta B = (A\setminus B)\cup(B\setminus A)$ ונוכיח שהיא שווה ל-$(A\cup B)\setminus(A\cap B)$.
+
+$$
+\begin{aligned}
+A \Delta B 
+&= (A\setminus B)\cup(B\setminus A) &&\text{(הגדרה)}\\[0.5em]
+&= (A\cap B^c)\cup(B\cap A^c) &&\text{(הפרש כחיתוך עם משלים)}\\[0.5em]
+&= \big((A\cap B^c)\cup B\big)\cap\big((A\cap B^c)\cup A^c\big) &&\text{(דיסטריבוטיביות)}\\[0.5em]
+&= \big((A\cup B)\cap(B^c\cup B)\big)\cap\big((A\cup A^c)\cap(B^c\cup A^c)\big) &&\text{(דיסטריבוטיביות)}\\[0.5em]
+&= (A\cup B)\cap(B^c\cup A^c) &&\text{(הסרת טאוטולוגיות: }X\cup X^c=U\text{)}\\[0.5em]
+&= (A\cup B)\cap(A\cap B)^c &&\text{(דה־מורגן: }A^c\cup B^c=(A\cap B)^c\text{)}\\[0.5em]
+&= (A\cup B)\setminus(A\cap B) &&\text{(הגדרת הפרש)}
+\end{aligned}
+$$
+
+**מסקנה:** שתי ההגדרות שקולות, וניתן להשתמש בכל אחת מהן לפי הנוחות. -->
+
+---
+
+# טענה: $A \Delta B = (A\setminus B)\cup(B\setminus A)$
+
+<div class="katex label" style="position:relative;right:0px;font-size:1rem;color:#111">
+
+$$
+\begin{aligned}
+x \in A \Delta B 
+&\iff (x \in A \land x \notin B) \lor (x \notin A \land x \in B) &&\text{(הגדרת הפרש סימטרי)}\\[1em]
+&\iff \big(x\in A\land x\notin B\big) \lor \big(x\notin A\land x\in B\big) &&\text{(פישוט)}\\[1em]
+&\iff \big(x\in A\setminus B\big) \lor \big(x\in B\setminus A\big) &&\text{(הגדרת הפרש)}\\[1em]
+&\iff x\in (A\setminus B)\cup(B\setminus A) &&\text{(הגדרת איחוד)}
+\end{aligned}
+$$
+
+</div>
+
+
+- **קיבלנו הגדרות שקולות של הפרש סימטרי:**
+  - $A \Delta B = \{ x \mid (x \in A \land x \notin B) \lor (x \notin A \land x \in B) \}$
+  - $A \Delta B = (A \setminus B) \cup (B \setminus A)$
+  - $A \Delta B = (A \cup B) \setminus (A \cap B)$
+
+- ניתן להשתמש בכל אחת מההגדרות לפי הנוחות.
+
+
+---
+section: קבוצת החזקה
+---
+
+# קבוצת החזקה
+
+- **הגדרה:** בהנתן קבוצה $A$, **קבוצת החזקה** של $A$, המסומנת $P(A)$ או $\mathcal{P}(A)$, היא קבוצה שאיבריה הם **כל תת-הקבוצות** של $A$.
+
+- **הגדרה פורמלית:**
+  <div class="formula-box">
+  
+  $$ P(A) = \{ X \mid X \subseteq A \} $$
+  </div>
+
+- **תכונה מרכזית:** לכל קבוצה $X$, מתקיים:
+  $$ X \in P(A) \iff X \subseteq A $$
+
+- **הערה:** קבוצת החזקה היא **פעולה אונרית** (פעולה על קבוצה אחת), בניגוד לאיחוד, חיתוך והפרש שהן **פעולות בינאריות** (פעולות על שתי קבוצות).
+
+---
+
+# דוגמאות לקבוצת חזקה
+
+**שאלה:** מהן הקבוצות $P(\emptyset)$ ו-$P(\{\emptyset\})$?
+
+**תשובה:**
+
+1. **$P(\emptyset)$:**
+   - הקבוצה היחידה המוכלת ב-$\emptyset$ היא $\emptyset$ עצמה (כי $\emptyset \subseteq \emptyset$).
+   - לכן: $P(\emptyset) = \{\emptyset\}$
+
+2. **$P(\{\emptyset\})$:**
+   - הקבוצה $\{\emptyset\}$ היא יחידון.
+   - תת-הקבוצות של $\{\emptyset\}$ הן:
+     - הקבוצה הריקה: $\emptyset \subseteq \{\emptyset\}$
+     - הקבוצה עצמה: $\{\emptyset\} \subseteq \{\emptyset\}$
+   - לכן: $P(\{\emptyset\}) = \{\emptyset, \{\emptyset\}\}$
+
+<div class="absolute top-3/4 left-1/20 w-160" style="transform: translateY(-60%);">
+  <svg viewBox="-50 0 250 100" xmlns="http://www.w3.org/2000/svg">
+    <!-- Outer ellipse representing {\emptyset} -->
+    <ellipse cx="75" cy="50" rx="80" ry="45" fill="none" stroke="#0000ff" stroke-width="2"/>
+    <!-- Inner ellipse representing \emptyset -->
+    <ellipse cx="77" cy="50" rx="58" ry="37" fill="none" stroke="#a4a4a4" stroke-width="2"/>
+    <!-- Point -->
+    <circle cx="42" cy="53" r="2.5" fill="#0050ef"/>
+    <!-- Small ellipse -->
+    <ellipse cx="99" cy="53" rx="20" ry="13" fill="none" stroke="#a4a4a4" stroke-width="2"/>
+    <!-- Math text as SVG text element -->
+    <text x="83" y="40" font-size="2" text-anchor="middle" fill="#a4a4a4" font-family="serif">∅</text>
+    <text x="42" y="43" font-size="2" text-anchor="middle" fill="#0000ff" font-family="serif">{∅}</text>
+    <text x="17" y="30" font-size="2" text-anchor="middle" fill="#a4a4a4" font-family="serif">&#123;&#123;∅&#125;&#125;</text>
+    <text x="10" y="13" font-size="2" text-anchor="middle" fill="#0000ff" font-family="serif">&#123;&#123;∅&#125;&#125;</text>
+  </svg>
+</div>
+
+---
+
+# דוגמאות נוספות לקבוצת חזקה
+
+**דוגמה 1:** $A = \{1, 2\}$
+
+תת-הקבוצות של $A$ הן $\emptyset$, $\{1\}$, $\{2\}$, ו-$\{1, 2\}$.
+
+לכן: $P(\{1, 2\}) = \{\emptyset, \{1\}, \{2\}, \{1, 2\}\}$
+
+<br>
+
+**דוגמה 2:** $B = \{a, b, c\}$
+
+$P(B) = \{\emptyset, \{a\}, \{b\}, \{c\}, \{a,b\}, \{a,c\}, \{b,c\}, \{a,b,c\}\}$
+
+<br>
+
+**באופן כללי:** אם $|A| = n$ (כלומר, $A$ מכילה $n$ איברים), אז $|P(A)| = 2^n$.
+
+
+<div class="absolute top-1.7/4 left-1/20 w-160" style="transform: translateY(-60%);">
+  <svg viewBox="-50 0 250 100" xmlns="http://www.w3.org/2000/svg">
+    <!-- Outer ellipse representing {1,2} -->
+    <ellipse cx="62" cy="53" rx="50" ry="30" fill="none" stroke="#0000ff" stroke-width="2"/>
+    <!-- Inner ellipse representing {1,2} -->
+    <ellipse cx="62" cy="53" rx="40" ry="20" fill="none" stroke="#a4a4a4" stroke-width="2"/>
+    <!-- Inner ellipse representing {1} -->
+    <circle cx="62" cy="53" r="8" fill="none" stroke="#a4a4a4" stroke-width="2"/>
+    <circle cx="42" cy="53" r="8" fill="none" stroke="#a4a4a4" stroke-width="2"/>
+    <!-- Points -->
+    <circle cx="62" cy="53" r="2.5" fill="#0050ef"/>
+    <circle cx="42" cy="53" r="2.5" fill="#0050ef"/>
+    <!-- Small ellipse -->
+    <ellipse cx="82" cy="53" rx="8" ry="8" fill="none" stroke="#a4a4a4" stroke-width="2"/>
+    <!-- Math text as SVG text element -->
+    <!-- <text x="83" y="40" font-size="2" text-anchor="middle" fill="#a4a4a4" font-family="serif">∅</text>
+    <text x="42" y="43" font-size="2" text-anchor="middle" fill="#0000ff" font-family="serif">{∅}</text>
+    <text x="17" y="30" font-size="2" text-anchor="middle" fill="#a4a4a4" font-family="serif">&#123;&#123;∅&#125;&#125;</text>
+    <text x="10" y="13" font-size="2" text-anchor="middle" fill="#0000ff" font-family="serif">&#123;&#123;∅&#125;&#125;</text> -->
+  </svg>
+</div>
+
+
+
+<div class="absolute top-3.2/4 left-.8/4 w-60" style="transform: translateY(-60%);">
+  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <!-- Outer ellipse representing {1,2} -->
+    <!-- <ellipse cx="62" cy="53" rx="50" ry="30" fill="none" stroke="#0000ff" stroke-width="2"/> -->
+    <!-- Inner ellipse representing {1,2} -->
+    <ellipse cx="32" cy="38" rx="11" ry="30" fill="none" stroke="#a4a4a4" stroke-width="1" transform="rotate(30 32 38)"/>        
+    <ellipse cx="52" cy="38" rx="11" ry="30" fill="none" stroke="#a4a4a4" stroke-width="1" transform="rotate(-30 52 38)"/>        
+    <ellipse cx="42" cy="53" rx="11" ry="30" fill="none" stroke="#a4a4a4" stroke-width="1" transform="rotate(90 42 53)"/>        
+    <!-- Inner ellipse representing {1} -->
+    <circle cx="62" cy="53" r="5" fill="none" stroke="#a4a4a4" stroke-width="1"/>
+    <circle cx="42" cy="23" r="5" fill="none" stroke="#a4a4a4" stroke-width="1"/>
+    <circle cx="22" cy="53" r="5" fill="none" stroke="#a4a4a4" stroke-width="1"/>
+    <!-- Points -->
+    <circle cx="62" cy="53" r="2.5" fill="#0050ef"/>
+    <circle cx="42" cy="23" r="2.5" fill="#0050ef"/>
+    <circle cx="22" cy="53" r="2.5" fill="#0050ef"/>
+    <!-- {a,b,c} ellipse -->
+    <circle cx="42" cy="44" r="35" fill="none" stroke="#a4a4a4" stroke-width="1"/>
+    <circle cx="42" cy="44" r="40" fill="none" stroke="#0050ef" stroke-width="2"/>
+    <!-- Math text as SVG text element -->
+    <!-- <text x="83" y="40" font-size="2" text-anchor="middle" fill="#a4a4a4" font-family="serif">∅</text>
+    <text x="42" y="43" font-size="2" text-anchor="middle" fill="#0000ff" font-family="serif">{∅}</text>
+    <text x="17" y="30" font-size="2" text-anchor="middle" fill="#a4a4a4" font-family="serif">&#123;&#123;∅&#125;&#125;</text>
+    <text x="10" y="13" font-size="2" text-anchor="middle" fill="#0000ff" font-family="serif">&#123;&#123;∅&#125;&#125;</text> -->
+  </svg>
+</div>
+
+
+
 

@@ -1089,7 +1089,7 @@ layout: two-cols-header
 </span>
 
 ---
-section: פעולות אונריות
+section: פעולות אונריות 
 ---
 
 ---

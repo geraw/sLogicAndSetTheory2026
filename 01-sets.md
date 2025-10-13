@@ -476,28 +476,31 @@ layout: two-cols-header
 - $A \setminus (B \cap C) = (A \setminus B) \cup (A \setminus C)$
 - $A \setminus (B \cup C) = (A \setminus B) \cap (A \setminus C)$
 
+
 ---
 
 # הוכחה באמצעות טבלת כל המצבים האפשריים
 
-נוכיח את אסוציאטיביות החיתוך: $A \cap (B \cap C) = (A \cap B) \cap C$.
+**נוכיח את כלל דה מורגן הראשון**: $A \setminus (B \cap C) = (A \setminus B) \cup (A \setminus C)$.
 
 ההוכחה מתבססת על בדיקת כל 8 המצבים האפשריים עבור שייכות של איבר $x$ לקבוצות $A, B, C$:
 
-| $x \in A$ | $x \in B$ | $x \in C$ | $x \in B \cap C$ | $x \in A \cap (B \cap C)$ | $x \in A \cap B$ | $x \in (A \cap B) \cap C$ |
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| T | T | T | T | T | T | T |
-| T | T | F | F | F | T | F |
-| T | F | T | F | F | F | F |
-| T | F | F | F | F | F | F |
-| F | T | T | T | F | F | F |
-| F | T | F | F | F | F | F |
-| F | F | T | F | F | F | F |
-| F | F | F | F | F | F | F |
+| $x \in A$ | $x \in B$ | $x \in C$ | $x \in B \cap C$ | $x \in A \setminus (B \cap C)$ | $x \in A \setminus B$ | $x \in A \setminus C$ | $x \in (A \setminus B) \cup (A \setminus C)$ |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| T | T | T | T | F | F | F | F |
+| T | T | F | F | T | F | T | T |
+| T | F | T | F | T | T | F | T |
+| T | F | F | F | T | T | T | T |
+| F | T | T | T | F | F | F | F |
+| F | T | F | F | F | F | F | F |
+| F | F | T | F | F | F | F | F |
+| F | F | F | F | F | F | F | F |
 
 <br>
 
-מאחר והעמודות עבור $A \cap (B \cap C)$ ו-$(A \cap B) \cap C$ זהות בכל השורות, הרי שלפי הגדרת שוויון קבוצות, הקבוצות שוות.
+מאחר והעמודות עבור 
+$x \in A \setminus (B \cap C)$ ו-$x \in (A \setminus B) \cup (A \setminus C)$ זהות, 
+ לפי הגדרת שוויון קבוצות, הקבוצות שוות.
 
 <style>
 .slidev-layout table {
@@ -526,8 +529,8 @@ layout: two-cols-header
 /* Highlight the columns to be compared */
 .slidev-layout th:nth-child(5),
 .slidev-layout td:nth-child(5),
-.slidev-layout th:nth-child(7),
-.slidev-layout td:nth-child(7) {
+.slidev-layout th:nth-child(8),
+.slidev-layout td:nth-child(8) {
   background-color: #eef;
   border-color: #99d;
 }
@@ -537,20 +540,20 @@ layout: two-cols-header
 
 # הוכחה באמצעות שקילויות לוגיות
 
-נוכיח שוב את אסוציאטיביות החיתוך: $A \cap (B \cap C) = (A \cap B) \cap C$.
+ כלל דה-מורגן הראשון: $A \setminus (B \cap C) = (A \setminus B) \cup (A \setminus C)$.
 
-- נראה כי $x \in A \cap (B \cap C)$ אם ורק אם $x \in (A \cap B) \cap C$.
-
+- נראה כי $x \in A \setminus (B \cap C)$ אם ורק אם $x \in (A \setminus B) \cup (A \setminus C)$.
 
   - יהי $x$ איבר כלשהו. אזי:
-    - $x \in A \cap (B \cap C)$  **אם ורק אם** $x \in A \land x \in (B \cap C)$ (לפי הגדרת החיתוך)
 
-    - ... **אם ורק אם** $x \in A \land (x \in B \land x \in C)$ (לפי הגדרת החיתוך)
-    - ... **אם ורק אם** $(x \in A \land x \in B) \land x \in C$ (לפי אסוציאטיביות של "וגם")
-    - ... **אם ורק אם** $x \in (A \cap B) \land x \in C$ (לפי הגדרת החיתוך)
-    - ... **אם ורק אם** $x \in (A \cap B) \cap C$ (לפי הגדרת החיתוך)
-
-- הראינו ש-$x$ שייך לאגף שמאל אם ורק אם הוא שייך לאגף ימין, ולכן הקבוצות שוות.
+    - $x \in A \setminus (B \cap C)$  **אם ורק אם** $x \in A \land x \notin (B \cap C)$ (לפי הגדרת ההפרש)
+    
+    - ... **אם ורק אם** $x \in A \land (x \notin B \lor x \notin C)$ (לפי חוקי דה-מורגן)
+    - ... **אם ורק אם** $(x \in A \land x \notin B) \lor (x \in A \land x \notin C)$ (לפי אסוציאטיביות של "או")
+    - ... **אם ורק אם** $x \in (A \setminus B) \lor x \in (A \setminus C)$ (לפי הגדרת ההפרש)
+    - ... **אם ורק אם** $x \in (A \setminus B) \cup (A \setminus C)$ (לפי הגדרת האיחוד)
+  
+  - הראינו ש-$x$ שייך לאגף שמאל אם ורק אם הוא שייך לאגף ימין, ולכן הקבוצות שוות.  
 
 <svg class="absolute top-0 left-0 w-full h-full pointer-events-none">
   <defs>
@@ -560,13 +563,16 @@ layout: two-cols-header
     </marker>
   </defs>
 
-  <path d="M 400 445 C 200 450, -100 350, 470 145" stroke="#bec4cfff" stroke-width="2" fill="none" marker-end="url(#arrowhead1)" />
+  <path d="M 380 430 C 200 380, 0 200, 470 145" stroke="#bec4cfff" stroke-width="2" fill="none" marker-end="url(#arrowhead1)" />
 </svg>
+
+
+
 
 
 ---
 
-# הוכחת השוויון $(A \setminus B) \cup (A \cap C) = A \setminus (B \setminus C)$
+# הוכחת כלל דה-מורגן: $A \setminus (B \cap C) = (A \setminus B) \cup (A \setminus C)$
 
 
   <!-- Define reusable SVG elements -->
@@ -605,6 +611,10 @@ layout: two-cols-header
 </svg>
 
 
+
+
+
+
 <div class="grid grid-cols-[10fr_auto_1fr] gap-10" style="width: 100%; margin-top: -90px;">
 
 <div class="grid grid-cols-3 grid-rows-2 gap-0" style="scale:.6;width:400px;margin:auto">
@@ -612,17 +622,14 @@ layout: two-cols-header
 
   <div style="width:420px;margin:auto">
     <svg viewBox="-10 -10 170 170" width="50%" height="100%" aria-label="Venn A \ B">    
-      <g clip-path="url(#cA)">
-        <g clip-path="url(#cC)">
-          <rect x="0" y="0" width="420" height="260"  fill="orange"stroke="#333" stroke-width="2"/>
-        </g>
-      </g>
+      <use href="#A" fill="orange" stroke="#333" stroke-width="2"/>
+      <use href="#C" fill="white" stroke="none"/>
       <use href="#base-sets"/>
   </svg>
 
   <div class="katex label" style="position:relative;right:70px;font-size:2rem;color:#111">
 
-  $A \cap C$
+  $A \setminus C$
   </div>
 
   </div>
@@ -652,11 +659,12 @@ layout: two-cols-header
 
 <div style="width:420px;margin:auto">
   <svg viewBox="-10 -10 170 170" width="50%" height="100%" aria-label="Venn A \ B">
+    <!-- fill A, then erase the intersection B∩C by clipping a white rectangle -->
     <use href="#A" fill="orange" stroke="#333" stroke-width="2"/>
-    <use href="#B" fill="white" stroke="none"/>
-    <g clip-path="url(#cA)">
+    <!-- erase area B ∩ C -->
+    <g clip-path="url(#cB)">
       <g clip-path="url(#cC)">
-        <rect x="0" y="0" width="420" height="260"  fill="orange"stroke="#333" stroke-width="2"/>
+        <rect x="-10" y="-10" width="420" height="260" fill="white"/>
       </g>
     </g>
     <use href="#base-sets"/> 
@@ -664,7 +672,7 @@ layout: two-cols-header
 
 <div class="katex label" style="position:relative;right:0px;font-size:2rem;color:#111">
 
-  $(A \setminus B) \cup (A \cap C)$
+  $(A \setminus B) \cup (A \setminus C)$
   </div>
 
 </div>
@@ -677,14 +685,17 @@ layout: two-cols-header
 
   <div style="width:420px;margin:auto">
     <svg viewBox="-10 -10 170 170" width="50%" height="100%" aria-label="Venn A \ B">
-      <use href="#B" fill="orange" stroke="#333" stroke-width="2"/>
-      <use href="#C" fill="white" stroke="none"/>
-      <use href="#base-sets"/> 
+    <g clip-path="url(#cC)">
+      <g clip-path="url(#cB)">
+        <rect x="0" y="0" width="420" height="260"  fill="orange"stroke="#333" stroke-width="2"/>
+      </g>
+    </g>
+    <use href="#base-sets"/>
   </svg>
 
 <div class="katex label" style="position:relative;right:70px;font-size:2rem;color:#111">
 
-$B \setminus  C$
+$B \cap  C$
 </div>
 
 
@@ -709,27 +720,28 @@ $A$
 
 
 
-
   <div style="width:420px;margin:auto">
   </div>
 
 
 <div style="width:420px;margin:auto">
   <svg viewBox="-10 -10 170 170" width="50%" height="100%" aria-label="Venn A \ B">
+    <!-- fill A, then erase the intersection B∩C by clipping a white rectangle -->
     <use href="#A" fill="orange" stroke="#333" stroke-width="2"/>
-    <use href="#B" fill="white" stroke="none"/>
-    <g clip-path="url(#cA)">
+    <!-- erase area B ∩ C -->
+    <g clip-path="url(#cB)">
       <g clip-path="url(#cC)">
-        <rect x="0" y="0" width="420" height="260"  fill="orange"stroke="#333" stroke-width="2"/>
+        <rect x="-10" y="-10" width="420" height="260" fill="white"/>
       </g>
     </g>
-    <use href="#base-sets"/> 
+    <!-- outlines on top -->
+    <use href="#base-sets"/>
  </svg>
 
 
 <div class="katex label" style="position:relative;right:30px;font-size:2rem;color:#111">
 
-$A \setminus  (B \setminus C)$
+$A \setminus  (B \cap C)$
 </div>
 
 
@@ -738,6 +750,8 @@ $A \setminus  (B \setminus C)$
 
 </div>
 </div>
+
+
 
 <!-- ########################################################################################### -->
 

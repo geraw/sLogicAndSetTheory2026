@@ -807,28 +807,6 @@ $$
 
 </div>
 
-<!-- ---
-
-# הוכחה אלגברית: $A \Delta B = (A\cup B)\setminus(A\cap B)$
-
-**הוכחה באמצעות תכונות פעולות על קבוצות:**
-
-נתחיל מההגדרה $A \Delta B = (A\setminus B)\cup(B\setminus A)$ ונוכיח שהיא שווה ל-$(A\cup B)\setminus(A\cap B)$.
-
-$$
-\begin{aligned}
-A \Delta B 
-&= (A\setminus B)\cup(B\setminus A) &&\text{(הגדרה)}\\[0.5em]
-&= (A\cap B^c)\cup(B\cap A^c) &&\text{(הפרש כחיתוך עם משלים)}\\[0.5em]
-&= \big((A\cap B^c)\cup B\big)\cap\big((A\cap B^c)\cup A^c\big) &&\text{(דיסטריבוטיביות)}\\[0.5em]
-&= \big((A\cup B)\cap(B^c\cup B)\big)\cap\big((A\cup A^c)\cap(B^c\cup A^c)\big) &&\text{(דיסטריבוטיביות)}\\[0.5em]
-&= (A\cup B)\cap(B^c\cup A^c) &&\text{(הסרת טאוטולוגיות: }X\cup X^c=U\text{)}\\[0.5em]
-&= (A\cup B)\cap(A\cap B)^c &&\text{(דה־מורגן: }A^c\cup B^c=(A\cap B)^c\text{)}\\[0.5em]
-&= (A\cup B)\setminus(A\cap B) &&\text{(הגדרת הפרש)}
-\end{aligned}
-$$
-
-**מסקנה:** שתי ההגדרות שקולות, וניתן להשתמש בכל אחת מהן לפי הנוחות. -->
 
 ---
 

@@ -4,4 +4,4 @@ node_modules
 .vite-inspect
 .remote-assets
 components.d.ts
-package-lock.json
+package-lock.json 

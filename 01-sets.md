@@ -1097,7 +1097,7 @@ section: פעולות אונריות
 
 - תהי $X$ קבוצה שאבריה קבוצות, אז נגדיר את האיחוד האונרי של $X$ להיות הקבוצה:
     
-    $$\bigcup X = \{ a \mid \exists A \in X (a \in A) \}$$
+     $$\bigcup X = \{ a \mid \exists A \in X (a \in A) \}$$
   - כלומר $a \in \bigcup X$ אם ורק אם יש ב-$X$ איבר $A$ כך ש-$a \in A$. במילים פשוטות, $\bigcup X$ הוא אוסף האיברים הנמצאים באיזושהי קבוצה של $X$.
   - התנאי $\exists A \in X (a \in A)$ המופיע בהגדרת $\bigcup X$ הוא צורת כתיבה מקוצרת עבור $\exists A (A \in X \land a \in A)$.
 
@@ -1129,3 +1129,116 @@ section: פעולות אונריות
 - עבור $Y = \{\,\{1,3,7\}, \{2,3,7\}, \{1,2,6,7\}, \{3,7\}\}$ נקבל: $\bigcap Y = \{7\}$, $\bigcup Y = \{1,2,3,6,7\}$.
 
 - $\bigcap(A) \subseteq \bigcup(A)$ לכל $A$.
+
+---
+
+# תרגיל לדוגמה
+
+- הוכיחו או הפריכו:
+  
+  - לכל שתי קבוצות (של קבוצות) $X, Y$ אם $X \subseteq Y$ אז $\bigcup X \subseteq \bigcup Y$.
+
+<v-switch>
+<template #0> 
+  <img src="/images/הוכיחו_הפריכו.png" class="absolute top-1.2/3 right-1/10 w-70 h-70" />
+  <img src="/images/הוכיחו_הפריכו_סטודנטית.png" class="absolute top-1.2/3 right-5/10 w-70 h-70" />
+</template>
+
+<template #1> 
+
+- **הוכחה:**
+  - נניח כי $X \subseteq Y$ ויהי $a$ כלשהוא כך ש $a \in \bigcup X$.
+  
+  - מהגדרת איחוד אונרי קיים $A \in X$ כך ש $a \in A$.
+
+  - מאחר ו-$X \subseteq Y$ הרי ש $A \in Y$.
+
+  - קיבלנו שקיימת קבוצה $A \in Y$ כך ש $a \in A$ ומהגדרת איחוד אונרי $a \in \bigcup Y$.
+
+</template>
+</v-switch>
+
+
+---
+
+# תרגיל לדוגמה
+
+- הוכיחו או הפריכו:
+
+  - לכל שתי קבוצות (של קבוצות) $X, Y$ אם $X \subsetneqq  Y$ אז $\bigcup X \subsetneqq  \bigcup Y$.
+
+<v-switch>
+<template #0> 
+  <img src="/images/הוכיחו_הפריכו.png" class="absolute top-1.2/3 right-1/10 w-70 h-70" />
+  <img src="/images/הוכיחו_הפריכו_סטודנטית.png" class="absolute top-1.2/3 right-5/10 w-70 h-70" />
+</template>
+
+<template #1> 
+
+- **הפרכה:**
+  - כדי להפריך את הטענה יש להראות ששלילתה מתקיימת.
+  - שלילת טענה כוללת, היא כזכור טענת קיום, לכן עלינו למצוא עדים לקיומה.
+  - עדות לקיומה של השלילה, נקראת דוגמה נגדית.
+  - שלילת הטענה המופיעה בתרגיל היא: קיימות קבוצות $X, Y$ כך ש-$X \subsetneqq  Y$ וגם $\neg(\bigcup X \subsetneqq  \bigcup Y)$.
+  - (שימו לב: $\neg(\bigcup X \subsetneqq  \bigcup Y) \equiv \neg(\bigcup X \subseteq \bigcup Y \land \bigcup X \neq \bigcup Y) \equiv \bigcup X \not\subseteq \bigcup Y \lor \bigcup X = \bigcup Y$)
+
+  - דוגמה נגדית: $X = \{\{1\}\}, Y = \{\{1\}, \emptyset\}$.  
+  - כאן $X \subsetneqq  Y$ אבל $\bigcup X = \bigcup Y = \{1\}$. 
+
+ </template>
+</v-switch>
+
+---
+
+# חוקי דה-מורגן לאיחוד וחיתוך אונריים
+
+- תהי $Y$ קבוצה קבועה ונניח $X$ קבוצה לא ריקה כך שלכל $A \in X$, $A \subseteq Y$.
+- אז כמובן $\bigcup X \subseteq Y$.
+- לכל קבוצה $A \subseteq Y$ נסמן $\bar{A} = Y \setminus A$ המשלים של $A$ ב-$Y$.
+ 
+- חוק דה מורגן הראשון לאיחוד וחיתוך אונריים הוא:
+   
+
+<div class="formula-box">
+
+$$\overline{\bigcup X} = \bigcap \{\bar{A} \mid A \in X\}$$
+</div>
+
+- למשל, אם $X = \{A_1, A_2\}$ אז $\bigcup X = A_1 \cup A_2$ 
+  - ואז אנו מקבלים את כלל דה-מורגן המוכר:  $\overline{A_1 \cup A_2} = \bigcap \{\bar{A_1}, \bar{A_2}\} = \bar{A_1} \cap \bar{A_2}$.
+
+- ואם $X = \{A_1, A_2, \dots, A_n\}$ קבוצה סופית אז $\bigcup X = A_1 \cup A_2 \cup \dots \cup A_n = \bar{A_1} \cap \bar{A_2} \cap \dots \cap \bar{A_n}$.
+
+- אין אפשרות להוכיח את הכלל בעזרת טבלה אם $X$ קבוצה אינסופית. נזדקק להוכחה בכלים לוגיים.
+
+---
+layout: two-cols-header
+---
+
+# הוכחת חוקי דה-מורגן לאיחוד וחיתוך אונריים
+
+<div class="formula-box">
+
+$$\overline{\bigcup X} = \bigcap \{\bar{A} \mid A \in X\}$$
+
+</div>
+
+::left::
+
+- **כיוון ראשון:**
+  - יהי $x$ איבר כלשהוא ונניח $x \in \overline{\bigcup X}$.
+  - אז $x \in Y$ ו-$x \notin \bigcup X$.
+  - לכן לכל $A \in X$, $x \notin A$.
+  - לכן $x \in \bar{A}$, כלומר $x \in \bar{A}$ לכל $A \in X$.
+  - ואם כך $x \in \bigcap \{\bar{A} \mid A \in X\}$.
+
+::right::
+
+- **כיוון שני:**
+  - יהי $x$ איבר כלשהוא ונניח $x \in \bigcap \{\bar{A} \mid A \in X\}$.
+  - מאחר ו-$X$ אינה ריקה יש איזשהו $A_0 \in X$ ובפרט $x \in \bar{A_0}$.
+  - על כן $x \in Y$ (כי $x \in Y \setminus A_0$).
+  - אך לכל $A \in X$, $x \notin A$ ולכן $x \in \bigcup X$.
+
+
+- **תרגיל:** הוכיחו את הכלל השני של דה-מורגן: אם $X$ קבוצה לא ריקה כך שלכל $A \in X$, $A \subseteq Y$ אז $\overline{\bigcap X} = \bigcup \{\bar{A} \mid A \in X\}$.

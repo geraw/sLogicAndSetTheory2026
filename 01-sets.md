@@ -1215,30 +1215,67 @@ $$\overline{\bigcup X} = \bigcap \{\bar{A} \mid A \in X\}$$
 layout: two-cols-header
 ---
 
-# הוכחת חוקי דה-מורגן לאיחוד וחיתוך אונריים
+# הוכחת הכלל הראשון של דה-מורגן
 
-<div class="formula-box">
 
-$$\overline{\bigcup X} = \bigcap \{\bar{A} \mid A \in X\}$$
+אם $X$ קבוצה לא ריקה כך שלכל $A \in X$, $A \subseteq Y$ אז
+$\overline{\bigcup X} = \bigcap \{\bar{A} \mid A \in X\}$
 
-</div>
 
 ::left::
 
 - **כיוון ראשון:**
+  
   - יהי $x$ איבר כלשהוא ונניח $x \in \overline{\bigcup X}$.
+  
   - אז $x \in Y$ ו-$x \notin \bigcup X$.
-  - לכן לכל $A \in X$, $x \notin A$.
-  - לכן $x \in \bar{A}$, כלומר $x \in \bar{A}$ לכל $A \in X$.
-  - ואם כך $x \in \bigcap \{\bar{A} \mid A \in X\}$.
+
+  - לכן, לפי הגדרת האיחוד האונארי, $x \notin A$ לכל $A \in X$.
+  - לכן $x \in \bar{A}$ לכל $A \in X$.
+  - לפי הגדרת החיתוך האונארי $x \in \bigcap \{\bar{A} \mid A \in X\}$.
 
 ::right::
 
 - **כיוון שני:**
+
   - יהי $x$ איבר כלשהוא ונניח $x \in \bigcap \{\bar{A} \mid A \in X\}$.
+
   - מאחר ו-$X$ אינה ריקה יש איזשהו $A_0 \in X$ ובפרט $x \in \bar{A_0}$.
   - על כן $x \in Y$ (כי $x \in Y \setminus A_0$).
-  - אך לכל $A \in X$, $x \notin A$ ולכן $x \in \bigcup X$.
+  - לפי הגדרת החיתוך האונארי, $x \in \bar{A}$ לכל $A \in X$.
+  - לכן לכל $A \in X$, $x \notin A$.
+  - לכן, לפי הגדרת האיחוד האונארי, $x \notin \bigcup X$.
+  - ולכן $x \in \overline{\bigcup X}$.
 
 
-- **תרגיל:** הוכיחו את הכלל השני של דה-מורגן: אם $X$ קבוצה לא ריקה כך שלכל $A \in X$, $A \subseteq Y$ אז $\overline{\bigcap X} = \bigcup \{\bar{A} \mid A \in X\}$.
+---
+layout: two-cols-header
+---
+
+# הוכחת הכלל השני של דה-מורגן
+
+אם $X$ קבוצה לא ריקה כך שלכל $A \in X$, $A \subseteq Y$ אז $\overline{\bigcap X} = \bigcup \{\bar{A} \mid A \in X\}$
+
+::left::
+
+- **כיוון ראשון:**
+  
+  - יהי $x$ איבר כלשהוא ונניח $x \in \overline{\bigcap X}$.
+
+  - אז $x \in Y$ ו-$x \notin \bigcap X$.
+  - לכן קיים $A \in X$ כך ש $x \notin A$.
+  - לכן $x \in \bar{A}$.
+  - על פי הגדרת האיחוד האונארי, $x \in \bigcup \{\bar{A} \mid A \in X\}$.
+
+::right::
+
+- **כיוון שני:**
+
+  - יהי $x$ איבר כלשהוא ונניח $x \in \bigcup \{\bar{A} \mid A \in X\}$.
+
+
+  - אז קיים $A \in X$ כך ש $x \in \bar{A}$.
+  - לכן $x \in Y$ ו-$x \notin A$.
+  - לפי הגדרת החיתוך האונארי, $x \notin \bigcap X$.
+ 
+  - לכן $x \in \overline{\bigcap X}$.

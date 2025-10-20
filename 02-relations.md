@@ -342,7 +342,7 @@ $$S$$
 - דוגמה: אם $R=\{\langle1,a\rangle,\langle2,b\rangle\}$ אז $R^{-1}=\{\langle a,1\rangle,\langle b,2\rangle\}$.
 
 
-<div class="absolute top-.8/4 right-6/10">
+<div class="absolute top-1.2/4 right-7/10">
 
 $$R$$
 <BipartiteGraph style="scale:.5; margin-top: -6rem;"
@@ -356,7 +356,7 @@ $$R$$
 />
 </div>
 
-<div class="absolute top-2.5/4 right-6/10">
+<div class="absolute top-2.7/4 right-7/10">
 
 $$R^{-1}$$
 <BipartiteGraph style="scale:.5; margin-top: -6rem;"
@@ -385,7 +385,7 @@ section: תכונות של יחסים
   <br>
   אז בציור של יחס רפלקסיבי כל איבר של $A$ מחובר בלולאה אל עצמו (חיצים נוספים אפשריים)
 
-<div class="absolute top-1.3/3 left-1/9 w-90 h-90" style="transform: scale(.7);">
+<div class="absolute top-1.3/3 left-1/9 w-90 h-90" style="scale:.7;">
 <GraphCytoscape 
   :nodes=" [
     { id: '1', x: 100, y: 100, label: '1' },
@@ -411,7 +411,7 @@ $$R = \{\langle 1,1 \rangle, \langle 2,2 \rangle, \langle 3,3 \rangle, \langle 1
 
 
 
-<div class="absolute top-1.3/3 left-5/9 w-90 h-90" style="transform: scale(.7);">
+<div class="absolute top-1.3/3 left-5/9 w-90 h-90" style="scale:.7;">
 <GraphCytoscape 
   :nodes=" [
     { id: '1', x: 100, y: 100, label: '1' },

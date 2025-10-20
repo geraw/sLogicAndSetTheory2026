@@ -501,7 +501,7 @@ $$R = \{\langle 1,2 \rangle, \langle 2,1 \rangle, \langle 2,3 \rangle, \langle 3
    
   - יחס השוויון $=$ אנטי-סימטרי וגם רפלקסיבי.
   
-  - יחס "שונה" (i.e. $x\neq y$) אינו אנטי-סימטרי, כי אם $x\neq y$ אז גם $y\neq x$ ולכן יש מקרים של $x\neq y$ עם קשר דו-כיווני.
+  - יחס "שונה" (i.e. $x\neq y$) <span style="color:red">אינו</span> אנטי-סימטרי, כי אם $x\neq y$ אז גם $y\neq x$ ולכן יש מקרים של $x\neq y$ עם קשר דו-כיווני.
 
 
 
@@ -544,7 +544,7 @@ $$R = \{\langle 1,2 \rangle, \langle 2,1 \rangle, \langle 2,3 \rangle, \langle 3
 <div style="text-align: center; margin-top: 1rem; scale: 2;">
 
   $$S = \{\langle1,2\rangle,\langle2,1\rangle,\langle1,3\rangle,\langle2,3\rangle,\langle2,2\rangle,\langle3,2\rangle\}$$
-  אינו אנטי-סימטרי (קיימים זוגות דו-כיווניים)
+  <span style="color:red">אינו</span> אנטי-סימטרי (קיימים זוגות דו-כיווניים)
 </div>
 </div>
 
@@ -596,7 +596,53 @@ $$R = \{\langle 1,2 \rangle, \langle 2,1 \rangle, \langle 2,3 \rangle, \langle 3
 <div style="text-align: center; margin-top: 3rem; scale: 1.8;">
   
   $$S = \{\langle 1,2 \rangle,\langle 2,3 \rangle\}$$
-  אינו טרנזיטיבי (חסר הזוג $\langle 1,3\rangle$)
+  <span style="color:red">אינו</span> טרנזיטיבי (חסר הזוג $\langle 1,3\rangle$)
+</div>
+</div>
+
+
+---
+
+# שלמות
+
+- **הגדרה:** יחס $R$ על קבוצה $A$ נקרא שלם אם לכל $a,b\in A$, $a\,R\,b$ או $b\,R\,a$ 
+  - אנחנו לא משתמשים באו-מוציא, כך שאפשר שגם $a\,R\,b$ וגם $b\,R\,a$.
+
+<div class="absolute top-1.1/3 left-1/9" style="scale:.7;">
+<GraphCytoscape
+  :nodes=" [
+    { id: '1', x: 100, y: 100, label: '1' },
+    { id: '2', x: 300, y: 100, label: '2' },
+    { id: '3', x: 200, y: 0, label: '3' }
+  ]"
+  :edges=" [
+    { source: '1', target: '2' },
+    { source: '2', target: '1' },
+    { source: '3', target: '1' },
+    { source: '3', target: '2' }
+  ]"/>
+<div style="text-align: center; margin-top: -1rem; scale: 1.1;">
+  
+  $$R = \{\langle1,2\rangle,\langle2,1\rangle,\langle3,1\rangle,\langle3,2\rangle\}$$
+  יחס שלם
+</div>
+</div>
+
+<div class="absolute top-1.1/3 left-5/9" style="scale:.7;">
+<GraphCytoscape
+  :nodes=" [
+    { id: '1', x: 100, y: 100, label: '1' },
+    { id: '2', x: 300, y: 100, label: '2' },
+    { id: '3', x: 200, y: 0, label: '3' }
+  ]"
+  :edges=" [
+    { source: '1', target: '2' },
+    { source: '2', target: '3' }
+  ]"/>
+<div style="text-align: center; margin-top: -1rem; scale: 1.1;">
+  
+  $$S = \{\langle1,2\rangle,\langle2,3\rangle\}$$  
+  אינו שלם (אין חיבור בין 1 ל-3)
 </div>
 </div>
 
@@ -604,16 +650,74 @@ $$R = \{\langle 1,2 \rangle, \langle 2,1 \rangle, \langle 2,3 \rangle, \langle 3
 
 # שלילת תכונות (מתי יחס אינו מקיים תכונה על $A$)
 
-- $R$ אינו רפלקסיבי על $A$ אם קיים $x\in A$ כך ש-$\neg\,(x\,R\,x)$.
+- $R$ <span style="color:red">אינו</span> רפלקסיבי על $A$ אם קיים $x\in A$ כך ש-$\neg\,(x\,R\,x)$.
 
-- $R$ אינו סימטרי על $A$ אם קיימים $x,y\in A$ כך ש-$x\,R\,y$ אך $\neg\,(y\,R\,x)$.
+- $R$ <span style="color:red">אינו</span> סימטרי על $A$ אם קיימים $x,y\in A$ כך ש-$x\,R\,y$ אך $\neg\,(y\,R\,x)$.
 
-- $R$ אינו אנטי-סימטרי על $A$ אם קיימים $x,y\in A$ שונים כך ש-$x\,R\,y$ וגם $y\,R\,x$.
+- $R$ <span style="color:red">אינו</span> אנטי-סימטרי על $A$ אם קיימים $x,y\in A$ שונים כך ש-$x\,R\,y$ וגם $y\,R\,x$.
 
-- $R$ אינו טרנזיטיבי על $A$ אם קיימים $x,y,z\in A$ כך ש-$x\,R\,y$ ו-$y\,R\,z$ אך $\neg\,(x\,R\,z)$.
+- $R$ <span style="color:red">אינו</span> טרנזיטיבי על $A$ אם קיימים $x,y,z\in A$ כך ש-$x\,R\,y$ ו-$y\,R\,z$ אך $\neg\,(x\,R\,z)$.
 
-- $R$ אינו שלם על $A$ אם קיימים $x,y\in A$ כך ש-$\neg\,(x\,R\,y)$ וגם $\neg\,(y\,R\,x)$.
+- $R$ <span style="color:red">אינו</span> שלם על $A$ אם קיימים $x,y\in A$ כך ש-$\neg\,(x\,R\,y)$ וגם $\neg\,(y\,R\,x)$.
 
 - שימו לב: השלילה של הסימטריות (כלומר "לא סימטרי") אינה זהה לאנטי-סימטריות. יתכנו יחסים שהם גם סימטריים וגם אנטי-סימטריים, וכן יחסים שאינם סימטריים ואינם אנטי-סימטריים.
+
+---
+section: דוגמאות 
+---
+
+# יחס השוויון על קבוצה לא ריקה
+
+- יחס השוויון $Eq_A = \{\langle a, a \rangle \mid a \in A\}$ על קבוצה לא ריקה $A$ הוא 
+ 
+  - רפלקסיבי <v-click> <span style="color:green">✓</span> </v-click>
+ 
+  - סימטרי <v-click> <span style="color:green">✓</span> </v-click>
+ 
+  - אנטי-סימטרי <v-click> <span style="color:green">✓</span> </v-click>
+ 
+  - טרנזיטיבי <v-click> <span style="color:green">✓</span> </v-click>
+ 
+  - שלם. <v-click> <span style="color:red">✗  -  אם יש לפחות שני איברים ב-$A$</span> </v-click>
+
+---
+
+# היחס $A \times A$ על קבוצה לא ריקה
+
+- רפלקסיבי <v-click> <span style="color:green">✓</span> </v-click>
+
+- סימטרי <v-click> <span style="color:green">✓</span> </v-click>
+
+- אנטי-סימטרי <v-click> <span style="color:red">✗  -  אם יש לפחות שני איברים ב-$A$</span> </v-click>
+
+- טרנזיטיבי <v-click> <span style="color:green">✓</span> </v-click>
+
+- שלם <v-click> <span style="color:green">✓</span> </v-click>
+
+
+
+---
+
+# בדיקת תכונות היחס $R = \{\langle x, y \rangle \in \mathbb{N} \times \mathbb{N} \mid x \leq y + 3\}$ על $\mathbb{N}$
+
+- רפלקסיבי <v-click> <span style="color:green">✓</span> - היחס רפלקסיבי. יהי $x \in \mathbb{N}$. מתקיים $x \leq x + 3$ ולכן $\langle x, x \rangle \in R$. </v-click>
+
+- סימטרי <v-click> <span style="color:red">✗</span> - היחס אינו סימטרי. הזוג $\langle 1,5 \rangle \in R$ ו-$\langle 5,1 \rangle \notin R$ מראה זאת. </v-click>
+
+- אנטי-סימטרי <v-click> <span style="color:red">✗</span> - היחס אינו אנטי-סימטרי. דוגמה נגדית: הזוג $\langle 1,2 \rangle \in R$ שכן $1 \leq 2 + 3$, וגם הזוג $\langle 2,1 \rangle \in R$ מאחר ו-$2 \leq 1 + 3$. </v-click>
+
+- טרנזיטיבי <v-click> <span style="color:red">✗</span> - היחס אינו טרנזיטיבי. דוגמה נגדית: $\langle 5,3 \rangle, \langle 3,1 \rangle \in R$ אבל $\langle 5,1 \rangle \notin R$. (בידקו) </v-click>
+
+- שלם <v-click> <span style="color:green">✓</span> </v-click>
+  <v-click>
+    
+    - נניח בשלילה שקיימים $x, y \in \mathbb{N}$ כך ש-$\langle x, y \rangle, \langle y, x \rangle \notin R$.
+    - כדי שיתקיים $\langle x, y \rangle \notin R$ התנאי המגדיר את $R$ צריך שלא להתקיים, כלומר שלילתו אמיתית.
+    - כלומר מתקיים $\neg (x \leq y + 3) \equiv x > y + 3$.
+    - באותו אופן מכך ש-$\langle y, x \rangle \notin R$ נובע שמתקיים $y > x + 3$.
+    - משני אי-שיוויונות אלו נקבל: $y > x + 3 > (y + 3) + 3 = y + 6$.
+    - ומכאן (לאחר צמצום $y$ משני האגפים) נקבל $0 > 6$ וזו סתירה.
+  </v-click>
+
 
 

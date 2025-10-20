@@ -443,7 +443,7 @@ $$R = \{\langle 1,1 \rangle, \langle 2,2 \rangle, \langle 3,1 \rangle, \langle 3
   :nodes=" [
     { id: '1', x: 100, y: 100, label: '1' },
     { id: '2', x: 300, y: 100, label: '2' },
-    { id: '3', x: 200, y: 0, label: '3' },
+    { id: '3', x: 200, y: 0, label: '3' },  
   ]"
   :edges=" [ 
     { source: '1', target: '2' },

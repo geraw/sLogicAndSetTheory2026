@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, onBeforeUnmount, ref, watch } from 'vue'
+import { onMounted, onBeforeUnmount, ref, watch, nextTick } from 'vue'
 import cytoscape, { Core } from 'cytoscape'
 
 type NodeId = string | number
@@ -31,7 +31,8 @@ const props = withDefaults(defineProps<{
 })
 
 const containerRef = ref<HTMLDivElement | null>(null)
-let cy: Core | null = null
+const cy = ref<Core | null>(null)
+const resizeObserver = ref<ResizeObserver | null>(null)
 const autoHeight = props.height === undefined
 const autoWidth = props.width === undefined
 
@@ -102,12 +103,55 @@ function buildElements() {
   ]
 }
 
+function measureContainer() {
+  const c = containerRef.value
+  if (!c) return { width: 0, height: 0, valid: false }
+  const w = Math.round(c.clientWidth || 0)
+  const h = Math.round(c.clientHeight || 0)
+  const valid = w > 16 && h > 16
+  return { width: w, height: h, valid }
+}
+
+function applyMeasuredSize(width: number, height: number) {
+  if (!cy.value) return
+  // If elements were deferred (empty), add them now using measured size
+  if (cy.value.elements().length === 0) {
+    cy.value.add(buildElements())
+    // lock fixed position nodes
+    props.nodes.forEach(n => {
+      if (n.x !== undefined && n.y !== undefined) {
+        cy.value!.getElementById(String(n.id)).lock()
+      }
+    })
+  }
+  // Update cytoscape internals and re-run layout
+  cy.value.resize()
+  // Give browser a tick after resize for layout to be accurate
+  setTimeout(() => {
+    if (!cy.value) return
+    try {
+      cy.value.layout({ name: 'cose' }).run()
+    } catch { /* ignore layout errors */ }
+    cy.value.fit(20)
+  }, 16)
+}
+
 function mountCy() {
   if (!containerRef.value) return
-  cy = cytoscape({
+  // destroy existing instance if any
+  if (cy.value) {
+    try { cy.value.destroy() } catch { /* ignore */ }
+    cy.value = null
+  }
+
+  // Create instance with no elements initially if container not measured yet
+  const measured = measureContainer()
+  const initialElements = measured.valid ? buildElements() : []
+
+  cy.value = cytoscape({
     container: containerRef.value,
-    elements: buildElements(),
-    layout: { name: 'preset' }, // Temporary, will run cose after
+    elements: initialElements,
+    layout: { name: 'preset' }, // positions (preset) or empty; we run cose after measurement
     wheelSensitivity: 0.2,
     boxSelectionEnabled: false,
     autoungrabify: true,
@@ -115,41 +159,75 @@ function mountCy() {
     pixelRatio: 1,
   })
 
-  // Lock nodes that have fixed positions
+  // lock fixed nodes if present
   props.nodes.forEach(n => {
     if (n.x !== undefined && n.y !== undefined) {
-      cy.getElementById(String(n.id)).lock()
+      cy.value!.getElementById(String(n.id)).lock()
     }
   })
 
-  cy.layout({ name: 'cose' }).run()
+  // If we already had a valid measurement, run layout now; otherwise defer to ResizeObserver
+  if (measured.valid) {
+    // run layout after nextTick so DOM settled
+    nextTick().then(() => applyMeasuredSize(measured.width, measured.height))
+  }
 
-  cy.userZoomingEnabled(false)
-  cy.userPanningEnabled(false)
+  // observe the container size and apply layout when it becomes valid / changes
+  if (window.ResizeObserver && containerRef.value && !resizeObserver.value) {
+    resizeObserver.value = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.target !== containerRef.value) continue
+        const cr = entry.contentRect
+        const w = Math.round(cr.width)
+        const h = Math.round(cr.height)
+        if (w > 16 && h > 16) {
+          applyMeasuredSize(w, h)
+        }
+      }
+    })
+    resizeObserver.value.observe(containerRef.value)
+  }
+
+  // disable user interactions
+  cy.value.userZoomingEnabled(false)
+  cy.value.userPanningEnabled(false)
 }
 
-onMounted(mountCy)
+onMounted(() => {
+  mountCy()
+})
 
 onBeforeUnmount(() => {
-  if (cy) {
-    cy.destroy()
-    cy = null
+  if (cy.value) {
+    try { cy.value.destroy() } catch { /* ignore */ }
+    cy.value = null
+  }
+  if (resizeObserver.value && containerRef.value) {
+    try { resizeObserver.value.unobserve(containerRef.value) } catch { /* ignore */ }
+    resizeObserver.value = null
   }
 })
 
 // Live updates if nodes/edges props change
 watch(() => [props.nodes, props.edges, props.loopDirection, props.controlPointDistance, props.loopSweep], () => {
-  if (!cy) return
-  cy.elements().remove()
-  cy.add(buildElements())
-  // Lock nodes that have fixed positions
+  if (!cy.value) return
+  // If container hasn't been measured yet, just replace elements array so applyMeasuredSize will add them later
+  const m = measureContainer()
+  cy.value.elements().remove()
+  cy.value.add(buildElements())
+  // Lock fixed nodes
   props.nodes.forEach(n => {
     if (n.x !== undefined && n.y !== undefined) {
-      cy.getElementById(String(n.id)).lock()
+      cy.value!.getElementById(String(n.id)).lock()
     }
   })
-  cy.layout({ name: 'cose' }).run()
-  cy.style(getStyle())  // Update style to reflect new props
+  // Update style and re-run layout if we have valid size
+  cy.value.style(getStyle())
+  if (m.valid) {
+    cy.value.resize()
+    try { cy.value.layout({ name: 'cose' }).run() } catch { /* ignore */ }
+    cy.value.fit(20)
+  }
 }, { deep: true })
 </script>
 
@@ -159,9 +237,9 @@ watch(() => [props.nodes, props.edges, props.loopDirection, props.controlPointDi
     :style="{
       ...(autoWidth ? { minWidth: '300px' } : { width: typeof width === 'number' ? width + 'px' : width }),
       ...(autoHeight ? { minHeight: '200px' } : { height: typeof height === 'number' ? height + 'px' : height }),
-      background: bg,     
-      border: none,
-      borderRadius: '8px',
+      // background: bg,     
+      // border: none,
+      //borderRadius: '8px',
     }"
   />
 </template>

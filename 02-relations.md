@@ -425,7 +425,7 @@ $$R = \{\langle 1,1 \rangle, \langle 2,2 \rangle, \langle 3,3 \rangle, \langle 1
     { source: '3', target: '2' },
   ]"/>
 
-<div style="text-align: center; margin-top: -1rem; scale:1.4;">
+<div style="text-align: center; margin-top: -1rem; scale: 1.4;">
 
 $$R = \{\langle 1,1 \rangle, \langle 2,2 \rangle, \langle 3,1 \rangle, \langle 3,2 \rangle\}$$
  לא רפלקסיבי על הקבוצה $\{1,2,3\}$.
@@ -466,23 +466,23 @@ $$R = \{\langle 1,2 \rangle, \langle 2,1 \rangle, \langle 2,3 \rangle, \langle 3
 
 
 <div class="absolute top-1/3 left-5/9 w-90 h-90" style="scale:.7;">
-<GraphCytoscape 
-  :nodes=" [
-    { id: '1', x: 100, y: 100, label: '1' },
-    { id: '2', x: 300, y: 100, label: '2' },
-    { id: '3', x: 200, y: 0, label: '3' },
-  ]"
-  :edges=" [
-    { source: '1', target: '2' },
-    { source: '2', target: '1' },
-    { source: '3', target: '1' },
-  ]"/>
-
-<div style="text-align: center; margin-top: -1rem; scale: 1.4;">
-
-$$R = \{\langle 1,2 \rangle, \langle 2,1 \rangle, \langle 3,1 \rangle\}$$
- לא סימטרי
-</div>
+  <GraphCytoscape 
+    :nodes=" [
+      { id: '1', x: 100, y: 100, label: '1' },
+      { id: '2', x: 300, y: 100, label: '2' },
+      { id: '3', x: 200, y: 0, label: '3' },
+    ]"
+    :edges=" [
+      { source: '1', target: '2' },
+      { source: '2', target: '1' },
+      { source: '3', target: '1' },
+    ]"
+  />
+  <div style="text-align: center; margin-top: -1rem; scale: 1.4;">
+    
+  $$R = \{\langle 1,2 \rangle, \langle 2,1 \rangle, \langle 3,1 \rangle\}$$
+  לא סימטרי
+  </div>
 </div>
 
 

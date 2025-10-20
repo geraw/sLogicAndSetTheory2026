@@ -385,7 +385,7 @@ section: תכונות של יחסים
   <br>
   אז בציור של יחס רפלקסיבי כל איבר של $A$ מחובר בלולאה אל עצמו (חיצים נוספים אפשריים)
 
-<div class="absolute top-1.3/3 left-1/9 w-90 h-90" style="scale:.7;">
+<div class="absolute top-1.3/3 left-1/9" style="scale:.7;">
 <GraphCytoscape 
   :nodes=" [
     { id: '1', x: 100, y: 100, label: '1' },
@@ -411,7 +411,7 @@ $$R = \{\langle 1,1 \rangle, \langle 2,2 \rangle, \langle 3,3 \rangle, \langle 1
 
 
 
-<div class="absolute top-1.3/3 left-5/9 w-90 h-90" style="scale:.7;">
+<div class="absolute top-1.3/3 left-5/9" style="scale:.7;">
 <GraphCytoscape 
   :nodes=" [
     { id: '1', x: 100, y: 100, label: '1' },

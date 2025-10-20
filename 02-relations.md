@@ -14,7 +14,8 @@ download: true
 
  מרצה: פרופ. גרא וייס
 ---
-
+section: זוגות סדורים 
+---
 # זוגות סדורים ומכפלות קרטזיות
 
 הקבוצה $\{a, b\}$ שווה לקבוצה $\{b, a\}$, שכן לשתי קבוצות אלו אותם איברים: $a$ ו-$b$. עם זאת, לפעמים הסדר חשוב לנו, ולכן נגדיר אובייקט מתמטי חדש בשם "זוג סדור", שבו הסדר בין האיברים מובחן.
@@ -137,6 +138,8 @@ layout: two-cols-header
   - אז $\langle a, b \rangle \in A \times (B \setminus C)$.
 
 ---
+section: יחסים 
+---
 
 # יחסים
 
@@ -163,11 +166,28 @@ layout: two-cols-header
 
 </div>
 
-- **דוגמה:** 
-  - אם $A = \{1, 2\}$,  $B = \{a, b\}$,
-  - ו-$R = \{\langle 1, a \rangle, \langle 2, b \rangle\}$, 
-  - אז $\operatorname{dom}(R) = \{1, 2\}$, 
-  - ו-$\operatorname{img}(R) = \{a, b\}$.
+
+- **תכונה:** $R \subseteq \operatorname{dom}(R) \times \operatorname{img}(R)$.
+
+  -  אם $\langle x,y\rangle\in R$ אז $x\in\operatorname{dom}(R)$ ו-$y\in\operatorname{img}(R)$, ולכן $\langle x,y\rangle\in\operatorname{dom}(R)\times\operatorname{img}(R)$.
+
+
+- **דוגמה:** אם $R=\{\langle1,a\rangle,\langle2,b\rangle\}$ אז $\operatorname{dom}(R)=\{1,2\}$ ו-$\operatorname{img}(R)=\{a,b\}$.
+    - $dom(R) \times img(R) = \{ \langle 1, a \rangle, \langle 1, b \rangle, \langle 2, a \rangle, \langle 2, b \rangle \}$ 
+
+
+<div class="absolute top-1.2/2 left-1/4 transform -translate-x-1/2 w-80 h-80">
+<BipartiteGraph style="scale:.5"
+  :left="['1','2']"
+  :right="['A','B']"
+  :edges="[
+    ['L1','RA',''],
+    ['L2','RB','']
+  ]"
+/>
+</div>
+
+
 
 ---
 layout: two-cols-header
@@ -207,10 +227,258 @@ layout: two-cols-header
   - ניקח $A = \{1, 2\}$, $B = \{a, b\}$.
 
   - $R = \{\langle 1, a \rangle, \langle 2, a \rangle\}$.
+
   - $S = \{\langle 1, b \rangle, \langle 2, b \rangle\}$.
+
   - אז $\operatorname{dom}(R) = \{1, 2\}$.
+
   - $\operatorname{dom}(S) = \{1, 2\}$.
+
   - $R \cap S = \emptyset$, לכן $\operatorname{dom}(R \cap S) = \emptyset$.
+
   - אך $\operatorname{dom}(R) \cap \operatorname{dom}(S) = \{1, 2\}$.
-  - לכן $\operatorname{dom}(R \cap S) \neq \operatorname{dom}(R) \cap \operatorname{dom}(S)$.
+
+  - לכן $\operatorname{dom}(R \cap S) \neq \operatorname{dom}(R) \cap \operatorname{dom}(S)$
   
+
+<div class="absolute top-1.2/4 left-1/4 transform">
+
+$$R$$
+
+<BipartiteGraph style="scale:.5; margin-top: -6rem;"
+  :left="['1','2']"
+  :right="['a','b']"
+  :edges="[
+    ['L1','Ra',''],
+    ['L2','Ra','']
+  ]"
+/>
+</div>
+
+
+<div class="absolute top-1.2/4 left-1/300">
+
+$$S$$
+<BipartiteGraph style="scale:.5; margin-top: -6rem;"
+  :left="['1','2']"
+  :right="['a','b']"
+  :edges="[
+    ['L1','Rb',''],
+    ['L2','Rb','']
+  ]"
+/>
+
+</div>
+
+
+---
+
+# דוגמאות ליחסים מוכרים
+
+- **יחס הסדר על הטבעיים:** ניתן להציג את יחס "קטן או שווה" כקבוצת זוגות סדורים
+  $$\le_{\mathbb{N}}=\{\langle n,m\rangle\mid n,m\in\mathbb{N},\ n\le m\},$$
+  ובשימוש רגיל נכתוב $n\le m$ במקום $\langle n,m\rangle\in \le_{\mathbb{N}}$.
+
+
+- **יחס השוויון על קבוצה \(A\):**
+  $$Eq_A=\{\langle a,a\rangle\mid a\in A\},$$
+  ולרוב נרשום $x=y$ במקום $\langle x,y\rangle\in Eq_A$. 
+
+
+- יחס הסדר על הממשיים אינו זהה ליחס על הטבעיים; מתקיימת הכלה
+  $\le_{\mathbb{N}}\subseteq\le_{\mathbb{R}},$
+  כלומר $\forall m,n\in\mathbb{N}\,(m\le_{\mathbb{N}} n\to m\le_{\mathbb{R}} n)$.
+
+- **הגדרה:** אם $R \subseteq A \times A$, אנו אומרים ש-$R$ יחס על $A$ (ואז $R$ יחס על כל $A' \subseteq A$ כי $R \subseteq A' \times A'$).
+
+- לעיתים, בהינתן יחס $R$, במקום לרשום $\langle a,b\rangle\in R$ אנו רושמים $a\,R\,b$.
+
+
+
+
+
+<style>
+/* יותר ריווח בין פריטי רשימות במצגות */
+:where(.slidev-layout) ul li,
+:where(.slidev-layout) ol li {
+  margin-bottom: 2rem;
+}
+  
+/* אם רוצים מרווח גדול יותר לשקפים עם טקסט כותרתי אשפר כאן */
+:where(.slidev-layout) .slidev-markdown ul li,
+:where(.slidev-layout) .slidev-markdown ol li {
+  margin-bottom: 0.8rem;
+}
+</style>
+
+---
+
+# היחס ההופכי
+
+- הגדרה: עבור יחס $R\subseteq A\times B$ נגדיר
+
+<div class="formula-box">
+
+  $$
+  R^{-1}=\{\langle y,x\rangle \mid \langle x,y\rangle\in R\}\subseteq B\times A .
+  $$
+
+</div>
+
+
+- תכונות:
+  - $\operatorname{dom}(R^{-1})=\operatorname{img}(R)$.
+    - אם $\langle y,x\rangle\in R^{-1}$ אז קיים $x,y$ כך ש $\langle x,y\rangle\in R$, ולכן $y\in \operatorname{img}(R)$.
+
+
+  - $\operatorname{img}(R^{-1})=\operatorname{dom}(R)$.
+    - אם $\langle y,x\rangle\in R^{-1}$ אז קיים $x,y$ כך ש $\langle x,y\rangle\in R$, ולכן $x\in \operatorname{dom}(R)$.
+  
+  - $(R^{-1})^{-1}=R$.
+  -  $\langle x,y\rangle\in R$  אם ורק אם $\langle y,x\rangle\in R^{-1}$ ולכן $\langle x,y\rangle\in (R^{-1})^{-1}$.
+
+- דוגמה: אם $R=\{\langle1,a\rangle,\langle2,b\rangle\}$ אז $R^{-1}=\{\langle a,1\rangle,\langle b,2\rangle\}$.
+
+
+<div class="absolute top-.8/4 right-6/10">
+
+$$R$$
+<BipartiteGraph style="scale:.5; margin-top: -8rem;"
+  :left="['1','2', '3']"
+  :right="['a','b', 'c']"
+  :edges="[
+    ['L1','Rb',''],
+    ['L2','Rc',''],
+    ['L3','Ra','']
+  ]"
+/>
+</div>
+
+<div class="absolute top-2.5/4 right-6/10">
+
+$$R^{-1}$$
+<BipartiteGraph style="scale:.5; margin-top: -8rem;"
+  :left="['a','b', 'c']"
+  :right="['1','2', '3']"
+  :edges="[
+    ['La','R3',''],
+    ['Lb','R1',''],
+    ['Lc','R2','']
+  ]"
+/>
+</div>
+
+
+---
+section: תכונות של יחסים 
+---
+
+# רפלקסיביות על $A$
+
+- **הגדרה:** יחס $R$ על קבוצה $A$ נקרא רפלקסיבי על $A$ אם לכל $a \in A$, $a \, R \, a$.
+
+- נשים לב לכך שאיננו מגדירים מתי יחס הוא רפלקסיבי אלא מתי הוא רפלקסיבי **על $A$**
+
+- אם נצייר את היחס $R$ על $A$ בעזרת חיצים בין אברי $A$, אז הציור של יחס רפלקסיבי ניכר בכך שכל איבר של $A$ מחובר בלולאה אל עצמו (חיצים נוספים אפשריים)
+
+<div class="absolute top-1.3/3 left-1/9 w-90 h-90" style="transform: scale();">
+<GraphCytoscape style="scale:1.5"
+  :nodes=" [
+    { id: '1', x: 100, y: 100, label: '1' },
+    { id: '2', x: 300, y: 100, label: '2' },
+    { id: '3', x: 200, y: 0, label: '3' },
+  ]"
+  :edges=" [
+    { source: '1', target: '1', loopDirection: '-90deg' },
+    { source: '2', target: '2', loopDirection: '90deg' },
+    { source: '3', target: '3', loopDirection: '0deg' },
+    { source: '1', target: '2' },
+    { source: '3', target: '1' },
+    { source: '2', target: '3' },
+  ]"/>
+
+<div style="text-align: center; margin-top: -4rem;">
+
+$$R = \{\langle 1,1 \rangle, \langle 2,2 \rangle, \langle 3,3 \rangle, \langle 1,2 \rangle, \langle 3,1 \rangle, \langle 2,3 \rangle\}$$
+
+רפלקסיבי על הקבוצה $\{1,2,3\}$.
+</div>
+</div>
+
+
+
+<div class="absolute top-1.3/3 left-5/9 w-90 h-90" style="transform: scale();">
+<GraphCytoscape style="scale:1.5"
+  :nodes=" [
+    { id: '1', x: 100, y: 100, label: '1' },
+    { id: '2', x: 300, y: 100, label: '2' },
+    { id: '3', x: 200, y: 0, label: '3' },
+  ]"
+  :edges=" [
+    { source: '1', target: '1', loopDirection: '-90deg' },
+    { source: '2', target: '2', loopDirection: '90deg' },
+    { source: '3', target: '1' },
+    { source: '3', target: '2' },
+  ]"/>
+
+<div style="text-align: center; margin-top: -4rem;">
+
+$$R = \{\langle 1,1 \rangle, \langle 2,2 \rangle, \langle 3,1 \rangle, \langle 3,2 \rangle\}$$
+ לא רפלקסיבי על הקבוצה $\{1,2,3\}$.
+</div>
+</div>
+
+
+
+---
+
+# סימטריות 
+
+- **הגדרה:** יחס $R$ על קבוצה $A$ נקרא סימטרי אם לכל $x,y \in A$, אם $x \, R \, y$ אז $y \, R \, x$.
+
+-  הציור של יחס סימטרי ניכר בכך שאין כיוונים חד-סטריים בין אברי $A$.
+
+<div class="absolute top-1/3 left-1/9 w-90 h-90" style="transform: scale();">
+<GraphCytoscape style="scale:1.5"
+  :nodes=" [
+    { id: '1', x: 100, y: 100, label: '1' },
+    { id: '2', x: 300, y: 100, label: '2' },
+    { id: '3', x: 200, y: 0, label: '3' },
+  ]"
+  :edges=" [
+    { source: '1', target: '2' },
+    { source: '2', target: '1' },
+    { source: '2', target: '3' },
+    { source: '3', target: '2' },
+  ]"/>
+
+<div style="text-align: center; margin-top: -4rem;">
+
+$$R = \{\langle 1,2 \rangle, \langle 2,1 \rangle, \langle 2,3 \rangle, \langle 3,2 \rangle\}$$
+סימטרי
+</div>
+</div>
+
+
+
+<div class="absolute top-1/3 left-5/9 w-90 h-90" style="transform: scale();">
+<GraphCytoscape style="scale:1.5"
+  :nodes=" [
+    { id: '1', x: 100, y: 100, label: '1' },
+    { id: '2', x: 300, y: 100, label: '2' },
+    { id: '3', x: 200, y: 0, label: '3' },
+  ]"
+  :edges=" [
+    { source: '1', target: '2' },
+    { source: '2', target: '1' },
+    { source: '3', target: '1' },
+  ]"/>
+
+<div style="text-align: center; margin-top: -4rem;">
+
+$$R = \{\langle 1,2 \rangle, \langle 2,1 \rangle, \langle 3,1 \rangle\}$$
+ לא סימטרי
+</div>
+</div>
+
+

@@ -1,7 +1,7 @@
+package-lock.json
 node_modules
 .DS_Store
 *.local
 .vite-inspect
 .remote-assets
 components.d.ts
-package-lock.json 

@@ -445,7 +445,7 @@ $$R = \{\langle 1,1 \rangle, \langle 2,2 \rangle, \langle 3,1 \rangle, \langle 3
     { id: '2', x: 300, y: 100, label: '2' },
     { id: '3', x: 200, y: 0, label: '3' },
   ]"
-  :edges=" [
+  :edges=" [ 
     { source: '1', target: '2' },
     { source: '2', target: '1' },
     { source: '2', target: '3' },

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount, watch, nextTick } from 'vue'
+import { ref, onMounted, onBeforeUnmount, watch, nextTick, onActivated, onDeactivated } from 'vue'
 import cytoscape, { Core } from 'cytoscape'
 
 type NodeId = string | number
@@ -32,8 +32,8 @@ const props = withDefaults(defineProps<{
 })
 
 const containerRef = ref<HTMLDivElement | null>(null)
-let cy: Core | null = null
-let resizeObserver: ResizeObserver | null = null
+const cy = ref<Core | null>(null)
+const resizeObserver = ref<ResizeObserver | null>(null)
 
 // Helper ids: actual cytoscape node id will be "L:{label}" or "R:{label}"
 function mkLeftId(label: NodeId) { return `L:${String(label)}` }
@@ -206,8 +206,13 @@ function getStyle() {
 
 function mountCy() {
   if (!containerRef.value) return
+  // if an instance already exists for this component, destroy it first
+  if (cy.value) {
+    try { cy.value.destroy() } catch { /* ignore */ }
+    cy.value = null
+  }
   const els = buildElements()
-  cy = cytoscape({
+  cy.value = cytoscape({
     container: containerRef.value,
     elements: els,
     layout: { name: 'preset' },
@@ -219,33 +224,28 @@ function mountCy() {
   })
 
   // lock all nodes (fixed bipartite positions)
-  cy.nodes().forEach(n => n.lock())
+  cy.value?.nodes().forEach(n => n.lock())
 
   // ensure cytoscape knows the container size and fit to nodes
-  cy.resize()
-  cy.fit(20)
+  cy.value?.resize()
+  cy.value?.fit(20)
 }
 
 // Re-layout positions on resize
 function relayout() {
-  if (!cy || !containerRef.value) return
-
+  if (!cy.value || !containerRef.value) return
   // let cytoscape update internal sizes first
-  cy.resize()
-
+  cy.value.resize()
   const positions = computePositions(containerRef.value.clientWidth || (props.minWidth ?? 300), containerRef.value.clientHeight || (props.minHeight ?? 200))
-  cy.nodes().forEach(n => {
+  cy.value.nodes().forEach(n => {
     const id = n.id()
     const p = positions[id]
     if (p) {
       n.position(p)
-    } else {
-      // leave node where it is if no computed position available
     }
   })
-
   // refresh viewport to contain nodes
-  cy.fit(20)
+  cy.value.fit(20)
 }
 
 onMounted(async () => {
@@ -255,35 +255,55 @@ onMounted(async () => {
   relayout()
   // respond to container resize so positions recalc (better than transform scale)
   if (window.ResizeObserver && containerRef.value) {
-    resizeObserver = new ResizeObserver(() => {
+    resizeObserver.value = new ResizeObserver(() => {
       relayout()
     })
-    resizeObserver.observe(containerRef.value)
+    resizeObserver.value.observe(containerRef.value)
   } else {
     window.addEventListener('resize', relayout)
   }
 })
 
 onBeforeUnmount(() => {
-  if (cy) {
-    cy.destroy()
-    cy = null
+  if (cy.value) {
+    try { cy.value.destroy() } catch { /* ignore */ }
+    cy.value = null
   }
-  if (resizeObserver && containerRef.value) {
-    resizeObserver.unobserve(containerRef.value)
-    resizeObserver = null
+  if (resizeObserver.value && containerRef.value) {
+    try { resizeObserver.value.unobserve(containerRef.value) } catch { /* ignore */ }
+    resizeObserver.value = null
   } else {
     window.removeEventListener('resize', relayout)
   }
 })
 
+// Handle keep-alive: when activated, ensure instance is visible & relaid out;
+onActivated(() => {
+  // recreate if missing, else relayout when becoming visible
+  if (!cy.value) mountCy()
+  // nextTick to let DOM become visible
+  nextTick().then(() => relayout())
+})
+
+// If deactivated, destroy heavy resources so next activation starts fresh
+onDeactivated(() => {
+  if (cy.value) {
+    try { cy.value.destroy() } catch { /* ignore */ }
+    cy.value = null
+  }
+  if (resizeObserver.value && containerRef.value) {
+    try { resizeObserver.value.unobserve(containerRef.value) } catch { /* ignore */ }
+    resizeObserver.value = null
+  }
+})
+
 // live updates
 watch(() => [props.left, props.right, props.edges, props.nodeColor, props.edgeColor, props.arrowColor], async () => {
-  if (!cy) return
-  cy.elements().remove()
-  cy.add(buildElements())
-  cy.style(getStyle())
-  cy.nodes().forEach(n => n.lock())
+  if (!cy.value) return
+  cy.value.elements().remove()
+  cy.value.add(buildElements())
+  cy.value.style(getStyle())
+  cy.value.nodes().forEach(n => n.lock())
   relayout()
 }, { deep: true })
 </script>

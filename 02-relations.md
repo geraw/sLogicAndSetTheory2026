@@ -176,8 +176,8 @@ section: יחסים
     - $dom(R) \times img(R) = \{ \langle 1, a \rangle, \langle 1, b \rangle, \langle 2, a \rangle, \langle 2, b \rangle \}$ 
 
 
-<div class="absolute top-1.2/2 left-1/4 transform -translate-x-1/2 w-80 h-80">
-<BipartiteGraph style="scale:.5"
+<div class="absolute top-1.95/3 left-1/4 transform -translate-x-1/2 w-80 h-80" style="scale:.5;">
+<BipartiteGraph
   :left="['1','2']"
   :right="['A','B']"
   :edges="[
@@ -245,7 +245,8 @@ layout: two-cols-header
 
 $$R$$
 
-<BipartiteGraph style="scale:.5; margin-top: -6rem;"
+<div style="scale:.5; margin-top: -6rem;">
+<BipartiteGraph 
   :left="['1','2']"
   :right="['a','b']"
   :edges="[
@@ -253,6 +254,7 @@ $$R$$
     ['L2','Ra','']
   ]"
 />
+</div>
 </div>
 
 
@@ -343,7 +345,7 @@ $$S$$
 <div class="absolute top-.8/4 right-6/10">
 
 $$R$$
-<BipartiteGraph style="scale:.5; margin-top: -8rem;"
+<BipartiteGraph style="scale:.5; margin-top: -6rem;"
   :left="['1','2', '3']"
   :right="['a','b', 'c']"
   :edges="[
@@ -357,7 +359,7 @@ $$R$$
 <div class="absolute top-2.5/4 right-6/10">
 
 $$R^{-1}$$
-<BipartiteGraph style="scale:.5; margin-top: -8rem;"
+<BipartiteGraph style="scale:.5; margin-top: -6rem;"
   :left="['a','b', 'c']"
   :right="['1','2', '3']"
   :edges="[
@@ -379,10 +381,12 @@ section: תכונות של יחסים
 
 - נשים לב לכך שאיננו מגדירים מתי יחס הוא רפלקסיבי אלא מתי הוא רפלקסיבי **על $A$**
 
-- אם נצייר את היחס $R$ על $A$ בעזרת חיצים בין אברי $A$, אז הציור של יחס רפלקסיבי ניכר בכך שכל איבר של $A$ מחובר בלולאה אל עצמו (חיצים נוספים אפשריים)
+- אם נצייר את היחס $R$ על $A$ בעזרת חיצים בין אברי $A$,
+  <br>
+  אז בציור של יחס רפלקסיבי כל איבר של $A$ מחובר בלולאה אל עצמו (חיצים נוספים אפשריים)
 
-<div class="absolute top-1.3/3 left-1/9 w-90 h-90" style="transform: scale(1);">
-<GraphCytoscape style="transform: scale(.7);"
+<div class="absolute top-1.3/3 left-1/9 w-90 h-90" style="transform: scale(.7);">
+<GraphCytoscape 
   :nodes=" [
     { id: '1', x: 100, y: 100, label: '1' },
     { id: '2', x: 300, y: 100, label: '2' },
@@ -397,7 +401,7 @@ section: תכונות של יחסים
     { source: '2', target: '3' },
   ]"/>
 
-<div style="text-align: center; margin-top: -4rem;">
+<div style="text-align: center; margin-top: -1rem; scale: 1.4;">
 
 $$R = \{\langle 1,1 \rangle, \langle 2,2 \rangle, \langle 3,3 \rangle, \langle 1,2 \rangle, \langle 3,1 \rangle, \langle 2,3 \rangle\}$$
 
@@ -407,8 +411,8 @@ $$R = \{\langle 1,1 \rangle, \langle 2,2 \rangle, \langle 3,3 \rangle, \langle 1
 
 
 
-<div class="absolute top-1.3/3 left-5/9 w-90 h-90" style="transform: scale(1);">
-<GraphCytoscape style="transform: scale(.7);"
+<div class="absolute top-1.3/3 left-5/9 w-90 h-90" style="transform: scale(.7);">
+<GraphCytoscape 
   :nodes=" [
     { id: '1', x: 100, y: 100, label: '1' },
     { id: '2', x: 300, y: 100, label: '2' },
@@ -421,7 +425,7 @@ $$R = \{\langle 1,1 \rangle, \langle 2,2 \rangle, \langle 3,3 \rangle, \langle 1
     { source: '3', target: '2' },
   ]"/>
 
-<div style="text-align: center; margin-top: -4rem;">
+<div style="text-align: center; margin-top: -1rem; scale:1.4;">
 
 $$R = \{\langle 1,1 \rangle, \langle 2,2 \rangle, \langle 3,1 \rangle, \langle 3,2 \rangle\}$$
  לא רפלקסיבי על הקבוצה $\{1,2,3\}$.
@@ -438,8 +442,8 @@ $$R = \{\langle 1,1 \rangle, \langle 2,2 \rangle, \langle 3,1 \rangle, \langle 3
 
 -  הציור של יחס סימטרי ניכר בכך שאין כיוונים חד-סטריים בין אברי $A$.
 
-<div class="absolute top-1/3 left-1/9 w-90 h-90" style="transform: scale(1);">
-<GraphCytoscape style="transform: scale(.7);"
+<div class="absolute top-1/3 left-1/9 w-90 h-90" style="scale: .7;">
+<GraphCytoscape 
   :nodes=" [
     { id: '1', x: 100, y: 100, label: '1' },
     { id: '2', x: 300, y: 100, label: '2' },
@@ -452,7 +456,7 @@ $$R = \{\langle 1,1 \rangle, \langle 2,2 \rangle, \langle 3,1 \rangle, \langle 3
     { source: '3', target: '2' },
   ]"/>
 
-<div style="text-align: center; margin-top: -4rem;">
+<div style="text-align: center; margin-top: -1rem; scale: 1.4;">
 
 $$R = \{\langle 1,2 \rangle, \langle 2,1 \rangle, \langle 2,3 \rangle, \langle 3,2 \rangle\}$$
 סימטרי
@@ -461,8 +465,8 @@ $$R = \{\langle 1,2 \rangle, \langle 2,1 \rangle, \langle 2,3 \rangle, \langle 3
 
 
 
-<div class="absolute top-1/3 left-5/9 w-90 h-90" style="transform: scale();">
-<GraphCytoscape style="transform: scale(.7);"
+<div class="absolute top-1/3 left-5/9 w-90 h-90" style="transform: scale(.7);">
+<GraphCytoscape 
   :nodes=" [
     { id: '1', x: 100, y: 100, label: '1' },
     { id: '2', x: 300, y: 100, label: '2' },
@@ -474,7 +478,7 @@ $$R = \{\langle 1,2 \rangle, \langle 2,1 \rangle, \langle 2,3 \rangle, \langle 3
     { source: '3', target: '1' },
   ]"/>
 
-<div style="text-align: center; margin-top: -4rem;">
+<div style="text-align: center; margin-top: -1rem; scale: 1.4;">
 
 $$R = \{\langle 1,2 \rangle, \langle 2,1 \rangle, \langle 3,1 \rangle\}$$
  לא סימטרי

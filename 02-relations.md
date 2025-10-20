@@ -457,7 +457,7 @@ $$R = \{\langle 1,1 \rangle, \langle 2,2 \rangle, \langle 3,1 \rangle, \langle 3
 $$R = \{\langle 1,2 \rangle, \langle 2,1 \rangle, \langle 2,3 \rangle, \langle 3,2 \rangle\}$$
 סימטרי
 </div>
-</div>
+</div>  
 
 
 

@@ -381,8 +381,8 @@ section: תכונות של יחסים
 
 - אם נצייר את היחס $R$ על $A$ בעזרת חיצים בין אברי $A$, אז הציור של יחס רפלקסיבי ניכר בכך שכל איבר של $A$ מחובר בלולאה אל עצמו (חיצים נוספים אפשריים)
 
-<div class="absolute top-1.3/3 left-1/9 w-90 h-90" style="transform: scale();">
-<GraphCytoscape style="scale:1.5"
+<div class="absolute top-1.3/3 left-1/9 w-90 h-90" style="transform: scale(1);">
+<GraphCytoscape style="transform: scale(.7);"
   :nodes=" [
     { id: '1', x: 100, y: 100, label: '1' },
     { id: '2', x: 300, y: 100, label: '2' },
@@ -407,8 +407,8 @@ $$R = \{\langle 1,1 \rangle, \langle 2,2 \rangle, \langle 3,3 \rangle, \langle 1
 
 
 
-<div class="absolute top-1.3/3 left-5/9 w-90 h-90" style="transform: scale();">
-<GraphCytoscape style="scale:1.5"
+<div class="absolute top-1.3/3 left-5/9 w-90 h-90" style="transform: scale(1);">
+<GraphCytoscape style="transform: scale(.7);"
   :nodes=" [
     { id: '1', x: 100, y: 100, label: '1' },
     { id: '2', x: 300, y: 100, label: '2' },
@@ -438,8 +438,8 @@ $$R = \{\langle 1,1 \rangle, \langle 2,2 \rangle, \langle 3,1 \rangle, \langle 3
 
 -  הציור של יחס סימטרי ניכר בכך שאין כיוונים חד-סטריים בין אברי $A$.
 
-<div class="absolute top-1/3 left-1/9 w-90 h-90" style="transform: scale();">
-<GraphCytoscape style="scale:1.5"
+<div class="absolute top-1/3 left-1/9 w-90 h-90" style="transform: scale(1);">
+<GraphCytoscape style="transform: scale(.7);"
   :nodes=" [
     { id: '1', x: 100, y: 100, label: '1' },
     { id: '2', x: 300, y: 100, label: '2' },
@@ -462,7 +462,7 @@ $$R = \{\langle 1,2 \rangle, \langle 2,1 \rangle, \langle 2,3 \rangle, \langle 3
 
 
 <div class="absolute top-1/3 left-5/9 w-90 h-90" style="transform: scale();">
-<GraphCytoscape style="scale:1.5"
+<GraphCytoscape style="transform: scale(.7);"
   :nodes=" [
     { id: '1', x: 100, y: 100, label: '1' },
     { id: '2', x: 300, y: 100, label: '2' },

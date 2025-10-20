@@ -160,7 +160,8 @@ watch(() => [props.nodes, props.edges, props.loopDirection, props.controlPointDi
       ...(autoWidth ? { minWidth: '300px' } : { width: typeof width === 'number' ? width + 'px' : width }),
       ...(autoHeight ? { minHeight: '200px' } : { height: typeof height === 'number' ? height + 'px' : height }),
       background: bg,     
-      transform: 'scale(0.4)',
+      border: none,
+      borderRadius: '8px',
     }"
   />
 </template>

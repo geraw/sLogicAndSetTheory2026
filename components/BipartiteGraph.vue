@@ -66,42 +66,61 @@ watch(() => [props.left, props.right], draw, { deep: true })
   <!-- Use viewBox so external scaling is safe -->
   <svg ref="svgRef"
        :width="width" :height="height"
-       viewBox="0 0 420 300"
+       :viewBox="`0 0 ${width} ${height}`"
+       preserveAspectRatio="xMidYMid meet"
        xmlns="http://www.w3.org/2000/svg"
        style="background:none;">
     <g id="edges"></g>
 
-    <!-- left column -->
-    <g id="left">
-      <circle v-for="(l,i) in left"
-              :id="'L'+l" :key="l"
-              :cx="leftX" :cy="topY + i*gapY" :r="r"
-              fill="#e6f0ff" stroke="#0044cc" stroke-width="2"/>
-      <text v-for="(l,i) in left"
-            :x="leftX" :y="topY + i*gapY + 9"
-            text-anchor="middle" font-family="sans-serif" font-size="10">
-        {{ l }}
-      </text>
+    <!-- left vertices -->
+    <g id="left-nodes">
+      <template v-for="(label, idx) in props.left" :key="'L'+label">
+        <circle
+          :id="`L${label}`"
+          :cx="props.leftX"
+          :cy="props.topY + idx * props.gapY"
+          :r="props.r"
+          fill="#f6b26b"
+          stroke="#333"
+        />
+        <text
+          :x="props.leftX"
+          :y="props.topY + idx * props.gapY + 5"
+          text-anchor="middle"
+          font-size="12"
+          font-family="sans-serif"
+          fill="#111"
+        >{{ label }}</text>
+      </template>
     </g>
 
-    <!-- right column -->
-    <g id="right">
-      <circle v-for="(rLab,i) in right"
-              :id="'R'+rLab" :key="rLab"
-              :cx="rightX" :cy="topY + i*gapY" :r="r"
-              fill="#e8ffe6" stroke="#009933" stroke-width="2"/>
-      <text v-for="(rLab,i) in right"
-            :x="rightX" :y="topY + i*gapY + 9"
-            text-anchor="middle" font-family="sans-serif"  font-size="10">
-        {{ rLab }}
-      </text>
+    <!-- right vertices -->
+    <g id="right-nodes">
+      <template v-for="(label, idx) in props.right" :key="'R'+label">
+        <circle
+          :id="`R${label}`"
+          :cx="props.rightX"
+          :cy="props.topY + idx * props.gapY"
+          :r="props.r"
+          fill="#6fa8dc"
+          stroke="#333"
+        />
+        <text
+          :x="props.rightX"
+          :y="props.topY + idx * props.gapY + 5"
+          text-anchor="middle"
+          font-size="12"
+          font-family="sans-serif"
+          fill="#111"
+        >{{ label }}</text>
+      </template>
     </g>
 
     <defs>
-      <!-- Arrow stays crisp at any scale -->
-      <marker id="arrow" markerUnits="userSpaceOnUse"
-              markerWidth="12" markerHeight="8" refX="12" refY="4" orient="auto">
-        <path d="M0,0 L12,4 L0,8 Z" fill="black"/>
+      <!-- Arrow scales more predictably with stroke width -->
+      <marker id="arrow" markerUnits="strokeWidth"
+              markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto">
+        <path d="M0,0 L10,4 L0,8 Z" fill="black"/>
       </marker>
     </defs>
   </svg>

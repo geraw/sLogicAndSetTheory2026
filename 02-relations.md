@@ -282,7 +282,7 @@ $$S$$
   ובשימוש רגיל נכתוב $n\le m$ במקום $\langle n,m\rangle\in \le_{\mathbb{N}}$.
 
 
-- **יחס השוויון על קבוצה \(A\):**
+- **יחס השוויון על קבוצה $A$:**
   $$Eq_A=\{\langle a,a\rangle\mid a\in A\},$$
   ולרוב נרשום $x=y$ במקום $\langle x,y\rangle\in Eq_A$. 
 
@@ -484,5 +484,136 @@ $$R = \{\langle 1,2 \rangle, \langle 2,1 \rangle, \langle 2,3 \rangle, \langle 3
   לא סימטרי
   </div>
 </div>
+
+
+--- 
+
+# אנטי-סימטריות
+
+- **הגדרה:** יחס $R$ על קבוצה $A$ נקרא אנטי-סימטרי אם לכל $x,y\in A$,
+  אם $x\,R\,y$ ו־$y\,R\,x$ אז $x=y$.
+
+- ניסוח שקול: לכל $x,y\in A$, אם $x\,R\,y$ ו־$x\neq y$ אז $\neg\,(y\,R\,x)$.
+
+- דוגמאות קצרות:
+  
+  - יחס $\le$ על $\mathbb{N}$ אנטי-סימטרי.
+   
+  - יחס השוויון $=$ אנטי-סימטרי וגם רפלקסיבי.
+  
+  - יחס "שונה" (i.e. $x\neq y$) אינו אנטי-סימטרי, כי אם $x\neq y$ אז גם $y\neq x$ ולכן יש מקרים של $x\neq y$ עם קשר דו-כיווני.
+
+
+
+<div class="absolute top-1.5/3 left-1/9" style="scale: .5;">
+<GraphCytoscape
+  :nodes=" [
+    { id: '1', x: 100, y: 100, label: '1' },
+    { id: '2', x: 300, y: 100, label: '2' },
+    { id: '3', x: 200, y: 0, label: '3' }
+  ]"
+  :edges=" [
+    { source: '1', target: '1', loopDirection: '-90deg' },
+    { source: '2', target: '2', loopDirection: '90deg' },
+    { source: '1', target: '2' },
+    { source: '2', target: '3' }
+  ]"/>
+<div style="text-align: center; margin-top: 1rem; scale: 2;">
+  
+  $$R = \{\langle1,1\rangle,\langle2,2\rangle,\langle1,2\rangle,\langle2,3\rangle\}$$
+  
+  יחס אנטי-סימטרי
+</div>
+</div>
+
+<div class="absolute top-1.5/3 left-5/9" style="scale:.5;">
+<GraphCytoscape
+  :nodes=" [
+    { id: '1', x: 100, y: 100, label: '1' },
+    { id: '2', x: 300, y: 100, label: '2' },
+    { id: '3', x: 200, y: 0, label: '3' }
+  ]"
+  :edges=" [
+    { source: '1', target: '3' },
+    { source: '1', target: '2' },
+    { source: '2', target: '1' },
+    { source: '2', target: '3' },
+    { source: '2', target: '2', loopDirection: '90deg' },
+    { source: '3', target: '2' }
+  ]"/>
+<div style="text-align: center; margin-top: 1rem; scale: 2;">
+
+  $$S = \{\langle1,2\rangle,\langle2,1\rangle,\langle1,3\rangle,\langle2,3\rangle,\langle2,2\rangle,\langle3,2\rangle\}$$
+  אינו אנטי-סימטרי (קיימים זוגות דו-כיווניים)
+</div>
+</div>
+
+---
+
+# טרנזיטיביות
+
+- **הגדרה:** יחס $R$ על קבוצה $A$ נקרא טרנזיטיבי אם לכל $x,y,z\in A$, אם $x\,R\,y$ ו־$y\,R\,z$ אז $x\,R\,z$.
+
+- דוגמאות קצרות:
+
+  - יחס $\le$ על $\mathbb{N}$ הוא טרנזיטיבי.
+
+  - יחס השוויון $=$ הוא טרנזיטיבי.
+
+  - יחס "הורה של" אינו טרנזיטיבי (אם $a$ הורה של $b$ ו-$b$ הורה של $c$ זה לא אומר ש-$a$ הורה של $c$).
+
+
+<div class="absolute top-1.4/3 left-1/9" style="scale:.5;">
+<GraphCytoscape
+  :nodes="[
+    { id: '1', x: 100, y: 100, label: '1' },
+    { id: '2', x: 300, y: 100, label: '2' },
+    { id: '3', x: 200, y: 0, label: '3' }
+  ]"
+  :edges="[
+    { source: '1', target: '2' },
+    { source: '2', target: '3' },
+    { source: '1', target: '3' }
+  ]"/>
+<div style="text-align: center; margin-top: 2rem; scale: 1.8;">
+
+  $$R = \{\langle 1,2 \rangle,\langle 2,3 \rangle,\langle 1,3 \rangle\}$$
+  יחס טרנזיטיבי
+</div>
+</div>
+
+<div class="absolute top-1.4/3 left-5/9" style="scale:.5;">
+<GraphCytoscape
+  :nodes="[
+    { id: '1', x: 100, y: 100, label: '1' },
+    { id: '2', x: 300, y: 100, label: '2' },
+    { id: '3', x: 200, y: 0, label: '3' }
+  ]"
+  :edges="[
+    { source: '1', target: '2' },
+    { source: '2', target: '3' }
+  ]"/>
+<div style="text-align: center; margin-top: 3rem; scale: 1.8;">
+  
+  $$S = \{\langle 1,2 \rangle,\langle 2,3 \rangle\}$$
+  אינו טרנזיטיבי (חסר הזוג $\langle 1,3\rangle$)
+</div>
+</div>
+
+---
+
+# שלילת תכונות (מתי יחס אינו מקיים תכונה על $A$)
+
+- $R$ אינו רפלקסיבי על $A$ אם קיים $x\in A$ כך ש-$\neg\,(x\,R\,x)$.
+
+- $R$ אינו סימטרי על $A$ אם קיימים $x,y\in A$ כך ש-$x\,R\,y$ אך $\neg\,(y\,R\,x)$.
+
+- $R$ אינו אנטי-סימטרי על $A$ אם קיימים $x,y\in A$ שונים כך ש-$x\,R\,y$ וגם $y\,R\,x$.
+
+- $R$ אינו טרנזיטיבי על $A$ אם קיימים $x,y,z\in A$ כך ש-$x\,R\,y$ ו-$y\,R\,z$ אך $\neg\,(x\,R\,z)$.
+
+- $R$ אינו שלם על $A$ אם קיימים $x,y\in A$ כך ש-$\neg\,(x\,R\,y)$ וגם $\neg\,(y\,R\,x)$.
+
+- שימו לב: השלילה של הסימטריות (כלומר "לא סימטרי") אינה זהה לאנטי-סימטריות. יתכנו יחסים שהם גם סימטריים וגם אנטי-סימטריים, וכן יחסים שאינם סימטריים ואינם אנטי-סימטריים.
 
 

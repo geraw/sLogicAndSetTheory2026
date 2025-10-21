@@ -1075,6 +1075,61 @@ layout: two-cols-header
   </div>
 </div>
 
+---
+layout: two-cols-header
+---
+
+# סגירות תחת היפוך היחס
+
+- אם $R$ יחס על קבוצה $A$, אז ההופכי שלו $R^{-1} = \{\langle b,a\rangle \mid \langle a,b\rangle \in R\}$ הוא גם יחס על $A$.
+
+<br>
+
+::left::
+
+- **רפלקסיביות**:
+    -  אם $R$ רפלקסיבי על $A$ אז $R^{-1}$ רפלקסיבי על $A$.
+
+    - הוכחה: עבור כל $a\in A$, $\langle a,a\rangle\in R \Rightarrow \langle a,a\rangle\in R^{-1}$.
+
+<br>
+
+- **סימטריות**:
+  - אם $R$ סימטרי אז $R^{-1}=R$ (ולכן סימטרי).
+  
+  - הוכחה: אם $\langle a,b\rangle\in R$ אז גם $\langle b,a\rangle\in R$, לכן בהופכי מתקבלת אותה קבוצת זוגות.
+  
+::right::
+
+- **אנטי-סימטריות**:
+  -  אם $R$ אנטי-סימטרי אז גם $R^{-1}$ אנטי-סימטרי.
+
+  - הוכחה: אם $\langle x,y\rangle,\langle y,x\rangle\in R^{-1}$ אז בהיפוך הם ב־$R$, מאנטי-סימטריות של $R$ נובע $x=y$.
+
+<br>
+
+- **טרנזיטיביות**:
+  -  אם $R$ טרנזיטיבי אז $R^{-1}$ טרנזיטיבי.
+
+  - הוכחה: אם $\langle a,b\rangle,\langle b,c\rangle\in R^{-1}$ אז בהיפוך $\langle b,a\rangle,\langle c,b\rangle\in R$, מהטרנזיטיביות של $R$ נקבל $\langle c,a\rangle\in R$ ולכן $\langle a,c\rangle\in R^{-1}$.
+
+<style>
+.two-cols-header {
+  column-gap: 40px; /* Adjust the gap size as needed */
+  /* Optional: add some padding for better readability */
+  padding: 30px 40px 30px 20px;
+}
+.two-cols-header li strong {
+  color: #2563eb;
+}
+.two-cols-header h2 {
+  margin-top: 3rem;
+}
+.two-cols-header h2:first-of-type {
+  margin-top: 100px;
+}
+</style>
+
 
 
 

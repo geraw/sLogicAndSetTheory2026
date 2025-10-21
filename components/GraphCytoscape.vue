@@ -4,7 +4,7 @@ import cytoscape, { Core } from 'cytoscape'
 
 type NodeId = string | number
 type Node = { id: NodeId; x: number; y: number; label?: string }
-type Edge = { id?: string; source: NodeId; target: NodeId; label?: string; weight?: number; loopDirection?: string }
+type Edge = { id?: string; source: NodeId; target: NodeId; label?: string; weight?: number; loopDirection?: string; color?: string }
 
 const props = withDefaults(defineProps<{
   nodes: Node[]
@@ -57,10 +57,10 @@ function getStyle() {
     {
       selector: 'edge',
       style: {
-        'line-color': props.edgeColor,
+        'line-color': (ele) => ele.data('color') || props.edgeColor,
         'curve-style': 'bezier',
         'target-arrow-shape': 'triangle',
-        'target-arrow-color': props.arrowColor,
+        'target-arrow-color': (ele) => ele.data('color') || props.arrowColor,
         'width': 3,
         'arrow-scale': 2,
         'label': 'data(label)',
@@ -96,6 +96,7 @@ function buildElements() {
         label: e.label ?? '',
         weight: e.weight ?? 1,
         loopDirection: e.loopDirection,
+        color: e.color,
       },
       selectable: false,
       grabbable: false,

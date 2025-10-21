@@ -719,5 +719,223 @@ section: דוגמאות
     - ומכאן (לאחר צמצום $y$ משני האגפים) נקבל $0 > 6$ וזו סתירה.
   </v-click>
 
+---
+section:  חיתוך ואיחוד יחסים
+---
+
+# חיתוך של יחסים
+
+- כל תת-קבוצה של יחס גם היא יחס.
+  
+- בפרט, אם $\mathcal{S}$ היא קבוצה לא ריקה של יחסים, אז החיתוך האונרי $\bigcap \mathcal{S}$ הוא גם יחס.
+  
+- מהגדרת החיתוך האונרי נקבל: לכל $a, b$, $\langle a, b \rangle \in \bigcap \mathcal{S}$ אם ורק אם $\forall R \in \mathcal{S} (\langle a, b \rangle \in R)$.
+  
+- לכן $\bigcap \mathcal{S} \subseteq R$ לכל $R \in \mathcal{S}$.
+
+<div class="absolute top-2/4 left-1/9" style="scale:.8;">
+<GraphCytoscape 
+  :nodes=" [
+    { id: '1', x: 100, y: 100, label: 'A' },
+    { id: '2', x: 300, y: 100, label: 'B' },
+    { id: '3', x: 200, y: 250, label: 'C' }
+  ]"
+  :edges=" [
+    { source: '1', target: '2', color: 'red' },
+    { source: '2', target: '3', color: 'red' },
+    { source: '1', target: '3', color: 'red' }
+  ]"/>
+<div style="text-align: center; margin-top: -1rem;">
+
+  <span style="color:red"> $R$</span>
+</div>
+</div>
+
+<div class="absolute top-2/4 left-3/9" style="scale:.8;">
+<GraphCytoscape 
+  :nodes=" [
+    { id: '1', x: 100, y: 100, label: 'A' },
+    { id: '2', x: 300, y: 100, label: 'B' },
+    { id: '3', x: 200, y: 250, label: 'C' }
+  ]"
+  :edges=" [
+    { source: '1', target: '2', color: 'blue' },
+    { source: '2', target: '1', color: 'blue' },
+    { source: '3', target: '2', color: 'blue' },
+    { source: '1', target: '3', color: 'blue' }
+  ]"/>
+<div style="text-align: center; margin-top: -1rem;">
+
+  <span style="color:blue"> $B$</span>
+</div>
+</div>
+
+<div class="absolute top-2/4 left-5/9" style="scale:.8;">
+<GraphCytoscape 
+  :nodes=" [
+    { id: '1', x: 100, y: 100, label: 'A' },
+    { id: '2', x: 300, y: 100, label: 'B' },
+    { id: '3', x: 200, y: 250, label: 'C' } 
+  ]"
+  :edges=" [
+    { source: '1', target: '2', color: 'purple' },
+    { source: '1', target: '3', color: 'purple' }
+  ]"/>
+<div style="text-align: center; margin-top: -1rem;">
+
+  <span style="color:purple"> $R \cap B$</span>
+</div>
+</div>
+
+---
+layout: two-cols-header
+---
+
+# תכונות חיתוך יחסים על קבוצה $A$
+
+-  אם $\mathcal{S}$ קבוצה לא ריקה של יחסים על קבוצה $A$. (כלומר לכל $S \in \mathcal{S}$, $S \subseteq A \times A$ יחס על הקבוצה $A$.)
+
+  - החיתוך האונרי של $\mathcal{S}$ הוא יחס על $A$, כלומר $\bigcap \mathcal{S} \subseteq A \times A$.
+
+::left::
+
+  - **רפלקסיביות**:
+    - אם כל $S \in \mathcal{S}$  רפלקסיבי על $A$, גם $\bigcap \mathcal{S}$ רפלקסיבי על $A$.
+    - אם $T = \bigcap \mathcal{S}$  רפלקסיבי על $A$, גם כל $S \in \mathcal{S}$  רפלקסיבי על $A$.
+
+  - **שלמות**:
+    - אם $T$ יחס שלם על $A$, אז גם כל $S \in \mathcal{S}$ יחס שלם על $A$. 
+    - אם יש ב-$\mathcal{S}$ שני יחסים אנטי-סימטרים שונים, אז $\bigcap \mathcal{S}$ אינו שלם.
+
+
+- **טרנזיטיביות**:
+    - אם כל $S \in \mathcal{S}$ יחס טרנזיטיבי, אז גם $\bigcap \mathcal{S}$ טרנזיטיבי.
+
+::right::
+
+- **אנטי-סימטריות**:
+  - אם יש $S \in \mathcal{S}$ שהוא אנטי-סימטרי, אז גם $\bigcap \mathcal{S}$ אנטי-סימטרי. 
+  - אם יש ב־$\mathcal{S}$ שני יחסים אנטי-סימטריים שונים, אז $\bigcap \mathcal{S}$ אינו שלם.
+
+- **סימטריות**:
+  - אם כל $S \in \mathcal{S}$ יחס סימטרי, אז גם $\bigcap \mathcal{S}$ סימטרי.
+
+
+
+
+
+<style>
+.two-cols-header {
+  column-gap: 40px; /* Adjust the gap size as needed */
+  /* Optional: add some padding for better readability */
+  padding: 30px 40px 30px 20px;
+}
+.two-cols-header li strong {
+  color: #2563eb;
+}
+.two-cols-header h2 {
+  margin-top: 3rem;
+}
+.two-cols-header h2:first-of-type {
+  margin-top: 0;
+}
+</style>
+
+---
+
+# הוכחה לדוגמה: טרנזיטיביות של החיתוך
+
+טענה. תהי $\mathcal{S}\neq\varnothing$ קבוצה של יחסים על $A$ כך שכל $R\in\mathcal{S}$ טרנזיטיבי. נסמן $T=\bigcap\mathcal{S}$. אז $T$ טרנזיטיבי.
+
+הוכחה.
+- נניח $a,b,c\in A$ ו־$\langle a,b\rangle,\langle b,c\rangle\in T$.
+
+- לפי הגדרת החיתוך: לכל $R\in\mathcal{S}$ מתקיים $\langle a,b\rangle,\langle b,c\rangle\in R$.
+- מאחר שכל $R\in\mathcal{S}$ טרנזיטיבי, נובע שלכל $R\in\mathcal{S}$ גם $\langle a,c\rangle\in R$.
+- לכן לפי הגדרת החיתוך $\langle a,c\rangle\in\bigcap\mathcal{S}=T$.
+- מסקנה: $T$ טרנזיטיבי. ∎
+
+
+
+<div class="absolute top-2.7/5 left-0/11" style="scale:.8;">
+<GraphCytoscape 
+  :nodes=" [
+    { id: 'A', x: 100, y: 100, label: 'a' },
+    { id: 'B', x: 300, y: 100, label: 'b' },
+    { id: 'C', x: 200, y: 250, label: 'c' }
+  ]"
+  :edges=" [
+    { source: 'A', target: 'B', color: 'red' },
+    { source: 'B', target: 'C', color: 'red' },
+    { source: 'A', target: 'C', color: 'red' },
+    { source: 'C', target: 'C', color: 'red' }
+  ]"/>
+<div style="text-align: center; margin-top: -2rem;">
+  <span style="color:red">
+
+  $$R_1$$
+  </span>
+</div>
+</div>
+
+<div class="absolute top-2.7/5 left-2/11" style="scale:.8;">
+<GraphCytoscape 
+  :nodes=" [
+    { id: 'A', x: 100, y: 100, label: 'a' },
+    { id: 'B', x: 300, y: 100, label: 'b' },
+    { id: 'C', x: 200, y: 250, label: 'c' }
+  ]"
+  :edges=" [
+    { source: 'A', target: 'B', color: 'blue' },
+    { source: 'B', target: 'C', color: 'blue' },
+    { source: 'C', target: 'B', color: 'blue' },
+    { source: 'A', target: 'C', color: 'blue' },
+    { source: 'B', target: 'B', color: 'blue', loopDirection: '90deg' }    
+  ]"/>
+<div style="text-align: center; margin-top: -2rem;">
+  <span style="color:blue">
+  
+$$R_2$$  
+  </span>
+</div>
+</div>
+
+<div class="absolute top-2.7/5 left-4/11" style="scale:.8;">
+<GraphCytoscape 
+  :nodes=" [
+    { id: 'A', x: 100, y: 100, label: 'a' },
+    { id: 'B', x: 300, y: 100, label: 'b' },
+    { id: 'C', x: 200, y: 250, label: 'c' }
+  ]"
+  :edges=" [
+    { source: 'A', target: 'B', color: 'purple' },
+    { source: 'A', target: 'C', color: 'purple' },
+    { source: 'B', target: 'C', color: 'purple' }
+  ]"/>
+<div style="text-align: center; margin-top: -2rem;">
+  <span style="color:purple">
+  
+$$R_1 \cap R_2$$
+  </span>
+</div>
+</div>
+
+
+
+---
+
+# הוכחה — חוסר שלמות כשהיו שני אנטי-סימטרים שונים ב־$\mathcal{S}$
+- הנחה: יש ב־$\mathcal{S}$ שני יחסים אנטי-סימטריים שונים, נסמנם $R$ ו-$S$.
+- נניח בדרך השלילה ש־$T=\bigcap\mathcal{S}$ שלם על $A$.
+- אז לכל $x\in A$ יש $\langle x,x\rangle\in T$ (ולכן גם ב־$R\cap S$).
+- מאחר ש־$R\neq S$ קיים זוג $\langle x,y\rangle$ שבו הם נבדלים; נניח $\langle x,y\rangle\in R$ ו־$\langle x,y\rangle\notin S$.
+- אם $x=y$ אז היינו מקבלים $\langle x,x\rangle\notin S$, בסתירה לעיל, לכן $x\neq y$.
+- מאנטי-סימטריות של $R$ נובע ש־$\langle y,x\rangle\notin R$ (אחרת נקבל $x=y$).
+- לכן ב־$R\cap S$ חסרים גם $\langle x,y\rangle$ וגם $\langle y,x\rangle$.
+- מסקנה: $R\cap S$ אינו שלם, ולפיכך $T\subseteq R\cap S$ אינו שלם — סתירה.
+- לכן החיתוך אינו שלם.
+
+
+
 
 

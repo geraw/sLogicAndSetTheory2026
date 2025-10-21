@@ -924,8 +924,9 @@ $$R_1 \cap R_2$$
 
 ---
 
-# הוכחה — חוסר שלמות כשהיו שני אנטי-סימטרים שונים ב־$\mathcal{S}$
+# חוסר שלמות של החיתוך כשיש שני אנטי-סימטריים שונים
 - הנחה: יש ב־$\mathcal{S}$ שני יחסים אנטי-סימטריים שונים, נסמנם $R$ ו-$S$.
+
 - נניח בדרך השלילה ש־$T=\bigcap\mathcal{S}$ שלם על $A$.
 - אז לכל $x\in A$ יש $\langle x,x\rangle\in T$ (ולכן גם ב־$R\cap S$).
 - מאחר ש־$R\neq S$ קיים זוג $\langle x,y\rangle$ שבו הם נבדלים; נניח $\langle x,y\rangle\in R$ ו־$\langle x,y\rangle\notin S$.
@@ -934,6 +935,62 @@ $$R_1 \cap R_2$$
 - לכן ב־$R\cap S$ חסרים גם $\langle x,y\rangle$ וגם $\langle y,x\rangle$.
 - מסקנה: $R\cap S$ אינו שלם, ולפיכך $T\subseteq R\cap S$ אינו שלם — סתירה.
 - לכן החיתוך אינו שלם.
+
+
+<div class="absolute top-1/5 left-0/11" style="scale:.5;">
+<GraphCytoscape 
+  :nodes=" [
+    { id: 'u', x: 100, y: 120, label: 'u' },
+    { id: 'v', x: 300, y: 120, label: 'v' }
+  ]"
+  :edges=" [
+    { source: 'u', target: 'v', color: 'red', label: '' }
+  ]"/>
+
+<div style="text-align: center; margin-top: -4rem; scale: 2;">
+<span style="color:red">
+
+$$R$$
+</span>
+</div>
+
+
+</div>
+
+<div class="absolute top-2/5 left-0/11" style="scale:.5;">
+<GraphCytoscape 
+  :nodes=" [
+    { id: 'u', x: 100, y: 120, label: 'u' },
+    { id: 'v', x: 300, y: 120, label: 'v' }
+  ]"
+  :edges=" [
+    { source: 'v', target: 'u', color: 'blue', label: '' }
+  ]"/>
+
+
+<div style="text-align: center; margin-top: -4rem; scale: 2;">
+<span style="color:blue">
+
+$$S$$
+</span>
+</div>
+
+</div>
+
+<div class="absolute top-3/5 left-0/11" style="scale:.5;">
+<GraphCytoscape 
+  :nodes=" [
+    { id: 'u', x: 100, y: 120, label: 'u' },
+    { id: 'v', x: 300, y: 120, label: 'v' }
+  ]"
+  :edges=" []"/>
+<div style="text-align: center; margin-top: -4rem; scale: 2;">
+<span style="color:purple">
+
+$$R \cap S$$
+</span>
+</div>
+</div>
 
 
 

@@ -992,6 +992,89 @@ $$R \cap S$$
 </div>
 </div>
 
+---
+layout: two-cols-header
+---
+
+# סגירות של תכונות תחת איחוד של יחסים
+
+
+- אם $\mathcal{S}$ היא קבוצה של יחסים על קבוצה $A$, אז האיחוד האונרי $\bigcup\mathcal{S}$ הוא גם יחס על $A$.
+
+::left::
+
+- **איחוד שומר רפלקסיביות**:
+  - אם לכל $R\in\mathcal{S}$ וּלכל $x\in A$ מתקיים $\langle x,x\rangle\in R$, 
+
+  - אז לכל $x\in A$  מתקיים גם $\langle x,x\rangle\in\bigcup\mathcal{S}$.
+  
+
+- **איחוד שומר סימטריות**:
+
+  - נניח שכל $R\in\mathcal{S}$ סימטרי
+
+  - אם $\langle a,b\rangle\in\bigcup\mathcal{S}$
+  - אז קיים $R$ עם $\langle a,b\rangle\in R$; 
+  - בזכות הסימטריות של $R$ גם $\langle b,a\rangle\in R$
+  - לכן $\langle b,a\rangle\in\bigcup\mathcal{S}$.
+
+::right::
+
+**אנטי-סימטריות לא תמיד נשמרת**:
+  - קחו $R=\{\langle u,v\rangle\}$ ו-$S=\{\langle v,u\rangle\}$ באשר $u\neq v$.
+  - כל אחד אנטי-סימטרי, אך $R\cup S$ מכיל גם $\langle u,v\rangle$ וגם $\langle v,u\rangle$ עם $u\neq v$, ולכן אינו אנטי-סימטרי.
+
+- **טרנזיטיביות לא תמיד נשמרת**:
+  
+  - קחו $R=\{\langle a,b\rangle\}$ ו-$S=\{\langle b,c\rangle\}$. 
+  
+  - כל אחד טרנזיטיבי כי אין זוגות שניתן להרכיב
+  - אך $R\cup S$ מכיל $\langle a,b\rangle$ ו־$\langle b,c\rangle$ בלי $\langle a,c\rangle$, לכן אינו טרנזיטיבי.
+
+
+<div class="absolute top-2/3 right-2.3/10" style="display:flex; flex-direction:row; direction: ltr; gap:1rem; align-items:center; transform: scale(.4);">
+
+  <div>
+    <GraphCytoscape 
+      :nodes=" [
+        { id: 'a', x: 100, y: 100, label: 'a' },
+        { id: 'b', x: 300, y: 100, label: 'b' },
+        { id: 'c', x: 200, y: 250, label: 'c' }
+      ]"
+      :edges=" [
+        { source: 'a', target: 'b', color: 'red' }
+      ]"/>
+    <div style="text-align: center; margin-top: -0.5rem; scale: 2;"><span style="color:red">R</span></div>
+  </div>
+
+  <div>
+    <GraphCytoscape 
+      :nodes=" [
+        { id: 'a', x: 100, y: 100, label: 'a' },
+        { id: 'b', x: 300, y: 100, label: 'b' },
+        { id: 'c', x: 200, y: 250, label: 'c' }
+      ]"
+      :edges=" [
+        { source: 'b', target: 'c', color: 'blue' }
+      ]"/>
+    <div style="text-align: center; margin-top: -0.5rem; scale: 2;"><span style="color:blue">S</span></div>
+  </div>
+
+  <div>
+    <GraphCytoscape 
+      :nodes=" [
+        { id: 'a', x: 100, y: 100, label: 'a' },
+        { id: 'b', x: 300, y: 100, label: 'b' },
+        { id: 'c', x: 200, y: 250, label: 'c' }
+      ]"
+      :edges=" [
+        { source: 'a', target: 'b', color: 'purple' },
+        { source: 'b', target: 'c', color: 'purple' }
+      ]"/>
+    <div style="text-align: center; margin-top: -0.5rem; scale: 2;"><span style="color:purple">R ∪ S</span></div>
+  </div>
+</div>
+
 
 
 

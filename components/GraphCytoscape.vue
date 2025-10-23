@@ -36,6 +36,9 @@ const resizeObserver = ref<ResizeObserver | null>(null)
 const autoHeight = props.height === undefined
 const autoWidth = props.width === undefined
 
+// scale factor applied to visual sizes
+const SCALE = 0.8
+
 function getStyle() {
   return [
     {
@@ -46,10 +49,11 @@ function getStyle() {
         'color': '#111',
         'text-valign': 'center',
         'text-halign': 'center',
-        'font-size': 40,
+        // scaled node font and size
+        'font-size': Math.round(40 * SCALE),
         'text-margin-y': 0,
-        'width': 50,
-        'height': 50,
+        'width': Math.round(50 * SCALE),
+        'height': Math.round(50 * SCALE),
         'border-width': 2,
         'border-color': '#333',
       },
@@ -61,18 +65,20 @@ function getStyle() {
         'curve-style': 'bezier',
         'target-arrow-shape': 'triangle',
         'target-arrow-color': (ele) => ele.data('color') || props.arrowColor,
-        'width': 3,
-        'arrow-scale': 2,
+        // scaled edge width and arrow scale
+        'width': Math.max(1, Math.round(3 * SCALE)),
+        'arrow-scale': (ele) => Math.max(0.6, 2 * SCALE),
         'label': 'data(label)',
-        'font-size': 11,
+        'font-size': Math.round(11 * SCALE),
         'text-rotation': 'autorotate',
-        'text-margin-y': -6,
+        // slightly smaller vertical offset for labels
+        'text-margin-y': Math.round(-6 * SCALE),
         'text-background-color': '#fff',
         'text-background-opacity': 0.7,
         'text-background-padding': 1,
         'loop-direction': (ele) => ele.data('loopDirection') || props.loopDirection,
         'loop-sweep': props.loopSweep,
-        'control-point-distance': props.controlPointDistance,
+        'control-point-distance': Math.max(8, Math.round(props.controlPointDistance * SCALE)),
         'control-point-weight': 0.5,
       },
 
@@ -236,11 +242,9 @@ watch(() => [props.nodes, props.edges, props.loopDirection, props.controlPointDi
   <div
     ref="containerRef"
     :style="{
-      ...(autoWidth ? { minWidth: '300px' } : { width: typeof width === 'number' ? width + 'px' : width }),
-      ...(autoHeight ? { minHeight: '200px' } : { height: typeof height === 'number' ? height + 'px' : height }),
+      ...(autoWidth ? { minWidth: String(Math.round(300 * SCALE)) + 'px' } : { width: typeof width === 'number' ? width + 'px' : width }),
+      ...(autoHeight ? { minHeight: String(Math.round(200 * SCALE)) + 'px' } : { height: typeof height === 'number' ? height + 'px' : height }),
       // background: bg,     
-      // border: none,
-      //borderRadius: '8px',
     }"
   />
 </template>

@@ -6,3 +6,4 @@ node_modules
 components.d.ts
 .vite
 dist
+old_latex_file

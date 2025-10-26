@@ -382,7 +382,7 @@ const nodes2 = posets.map(p => ({
     :padding="0"
     edgeColor="#0c207cff"
     nodeStroke="#2e40c7ff"
-    nodeFill="#d4dbefff"
+    nodeFill="#adbde8ff"
     :strokeWidth="2"
     :nodeStrokeWidth="1"  
   />

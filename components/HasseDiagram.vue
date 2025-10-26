@@ -12,8 +12,18 @@
       <g>
         <g v-for="n in nodes" :key="n.id" :transform="`translate(${pos[n.id].x}, ${pos[n.id].y})`" style="cursor: pointer" @click="onNodeClick(n)">
           <slot name="node" :node="n" :level="levelOf[n.id]">
-            <ellipse :rx="nodeRadius * 1.5" :ry="nodeRadius" :fill="nodeFill" :stroke="nodeStroke" :stroke-width="2" />
-            <text text-anchor="middle" dominant-baseline="central" :font-size="fontSize" :dy="textDy">{{ n.label ?? n.id }}</text>
+            <foreignObject v-if="n.content" :x="-nodeRadius * 1.5" :y="-nodeRadius" :width="nodeRadius * 3" :height="nodeRadius * 2">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="position: relative; width: 100%; height: 100%;">
+                <svg style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;">
+                  <ellipse :cx="nodeRadius * 1.5" :cy="nodeRadius" :rx="nodeRadius * 1.5" :ry="nodeRadius" :fill="nodeFill" :stroke="nodeStroke" :stroke-width="2" />
+                </svg>
+                <div style="position: relative; display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; z-index: 1;">
+                  <component :is="n.content" />
+                </div>
+              </div>
+            </foreignObject>
+            <ellipse v-else :rx="nodeRadius * 1.5" :ry="nodeRadius" :fill="nodeFill" :stroke="nodeStroke" :stroke-width="2" />
+            <text v-if="!n.content" text-anchor="middle" dominant-baseline="central" :font-size="fontSize" :dy="textDy">{{ n.label ?? n.id }}</text>
           </slot>
         </g>
       </g>
@@ -37,7 +47,7 @@
 <script setup lang="ts">
 import { computed, watchEffect } from 'vue'
 
-type Node = { id: string; label?: string }
+type Node = { id: string; label?: string; content?: any }
 
 type Edge = [string, string] // lower -> higher (strict order)
 
@@ -91,19 +101,26 @@ function transitiveReduction(edges: Edge[], ids: string[]): Edge[] {
   // Build adjacency list
   const adj = new Map<string, Set<string>>()
   ids.forEach(id => adj.set(id, new Set()))
-  edges.forEach(([u, v]) => { if (idSet.value.has(u) && idSet.value.has(v)) adj.get(u)!.add(v) })
+  edges.forEach(([u, v]) => {
+    if (idSet.value.has(u) && idSet.value.has(v)) {
+      adj.get(u)?.add(v)
+    }
+  })
 
   // For each edge u->v, check if a path u->..->v exists with length>=2.
   const reduced: Edge[] = []
   for (const [u, v] of edges) {
     if (!idSet.value.has(u) || !idSet.value.has(v)) continue
     // BFS from u, skipping v on first step
-    const q: string[] = Array.from(adj.get(u)!).filter(x => x !== v)
+    const q: string[] = Array.from(adj.get(u) || []).filter(x => x !== v)
     const seen = new Set<string>([u])
     let reachable = false
     while (q.length && !reachable) {
       const x = q.shift()!
-      if (x === v) { reachable = true; break }
+      if (x === v) {
+        reachable = true
+        break
+      }
       if (seen.has(x)) continue
       seen.add(x)
       for (const y of adj.get(x) || []) q.push(y)
@@ -114,7 +131,13 @@ function transitiveReduction(edges: Edge[], ids: string[]): Edge[] {
 }
 
 const displayEdges = computed<Edge[]>(() => {
+  if (!props.relations || !Array.isArray(props.relations)) {
+    console.warn('[HasseDiagram] Invalid relations provided. Expected an array.')
+    return []
+  }
+
   const clean = props.relations
+    .filter(edge => Array.isArray(edge) && edge.length === 2) // Ensure each edge is a valid pair
     .filter(([u, v]) => u !== v && idSet.value.has(u) && idSet.value.has(v))
   // De-duplicate
   const uniqKey = (e: Edge) => e[0] + '→' + e[1]
@@ -165,7 +188,8 @@ const pos = computed<Record<string, {x:number,y:number}>>(() => {
     const startX = (svgWidth.value - rowWidth) / 2
     const y = svgHeight.value - props.padding - i * props.levelGap // bottom = level 0
     layer.nodes.forEach((n, j) => {
-      P[n.id] = { x: startX + j * props.nodeGap, y }
+      // Use manual position if provided, otherwise calculate automatically
+      P[n.id] = n.position || { x: startX + j * props.nodeGap, y }
     })
   })
   return P

@@ -17,6 +17,8 @@ download: true
 section: יחסי סדר
 ---
 
+
+
 # יחס סדר (סדר חלקי)
 
 - הגדרה: לכל קבוצה $A$, יחס $\le_R$ על $A$ נקרא יחס סדר (או סדר חלקי) אם הוא מקיים את שלוש התכונות הבאות:
@@ -58,7 +60,8 @@ section: יחסי סדר
 
 # כל יחסי הסדר החלקי על הקבוצה $\{1,2,3\}$
 <script setup>
-const generatePosets = () => {
+
+const generateAllPosets = () => {
   const elements = [1, 2, 3]
   const allRelations = []
   for (let i = 0; i < 512; i++) {
@@ -105,7 +108,7 @@ const generatePosets = () => {
   }
   return allRelations
 }
-const allPosets = generatePosets()
+const allPosets = generateAllPosets()
 </script>
 <div style="display: grid; grid-template-columns: repeat(7, 140px); gap: 0px; margin-top: -40px; margin-right: -60px;">
   <div v-for="(edges, index) in allPosets" :key="index">
@@ -192,7 +195,7 @@ for (const a of elems) for (const b of elems) if (subset(a,b)) relations.push([a
 # דיאגרמות הסדר החלקי לכל 19 היחסים על $\{1,2,3\}$
 
 <script setup>
-const generatePosets = () => {
+const generateAllPosets = () => {
   const elements = [1, 2, 3]
   const allRelations = []
   for (let i = 0; i < 512; i++) {
@@ -239,7 +242,8 @@ const generatePosets = () => {
   }
   return allRelations
 }
-const allPosets = generatePosets()
+const allPosets = generateAllPosets()
+console.log(allPosets)
 </script>
 
 <div style="display: grid; grid-template-columns: repeat(7, 140px); gap: 7px; margin-top: -40px; margin-right: -60px;">
@@ -260,6 +264,127 @@ const allPosets = generatePosets()
 
 ---
 
+# דיאגרמת הסה של יחסי הסדר החלקי על $\{1,2,3\}$ לפי סדר ההכלה
+
+<script setup>
+
+import { h } from 'vue';
+import HasseDiagram from './components/HasseDiagram.vue'; // Adjust the path as needed
+
+// Reuse the shared generator (renamed to generateAllPosets above).
+// Some setups scope <script setup> per slide; guard and provide a local
+// fallback generator so the slide still renders when the shared function
+// is not visible in this block.
+let allPosets = []
+if (typeof generateAllPosets === 'function') {
+  allPosets = generateAllPosets()
+} else {
+  // local fallback generator (produces edges as arrays of strings)
+  const elements = [1, 2, 3]
+  for (let i = 0; i < 512; i++) {
+    const relation = new Set()
+    for (let j = 0; j < 9; j++) {
+      if (i & (1 << j)) {
+        const a = Math.floor(j / 3) + 1
+        const b = (j % 3) + 1
+        relation.add(`${a}-${b}`)
+      }
+    }
+    // check reflexive
+    let reflexive = true
+    for (let e of elements) if (!relation.has(`${e}-${e}`)) reflexive = false
+    // antisymmetric
+    let antisymmetric = true
+    for (let a of elements) for (let b of elements) if (a !== b && relation.has(`${a}-${b}`) && relation.has(`${b}-${a}`)) antisymmetric = false
+    // transitive
+    let transitive = true
+    for (let a of elements) for (let b of elements) for (let c of elements)
+      if (relation.has(`${a}-${b}`) && relation.has(`${b}-${c}`) && !relation.has(`${a}-${c}`)) transitive = false
+
+    if (reflexive && antisymmetric && transitive) {
+      const edges = []
+      for (let a of elements) for (let b of elements) if (a !== b && relation.has(`${a}-${b}`)) edges.push([String(a), String(b)])
+      allPosets.push(edges)
+    }
+  }
+}
+
+// Debug: show only the count to avoid flooding the console
+console.log("---> allPosets length:", allPosets.length)
+
+// Build posets as objects with id and edges to feed the small Hasse renderers.
+const posets = allPosets.map((edges, idx) => ({ id: idx + 1, edges }))
+
+// Helper to test inclusion: are all pairs in a included in b?
+const isIncluded = (a = [], b = []) => {
+  const setB = new Set(b.map(p => p.join('|')))
+  return a.every(p => setB.has(p.join('|')))
+}
+
+// Connect poset i -> j if poset i is included in poset j (i != j).
+const hasseEdges = []
+for (let i = 0; i < posets.length; i++) {
+  for (let j = 0; j < posets.length; j++) {
+    if (i === j) continue
+    if (isIncluded(posets[i].edges, posets[j].edges)) {
+      hasseEdges.push({ source: i + 1, target: j + 1 })
+    }
+  }
+}
+
+
+const nodes1 = posets.map(p => ({
+  id: String(p.id),
+  content: {
+    render() {
+      return h(HasseDiagram, {
+        nodes: [
+          { id: '1', label: '1' },
+          { id: '2', label: '2' },
+          { id: '3', label: '3' }
+        ],
+        relations: p.edges,
+        nodeRadius: 3,
+        levelGap: 10,
+        nodeGap: 30,
+        padding: 10,
+        fontSize: 6,
+        edgeColor: '#08381dff',
+        nodeStroke: '#0c7e28ff',
+        nodeFill: '#d6dff3ff'
+      })
+    }
+  }
+}))
+
+const nodes2 = posets.map(p => ({
+  id: String(p.id),
+  label: `${p.id}`
+}))
+
+</script>
+
+<div style="display: flex; justify-content: center; align-items: center; margin-top: 20px;">
+  <HasseDiagram
+    :nodes="nodes1"
+    :relations="hasseEdges.map(e => ([
+      String(e.source),
+      String(e.target)
+    ]))"
+    :nodeRadius="30"
+    :levelGap="100"
+    :nodeGap="100"
+    :padding="0"
+    edgeColor="#667d63ff"
+    nodeStroke="#0c7e28ff"
+    nodeFill="white"
+    :strokeWidth="2"
+    :nodeStrokeWidth="1"  
+  />
+</div>
+
+---
+
 # היחס "מחלק" על $\mathbb{N}$
 
 - מספר שלם $a$ הוא מחלק (או גורם) של מספר שלם $b$ אם אפשר לכתוב את $b$ כמכפלה של $a$ במספר שלם $c$, כלומר אם קיים $c \in \mathbb{Z}$ עבורו $b = a c$. במקרה כזה, השארית בחלוקה של $b$ ב-$a$ היא 0.
@@ -268,7 +393,7 @@ const allPosets = generatePosets()
 
 - היחס "מחלק" על המספרים הטבעיים מוגדר כ: $\{\langle a,b \rangle \in \mathbb{N} \times \mathbb{N} \mid a \mid b\}$.
 
-- זהו יחס סדר חלקי על $\mathbb{N}$, שכן הוא רפלקסיבי, אנטי-סימטרי וטרנזיטיבי.
+- זהו יחס סדר חלקי על $\mathbb{N}$, שכן הוא רפלקטיבי, אנטי-סימטרי וטרנזיטיבי.
   
 - הוא גם יחס סדר חלקי על כל תת-קבוצה של $\mathbb{N}$,
   - לדוגמה על קבוצת המחלקים של מספר טבעי נתון:
@@ -476,3 +601,176 @@ section: מושגים
   - ייתכן שלא יהיה מינימום או מקסימום כלל.
     - דוגמא: ב-$(\mathbb{R}, \leq)$ אין מינימום ואין מקסימום.
     - ב-$(\mathbb{N}, \leq)$ יש מינימום (המספר 0) ואין מקסימום.
+
+---
+
+# עוקב מיידי לפי סדר קווי הוא יחיד כשהוא קיים
+
+- ביחס סדר קווי, לכל איבר (מלבד המקסימלי) יש עוקב מיידי יחיד.
+
+- **תזכורת**: איבר $b$ הוא **עוקב מיידי** של $a$ אם $a \le_R b$ ואין $c$ שונה משניהם כך ש-$a \le_R c \le_R b$.
+
+- הוכחה:
+  - נניח שיש איבר $x$ שהוא עוקב מיידי של $y$
+  - נניח בשלילה שקיים $x' \neq x$ שגם הוא עוקב מיידי של $y$.
+  - מכיוון שמדובר בסדר קווי כל שני איברים ניתנים להשוואה
+  - לכן, או ש-$x \leq x'$ או ש-$x' \leq x$.
+    - אם $x \leq x'$ אז $y \leq x \leq x'$,
+      סתירה לכך ש-$x'$ הוא עוקב מיידי של $y$.
+
+    - אם $x' \leq x$ אז $y \leq x' \leq x$,
+      סתירה לכך ש-$x$ הוא עוקב מיידי של $y$.
+
+    - קיבלנו סתירה בשני המקרים.
+  - לפיכך, אם יש עוקב מיידי, הוא יחיד
+
+<div style="position: absolute; bottom: 100px; left: 50px;">
+<img src="/images/עוקב מידי יחיד.png" alt="Exercise Icon" style="width:200pt; height:200pt;" />
+</div>
+
+
+--- 
+
+# סדר בין יחסי סדר
+
+
+
+
+
+---
+
+# יחס סדר חלקי מקסימלי (תחת הכלה) הוא סדר קווי 
+
+- נניח בשלילה ש-$R$  מקסימלי ואינו קווי: קיימים $a,b \in A$ כך שאין $a≤_R b$ וגם אין $b \leq_R a$.
+
+- נבנה יחס $R'$ :    
+     $$
+     R' \;=\; R \;\cup\; \{\langle x,y\rangle\in A\times A \mid x\le_R a \text{ ו- } b\le_R y\}.
+     $$
+
+<v-switch>
+
+
+<template #1>
+
+  - נראה ש-$R'$ טרנזיטיבי : 
+    - ניקח שני זוגות $\langle x,y\rangle,\langle y,z\rangle\in R'$.
+
+<div style="display: flex; justify-content: space-between; gap: 16px; font-size: 10px; margin-top: 16px;">
+
+<div style="flex: 1; border: 1px solid #ccc; padding: 8px; border-radius: 4px;">
+
+<b>מקרה 1:</b> אם שניהם ב-$R$:
+- לפי טרנזיטיביות של $R$, גם $\langle x,z\rangle\in R$.
+- מכיוון ש-$R \subseteq R'$, נובע ש-$\langle x,z\rangle\in R'$.
+</div>
+
+<div style="flex: 1; border: 1px solid #ccc; padding: 8px; border-radius: 4px;">
+
+<b>מקרה 2:</b> אם $\langle x,y\rangle \notin R$ ו-$\langle y,z\rangle\in R$:
+- מהגדרת $R'$, מתקיים $x\le_R a$ ו-$b\le_R y$.
+- מטרנזיטיביות של $R$, נובע ש-$b\le_R z$.
+- לפי ההגדרה של $R'$, גם $\langle x,z\rangle\in R'$.
+</div>
+
+<div style="flex: 1; border: 1px solid #ccc; padding: 8px; border-radius: 4px;">
+
+<b>מקרה 3:</b> אם $\langle x,y\rangle \in R$ ו-$\langle y,z\rangle\notin R$:
+- מהגדרת $R'$, מתקיים $y\le_R a$ ו-$b\le_R z$.
+- מטרנזיטיביות של $R$, נובע ש-$x\le_R a$.
+- לפי ההגדרה של $R'$, גם $\langle x,z\rangle\in R'$.
+</div>
+
+<div style="flex: 1; border: 1px solid #ccc; padding: 8px; border-radius: 4px;">
+
+<b>מקרה 4:</b> אם אף אחד מהם אינו ב-$R$:
+- מהגדרת $R'$, מתקיים $x\le_R a$, $b\le_R y$, $y\le_R a$, ו-$b\le_R z$.
+- לפי ההגדרה של $R'$, גם $\langle x,z\rangle\in R'$.
+</div>
+
+</div>
+
+
+- <b>מסקנה:</b> בכל המקרים, $\langle x,z\rangle\in R'$, ולכן $R'$ טרנזיטיבי.
+
+</template>
+
+<template #2>
+
+- נראה ש-$R'$ אנטי-סימטרי:
+    - ניקח שני זוגות $\langle x,y\rangle,\langle y,x\rangle\in R'$ ונוכיח ש-$x = y$.
+
+<div style="display: flex; justify-content: space-between; gap: 16px;  margin-top: 16px; font-size: 11px; flex-wrap: wrap;">
+
+<div style="flex: 1; border: 1px solid #ccc; padding: 8px; border-radius: 4px;">
+
+<b>מקרה 1:</b> אם $\langle x,y\rangle \in R$ וגם $\langle y,x\rangle \in R$:
+- לפי אנטי-סימטריות של $R$, נובע ש-$x = y$.
+</div>
+
+<div style="flex: 1; border: 1px solid #ccc; padding: 8px; border-radius: 4px;">
+
+<b>מקרה 2:</b> אם $\langle x,y\rangle \notin R$ אבל $\langle y,x\rangle \in R$:
+- לפי ההגדרה של $R'$, נובע ש-$x \le_R a$ ו-$b \le_R y$.
+-  מטרנזיטיביות של $R$, $y \le_R a$ ו-$b \le_R x$.
+-  מטרנזיטיביות של $R$, נובע ש-$b \le_R y \le_R x \le_R a$ 
+-  בסתירה להנחה ש-$a$ ו-$b$ אינם ניתנים להשוואה.
+</div>
+
+<div style="flex: 1; border: 1px solid #ccc; padding: 8px; border-radius: 4px;">
+
+<b>מקרה 3:</b> אם $\langle x,y\rangle \in R$ אבל $\langle y,x\rangle \notin R$:
+- לפי ההגדרה של $R'$, נובע ש-$y \le_R a$ ו-$b \le_R x$.
+- מטרנזיטיביות של $R$, $x \le_R a$ ו-$b \le_R y$.
+- מטרנזיטיביות של $R$, נובע ש-$b \le_R x \le_R y \le_R a$
+- בסתירה להנחה ש-$a$ ו-$b$ אינם ניתנים להשוואה.
+</div>
+
+</div>
+
+<div style="margin-top: 16px;">
+
+<b>מסקנה:</b> בכל המקרים, אם $\langle x,y\rangle \in R'$ וגם $\langle y,x\rangle \in R'`, אז $x = y$, ולכן $R'$ אנטי-סימטרי.
+</div>
+
+</template>
+
+
+<template #3>
+
+  - הראינו ש-$R'$ טרנזיטיבי ואנטי-סימטרי.
+
+  - ברור ש-$R'$ רפלקסיבי (כי $R$ רפלקסיבי).
+
+
+  - **מסקנה**: יחס $R'$ הוא יחס סדר חלקי.
+  - יחס $R'$ מכיל את $R$ (כי כל זוג ב-$R$ נמצא גם ב-$R'$).
+  - היחס $R'$ גדול ממש מ-$R$ בסדר ההכלה כי $\langle a,b \rangle \in R'$ אבל $\langle a,b \rangle \notin R$ (לפי ההנחה שלנו).
+  - לכן, $R$ אינו יחס סדר חלקי מקסימלי - בסתירה להנחה.
+
+</template>
+
+</v-switch>
+
+---
+
+# יחס סדר קווי הוא מקסימלי לפי יחס ההכלה
+
+- נניח בשלילה ש-$R$ הוא יחס סדר קווי אך אינו מקסימלי לפי יחס ההכלה.
+  
+- כלומר, קיים יחס $R'$ כך ש-$R \subset R'$ ו-$R'$ הוא יחס סדר חלקי.
+
+- מכיוון ש-$R'$ הוא יחס סדר חלקי, הוא מקיים רפלקסיביות, אנטי-סימטריות וטרנזיטיביות.
+
+- נבחן זוג $\langle a,b \rangle \in R' \setminus R$:
+  - אם $a \le_R b$, אז $\langle a,b \rangle \in R$, בסתירה לכך ש-$\langle a,b \rangle \notin R$.
+  - אם $b \le_R a$, אז $\langle b,a \rangle \in R$, בסתירה לאנטי-סימטריות של $R'$.
+  - אם $a$ ו-$b$ אינם ניתנים להשוואה ב-$R$, אז $R$ אינו יחס סדר קווי, בסתירה להנחה.
+
+- **מסקנה**: לא ייתכן ש-$R$ אינו מקסימלי לפי יחס ההכלה.
+
+<div style="margin-top: 16px;">
+
+<b>מסקנה משולבת של שני השקפים האחרונים:</b> יחס סדר הוא קווי אם ורק אם הוא הוא מקסימלי לפי יחס ההכלה.
+</div>
+

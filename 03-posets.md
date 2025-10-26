@@ -309,8 +309,6 @@ if (typeof generateAllPosets === 'function') {
   }
 }
 
-// Debug: show only the count to avoid flooding the console
-console.log("---> allPosets length:", allPosets.length)
 
 // Build posets as objects with id and edges to feed the small Hasse renderers.
 const posets = allPosets.map((edges, idx) => ({ id: idx + 1, edges }))
@@ -344,14 +342,16 @@ const nodes1 = posets.map(p => ({
           { id: '3', label: '3' }
         ],
         relations: p.edges,
-        nodeRadius: 3,
-        levelGap: 10,
+        nodeRadius: 6,
+        levelGap: 20,
         nodeGap: 30,
-        padding: 10,
-        fontSize: 6,
-        edgeColor: '#08381dff',
-        nodeStroke: '#0c7e28ff',
-        nodeFill: '#d6dff3ff'
+        padding: 0,
+        fontSize: 10,
+        edgeColor:"#08381dff",
+        nodeStroke:"#0c7e28ff",
+        nodeFill:"#bce8beff",
+         nodeStrokeWidth: "1",
+        strokeWidth: "2",
       })
     }
   }
@@ -364,6 +364,11 @@ const nodes2 = posets.map(p => ({
 
 </script>
 
+<br>
+
+
+
+
 <div style="display: flex; justify-content: center; align-items: center; margin-top: 20px;">
   <HasseDiagram
     :nodes="nodes1"
@@ -375,9 +380,9 @@ const nodes2 = posets.map(p => ({
     :levelGap="100"
     :nodeGap="100"
     :padding="0"
-    edgeColor="#667d63ff"
-    nodeStroke="#0c7e28ff"
-    nodeFill="white"
+    edgeColor="#0c207cff"
+    nodeStroke="#2e40c7ff"
+    nodeFill="#d4dbefff"
     :strokeWidth="2"
     :nodeStrokeWidth="1"  
   />

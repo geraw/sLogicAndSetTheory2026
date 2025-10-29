@@ -427,7 +427,7 @@ layout: two-cols-header
   <br>
 
   - כדי להוכיח $\alpha \to \beta$, ניתן למצוא טענת ביניים $\gamma$ <br>
-    ולהוכיח $\alpha \to \gamma$ וגם $\gamma \to $\beta$.
+    ולהוכיח $\alpha \to \gamma$ וגם $\gamma \to \beta$.
 
 <style>
 .two-cols-header {

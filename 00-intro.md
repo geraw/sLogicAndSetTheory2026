@@ -584,7 +584,7 @@ $p \uparrow q := \neg(p\wedge q)$.
   - הוכחה בשקף הבא: נבנה את כל 16 הטבלאות האפשריות בעזרת NAND בלבד.
 
 
-<img src="/images/חלוקה למקרים.png" class="absolute top-100 right-90  h-50 w-80" />
+<img src="/images/חלוקה למקרים.png" class="absolute top-100 right-100  h-50 w-60" />
 
 
 ---

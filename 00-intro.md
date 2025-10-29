@@ -471,6 +471,42 @@ layout: two-cols-header
 <img src="/images/הוכחת גרירה.png" class="absolute top-40 right-180 w-100 h-100 opacity-80" />  
 
 
+
+
+---
+
+# הוכחה בדרך השלילה
+
+טכניקת הוכחה חשובה היא **הוכחה בדרך השלילה**. כדי להוכיח טענה $\alpha$, אנו מניחים את שלילתה ($\neg\alpha$) ומוכיחים שהנחה זו מובילה לסתירה.
+
+<img class="absolute top-1.2/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-100 h-80" src="/images/הוכחה בשלילה.png" />
+
+
+
+---
+
+# עוד דוגמה להוכחה בשלילה
+
+**משפט:** אין מספר רציונלי $r$ כך ש-$r^2=2$. כלומר, לכל מספר רציונלי $r$, $r^2 \neq 2$.
+
+**הוכחה:**
+- **הנחת השלילה:** נניח שיש מספר רציונלי $r$ כך ש-$r^2=2$.
+- נכתוב את $r$ כשבר מצומצם: $r = \frac{p}{q}$, כאשר $p, q$ הם מספרים שלמים ללא גורם משותף גדול מ-1 (ונניח $p,q \ge 1$).
+- מהנחת השלילה: $(\frac{p}{q})^2 = 2$, כלומר $\frac{p^2}{q^2} = 2$, ולכן $p^2 = 2q^2$.
+- משוואה זו מראה כי $p^2$ הוא מספר זוגי.
+- אם ריבוע של מספר הוא זוגי, גם המספר עצמו חייב להיות זוגי (כי ריבוע של אי-זוגי הוא אי-זוגי). לכן, $p$ הוא מספר זוגי.
+- נכתוב $p=2k$ עבור מספר שלם $k$.
+- נציב זאת במשוואה: $(2k)^2 = 2q^2$, כלומר $4k^2 = 2q^2$, אשר מפושט ל-$2k^2 = q^2$.
+- משוואה זו מראה כי $q^2$ הוא מספר זוגי, ולכן גם $q$ הוא מספר זוגי.
+- קיבלנו שגם $p$ וגם $q$ הם מספרים זוגיים, כלומר שניהם מתחלקים ב-2.
+- זוהי **סתירה** להנחה שהשבר $\frac{p}{q}$ הוא מצומצם.
+- לכן, הנחת השלילה שגויה, והמשפט המקורי נכון.
+
+<img class="absolute top-1.2/2 right-3/4 w-60 h-50" src="/images/sqrt_2.png" />
+
+
+
+
 ---
 layout: two-cols-header
 class: text-lg
@@ -507,4 +543,91 @@ class: text-lg
 
 **סיכום:** הוכחת קוניונקציה מתבצעת על‑ידי הוכחת כל רכיב בנפרד ולאחר מכן חיבורם.
 
-<img src="/images/הוכחת קוניוקציה.png" class="absolute top-40 left-10 w-100 h-60" />
+<img src="/images/הוכחת קוניוקציה.png" class="absolute top-40 left-10  h-70" />
+
+---
+
+# הוכחת טענות מהצורה $\forall x(\alpha)$
+
+להוכחת טענות מהצורה $\forall x(\alpha)$, עלינו להראות שלא משנה איזה ערך נציב במשתנה $x$, הטענה $\alpha$ תהיה אמיתית עבור ערך זה.
+
+לשם כך מתחילים את ההוכחה עם משתנה $x$ כללי, עליו לא מניחים הנחות מוקדמות, ומוכיחים את נכונותה של $\alpha$.
+
+**דוגמה:**  
+נוכיח: לכל מספר טבעי $n$, אם הוא מתחלק ב-4, אז הוא מתחלק גם ב-2.
+
+הוכחה (בניקוד נקודות):
+- יהי $n$ מספר טבעי כלשהו (הצגת משתנה כללי).
+
+- יש להראות: אם $n$ מתחלק ב-4 אז $n$ מתחלק ב-2.
+- נניח כי $n$ מתחלק ב-4, כלומר קיימת $k\in\mathbb{N}$ כך ש-$n=4k$.
+- מכיוון ש-$n=4k=2(2k)$, ניתן לכתוב $n$ כמכפלה של 2 במספר הטבעי $2k$.
+- לכן $n$ מתחלק ב-2 כנדרש.
+
+<img src="/images/בחירת איבר כללי.png" class="absolute top-70 left-15  h-70" />
+
+
+---
+
+# הוכחה באמצעות חלוקה למקרים
+
+- כאשר הטענה שאנו רוצים להוכיח תלויה בתנאים שניתן למנות, אפשר לחלק את ההוכחה למקרים נפרדים.
+
+- דוגמה
+
+  - נגדיר קשר לוגי חדש, הנקרא NAND (Not AND): 
+$p \uparrow q := \neg(p\wedge q)$.
+
+  - משפט: כל טענה לוגית המורכבת משני משתנים בוליאניים $p$ ו-$q$ יכולה להיות מיוצגת באמצעות ביטוי המכיל רק את האופרטור NAND ($\uparrow$).
+
+
+  - הוכחה בשקף הבא: נבנה את כל 16 הטבלאות האפשריות בעזרת NAND בלבד.
+
+
+<img src="/images/חלוקה למקרים.png" class="absolute top-100 right-90  h-50 w-80" />
+
+
+---
+
+
+#  כל 16 הטענות האפשריות ממומשות באמצעות NAND בלבד
+
+
+<div class="absolute top-50 right-3">
+<div style="display: flex; justify-content: center; margin-top: -10px;">
+<div class="truth-table" style="font-size:1.1rem;">
+
+| $p$ | $q$ | F1  | F2  | F3  | F4  | F5  | F6  | F7  | F8  | F9  | F10 | F11 | F12 | F13 | F14 | F15 | F16 |
+|:--: |:--: |:--: |:--: |:--: |:--: |:--: |:--: |:--: |:--: |:--: |:--: |:--:|:--:|:--:|:--:|:--:|:--:|
+| $T$ | $T$ | $T$ | $T$ | $T$ | $T$ | $T$ | $T$ | $T$ | $T$ | $F$ | $F$ | $F$ | $F$ | $F$ | $F$ | $F$ | $F$ |
+| $T$ | $F$ | $T$ | $T$ | $T$ | $T$ | $F$ | $F$ | $F$ | $F$ | $T$ | $T$ | $T$ | $T$ | $F$ | $F$ | $F$ | $F$ |
+| $F$ | $T$ | $T$ | $T$ | $F$ | $F$ | $T$ | $T$ | $F$ | $F$ | $T$ | $T$ | $F$ | $F$ | $T$ | $F$ | $F$ | $F$ |
+| $F$ | $F$ | $T$ | $F$ | $T$ | $F$ | $T$ | $F$ | $T$ | $F$ | $F$ | $F$ | $T$ | $F$ | $T$ | $T$ | $F$ | $F$ |
+
+</div>
+</div>
+</div>
+
+
+  <div style="direction:ltr; text-align:left; font-size:1rem;">
+
+  - <span style="direction:ltr; display:inline-block; min-width:3em;">F1:</span> $p\uparrow(p\uparrow p)$
+  - <span style="direction:ltr; display:inline-block; min-width:3em;">F2:</span> $(p\uparrow p)\uparrow(q\uparrow q)$
+  - <span style="direction:ltr; display:inline-block; min-width:3em;">F3:</span> $q\uparrow(p\uparrow p)$
+  - <span style="direction:ltr; display:inline-block; min-width:3em;">F4:</span> $(p\uparrow p)\uparrow(p\uparrow p)$
+  - <span style="direction:ltr; display:inline-block; min-width:3em;">F5:</span> $p\uparrow(q\uparrow q)$
+  - <span style="direction:ltr; display:inline-block; min-width:3em;">F6:</span> $(q\uparrow q)\uparrow(q\uparrow q)$
+  - <span style="direction:ltr; display:inline-block; min-width:3em;">F7:</span> $(p\uparrow q)\uparrow\big((p\uparrow p)\uparrow(q\uparrow q)\big)$
+  - <span style="direction:ltr; display:inline-block; min-width:3em;">F8:</span> $(p\uparrow q)\uparrow(p\uparrow q)$
+  - <span style="direction:ltr; display:inline-block; min-width:3em;">F9:</span> $p\uparrow q$
+  - <span style="direction:ltr; display:inline-block; min-width:3em;">F10:</span> $((p\uparrow q)\uparrow p)\uparrow((p\uparrow q)\uparrow q)$
+  - <span style="direction:ltr; display:inline-block; min-width:3em;">F11:</span> $q\uparrow q$
+  - <span style="direction:ltr; display:inline-block; min-width:3em;">F12:</span> $(p\uparrow(q\uparrow q))\uparrow(p\uparrow(q\uparrow q))$
+  - <span style="direction:ltr; display:inline-block; min-width:3em;">F13:</span> $p\uparrow p$
+  - <span style="direction:ltr; display:inline-block; min-width:3em;">F14:</span> $((p\uparrow p)\uparrow q)\uparrow((p\uparrow p)\uparrow q)$
+  - <span style="direction:ltr; display:inline-block; min-width:3em;">F15:</span> $((p\uparrow p)\uparrow(q\uparrow q))\uparrow((p\uparrow p)\uparrow(q\uparrow q))$
+  - <span style="direction:ltr; display:inline-block; min-width:3em;">F16:</span> $((p\uparrow p)\uparrow p)\uparrow((p\uparrow p)\uparrow p)$
+
+  </div>
+
+

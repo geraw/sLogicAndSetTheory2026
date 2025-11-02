@@ -375,7 +375,7 @@ section: תרגילים פתורים
 
 ---
 
-# הוכיחו: $\{\emptyset\} \neq \{\!\{\emptyemptyset\}\!\}$
+# הוכיחו: $\{\emptyset\} \neq \{\{\emptyset\}\}$
 
 ## הוכחה א' (בדרך השלילה):
 - נניח בשלילה ש- $\{\emptyset\} = \{\!\{\emptyset\}\!\}$.

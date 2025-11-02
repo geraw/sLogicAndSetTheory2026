@@ -153,9 +153,12 @@ $$ A=B \iff \forall x (x \in A \leftrightarrow x \in B) $$
 - **אי-שוויון קבוצות:**
   - שתי קבוצות $A$ ו-$B$ שונות אם קיים איבר שנמצא באחת מהן אך לא בשנייה.
   - **הגדרה פורמלית (שלילת אקסיומת ההיקפיות):**
-    $$ A \neq B \iff \exists x ((x \in A \land x \notin B) \lor (x \notin A \land x \in B)) $$
+    <div class="formula-box">
 
-<!-- - **הערה על ניסוח:** -->
+    $$ A \neq B \iff \exists x ((x \in A \land x \notin B) \lor (x \notin A \land x \in B)) $$
+    </div>
+
+
 - **הערה חשובה:** במתמטיקה, הביטוי "לכל שתי קבוצות" אינו מחייב שהקבוצות שונות זו מזו.
 - למשל, באקסיומת ההיקפיות, $A$ ו-$B$ יכולות להיות אותה קבוצה.
 
@@ -177,7 +180,6 @@ $$ A=B \iff \forall x (x \in A \leftrightarrow x \in B) $$
   - $S$ מוכלת ב-$T$
   - $S$ חלקית ל-$T$
   - $S$ תת-קבוצה של $T$
-  - $T$ מקיפה את $S$
 
 - **הערה על מינוח:**
   - לעיתים משתמשים בביטוי "$T$ מכילה את $S$" כדי לציין $S \subseteq T$.
@@ -190,7 +192,11 @@ $$ A=B \iff \forall x (x \in A \leftrightarrow x \in B) $$
 # שלילת יחס ההכלה
 
 - **הגדרה:** $A$ אינה מוכלת ב-$B$, ונסמן $A \not\subseteq B$, אם קיים איבר ב-$A$ שאינו נמצא ב-$B$.
+
+  <div class="formula-box">
+
   $$ A \not\subseteq B \iff \exists x (x \in A \land x \notin B) $$
+  </div>
 
 - **פיתוח מההגדרה:**
   - $A \not\subseteq B$ היא שלילה של $A \subseteq B$, כלומר $\neg(\forall x (x \in A \to x \in B))$.
@@ -208,7 +214,10 @@ $$ A=B \iff \forall x (x \in A \leftrightarrow x \in B) $$
 # טרנזיטיביות ההכלה
 
 - **הטענה:** לכל שלוש קבוצות $A, B, C$, אם $A \subseteq B$ וגם $B \subseteq C$, אז $A \subseteq C$.
+  <div class="formula-box">
+
   $$ (A \subseteq B \land B \subseteq C) \to A \subseteq C $$
+  </div>
 
 - **הוכחה:**
   

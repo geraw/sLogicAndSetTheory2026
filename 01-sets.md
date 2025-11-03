@@ -521,7 +521,7 @@ section: תרגילים פתורים
 
 ---
 
-# הוכיחו: $\{\emptyset\} \subseteq \{\emptyset, \{\emptyset\}\}$
+# הוכיחו: $\{\emptyset\} \subsetneq \{\emptyset, \{\emptyset\}\}$
 
 <br>
 

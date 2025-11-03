@@ -33,65 +33,46 @@ layout: two-cols-header
   - קבוצה יכולה להכיל איברים מטיפוסים שונים, וגם קבוצות אחרות.
 
 - **שייכות וסימונים:**
-- סימונים מקובלים:
+  - $a \in A$: האיבר $a$ שייך לקבוצה $A$.
+  - $b \notin A$: האיבר $b$ אינו שייך לקבוצה $A$.
 
-<div class="num-sets-table" dir="rtl">
-  <table class="rtl-table">
-    <thead>
-      <tr>
-        <th>תיאור הקבוצה</th>
-        <th>סימון מקוצר</th>
-        <th>סימון מפורט</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>קבוצת המספרים הטבעיים</td>
-        <td>$\mathbb{N}$</td>
-        <td>$\{0,1,2,3,\ldots\}$</td>
-      </tr>
-      <tr>
-        <td>קבוצת המספרים השלמים</td>
-        <td>$\mathbb{Z}$</td>
-        <td>$\{\ldots,-2,-1,0,1,2,3,\ldots\}$</td>
-      </tr>
-      <tr>
-        <td>קבוצת המספרים הרציונליים</td>
-        <td>$\mathbb{Q}$</td>
-        <td>$\{ \\tfrac{m}{n} \mid n \neq 0,\ m\in\mathbb{Z},\ n\in\mathbb{Z} \}$</td>
-      </tr>
-      <tr>
-        <td>קבוצת המספרים הממשיים</td>
-        <td>$\mathbb{R}$</td>
-        <td>—</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+
+::right::
+
+- **הנחת יסוד:** הביטוי $x \in A$ הוא בעל משמעות רק אם $A$ היא קבוצה. מכאן ואילך, כשנכתוב $a \in A$, נניח תמיד ש-$A$ היא קבוצה.
+
+- **דוגמה:**
+  -  עבור $S = \{\pi, \{-3\}\}$ 
+     -  $\pi \in S$, $\{-3\} \in S$
+     -  $-3 \notin S$
+
+- **כימות על קבוצות:**
+  - ניתן להשתמש בכמתים על איברי קבוצה:
+
+  $$\forall n \in \mathbb{N}  (\exists k \in \mathbb{N} ( n = 2k \lor n+1 = 2k))$$
+  - הביטוי $\forall n \in \mathbb{N} (\alpha(n))$ נקרא:
+    - "לכל איבר $n$ בקבוצה $\mathbb{N}$, הטענה $\alpha(n)$ מתקיימת".
+
 
 <style>
-.rtl-table {
-  width: 100%;
-  border-collapse: collapse;
-  direction: rtl;
+.two-cols-header {
+  column-gap: 40px; /* Adjust the gap size as needed */
+  /* Optional: add some padding for better readability */
+  padding: 30px 40px 30px 20px;
 }
-.rtl-table thead th {
-  background: #f3f4f6;
-  border-bottom: 2px solid #d1d5db;
-  padding: 0.4rem 0.6rem;
-  text-align: right;
-  font-weight: 600;
+.two-cols-header li strong {
+  color: #2563eb;
 }
-.rtl-table tbody td {
-  border-bottom: 1px solid #e5e7eb;
-  padding: 0.45rem 0.6rem;
-  text-align: right;
+.two-cols-header h2 {
+  margin-top: 3rem;
 }
-.rtl-table td:nth-child(2),
-.rtl-table td:nth-child(3) {
-  font-family: serif;
+.two-cols-header h2:first-of-type {
+  margin-top: 0;
 }
 </style>
+
+
+---
 
 # הגדרת קבוצה באמצעות תנאי
 
@@ -107,6 +88,7 @@ layout: two-cols-header
 - **תנאים שונים, אותה קבוצה:**
   - תנאים שונים יכולים להגדיר את אותה הקבוצה. לדוגמה, שתי ההגדרות הבאות מתארות את הקבוצה $\{2\}$:
     - $\{ n \mid n \in \mathbb{N} \land \text{n is even} \land \text{n is prime} \}$ = $\{ n \mid n \in \mathbb{N} \land 1 < n < 3 \}$
+
 
 <div id="note-russell" class="floating-formula" style="--formula-top: 20rem; --formula-left: 2rem; --formula-font-size: 1rem; width: 21rem; direction: rtl;">
 
@@ -149,7 +131,10 @@ layout: two-cols-header
 
 <img src="/images/ראסל2.png" class="absolute top-1/3 left-1/9 w-80 h-80" />
 
+
+
 <!-- ################################################################## -->
+---
 ---
 # שיטה נוספת להגדיר קבוצות: תבניות על קבוצה
 
@@ -168,6 +153,7 @@ layout: two-cols-header
 ---
 section: יחסים בין קבוצות
 ---
+
 
 # יחס השוויון בין קבוצות
 
@@ -190,8 +176,11 @@ $$ A=B \iff \forall x (x \in A \leftrightarrow x \in B) $$
     $$ A \neq B \iff \exists x ((x \in A \land x \notin B) \lor (x \notin A \land x \in B)) $$
     </div>
 
+
 - **הערה חשובה:** במתמטיקה, הביטוי "לכל שתי קבוצות" אינו מחייב שהקבוצות שונות זו מזו.
 - למשל, באקסיומת ההיקפיות, $A$ ו-$B$ יכולות להיות אותה קבוצה.
+
+
 
 ---
 
@@ -203,6 +192,7 @@ $$ A=B \iff \forall x (x \in A \leftrightarrow x \in B) $$
 
   - באותו אופן, אם $A$ ו-$B$ הן קבוצות, אז "$A$ שווה ל-$B$" (כלומר $A=B$) פירושו ש-$A$ ו-$B$ היא אותה הקבוצה.
 
+
 - **תכונות השוויון:**
 
   - **רפלקסיביות:** לכל קבוצה $A$, מתקיים $A=A$.
@@ -211,7 +201,12 @@ $$ A=B \iff \forall x (x \in A \leftrightarrow x \in B) $$
 
   - **טרנזיטיביות:** אם $A=B$ וגם $B=C$, אז $A=C$.
 
+
+
+
 <img src="/images/שוויון קבוצות.png" class="absolute top-1.6/3 left-1/8 w-60 h-60" />
+
+
 
 ---
 
@@ -258,6 +253,7 @@ $$ A=B \iff \forall x (x \in A \leftrightarrow x \in B) $$
   <line x1="280" y1="120" x2="380" y2="20" stroke="#f59e0b" stroke-width="3"></line>
   <line x1="420" y1="120" x2="320" y2="20" stroke="#f59e0b" stroke-width="3"></line>
   </svg>
+
 
 ---
 
@@ -384,6 +380,7 @@ $$ A=B \iff \forall x (x \in A \leftrightarrow x \in B) $$
   - לדוגמה, $|\emptyset|=0$, $|\{a\}|=1$, $|\{a,b,c\}|=3$.
   - גודל קבוצה יכול להיות סופי או אינסופי (כמו $\mathbb{N}$).
 
+
 <img src="/images/5.png" class="absolute top-1.8/3 right-2/3 w-60 h-45" />
 
 <div class="katex label absolute top-2.5/3 right-2.21/3">
@@ -398,12 +395,16 @@ $|A|=5$
 $|A|=2$
 </div>
 
+
+
 <img src="/images/1.png" class="absolute top-.5/3 right-2.3/3 w-50 h-45" />
 
 <div class="katex label absolute top-1.13/3 right-2.47/3">
 
 $|A|=1$
 </div>
+
+
 
 ---
 section: קבוצות מוכרות
@@ -429,70 +430,22 @@ section: קבוצות מוכרות
   - אם $R$ ו-$S$ הן שתי קבוצות ריקות, אז $R \subseteq S$ וגם $S \subseteq R$.
   - מהכלה הדדית נובע $R=S$. לכן, יש רק קבוצה ריקה אחת.
 
+
+
 ---
-# קבוצות המספרים - סימונים
+---
+# קבוצות המספרים — סימונים
 
 - סימונים מקובלים:
 
-<div class="num-sets-table" dir="rtl">
-  <table class="rtl-table">
-    <thead>
-      <tr>
-        <th>תיאור הקבוצה</th>
-        <th>סימון מקוצר</th>
-        <th>סימון מפורט</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>קבוצת המספרים הטבעיים</td>
-        <td>$\mathbb{N}$</td>
-        <td>$\{0,1,2,3,\ldots\}$</td>
-      </tr>
-      <tr>
-        <td>קבוצת המספרים השלמים</td>
-        <td>$\mathbb{Z}$</td>
-        <td>$\{\ldots,-2,-1,0,1,2,3,\ldots\}$</td>
-      </tr>
-      <tr>
-        <td>קבוצת המספרים הרציונליים</td>
-        <td>$\mathbb{Q}$</td>
-        <td>$\{ \\tfrac{m}{n} \mid n \neq 0,\ m\in\mathbb{Z},\ n\in\mathbb{Z} \}$</td>
-      </tr>
-      <tr>
-        <td>קבוצת המספרים הממשיים</td>
-        <td>$\mathbb{R}$</td>
-        <td>—</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+| תיאור הקבוצה | סימון מקוצר | סימון מפורט |
+|---|---|---|
+| קבוצת המספרים הטבעיים | $\mathbb{N}$ | $\{0,1,2,3,\ldots\}$ |
+| קבוצת המספרים השלמים | $\mathbb{Z}$ | $\{\ldots,-2,-1,0,1,2,3,\ldots\}$ |
+| קבוצת המספרים הרציונליים | $\mathbb{Q}$ | $\{ \tfrac{m}{n} \mid n \neq 0,\ m\in\mathbb{Z},\ n\in\mathbb{Z} \}$ |
+| קבוצת המספרים הממשיים | $\mathbb{R}$ | — |
 
-<style>
-.rtl-table {
-  width: 100%;
-  border-collapse: collapse;
-  direction: rtl;
-}
-.rtl-table thead th {
-  background: #f3f4f6;
-  border-bottom: 2px solid #d1d5db;
-  padding: 0.4rem 0.6rem;
-  text-align: right;
-  font-weight: 600;
-}
-.rtl-table tbody td {
-  border-bottom: 1px solid #e5e7eb;
-  padding: 0.45rem 0.6rem;
-  text-align: right;
-}
-.rtl-table td:nth-child(2),
-.rtl-table td:nth-child(3) {
-  font-family: serif;
-}
-</style>
-
-- הערת מוסכמות: יש שמתחילים את $\mathbb{N}$ ב-1; כאן נשתמש ב-0.
+- הערת מוסכמות: יש שמתחילים את $\\mathbb{N}$ ב-1; כאן נשתמש ב-0.
 
 ---
 section: תרגילים פתורים
@@ -534,6 +487,7 @@ section: תרגילים פתורים
 
 6. לכן ההנחה שגויה, ומתקיים $\emptyset \subseteq A$. ∎
 
+
 ---
 
 # הוכיחו: $\emptyset \neq \{\emptyset\}$
@@ -556,6 +510,7 @@ section: תרגילים פתורים
 - מכאן, $\emptyset = \{\emptyset\}$, וזו סתירה למה שהוכחנו בתרגיל 1.
   
 <br>
+
 
 ## הוכחה ב' (ישירה):
       
@@ -681,6 +636,7 @@ layout: two-cols-header
 - $A \setminus (B \cap C) = (A \setminus B) \cup (A \setminus C)$
 - $A \setminus (B \cup C) = (A \setminus B) \cap (A \setminus C)$
 
+
 ---
 
 # הוכחה באמצעות טבלת כל המצבים האפשריים
@@ -770,9 +726,14 @@ $x \in A \setminus (B \cap C)$ ו-$x \in (A \setminus B) \cup (A \setminus C)$ �
   <path d="M 380 430 C 200 380, 0 200, 470 145" stroke="#bec4cfff" stroke-width="2" fill="none" marker-end="url(#arrowhead1)" />
 </svg>
 
+
+
+
+
 ---
 
 # הוכחת כלל דה-מורגן: $A \setminus (B \cap C) = (A \setminus B) \cup (A \setminus C)$
+
 
   <!-- Define reusable SVG elements -->
 <svg width="0" height="0" >
@@ -809,9 +770,15 @@ $x \in A \setminus (B \cap C)$ ו-$x \in (A \setminus B) \cup (A \setminus C)$ �
   </defs>
 </svg>
 
+
+
+
+
+
 <div class="grid grid-cols-[10fr_auto_1fr] gap-10" style="width: 100%; margin-top: -90px;">
 
 <div class="grid grid-cols-3 grid-rows-2 gap-0" style="scale:.6;width:400px;margin:auto">
+
 
   <div style="width:420px;margin:auto">
     <svg viewBox="-10 -10 170 170" width="50%" height="100%" aria-label="Venn A \ B">    
@@ -844,8 +811,11 @@ $x \in A \setminus (B \cap C)$ ו-$x \in (A \setminus B) \cup (A \setminus C)$ �
   
   </div>
 
+
+
   <div style="width:420px;margin:auto">
   </div>
+
 
 <div style="width:420px;margin:auto">
   <svg viewBox="-10 -10 170 170" width="50%" height="100%" aria-label="Venn A \ B">
@@ -888,6 +858,7 @@ $x \in A \setminus (B \cap C)$ ו-$x \in (A \setminus B) \cup (A \setminus C)$ �
 $B \cap  C$
 </div>
 
+
   </div>
 
   <div style="width:420px;margin:auto">
@@ -899,6 +870,7 @@ $B \cap  C$
       <use href="#base-sets"/>
   </svg>
 
+
 <div class="katex label" style="position:relative;right:100px;font-size:2rem;color:#111">
 
 $A$
@@ -906,8 +878,11 @@ $A$
 
   </div>
 
+
+
   <div style="width:420px;margin:auto">
   </div>
+
 
 <div style="width:420px;margin:auto">
   <svg viewBox="-10 -10 170 170" width="50%" height="100%" aria-label="Venn A \ B">
@@ -923,14 +898,20 @@ $A$
     <use href="#base-sets"/>
  </svg>
 
+
 <div class="katex label" style="position:relative;right:30px;font-size:2rem;color:#111">
 
 $A \setminus  (B \cap C)$
 </div>
 
-</div>
 
 </div>
+
+
+</div>
+</div>
+
+
 
 <!-- ########################################################################################### -->
 
@@ -960,6 +941,7 @@ $$
 
 </div>
 
+
 ---
 
 # טענה: $A \Delta B = (A\setminus B)\cup(B\setminus A)$
@@ -978,12 +960,14 @@ $$
 
 </div>
 
+
 - **קיבלנו הגדרות שקולות של הפרש סימטרי:**
   - $A \Delta B = \{ x \mid (x \in A \land x \notin B) \lor (x \notin A \land x \in B) \}$
   - $A \Delta B = (A \setminus B) \cup (B \setminus A)$
   - $A \Delta B = (A \cup B) \setminus (A \cap B)$
 
 - ניתן להשתמש בכל אחת מההגדרות לפי הנוחות.
+
 
 <img src="/images/הפרש סימטרי.png" class="absolute top-1.6/3 right-1.8/3 w-70 h-60" />
 
@@ -1063,6 +1047,7 @@ $P(B) = \{\emptyset, \{a\}, \{b\}, \{c\}, \{a,b\}, \{a,c\}, \{b,c\}, \{a,b,c\}\}
 
 **באופן כללי:** אם $|A| = n$ (כלומר, $A$ מכילה $n$ איברים), אז $|P(A)| = 2^n$.
 
+
 <div class="absolute top-1.7/4 left-1/20 w-160" style="transform: translateY(-60%);">
   <svg viewBox="-50 0 250 100" xmlns="http://www.w3.org/2000/svg">
     <!-- Outer ellipse representing {1,2} -->
@@ -1084,6 +1069,8 @@ $P(B) = \{\emptyset, \{a\}, \{b\}, \{c\}, \{a,b\}, \{a,c\}, \{b,c\}, \{a,b,c\}\}
     <text x="10" y="13" font-size="2" text-anchor="middle" fill="#0000ff" font-family="serif">&#123;&#123;∅&#125;&#125;</text> -->
   </svg>
 </div>
+
+
 
 <div class="absolute top-3.2/4 left-.8/4 w-60" style="transform: translateY(-60%);">
   <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -1112,6 +1099,8 @@ $P(B) = \{\emptyset, \{a\}, \{b\}, \{c\}, \{a,b\}, \{a,c\}, \{b,c\}, \{a,b,c\}\}
   </svg>
 </div>
 
+
+
 ---
 
 #   $A \subseteq B$ אם ורק אם $P(A) \subseteq P(B)$
@@ -1131,6 +1120,7 @@ $P(B) = \{\emptyset, \{a\}, \{b\}, \{c\}, \{a,b\}, \{a,c\}, \{b,c\}, \{a,b,c\}\}
 **כיוון שני:** יש להוכיח שלכל שתי קבוצות $A, B$ אם $P(A) \subseteq P(B)$ אז $A \subseteq B$.
 
 **הוכחה:** יהיו $A, B$ שתי קבוצות ונניח כי $P(A) \subseteq P(B)$. עלינו להראות $A \subseteq B$. יהי $x$ איבר ונניח כי $x \in A$. לכן היחידון $\{x\} \subseteq A$ ומהגדרת קבוצת החזקה $\{x\} \in P(A)$. מאחר והנחנו $P(A) \subseteq P(B)$, נסיק כי $\{x\} \in P(B)$. מהגדרת קבוצת החזקה נקבל כי $\{x\} \subseteq B$ ולכן $x \in B$.
+
 
 ---
 
@@ -1160,11 +1150,15 @@ layout: two-cols-header
 ---
 # $P(A \cap B) = P(A) \cap P(B)$
 
+
 נוכיח הכלה בשני הכיוונים:
 
 <br>
 
+
+
 ::left::
+
 
 - **כיוון ראשון ($\subseteq$):**
   - תהי $X \in P(A \cap B)$.
@@ -1210,6 +1204,7 @@ layout: two-cols-header
 section: פעולות אונריות 
 ---
 
+
 # הרחבת איחוד וחיתוך לאוספים כלליים של קבוצות
 
 - תהי $X$ קבוצה שאבריה קבוצות, אז נגדיר את האיחוד האונרי של $X$ להיות הקבוצה:
@@ -1219,6 +1214,7 @@ section: פעולות אונריות
   - התנאי $\exists A \in X (a \in A)$ המופיע בהגדרת $\bigcup X$ הוא צורת כתיבה מקוצרת עבור $\exists A (A \in X \land a \in A)$.
 
 <br>  
+
 
 - תהי $X$ קבוצה לא ריקה שאבריה קבוצות, אז נגדיר את החיתוך האונרי של $X$ להיות הקבוצה:
   $$\bigcap X = \{ a \mid \forall A \in X (a \in A) \}$$
@@ -1232,11 +1228,13 @@ section: פעולות אונריות
 
 # דוגמאות לאיחוד וחיתוך אונריים
 
+
 - $\bigcup \emptyset = \emptyset$ (אך, כאמור, $\bigcap \emptyset$ אינו מוגדר).
 
 - לכל קבוצה $A$ מתקיים $\bigcup \{A\} = A$ ו-$\bigcap \{A\} = A$, ובפרט: $\bigcup \{\emptyset\} = \emptyset$ ו-$\bigcap \{\emptyset\} = \emptyset$.
 
 - לכל שתי קבוצות $A, B$ מתקיים: $\bigcup \{A, B\} = A \cup B$ ו-$\bigcap \{A, B\} = A \cap B$.
+
 
 - עבור $X = \{\,\{1,3\}, \{2,3,7\}, \{1,2,6,7\}, \{3\}\}$ נקבל: $\bigcap X = \emptyset$, $\bigcup X = \{1,2,3,6,7\}$.
 
@@ -1271,6 +1269,7 @@ section: פעולות אונריות
 
 </template>
 </v-switch>
+
 
 ---
 
@@ -1330,8 +1329,10 @@ layout: two-cols-header
 
 # הוכחת הכלל הראשון של דה-מורגן
 
+
 אם $X$ קבוצה לא ריקה כך שלכל $A \in X$, $A \subseteq Y$ אז
 $\overline{\bigcup X} = \bigcap \{\bar{A} \mid A \in X\}$
+
 
 ::left::
 
@@ -1359,6 +1360,7 @@ $\overline{\bigcup X} = \bigcap \{\bar{A} \mid A \in X\}$
   - לכן, לפי הגדרת האיחוד האונארי, $x \notin \bigcup X$.
   - ולכן $x \in \overline{\bigcup X}$.
 
+
 ---
 layout: two-cols-header
 ---
@@ -1383,6 +1385,7 @@ layout: two-cols-header
 - **כיוון שני:**
 
   - יהי $x$ איבר כלשהוא ונניח $x \in \bigcup \{\bar{A} \mid A \in X\}$.
+
 
   - אז קיים $A \in X$ כך ש $x \in \bar{A}$.
   - לכן $x \in Y$ ו-$x \notin A$.

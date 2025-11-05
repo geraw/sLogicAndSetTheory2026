@@ -3,5 +3,5 @@
         "**/??-*.md",
         "slides.md"
     ],
-    "slidev.preview-sync": false
+    "slidev.preview-sync": true
 }

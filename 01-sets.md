@@ -759,11 +759,10 @@ layout: two-cols-header
   - לכן $x\in (A\cup B)\cup C$.
 
 - סיכום: לכל $x$ מתקיים $x\in (A\cup B)\cup C \iff x\in A\cup(B\cup C)$, ולכן $(A\cup B)\cup C = A\cup(B\cup C)$. 
----
 
 ---
 
-# הוכחה באמצעות טבלת כל המצבים האפשריים
+# דוגמה: הוכחה באמצעות טבלת כל המצבים האפשריים
 
 **נוכיח את כלל דה מורגן הראשון**: $A \setminus (B \cap C) = (A \setminus B) \cup (A \setminus C)$.
 

@@ -1068,7 +1068,7 @@ x \in A \Delta B
 &\iff \big((x\notin B)\lor(x\notin A)\big)\land\big((x\in A)\lor(x\in B)\big) &&\text{(הסרת טאוטולוגיות)}\\[1em]
 &\iff \big((x\notin A)\lor(x\notin B)\big)\land\big((x\in A)\lor(x\in B)\big) &&\text{(קומוטטיביות)}\\[1em]
 &\iff \neg\big((x\in A)\land(x\in B)\big)\land\big((x\in A)\lor(x\in B)\big) &&\text{(דה־מורגן)}\\[1em]
-&\iff \big((x\in A)\lor(x\in B)\big)\land\neg\big((x\in A)\land(x\in B)\big) &&\text{(החלפת סדר)}\\[1em]
+&\iff \big((x\in A)\lor(x\in B)\big)\land\neg\big((x\in A)\land(x\in B)\big) &&\text{(קומוטטיביות)}\\[1em]
 &\iff x\in(A\cup B)\land x\notin(A\cap B) &&\text{(הגדרות איחוד וחיתוך)}\\[1em]
 &\iff x\in(A\cup B)\setminus(A\cap B) &&\text{(הגדרת הפרש)}
 \end{aligned}

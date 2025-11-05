@@ -568,13 +568,24 @@ section: תרגילים פתורים
 ---
 
 
-# $A \subsetneq B$ אם ורק אם $A \subseteq B$ וקיים איבר ב‑$B$ שאינו שייך ל‑$A$.
+# $A \subsetneq B$ אם ורק אם $A \subseteq B$ וקיים איבר ב‑$B$ שאינו שייך ל‑$A$
 
 - $A \subsetneq B \;\Longleftrightarrow\; \big(A \subseteq B \wedge \exists b\in B( b \notin A)\big)$
 
-  - **($\Rightarrow$)** אם $A \subsetneq B$ אז $A\subseteq B$ ולהStrict $\exists b\in B$ שאינו ב־$A$, כלומר $b\in B\setminus A$.
+  - **($\Rightarrow$)** 
+    - אם $A \subsetneq B$ אז $A\subseteq B$ ו-$A \neq B$. 
+    - לפי הגדרת אי שוויון אחת מהאפשרויות הבאות חייבת להתקיים:  
+      - קיים $b\in B$ כך ש־$b\notin A$
+      - או קיים $a\in A$ כך ש־$a\notin B$.
+    - האפשרות השנייה לא יכולה להתקיים כי $A \subseteq B$.
+    - לכן חייבת להתקיים האפשרות הראשונה: קיים $b\in B$ כך ש־$b\notin A$.
+    
 
-  - **($\Leftarrow$)** אם $A\subseteq B$ וקיים $b\in B\setminus A$, הרי ש־$A\neq B$, ולכן $A\subsetneq B$.
+
+  - **($\Leftarrow$)** 
+    - אם $A\subseteq B$ וקיים $b\in B$ כך ש־$b\notin A$, 
+    - אז לפי הגדרת אי שוויון $A \neq B$.
+    - לכן מתקיים $A \subsetneq B$.
 
   
 ---
@@ -599,6 +610,7 @@ section: תרגילים פתורים
 # אם $A\neq\emptyset$ אז $\emptyset \subsetneq A$.
 
 - לכל קבוצה $A$ מתקיים $\emptyset \subseteq A$.
+
 - אם $A\neq\emptyset$ אז $\emptyset\neq A$, ומכאן ההכלה ממש $\emptyset\subsetneq A$.
 
 

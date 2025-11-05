@@ -80,10 +80,10 @@ layout: two-cols-header
 - **דוגמה:** קבוצת המספרים הזוגיים:
   $$ S = \{ n \mid n \in \mathbb{N} \land \exists k \in \mathbb{N} (n=2k) \} $$
 - **הגדרה כללית:**
-  - אם $P(x)$ הוא תנאי על משתנה $x$, ניתן להגדיר קבוצה $A$ על ידי:
-    $$ A = \{ x \mid P(x) \} $$
-  - זוהי קבוצת כל האיברים $x$ שעבורם התנאי $P(x)$ מתקיים. כלומר: $x \in A \iff P(x)$.
-  - שם המשתנה אינו חשוב: $\{ x \mid P(x) \} = \{ y \mid P(y) \}$.
+  - אם $\mathcal{P}(x)$ הוא תנאי על משתנה $x$, ניתן להגדיר קבוצה $A$ על ידי:
+    $$ A = \{ x \mid \mathcal{P}(x) \} $$
+  - זוהי קבוצת כל האיברים $x$ שעבורם התנאי $\mathcal{P}(x)$ מתקיים. כלומר: $x \in A \iff \mathcal{P}(x)$.
+  - שם המשתנה אינו חשוב: $\{ x \mid \mathcal{P}(x) \} = \{ y \mid \mathcal{P}(y) \}$.
   
 - **תנאים שונים, אותה קבוצה:**
   - תנאים שונים יכולים להגדיר את אותה הקבוצה. לדוגמה, שתי ההגדרות הבאות מתארות את הקבוצה $\{2\}$:
@@ -565,6 +565,55 @@ section: תרגילים פתורים
 - מכיוון שההכלה מתקיימת אך השוויון לא, ההכלה היא ממש.
 
 
+---
+
+
+# $A \subsetneq B$ אם ורק אם $A \subseteq B$ וקיים איבר ב‑$B$ שאינו שייך ל‑$A$.
+
+- $A \subsetneq B \;\Longleftrightarrow\; \big(A \subseteq B \wedge \exists b\in B( b \notin A)\big)$
+
+  - **($\Rightarrow$)** אם $A \subsetneq B$ אז $A\subseteq B$ ולהStrict $\exists b\in B$ שאינו ב־$A$, כלומר $b\in B\setminus A$.
+
+  - **($\Leftarrow$)** אם $A\subseteq B$ וקיים $b\in B\setminus A$, הרי ש־$A\neq B$, ולכן $A\subsetneq B$.
+
+  
+---
+  
+# לא קיימת קבוצה $A$ כך ש־$A \subsetneq A$.
+
+
+- נניח בשלילה שקיימת קבוצה כזו
+
+- לפי ההגדרה של הכלה ממש
+   $A \subsetneq A \iff (A \subseteq A) \land (A \neq A)$.
+
+- ידוע ש־$A \subseteq A$ תמיד מתקיים (רפלקסיביות של ההכלה).
+
+- לכן מההנחה נובע גם $A \neq A$, כלומר קיבלנו $A=A$ ו־$A\neq A$ בעת ובעונה אחת - סתירה.
+
+- מכאן שהנחת השלילה שגויה, ולכן אין קבוצה $A$ עם $A \subsetneq A$.
+
+
+---
+
+# אם $A\neq\emptyset$ אז $\emptyset \subsetneq A$.
+
+- לכל קבוצה $A$ מתקיים $\emptyset \subseteq A$.
+- אם $A\neq\emptyset$ אז $\emptyset\neq A$, ומכאן ההכלה ממש $\emptyset\subsetneq A$.
+
+
+---
+
+# טענה: $(A \subsetneq B) \land (B \subseteq C) \to A \subsetneq C$
+
+- הנחה: $A \subsetneq B$ ו־$B \subseteq C$.
+
+- לפי ההגדרה של הכלה ממש יש $A \subseteq B$ וגם קיים $b\in B$ כך ש־$b\notin A$.
+- מטרנזיטיביות ההכלה: מ-$A \subseteq B$ ו־$B \subseteq C$ נובע $A \subseteq C$.
+- מאותו $b\in B$ ועם $B\subseteq C$ נקבל $b\in C$, ובמקביל $b\notin A$.
+- לכן קיים איבר ב־$C$ שאינו ב־$A$, כלומר $A \neq C$.
+- סיכום: $A \subseteq C$ ו־$A \neq C$, כלומר $A \subsetneq C$. ∎
+
 
 --- 
 section: פעולות על קבוצות
@@ -632,6 +681,28 @@ section: פעולות על קבוצות
 
 <img src="/images/venn.png" class="absolute top-1/3 right-1.8/3 w-90 h-80" />
 
+
+
+---
+
+# תרגיל לדוגמה
+
+- הגדרות:
+  - $A=\{\,n\in\mathbb{N}\mid 2\nmid n\,\}$ - הטבעיים האי־זוגיים.
+
+  - $B=\{\,n\in\mathbb{N}\mid 3\nmid n\,\}$ - הטבעיים שאינם מתחלקים ב־3.
+  - $C=\{\,n\in\mathbb{N}\mid 6\nmid n\,\}$ - הטבעיים שאינם מתחלקים ב־6.
+
+- טענה: $A\cup B = C$.
+
+- הוכחה:
+
+  - ($\subseteq$) יהי $n\in A\cup B$. אז $(2\nmid n)\lor(3\nmid n)$. לכן לא מתקיים $2\mid n \land 3\mid n$, ומכאן $6\nmid n$, כלומר $n\in C$.
+
+  - ($\supseteq$) יהי $n\in C$. אז $6\nmid n$, כלומר $\neg(2\mid n \land 3\mid n)$. לכן $(2\nmid n)\lor(3\nmid n)$, ובפרט $n\in A\cup B$.
+
+- סיכום: לכל $n\in\mathbb{N}$ מתקיים $n\in A\cup B \iff n\in C$, ולכן $A\cup B=C$. ∎
+
 ---
 layout: two-cols-header
 ---
@@ -668,6 +739,27 @@ layout: two-cols-header
 - $A \setminus (B \cap C) = (A \setminus B) \cup (A \setminus C)$
 - $A \setminus (B \cup C) = (A \setminus B) \cap (A \setminus C)$
 
+
+---
+
+# דוגמה: הוכחת אסוציאטיביות האיחוד
+
+- טענה: לכל קבוצות $A,B,C$ מתקיים $(A\cup B)\cup C = A \cup (B \cup C)$.
+
+- רעיון: הוכחת שוויון קבוצות באמצעות בדיקת שייכות איבר והכלה הדדית.
+
+- הוכחה ($\subseteq$):
+  - יהי $x$. אם $x\in (A\cup B)\cup C$ אז $(x\in A\lor x\in B)\lor x\in C$.
+  - אסוציאטיביות של $\lor$: $(x\in A\lor x\in B)\lor x\in C \iff x\in A\lor(x\in B\lor x\in C)$.
+  - לכן $x\in A\cup(B\cup C)$.
+
+- הוכחה ($\supseteq$):
+  - יהי $x$. אם $x\in A\cup(B\cup C)$ אז $x\in A\lor(x\in B\lor x\in C)$.
+  - אסוציאטיביות של $\lor$: $x\in A\lor(x\in B\lor x\in C) \iff (x\in A\lor x\in B)\lor x\in C$.
+  - לכן $x\in (A\cup B)\cup C$.
+
+- סיכום: לכל $x$ מתקיים $x\in (A\cup B)\cup C \iff x\in A\cup(B\cup C)$, ולכן $(A\cup B)\cup C = A\cup(B\cup C)$. 
+---
 
 ---
 
@@ -1009,37 +1101,39 @@ section: קבוצת החזקה
 
 # קבוצת החזקה
 
-- **הגדרה:** בהנתן קבוצה $A$, **קבוצת החזקה** של $A$, המסומנת $P(A)$ או $\mathcal{P}(A)$, היא קבוצה שאיבריה הם **כל תת-הקבוצות** של $A$.
+- **הגדרה:** בהנתן קבוצה $A$, **קבוצת החזקה** של $A$, המסומנת $\mathcal{P}(A)$, היא קבוצה שאיבריה הם **כל תת-הקבוצות** של $A$.
 
 - **הגדרה פורמלית:**
   <div class="formula-box">
   
-  $$ P(A) = \{ X \mid X \subseteq A \} $$
+  $$ \mathcal{P}(A) = \{ X \mid X \subseteq A \} $$
   </div>
 
 - **תכונה מרכזית:** לכל קבוצה $X$, מתקיים:
-  $$ X \in P(A) \iff X \subseteq A $$
+  $$ X \in \mathcal{P}(A) \iff X \subseteq A $$
 
-- **הערה:** קבוצת החזקה היא **פעולה אונרית** (פעולה על קבוצה אחת), בניגוד לאיחוד, חיתוך והפרש שהן **פעולות בינאריות** (פעולות על שתי קבוצות).
+- **הערה:** קבוצת החזקה היא **פעולה אונרית** (פעולה על קבוצה אחת), 
+
+  - בניגוד לאיחוד, חיתוך והפרש שהן **פעולות בינאריות** (פעולות על שתי קבוצות).
 
 ---
 
 # דוגמאות לקבוצת חזקה
 
-**שאלה:** מהן הקבוצות $P(\emptyset)$ ו-$P(\{\emptyset\})$?
+**שאלה:** מהן הקבוצות $\mathcal{P}(\emptyset)$ ו-$\mathcal{P}(\{\emptyset\})$?
 
 **תשובה:**
 
-1. **$P(\emptyset)$:**
+1. **$\mathcal{P}(\emptyset)$:**
    - הקבוצה היחידה המוכלת ב-$\emptyset$ היא $\emptyset$ עצמה (כי $\emptyset \subseteq \emptyset$).
-   - לכן: $P(\emptyset) = \{\emptyset\}$
+   - לכן: $\mathcal{P}(\emptyset) = \{\emptyset\}$
 
-2. **$P(\{\emptyset\})$:**
+2. **$\mathcal{P}(\{\emptyset\})$:**
    - הקבוצה $\{\emptyset\}$ היא יחידון.
    - תת-הקבוצות של $\{\emptyset\}$ הן:
      - הקבוצה הריקה: $\emptyset \subseteq \{\emptyset\}$
      - הקבוצה עצמה: $\{\emptyset\} \subseteq \{\emptyset\}$
-   - לכן: $P(\{\emptyset\}) = \{\emptyset, \{\emptyset\}\}$
+   - לכן: $\mathcal{P}(\{\emptyset\}) = \{\emptyset, \{\emptyset\}\}$
 
 <div class="absolute top-3/4 left-1/20 w-160" style="transform: translateY(-60%);">
   <svg viewBox="-50 0 250 100" xmlns="http://www.w3.org/2000/svg">
@@ -1067,17 +1161,17 @@ section: קבוצת החזקה
 
 תת-הקבוצות של $A$ הן $\emptyset$, $\{1\}$, $\{2\}$, ו-$\{1, 2\}$.
 
-לכן: $P(\{1, 2\}) = \{\emptyset, \{1\}, \{2\}, \{1, 2\}\}$
+לכן: $\mathcal{P}(\{1, 2\}) = \{\emptyset, \{1\}, \{2\}, \{1, 2\}\}$
 
 <br>
 
 **דוגמה 2:** $B = \{a, b, c\}$
 
-$P(B) = \{\emptyset, \{a\}, \{b\}, \{c\}, \{a,b\}, \{a,c\}, \{b,c\}, \{a,b,c\}\}$
+$\mathcal{P}(B) = \{\emptyset, \{a\}, \{b\}, \{c\}, \{a,b\}, \{a,c\}, \{b,c\}, \{a,b,c\}\}$
 
 <br>
 
-**באופן כללי:** אם $|A| = n$ (כלומר, $A$ מכילה $n$ איברים), אז $|P(A)| = 2^n$.
+**באופן כללי:** אם $|A| = n$ (כלומר, $A$ מכילה $n$ איברים), אז $|\mathcal{P}(A)| = 2^n$.
 
 
 <div class="absolute top-1.7/4 left-1/20 w-160" style="transform: translateY(-60%);">
@@ -1131,11 +1225,30 @@ $P(B) = \{\emptyset, \{a\}, \{b\}, \{c\}, \{a,b\}, \{a,c\}, \{b,c\}, \{a,b,c\}\}
   </svg>
 </div>
 
+---
+
+# טענה: אם $|A|=n$ אז $|\mathcal{P}(A)|=2^n$
+
+- הוכחה באמצעות **אינדוקציה מתמטית** על $n$.
+
+  - בסיס: אם $n=0$ אז $A=\emptyset$ ולכן $\mathcal{P}(A)=\{\emptyset\}$ ויש בדיוק $1=2^0$ תת‑קבוצות.
+
+  - הנחה אינדוקטיבית: נניח שלכל קבוצה בגודל $n$ יש בדיוק $2^n$ תת‑קבוצות.
+
+  - שלב האינדוקציה: יהי $A$ קבוצה בגודל $n+1$. נבחר איבר $a\in A$ ונגדיר $B=A\setminus\{a\}$ (אז $|B|=n$).
+
+  - חלוקה לשתי משפחות של תת‑קבוצות של $A$ (חסרות חפיפה) :
+    - תת‑קבוצות שאינן מכילות את $a$ - אלו בדיוק תת‑הקבוצות של $B$ (מספרן $2^n$).
+    
+    - תת‑קבוצות שמכילות את $a$ - לכל תת‑קבוצה $X\subseteq B$ מקבלים $X\cup\{a\}$ (גם כאן $2^n$).
+
+  - סיכום: מספר תת‑הקבוצות של $A$ הוא $2^n+2^n=2^{n+1}$. לכן לפי אינדוקציה לכל $n\in\mathbb{N}$ אם $|A|=n$ אז $|\mathcal{P}(A)|=2^n$. 
+
 
 
 ---
 
-#   $A \subseteq B$ אם ורק אם $P(A) \subseteq P(B)$
+#   $A \subseteq B$ אם ורק אם $\mathcal{P}(A) \subseteq \mathcal{P}(B)$
 
 **פתרון:** נשים לב שאנו מתבקשים להוכיח טענה שהמבנה הלוגי שלה הוא $\alpha \leftrightarrow \beta$.
 
@@ -1143,22 +1256,22 @@ $P(B) = \{\emptyset, \{a\}, \{b\}, \{c\}, \{a,b\}, \{a,c\}, \{b,c\}, \{a,b,c\}\}
 
 <br>
 
-**כיוון ראשון:** יש להוכיח שלכל שתי קבוצות $A, B$ אם $A \subseteq B$ אז $P(A) \subseteq P(B)$.
+**כיוון ראשון:** יש להוכיח שלכל שתי קבוצות $A, B$ אם $A \subseteq B$ אז $\mathcal{P}(A) \subseteq \mathcal{P}(B)$.
 
-**הוכחה:** יהיו $A, B$ שתי קבוצות ונניח כי $A \subseteq B$. עלינו להראות $P(A) \subseteq P(B)$. תהי $X$ קבוצה כך ש $X \in P(A)$. מהגדרת קבוצת החזקה נסיק כי $X \subseteq A$. מאחר והנחנו כי $A \subseteq B$, אזי מטרנזיטיביות יחס ההכלה נסיק כי $X \subseteq B$ ומהגדרת קבוצת החזקה נקבל ש- $X \in P(B)$.
+**הוכחה:** יהיו $A, B$ שתי קבוצות ונניח כי $A \subseteq B$. עלינו להראות $\mathcal{P}(A) \subseteq \mathcal{P}(B)$. תהי $X$ קבוצה כך ש $X \in \mathcal{P}(A)$. מהגדרת קבוצת החזקה נסיק כי $X \subseteq A$. מאחר והנחנו כי $A \subseteq B$, אזי מטרנזיטיביות יחס ההכלה נסיק כי $X \subseteq B$ ומהגדרת קבוצת החזקה נקבל ש- $X \in \mathcal{P}(B)$.
 
 <br>
 
-**כיוון שני:** יש להוכיח שלכל שתי קבוצות $A, B$ אם $P(A) \subseteq P(B)$ אז $A \subseteq B$.
+**כיוון שני:** יש להוכיח שלכל שתי קבוצות $A, B$ אם $\mathcal{P}(A) \subseteq \mathcal{P}(B)$ אז $A \subseteq B$.
 
-**הוכחה:** יהיו $A, B$ שתי קבוצות ונניח כי $P(A) \subseteq P(B)$. עלינו להראות $A \subseteq B$. יהי $x$ איבר ונניח כי $x \in A$. לכן היחידון $\{x\} \subseteq A$ ומהגדרת קבוצת החזקה $\{x\} \in P(A)$. מאחר והנחנו $P(A) \subseteq P(B)$, נסיק כי $\{x\} \in P(B)$. מהגדרת קבוצת החזקה נקבל כי $\{x\} \subseteq B$ ולכן $x \in B$.
+**הוכחה:** יהיו $A, B$ שתי קבוצות ונניח כי $\mathcal{P}(A) \subseteq \mathcal{P}(B)$. עלינו להראות $A \subseteq B$. יהי $x$ איבר ונניח כי $x \in A$. לכן היחידון $\{x\} \subseteq A$ ומהגדרת קבוצת החזקה $\{x\} \in \mathcal{P}(A)$. מאחר והנחנו $\mathcal{P}(A) \subseteq \mathcal{P}(B)$, נסיק כי $\{x\} \in \mathcal{P}(B)$. מהגדרת קבוצת החזקה נקבל כי $\{x\} \subseteq B$ ולכן $x \in B$.
 
 
 ---
 
 # האם ניתן להחליף בשקף הקודם את סימן ההכלה בסימן השיוויון?
 
-- האם נכונה הטענה שלכל שתי קבוצות $A, B$ מתקיים: $A = B$ אם ורק אם $P(A) = P(B)$?
+- האם נכונה הטענה שלכל שתי קבוצות $A, B$ מתקיים: $A = B$ אם ורק אם $\mathcal{P}(A) = \mathcal{P}(B)$?
 
 <span v-click="1">
 
@@ -1171,8 +1284,8 @@ $P(B) = \{\emptyset, \{a\}, \{b\}, \{c\}, \{a,b\}, \{a,c\}, \{b,c\}, \{a,b,c\}\}
      - לכן, לפי הטענה שהוכחה בשקף הקודם, מתקיים:
        $$\begin{aligned}
        A = B &\iff A \subseteq B \land B \subseteq A\\[1em]
-       &\iff P(A) \subseteq P(B) \land P(B) \subseteq P(A)\\[1em]
-       &\iff P(A) = P(B)
+       &\iff \mathcal{P}(A) \subseteq \mathcal{P}(B) \land \mathcal{P}(B) \subseteq \mathcal{P}(A)\\[1em]
+       &\iff \mathcal{P}(A) = \mathcal{P}(B)
        \end{aligned}$$
 
 </span>
@@ -1180,7 +1293,7 @@ $P(B) = \{\emptyset, \{a\}, \{b\}, \{c\}, \{a,b\}, \{a,c\}, \{b,c\}, \{a,b,c\}\}
 ---
 layout: two-cols-header
 ---
-# $P(A \cap B) = P(A) \cap P(B)$
+# $\mathcal{P}(A \cap B) = \mathcal{P}(A) \cap \mathcal{P}(B)$
 
 
 נוכיח הכלה בשני הכיוונים:
@@ -1193,40 +1306,40 @@ layout: two-cols-header
 
 
 - **כיוון ראשון ($\subseteq$):**
-  - תהי $X \in P(A \cap B)$.
+  - תהי $X \in \mathcal{P}(A \cap B)$.
  
   - לפי הגדרת קבוצת החזקה, $X \subseteq A \cap B$.
   - לפי הגדרת חיתוך, $X \subseteq A$ ו-$X \subseteq B$.
-  - לכן, $X \in P(A)$ ו-$X \in P(B)$.
-  - לפי הגדרת חיתוך, $X \in P(A) \cap P(B)$.
+  - לכן, $X \in \mathcal{P}(A)$ ו-$X \in \mathcal{P}(B)$.
+  - לפי הגדרת חיתוך, $X \in \mathcal{P}(A) \cap \mathcal{P}(B)$.
 
 ::right::
 
 - **כיוון שני ($\supseteq$):**
-  - תהי $X \in P(A) \cap P(B)$.
+  - תהי $X \in \mathcal{P}(A) \cap \mathcal{P}(B)$.
   
-  - לפי הגדרת חיתוך, $X \in P(A)$ ו-$X \in P(B)$.
+  - לפי הגדרת חיתוך, $X \in \mathcal{P}(A)$ ו-$X \in \mathcal{P}(B)$.
   - לפי הגדרת קבוצת החזקה, $X \subseteq A$ ו-$X \subseteq B$.
   - לפי הגדרת חיתוך, $X \subseteq A \cap B$.
-  - לכן, $X \in P(A \cap B)$.
+  - לכן, $X \in \mathcal{P}(A \cap B)$.
 
 ---
 
-# האם מתקיים גם $P(A \cup B) = P(A) \cup P(B)$?
+# האם מתקיים גם $\mathcal{P}(A \cup B) = \mathcal{P}(A) \cup \mathcal{P}(B)$?
 
 <span v-click="1">
 
 - **הפרכה:** ניקח $A = \{1\}$, $B = \{2\}$. אז $A \cup B = \{1,2\}$.
-   - $P(A \cup B) = \{\emptyset, \{1\}, \{2\}, \{1,2\}\}$.
-   - $P(A) \cup P(B) = \{\emptyset, \{1\}\} \cup \{\emptyset, \{2\}\} = \{\emptyset, \{1\}, \{2\}\}$.
-   - ברור ש-$\{1,2\} \in P(A \cup B)$ אבל $\{1,2\} \notin P(A) \cup P(B)$.
+   - $\mathcal{P}(A \cup B) = \{\emptyset, \{1\}, \{2\}, \{1,2\}\}$.
+   - $\mathcal{P}(A) \cup \mathcal{P}(B) = \{\emptyset, \{1\}\} \cup \{\emptyset, \{2\}\} = \{\emptyset, \{1\}, \{2\}\}$.
+   - ברור ש-$\{1,2\} \in \mathcal{P}(A \cup B)$ אבל $\{1,2\} \notin \mathcal{P}(A) \cup \mathcal{P}(B)$.
 
 - הטענה על איחוד נכונה כאשר $A \subseteq B$ או $B \subseteq A$.
-  - **הוכחה:** נניח $A \subseteq B$. יש להראות $P(A \cup B) = P(A) \cup P(B)$.
+  - **הוכחה:** נניח $A \subseteq B$. יש להראות $\mathcal{P}(A \cup B) = \mathcal{P}(A) \cup \mathcal{P}(B)$.
 
-    - **כיוון ראשון ($\subseteq$):** תהי $X \in P(A \cup B)$. אז $X \subseteq A \cup B$. אם $X \subseteq A$, אז $X \in P(A) \subseteq P(A) \cup P(B)$. אם $X \not\subseteq A$, אז יש $x \in X$ עם $x \notin A$, אך $x \in A \cup B$, ולכן $x \in B$. מאחר ו-$X \subseteq A \cup B$ ו-$A \subseteq B$, אז $X \subseteq B$, ולכן $X \in P(B) \subseteq P(A) \cup P(B)$.
+    - **כיוון ראשון ($\subseteq$):** תהי $X \in \mathcal{P}(A \cup B)$. אז $X \subseteq A \cup B$. אם $X \subseteq A$, אז $X \in \mathcal{P}(A) \subseteq \mathcal{P}(A) \cup \mathcal{P}(B)$. אם $X \not\subseteq A$, אז יש $x \in X$ עם $x \notin A$, אך $x \in A \cup B$, ולכן $x \in B$. מאחר ו-$X \subseteq A \cup B$ ו-$A \subseteq B$, אז $X \subseteq B$, ולכן $X \in \mathcal{P}(B) \subseteq \mathcal{P}(A) \cup \mathcal{P}(B)$.
 
-    - **כיוון שני ($\supseteq$):** תהי $X \in P(A) \cup P(B)$. אם $X \in P(A)$, אז $X \subseteq A \subseteq A \cup B$, ולכן $X \in P(A \cup B)$. אם $X \in P(B)$, אז $X \subseteq B \subseteq A \cup B$, ולכן $X \in P(A \cup B)$.
+    - **כיוון שני ($\supseteq$):** תהי $X \in \mathcal{P}(A) \cup \mathcal{P}(B)$. אם $X \in \mathcal{P}(A)$, אז $X \subseteq A \subseteq A \cup B$, ולכן $X \in \mathcal{P}(A \cup B)$. אם $X \in \mathcal{P}(B)$, אז $X \subseteq B \subseteq A \cup B$, ולכן $X \in \mathcal{P}(A \cup B)$.
 
     - המקרה כאשר $B \subseteq A$ דומה.
 
@@ -1272,7 +1385,7 @@ section: פעולות אונריות
 
 - עבור $Y = \{\,\{1,3,7\}, \{2,3,7\}, \{1,2,6,7\}, \{3,7\}\}$ נקבל: $\bigcap Y = \{7\}$, $\bigcup Y = \{1,2,3,6,7\}$.
 
-- $\bigcap(A) \subseteq \bigcup(A)$ לכל $A$.
+- $\bigca\mathcal{P}(A) \subseteq \bigcu\mathcal{P}(A)$ לכל $A$.
 
 ---
 

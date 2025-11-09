@@ -589,6 +589,7 @@ section: תרגילים פתורים
 
   
 ---
+
   
 # לא קיימת קבוצה $A$ כך ש־$A \subsetneq A$
 
@@ -1538,7 +1539,7 @@ section: פעולות אונריות
 
 - עבור $Y = \{\,\{1,3,7\}, \{2,3,7\}, \{1,2,6,7\}, \{3,7\}\}$ נקבל: $\bigcap Y = \{7\}$, $\bigcup Y = \{1,2,3,6,7\}$.
 
-- $\bigca\mathcal{P}(A) \subseteq \bigcu\mathcal{P}(A)$ לכל $A$.
+- $\bigcap\mathcal{P}(A) \subseteq \bigcup\mathcal{P}(A)$ לכל $A$.
 
 ---
 
@@ -1575,7 +1576,7 @@ section: פעולות אונריות
 
 - הוכיחו או הפריכו:
 
-  - לכל שתי קבוצות (של קבוצות) $X, Y$ אם $X \subsetneqq   Y$ אז $\bigcup X \subsetneqq  \bigcup Y$.
+  - לכל שתי קבוצות (של קבוצות) $X, Y$ אם $X \subsetneq   Y$ אז $\bigcup X \subsetneq  \bigcup Y$.
 
 <v-switch>
 <template #0> 
@@ -1589,106 +1590,56 @@ section: פעולות אונריות
   - כדי להפריך את הטענה יש להראות ששלילתה מתקיימת.
   - שלילת טענה כוללת, היא כזכור טענת קיום, לכן עלינו למצוא עדים לקיומה.
   - עדות לקיומה של השלילה, נקראת דוגמה נגדית.
-  - שלילת הטענה המופיעה בתרגיל היא: קיימות קבוצות $X, Y$ כך ש-$X \subsetneqq  Y$ וגם $\neg(\bigcup X \subsetneqq  \bigcup Y)$.
-  - (שימו לב: $\neg(\bigcup X \subsetneqq  \bigcup Y) \equiv \neg(\bigcup X \subseteq \bigcup Y \land \bigcup X \neq \bigcup Y) \equiv \bigcup X \not\subseteq \bigcup Y \lor \bigcup X = \bigcup Y$)
+  - שלילת הטענה המופיעה בתרגיל היא: קיימות קבוצות $X, Y$ כך ש-$X \subsetneq  Y$ וגם $\neg(\bigcup X \subsetneq  \bigcup Y)$.
+  - (שימו לב: $\neg(\bigcup X \subsetneq  \bigcup Y) \equiv \neg(\bigcup X \subseteq \bigcup Y \land \bigcup X \neq \bigcup Y) \equiv \bigcup X \not\subseteq \bigcup Y \lor \bigcup X = \bigcup Y$)
 
   - דוגמה נגדית: $X = \{\{1\}\}, Y = \{\{1\}, \emptyset\}$.  
-  - כאן $X \subsetneqq  Y$ אבל $\bigcup X = \bigcup Y = \{1\}$. 
+  - כאן $X \subsetneq  Y$ אבל $\bigcup X = \bigcup Y = \{1\}$. 
 
  </template>
 </v-switch>
 
 ---
 
-# חוקי דה-מורגן לאיחוד וחיתוך אונריים
-
-- תהי $Y$ קבוצה קבועה ונניח $X$ קבוצה לא ריקה כך שלכל $A \in X$, $A \subseteq Y$.
-- אז כמובן $\bigcup X \subseteq Y$.
-- לכל קבוצה $A \subseteq Y$ נסמן $\bar{A} = Y \setminus A$ המשלים של $A$ ב-$Y$.
- 
-- חוק דה מורגן הראשון לאיחוד וחיתוך אונריים הוא:
-   
-
-<div class="formula-box">
-
-$$\overline{\bigcup X} = \bigcap \{\bar{A} \mid A \in X\}$$
-</div>
-
-- למשל, אם $X = \{A_1, A_2\}$ אז $\bigcup X = A_1 \cup A_2$ 
-  - ואז אנו מקבלים את כלל דה-מורגן המוכר:  $\overline{A_1 \cup A_2} = \bigcap \{\bar{A_1}, \bar{A_2}\} = \bar{A_1} \cap \bar{A_2}$.
-
-- ואם $X = \{A_1, A_2, \dots, A_n\}$ קבוצה סופית אז $\bigcup X = A_1 \cup A_2 \cup \dots \cup A_n = \bar{A_1} \cap \bar{A_2} \cap \dots \cap \bar{A_n}$.
-
-- אין אפשרות להוכיח את הכלל בעזרת טבלה אם $X$ קבוצה אינסופית. נזדקק להוכחה בכלים לוגיים.
-
----
-layout: two-cols-header
----
-
-# הוכחת הכלל הראשון של דה-מורגן
+# חוק דה-מורגן הראשון לאיחוד וחיתוך אונריים
 
 
-אם $X$ קבוצה לא ריקה כך שלכל $A \in X$, $A \subseteq Y$ אז
-$\overline{\bigcup X} = \bigcap \{\bar{A} \mid A \in X\}$
+
+- תהי $U$ **קבוצת יקום** קבועה ו-$X$ **אוסף קבוצות** (ייתכן אינסופי)
 
 
-::left::
 
-- **כיוון ראשון:**
-  
-  - יהי $x$ איבר כלשהוא ונניח $x \in \overline{\bigcup X}$.
-  
-  - אז $x \in Y$ ו-$x \notin \bigcup X$.
-
-  - לכן, לפי הגדרת האיחוד האונארי, $x \notin A$ לכל $A \in X$.
-  - לכן $x \in \bar{A}$ לכל $A \in X$.
-  - לפי הגדרת החיתוך האונארי $x \in \bigcap \{\bar{A} \mid A \in X\}$.
-
-::right::
-
-- **כיוון שני:**
-
-  - יהי $x$ איבר כלשהוא ונניח $x \in \bigcap \{\bar{A} \mid A \in X\}$.
-
-  - לפי הגדרת חיתוך, $x \in \bar{A}$ לכל $A \in X$.
-  - לכן $x \in Y$ (כי $x \in Y \setminus A$).
-  - לפי הגדרת האיחוד האונארי, $x \notin \bigcup X$.
- 
-  - לכן $x \in \overline{\bigcup X}$.
+$$
+U \setminus \Big(\bigcup X\Big)
+\;=\;
+\bigcap\{\,U \setminus A \mid A \in X\,\}
+$$
 
 
----
-layout: two-cols-header
----
+- לדוגמה, אם $X=\{A_1,A_2\}$ מקבלים את כלל דה-מורגן שכבר ראינו:
 
-# הוכחת הכלל השני של דה-מורגן
-
-אם $X$ קבוצה לא ריקה כך שלכל $A \in X$, $A \subseteq Y$ אז $\overline{\bigcap X} = \bigcup \{\bar{A} \mid A \in X\}$
-
-::left::
-
-- **כיוון ראשון:**
-  
-  - יהי $x$ איבר כלשהוא ונניח $x \in \overline{\bigcap X}$.
-
-  - אז $x \in Y$ ו-$x \notin \bigcap X$.
-  - לכן קיים $A \in X$ כך ש $x \notin A$.
-  - לכן $x \in \bar{A}$.
-  - על פי הגדרת האיחוד האונארי, $x \in \bigcup \{\bar{A} \mid A \in X\}$.
-
-::right::
-
-- **כיוון שני:**
-
-  - יהי $x$ איבר כלשהוא ונניח $x \in \bigcup \{\bar{A} \mid A \in X\}$.
+  $$
+  U\setminus(A_1\cup A_2) = (U\setminus A_1)\cap(U\setminus A_2)
+  $$
 
 
-  - אז קיים $A \in X$ כך ש $x \in \bar{A}$.
-  - לכן $x \in Y$ ו-$x \notin A$.
-  - לפי הגדרת החיתוך האונארי, $x \notin \bigcap X$.
- 
-  - לכן $x \in \overline{\bigcap X}$.
 
+- הוכחה:
+
+
+$$
+\begin{align*}
+x\in U\setminus\big(\bigcup X\big)
+&\iff
+x \in U \wedge x\notin\bigcup X \\[8pt]
+&\iff
+x \in U \wedge \forall A\in X\;(x\notin A) \\[8pt]
+&\iff
+\forall A\in X\;(x\in U\setminus A) \\[8pt]
+&\iff
+x\in\bigcap\{U\setminus A\mid A\in X\}
+\end{align*}
+$$
 
 ---
 layout: TwoColsHeaderCustom
@@ -1762,5 +1713,3 @@ layout: TwoColsHeaderCustom
 ::after::
 
 **מסקנה:** הקבוצה $I = \bigcap X$ היא הקבוצה היחידה המקיימת את שני התנאים.
-
-

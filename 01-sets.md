@@ -1258,6 +1258,101 @@ $\mathcal{P}(B) = \{\emptyset, \{a\}, \{b\}, \{c\}, \{a,b\}, \{a,c\}, \{b,c\}, \
   - סיכום: מספר תת‑הקבוצות של $A$ הוא $2^n+2^n=2^{n+1}$. לכן לפי אינדוקציה לכל $n\in\mathbb{N}$ אם $|A|=n$ אז $|\mathcal{P}(A)|=2^n$. 
 
 
+---
+
+# קבוצת החזקה $\mathcal{P}(S)$ - כלי אינטראקטיבי
+
+
+<div dir="rtl" class="p-4" style="margin-top:-2.5rem;">
+
+
+<input
+  v-model="raw"
+  placeholder="{1,2,3,4}"
+  class="w-full px-3 py-2 rounded border"
+/>
+
+<div class="mt-3 text-sm">
+  <span class="mr-4" dir="ltr"><b>|S|</b> = {{ SArr.length }}</span>
+  <span class="mr-4" dir="ltr"><b>|𝒫(S)|</b> = {{ pow2(SArr.length) }}</span>
+  <span v-if="warn" class="text-amber-600">⚠️ מוצגות רק {{ displayLimit }} תתי-קבוצות ראשונות לביצועים.</span>
+</div>
+
+<!-- <p class="mt-2"><b>הקלט S=</b> { {{ SArr.map(pretty).join(', ') }} }</p> -->
+
+<p class="mt-2"><b>
+קבוצת החזקה:
+</b></p>
+<div class="mt-2 max-h-[40vh] overflow-y-auto p-2 border rounded-lg">
+  <div class="mt-2 grid gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+    <div 
+      v-for="(sub, i) in shownSubsets"
+      :key="i"
+      class="px-2 py-1 rounded bg-gray-50 border"
+    >
+      { {{ sub.map(pretty).join(', ') }} }
+    </div>
+  </div>
+</div>
+
+
+</div>
+
+<script setup>
+import { ref, computed } from 'vue'
+
+/* ---------- תצורה ---------- */
+const displayLimit = 1024
+const raw = ref('{1,2,3,4}')
+
+/* ---------- עזרים ---------- */
+const numRe = /^[+-]?(?:\d+\.?\d*|\d*\.?\d+)(?:[eE][+-]?\d+)?$/
+function coerce(tok) {
+  const t = tok.trim()
+  if (!t) return null
+  if (numRe.test(t)) return Number(t)
+  const m = t.match(/^["'](.*)["']$/)
+  return m ? m[1] : t
+}
+function uniquePreserveOrder(arr) {
+  const seen = new Set(), out = []
+  for (const x of arr ?? []) {
+    const key = typeof x === 'number' ? `#n:${x}` : `#s:${x}`
+    if (!seen.has(key)) { seen.add(key); out.push(x) }
+  }
+  return out
+}
+function parseSet(input) {
+  const s = String(input ?? '').trim()
+  const stripped = s.replace(/^[{\[]\s*|\s*[}\]]$/g, '')
+  if (!stripped) return []
+  const tokens = stripped.split(',').map(coerce).filter(v => v !== null && v !== '')
+  return uniquePreserveOrder(tokens)
+}
+function pretty(x) { return typeof x === 'number' ? x : String(x) }
+function powerset(arr) {
+  let subs = [[]]
+  for (const v of arr ?? []) subs = subs.concat(subs.map(s => [...s, v]))
+  return subs
+}
+function pow2(n) {
+  return Number.isFinite(n) && n >= 0 ? Math.pow(2, n) : 0
+}
+
+/* ---------- מחושבים ---------- */
+const SArr = computed(() => {
+  const a = parseSet(raw.value)
+  return Array.isArray(a) ? a : []
+})
+const PArr = computed(() => powerset(SArr.value))
+const warn = computed(() => (PArr.value?.length ?? 0) > displayLimit)
+const shownSubsets = computed(() =>
+  warn.value ? PArr.value.slice(0, displayLimit) : PArr.value
+)
+</script>
+
+
+
 
 ---
 
@@ -1667,3 +1762,5 @@ layout: TwoColsHeaderCustom
 ::after::
 
 **מסקנה:** הקבוצה $I = \bigcap X$ היא הקבוצה היחידה המקיימת את שני התנאים.
+
+

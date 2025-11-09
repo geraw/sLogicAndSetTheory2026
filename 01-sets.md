@@ -558,7 +558,7 @@ section: תרגילים פתורים
 
 - **הוכחה:** עלינו להוכיח הכלה ואי-שוויון.
 
-- **הכלה:** יהי $x \in \{\emptyset\}$. מכאן $x=\emptyset$. האיבר $\emptyset$ נמצא גם בקבוצה הימנית, ולכן $\{\emptyset\} \subseteq \{\emptyset, \{\emptyset\}\,\}$.
+- **הכלה:** יהי $x \in \{\emptyset\}$. מכאן $x=\emptyset$. האיבר $\emptyset$ נמצא גם בקבוצה הימנית, ולכן $\{\emptyset\} \subseteq \{\emptyset, \{\emptyset\,\}$.
 
 - **אי-שוויון:** האיבר $\{\emptyset\}$ נמצא בקבוצה הימנית, אך אינו נמצא בקבוצה השמאלית (שאיברה היחיד הוא $\emptyset$). לכן הקבוצות אינן שוות.
 
@@ -770,7 +770,7 @@ layout: two-cols-header
   - אסוציאטיביות של $\lor$: $x\in A\lor(x\in B\lor x\in C) \iff (x\in A\lor x\in B)\lor x\in C$.
   - לכן $x\in (A\cup B)\cup C$.
 
-- סיכום: לכל $x$ מתקיים $x\in (A\cup B)\cup C \iff x\in A\cup(B\cup C)$, ולכן $(A\cup B)\cup C = A\cup(B\cup C)$. 
+- סיכום: לכל $x$ מתקיים $x\in (A\cup B)\cup C \iff x\in A\cup(B\cup C)$, ולכן $(A\cup B)\cup C = A\cup(B\cup C)`. 
 
 ---
 
@@ -1269,6 +1269,11 @@ $\mathcal{P}(B) = \{\emptyset, \{a\}, \{b\}, \{c\}, \{a,b\}, \{a,c\}, \{b,c\}, \
 
 <br>
 
+
+
+
+<v-clicks depth="1">
+
 **כיוון ראשון:** יש להוכיח שלכל שתי קבוצות $A, B$ אם $A \subseteq B$ אז $\mathcal{P}(A) \subseteq \mathcal{P}(B)$.
 
 **הוכחה:** יהיו $A, B$ שתי קבוצות ונניח כי $A \subseteq B$. עלינו להראות $\mathcal{P}(A) \subseteq \mathcal{P}(B)$. תהי $X$ קבוצה כך ש $X \in \mathcal{P}(A)$. מהגדרת קבוצת החזקה נסיק כי $X \subseteq A$. מאחר והנחנו כי $A \subseteq B$, אזי מטרנזיטיביות יחס ההכלה נסיק כי $X \subseteq B$ ומהגדרת קבוצת החזקה נקבל ש- $X \in \mathcal{P}(B)$.
@@ -1279,6 +1284,7 @@ $\mathcal{P}(B) = \{\emptyset, \{a\}, \{b\}, \{c\}, \{a,b\}, \{a,c\}, \{b,c\}, \
 
 **הוכחה:** יהיו $A, B$ שתי קבוצות ונניח כי $\mathcal{P}(A) \subseteq \mathcal{P}(B)$. עלינו להראות $A \subseteq B$. יהי $x$ איבר ונניח כי $x \in A$. לכן היחידון $\{x\} \subseteq A$ ומהגדרת קבוצת החזקה $\{x\} \in \mathcal{P}(A)$. מאחר והנחנו $\mathcal{P}(A) \subseteq \mathcal{P}(B)$, נסיק כי $\{x\} \in \mathcal{P}(B)$. מהגדרת קבוצת החזקה נקבל כי $\{x\} \subseteq B$ ולכן $x \in B$.
 
+</v-clicks>
 
 ---
 
@@ -1322,18 +1328,19 @@ layout: two-cols-header
   - תהי $X \in \mathcal{P}(A \cap B)$.
  
   - לפי הגדרת קבוצת החזקה, $X \subseteq A \cap B$.
-  - לפי הגדרת חיתוך, $X \subseteq A$ ו-$X \subseteq B$.
+  - לפי תכונה שהוכחנו לחיתוך, $X \subseteq A$ ו-$X \subseteq B$.
   - לכן, $X \in \mathcal{P}(A)$ ו-$X \in \mathcal{P}(B)$.
   - לפי הגדרת חיתוך, $X \in \mathcal{P}(A) \cap \mathcal{P}(B)$.
 
 ::right::
 
 - **כיוון שני ($\supseteq$):**
+
   - תהי $X \in \mathcal{P}(A) \cap \mathcal{P}(B)$.
   
   - לפי הגדרת חיתוך, $X \in \mathcal{P}(A)$ ו-$X \in \mathcal{P}(B)$.
   - לפי הגדרת קבוצת החזקה, $X \subseteq A$ ו-$X \subseteq B$.
-  - לפי הגדרת חיתוך, $X \subseteq A \cap B$.
+  - לפי תכונה שהוכחנו לחיתוך, $X \subseteq A \cap B$.
   - לכן, $X \in \mathcal{P}(A \cap B)$.
 
 ---
@@ -1343,20 +1350,58 @@ layout: two-cols-header
 <span v-click="1">
 
 - **הפרכה:** ניקח $A = \{1\}$, $B = \{2\}$. אז $A \cup B = \{1,2\}$.
+   
    - $\mathcal{P}(A \cup B) = \{\emptyset, \{1\}, \{2\}, \{1,2\}\}$.
+   
    - $\mathcal{P}(A) \cup \mathcal{P}(B) = \{\emptyset, \{1\}\} \cup \{\emptyset, \{2\}\} = \{\emptyset, \{1\}, \{2\}\}$.
-   - ברור ש-$\{1,2\} \in \mathcal{P}(A \cup B)$ אבל $\{1,2\} \notin \mathcal{P}(A) \cup \mathcal{P}(B)$.
+   
+   - קיבלנו ש-$\{1,2\} \in \mathcal{P}(A \cup B)$ אבל $\{1,2} \notin \mathcal{P}(A) \cup \mathcal{P}(B)$.
+   
+   - לכן, $\mathcal{P}(A \cup B) \neq \mathcal{P}(A) \cup \mathcal{P}(B)$.
 
-- הטענה על איחוד נכונה כאשר $A \subseteq B$ או $B \subseteq A$.
-  - **הוכחה:** נניח $A \subseteq B$. יש להראות $\mathcal{P}(A \cup B) = \mathcal{P}(A) \cup \mathcal{P}(B)$.
-
-    - **כיוון ראשון ($\subseteq$):** תהי $X \in \mathcal{P}(A \cup B)$. אז $X \subseteq A \cup B$. אם $X \subseteq A$, אז $X \in \mathcal{P}(A) \subseteq \mathcal{P}(A) \cup \mathcal{P}(B)$. אם $X \not\subseteq A$, אז יש $x \in X$ עם $x \notin A$, אך $x \in A \cup B$, ולכן $x \in B$. מאחר ו-$X \subseteq A \cup B$ ו-$A \subseteq B$, אז $X \subseteq B$, ולכן $X \in \mathcal{P}(B) \subseteq \mathcal{P}(A) \cup \mathcal{P}(B)$.
-
-    - **כיוון שני ($\supseteq$):** תהי $X \in \mathcal{P}(A) \cup \mathcal{P}(B)$. אם $X \in \mathcal{P}(A)$, אז $X \subseteq A \subseteq A \cup B$, ולכן $X \in \mathcal{P}(A \cup B)$. אם $X \in \mathcal{P}(B)$, אז $X \subseteq B \subseteq A \cup B$, ולכן $X \in \mathcal{P}(A \cup B)$.
-
-    - המקרה כאשר $B \subseteq A$ דומה.
+- כפי שנראה בשקף הבא: **הטענה על איחוד נכונה כאשר $A \subseteq B$ או $B \subseteq A$**.
 
 </span>
+
+
+---
+layout: TwoColsHeaderCustom
+---
+
+# אם $A \subseteq B$ אז $\mathcal{P}(A \cup B) = \mathcal{P}(A) \cup \mathcal{P}(B)$
+
+::left::
+
+- כיוון ראשון ($\subseteq$):
+  
+  - יהי $X \in \mathcal{P}(A \cup B)$ 
+  
+  - מכיוון ש- $A \subseteq B$ מתקיים $A \cup B = B$ 
+  - לכן $X \in \mathcal{P}(B)$.
+  
+  - לכן $X \in \mathcal{P}(A) \cup \mathcal{P}(B)$. 
+   
+  
+::right::  
+
+- כיוון שני ($\supseteq$):
+  
+  - יהי $X \in \mathcal{P}(A) \cup \mathcal{P}(B)$.
+  
+  - נחלק לשני מקרים
+    - $X \in \mathcal{P}(A)$ $\Leftarrow$ $X \subseteq A \subseteq A \cup B$ $\Leftarrow$ $X \in \mathcal{P}(A \cup B)$.
+    
+    - $X \in \mathcal{P}(B)$ $\Leftarrow$ $X \subseteq B \subseteq A \cup B$ $\Leftarrow$ $X \in \mathcal{P}(A \cup B)$.
+
+  - בכל מקרה: $X \in \mathcal{P}(A \cup B)$.
+
+
+
+::after::
+
+- הוכחנו הכלה דו-דיוונית ולכן $\mathcal{P}(A \cup B) = \mathcal{P}(A) \cup \mathcal{P}(B)$ כאשר $A \subseteq B$.
+
+- **מסקנה מחילופיות החיתוך**: אם $B \subseteq A$ אז $\mathcal{P}(A \cup B) = \mathcal{P}(A) \cup \mathcal{P}(B)$.
 
 ---
 section: פעולות אונריות 
@@ -1510,13 +1555,11 @@ $\overline{\bigcup X} = \bigcap \{\bar{A} \mid A \in X\}$
 
   - יהי $x$ איבר כלשהוא ונניח $x \in \bigcap \{\bar{A} \mid A \in X\}$.
 
-  - מאחר ו-$X$ אינה ריקה יש איזשהו $A_0 \in X$ ובפרט $x \in \bar{A_0}$.
-  - על כן $x \in Y$ (כי $x \in Y \setminus A_0$).
-  - לפי הגדרת החיתוך האונארי, $x \in \bar{A}$ לכל $A \in X$.
-  - לכן לכל $A \in X$, $x \notin A$.
+  - לפי הגדרת חיתוך, $x \in \bar{A}$ לכל $A \in X$.
+  - לכן $x \in Y$ (כי $x \in Y \setminus A$).
+  - לפי הגדרת האיחוד האונארי, $x \notin \bigcup X$.
  
-  - לכן, לפי הגדרת האיחוד האונארי, $x \notin \bigcup X$.
-  - ולכן $x \in \overline{\bigcup X}$.
+  - לכן $x \in \overline{\bigcup X}$.
 
 
 ---

@@ -32,8 +32,14 @@ const gap = props.gap ?? '1.5rem'
         <slot name="right" />
       </div>
     </div>
+
+    <!-- New 'after' row -->
+    <div class="mt-4">
+      <slot name="after" />
+    </div>
   </div>
 </template>
+
 
 <style scoped>
 .slidev-layout.two-cols-header-custom {

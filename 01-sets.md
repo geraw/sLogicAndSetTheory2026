@@ -109,8 +109,6 @@ layout: two-cols-header
 
 # הפרדוקס של ראסל
 
-<!-- - **הבעיה:** הגדרת קבוצה באופן כללי, $X = \{x \mid \alpha(x)\}$, כאוסף כל העצמים המקיימים תנאי מסוים, עלולה להוביל לסתירות. -->
-
 - **הפרדוקס:** נגדיר את הקבוצה $R$ להיות קבוצת כל הקבוצות שאינן איבר של עצמן:
    $R = \{ A \mid A \notin A \}$
 
@@ -1357,7 +1355,7 @@ const shownSubsets = computed(() =>
 
 ---
 
-#   $A \subseteq B$ אם ורק אם $\mathcal{P}(A) \subseteq \mathcal{P}(B)$
+#  תרגיל לדוגמה:  $A \subseteq B$ אם ורק אם $\mathcal{P}(A) \subseteq \mathcal{P}(B)$
 
 **פתרון:** נשים לב שאנו מתבקשים להוכיח טענה שהמבנה הלוגי שלה הוא $\alpha \leftrightarrow \beta$.
 
@@ -1508,18 +1506,31 @@ section: פעולות אונריות
 
 - תהי $X$ קבוצה שאבריה קבוצות, אז נגדיר את האיחוד האונרי של $X$ להיות הקבוצה:
     
-     $$\bigcup X = \{ a \mid \exists A \in X (a \in A) \}$$
-  - כלומר $a \in \bigcup X$ אם ורק אם יש ב-$X$ איבר $A$ כך ש-$a \in A$. במילים פשוטות, $\bigcup X$ הוא אוסף האיברים הנמצאים באיזושהי קבוצה של $X$.
-  - התנאי $\exists A \in X (a \in A)$ המופיע בהגדרת $\bigcup X$ הוא צורת כתיבה מקוצרת עבור $\exists A (A \in X \land a \in A)$.
+<div class="formula-box">
 
+$$\bigcup X = \{ a \mid \exists A \in X (a \in A) \}$$
+</div>
+
+
+  - כלומר $a \in \bigcup X$ אם ורק אם יש ב-$X$ איבר $A$ כך ש-$a \in A$. במילים פשוטות, $\bigcup X$ הוא אוסף האיברים הנמצאים באיזושהי קבוצה של $X$.
+  
+<br>  
 <br>  
 
 
 - תהי $X$ קבוצה לא ריקה שאבריה קבוצות, אז נגדיר את החיתוך האונרי של $X$ להיות הקבוצה:
-  $$\bigcap X = \{ a \mid \forall A \in X (a \in A) \}$$
+
+<div class="formula-box">
+
+$$\bigcap X = \{ a \mid \forall A \in X (a \in A) \}$$
+</div>
+
   - ההגדרה של חיתוך אונרי התקבלה מהגדרת איחוד אונרי על ידי החלפת הכמת הישי בכמת הכולל.
   - $\bigcap X$ הוא אוסף האיברים המשותפים לכל הקבוצות של $X$.
-  - התנאי $\forall A \in X (a \in A)$ אשר מופיע בהגדרת $\bigcap X$ הוא צורת כתיבה מקוצרת עבור $\forall A (A \in X \to a \in A)$.
+
+<br>  
+<br>  
+
 
 - **דגש חשוב:** אם $X = \emptyset$, אז $\bigcup \emptyset = \emptyset$, אך $\bigcap \emptyset$ אינו מוגדר (כי אין תנאי שכל איבר מקיים).
 
@@ -1713,3 +1724,78 @@ layout: TwoColsHeaderCustom
 ::after::
 
 **מסקנה:** הקבוצה $I = \bigcap X$ היא הקבוצה היחידה המקיימת את שני התנאים.
+
+
+---
+
+# איחוד אונרי של קבוצת החזקה
+
+- טענה: לכל קבוצה $A$ מתקיים:
+
+<div class="formula-box">
+  
+$$ \bigcup \mathcal{P}(A) = A $$
+</div>
+
+- הוכחה:
+  - ($\subseteq$) יהי $x \in \bigcup \mathcal{P}(A)$. אז קיים $X \in \mathcal{P}(A)$ כך ש-$x \in X$. מהגדרת קבוצת החזקה $X \subseteq A$, ולכן $x \in A$.
+  
+  - ($\supseteq$) יהי $x \in A$. היחידון $\{x\} \subseteq A$, ולכן $\{x\} \in \mathcal{P}(A)$. מכאן $x \in \bigcup \mathcal{P}(A)$.
+
+
+- סיכום: לכל $x$ מתקיים $x \in \bigcup \mathcal{P}(A) \iff x \in A$, ולכן $\bigcup \mathcal{P}(A) = A$. 
+
+
+---
+layout: TwoColsHeaderCustom
+---
+
+# תנאים שקולים ל־$X=\mathcal{P}(A)$
+
+::left::
+
+עבור אוסף קבוצות $X$ וקבוצה $A$, התנאים הבאים שקולים:
+
+1. $X=\mathcal{P}(A)$.
+
+2. מתקיימים:
+   - איחוד כל האיברים: $\bigcup X = A$.
+   - מכיל את היחידונים: $\forall x \in A\;(\{x\} \in X)$.
+   - סגור לאיחודים: אם $\mathcal{Y}\subseteq X$ אז $\bigcup \mathcal{Y}\in X$.
+     
+3. מתקיימים יחד:
+   - $\forall S\in X\;(S\subseteq A)$
+   - $A\in X$
+   - סגור לירידה: אם $T\in X$ ו־$S\subseteq T$ אז $S\in X$
+
+::right::
+
+<style>
+.right-small { font-size: 0.85em; line-height: 1.3; }
+</style>
+<div class="right-small">
+
+- (1 $\Leftarrow$ 2): 
+  - אם $X=\mathcal{P}(A)$ אז $\bigcup X = A$.
+  - לכל $x \in A$, $\{x\} \subseteq A$ ולכן $\{x\} \in \mathcal{P}(A) = X$.
+  - אם $\mathcal{Y} \subseteq X = \mathcal{P}(A)$ אז לכל $S \in \mathcal{Y}$ מתקיים $S \subseteq A$ ולכן $\bigcup \mathcal{Y} \subseteq A$ ומכאן $\bigcup \mathcal{Y} \in \mathcal{P}(A) = X$.
+
+- (2 $\Leftarrow$ 3):
+  - לכל $S \in X$, $S \subseteq \bigcup X = A$.
+  - עבור $\mathcal{Y} = \{\,\{x\} \mid x \in A \}$ מתקיים $\mathcal{Y} \subseteq X$ ולכן $\bigcup \mathcal{Y} = A \in X$.
+  - אם $T \in X$ ו-$S \subseteq T$ אז $S \subseteq A$ ולכן $S \in X$ (סגירות לאיחודים).
+
+- (3 $\Leftarrow$ 1):
+  - לכל $S \in X$, $S \subseteq A$.
+  - לכל $S \subseteq A$, $S \in X$ (סגירות לירידה).
+  - לכן $X = \mathcal{P}(A)$.
+</div>
+
+---
+
+# תרגיל הבית
+
+<iframe 
+  src="2026א - עבודה 1 - קבוצות.pdf#toolbar=0"
+  style="width: 100%; height: 100%; border: none; overflow: auto;"
+></iframe>

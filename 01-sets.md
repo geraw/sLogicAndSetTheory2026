@@ -1593,7 +1593,7 @@ $$\bigcap X = \{ a \mid \forall A \in X (a \in A) \}$$
 <template #0> 
   <img src="/images/הוכיחו_הפריכו.png" class="absolute top-1.2/3 right-1/10 w-70 h-70" />
   <img src="/images/הוכיחו_הפריכו_סטודנטית.png" class="absolute top-1.2/3 right-5/10 w-70 h-70" />
-</template>
+</template> 
 
 <template #1> 
 

@@ -4,6 +4,35 @@ import path from "path";
 
 const REPO = "sLogicAndSetTheory2026";
 
+// Restore file timestamps from git
+function restoreGitTimestamps() {
+  try {
+    const files = execSync('git ls-files -z', { encoding: 'utf8' })
+      .split('\0')
+      .filter(f => f);
+    
+    for (const file of files) {
+      if (!fs.existsSync(file)) continue;
+      
+      const timestamp = execSync(
+        `git log -1 --format=%ct -- "${file}"`,
+        { encoding: 'utf8' }
+      ).trim();
+      
+      if (timestamp) {
+        const date = new Date(parseInt(timestamp) * 1000);
+        fs.utimesSync(file, date, date);
+      }
+    }
+    console.log('✓ Restored file timestamps from git history\n');
+  } catch (err) {
+    console.warn('⚠ Could not restore git timestamps:', err.message);
+  }
+}
+
+// Restore timestamps before checking what needs rebuilding
+restoreGitTimestamps();
+
 const decks = fs
   .readdirSync(process.cwd(), { withFileTypes: true })
   .filter(dirent => dirent.isFile() && dirent.name.endsWith(".md"))

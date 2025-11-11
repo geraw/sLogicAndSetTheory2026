@@ -420,7 +420,7 @@ section: יחסים
 layout: two-cols-header
 ---
 
-# $\operatorname{dom}(R \cup S) = \operatorname{dom}(R) \cup \operatorname{dom}(S)$
+# הוכיחו או הפריכו: $\operatorname{dom}(R \cup S) = \operatorname{dom}(R) \cup \operatorname{dom}(S)$
 
 
 ::left::
@@ -446,7 +446,8 @@ layout: two-cols-header
 
 ---
 
-# $\operatorname{dom}(R \cap S) \neq \operatorname{dom}(R) \cap \operatorname{dom}(S)$
+# הוכיחו או הפריכו: $\operatorname{dom}(R \cap S) = \operatorname{dom}(R) \cap \operatorname{dom}(S)$
+
 
 
 - **דוגמה נגדית:**

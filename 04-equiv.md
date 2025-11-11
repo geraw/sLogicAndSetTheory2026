@@ -8,6 +8,7 @@ htmlAttrs:
   lang: heb
 mdc: true
 download: true
+exportFilename: 04-equiv.pdf
 ---
 # יחסי שקילות ומרחבי מנה
 ## הרצאה בקורס: מבוא ללוגיקה ותורת הקבוצות

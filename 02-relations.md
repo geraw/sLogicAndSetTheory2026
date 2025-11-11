@@ -8,6 +8,7 @@ htmlAttrs:
   lang: heb
 mdc: true
 download: true
+exportFilename: 02-relations.pdf
 ---
 # זוגות סדורים, יחסים, תכונות
 ## הרצאה בקורס: מבוא ללוגיקה ותורת הקבוצות
@@ -34,7 +35,131 @@ section: זוגות סדורים
 
   - **דוגמה:** $\{1, 2\} \times \{\{2\}, 3\} = \{\langle 1, \{2\} \rangle, \langle 1, 3 \rangle, \langle 2, \{2\} \rangle, \langle 2, 3 \rangle\}$.
 
+
 ---
+
+# מאפיינים עיקריים
+
+<div class="grid grid-cols-2 gap-8" dir="rtl">
+
+<div>
+
+### 1. לסדר יש חשיבות
+
+הזוגות הם **סדורים**. המשמעות היא שהזוג $\langle \text{חולצה כחולה}, \text{ג'ינס} \rangle$ שונה מהזוג $\langle \text{ג'ינס}, \text{חולצה כחולה} \rangle$.
+
+לכן, ברוב המקרים:
+<p dir="ltr" class="text-center font-mono">
+
+$A \times B \neq B \times A$
+</p>
+
+</div>
+
+<div>
+
+### 2. מספר האיברים
+
+מספר האיברים במכפלה הקרטזית הוא מכפלת מספר האיברים בכל אחת מהקבוצות המקוריות.
+
+אם קבוצה $A$ מכילה **m** איברים וקבוצה $B$ מכילה **n** איברים, אז:
+
+<p dir="ltr" class="text-center font-mono">
+
+$|A \times B| = m \times n$
+</p>
+
+**הדוגמה שלנו:**
+<p dir="ltr" class="text-left font-mono">
+
+חולצות: $|A|=3$
+<br>
+מכנסיים: $|B|=2$
+<br>
+תלבושות: $|A \times B|=3 \times 2=6$
+</p>
+
+</div>
+</div>
+
+
+<img src="/images/מכפלה קרטזית.png" class="absolute top-2.2/3 left-1/9  h-30" />
+
+---
+
+# דוגמאות מהעולם האמיתי
+
+
+המכפלה הקרטזית נמצאת סביבנו!
+
+*  **חפיסת קלפים:** חפיסה של 52 קלפים היא המכפלה הקרטזית של:
+
+    *   **קבוצת הדרגות:** $\{A, K, Q, J, 10, \ldots, 2\}$
+
+    *   **קבוצת הסדרות:** $\{\spadesuit, \heartsuit, \diamondsuit, \clubsuit\}$
+
+*   **תפריטי מסעדות:** קבוצת כל הצירופים האפשריים של $\langle \text{מנה ראשונה}, \text{מנה עיקרית} \rangle$.
+
+*   **פיקסלים במסך:** קבוצת כל הפיקסלים על צג היא מכפלה של $\langle X\text{-קואורדינטות}, Y\text{-קואורדינטות} \rangle$.
+
+*   **קואורדינטות GPS:** מיקום הוא זוג סדור $\langle \text{קו רוחב}, \text{קו אורך} \rangle$.
+
+*  **זמן:** זמן ניתן לייצוג כזוג סדור $\langle \text{שעות}, \text{דקות} \rangle$.
+
+* **כתובות דוא"ל:** כתובת דוא"ל היא זוג סדור $\langle \text{שם משתמש}, \text{שם תחום} \rangle$.
+
+---
+
+# דוגמה: מצב משחק שחמט
+
+<div class="grid grid-cols-2 gap-8 text-3.5" dir="rtl">
+
+<div>
+
+**הקבוצות המרכיבות:**
+
+1. **שורות:** $\text{Rows} = \{1, 2, 3, 4, 5, 6, 7, 8\}$
+
+2. **עמודות:** $\text{Cols} = \{a, b, c, d, e, f, g, h\}$
+
+3. **כלים:** 
+    - $\text{Pieces} = \{\text{מלך לבן}, \text{מלכה לבנה}, \ldots, \text{צריח שחור א, צריח שחור ב, \ldots}\}$
+   - סה"כ 32 כלים (16 לכל צד)
+
+**מצב של המשחק הוא תת-קבוצה של המכפלה הקרטזית:**
+
+$$\text{Board} \subseteq (\text{Rows} \times \text{Cols}) \times \text{Pieces}$$
+
+</div>
+
+<div>
+
+**מגבלות על המצב:**
+
+1. **כל כלי מופיע לכל היותר פעם אחת:**
+   - אם $\langle \langle r_1, c_1 \rangle, p \rangle \in \text{Board}$ ו-$\langle \langle r_2, c_2 \rangle, p \rangle \in \text{Board}$
+   
+   - אז $r_1 = r_2$ וגם $c_1 = c_2$
+
+2. **כל משבצת מכילה לכל היותר כלי אחד:**
+   - אם $\langle \langle r, c \rangle, p_1 \rangle \in \text{Board}$ ו-$\langle \langle r, c \rangle, p_2 \rangle \in \text{Board}$
+   
+   - אז $p_1 = p_2$
+
+**דוגמה למצב חוקי:**
+
+$$\text{Board} = \{\langle \langle 1, e \rangle, \text{מלך לבן} \rangle, \langle \langle 8, d \rangle, \text{מלכה שחורה} \rangle, \langle \langle 2, a \rangle, \text{חייל לבן א} \rangle\}$$
+
+</div>
+
+</div>
+
+<div class="text-sm mt-4" dir="rtl">
+<b>הערה:</b> מצב אמיתי של שחמט הוא תת-קבוצה של המכפלה הקרטזית (יחס ) עם מגבלות נוספות, לא המכפלה הקרטזית עצמה.
+</div>
+
+---
+
 
 # טענה: לכל קבוצה $A$, $\emptyset \times A = A \times \emptyset = \emptyset$
  

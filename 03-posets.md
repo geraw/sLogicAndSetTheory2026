@@ -8,6 +8,7 @@ htmlAttrs:
   lang: heb
 mdc: true
 download: true
+exportFilename: false  # מונע יצירת PDF
 ---
 # יחסי סדר (חלקי)
 ## הרצאה בקורס: מבוא ללוגיקה ותורת הקבוצות

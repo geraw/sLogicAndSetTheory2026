@@ -81,10 +81,12 @@ for (const file of decks) {
     // Remove old build output for this deck
     fs.rmSync(outputDir, { recursive: true, force: true });
     
+    // Build HTML only (no --pdf flag)
     execSync(
-        `npx slidev build ${file} --base "/${REPO}" -o ${outputDir}`,
+        `npx slidev build ${file} --base "/${REPO}" --without-pdf -o ${outputDir}`,
         { stdio: "inherit" }
     );
+
 
     fs.renameSync(`${outputDir}/index.html`, `${outputDir}/${base}.html`);
 

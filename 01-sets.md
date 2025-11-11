@@ -1796,6 +1796,6 @@ layout: TwoColsHeaderCustom
 # תרגיל הבית
 
 <iframe 
-  src="images/ex1.pdf#toolbar=0"
+  src="/images/ex1.pdf#toolbar=0"
   style="width: 100%; height: 100%; border: none; overflow: auto;"
 ></iframe> 

@@ -28,18 +28,30 @@ jobs:
       - name: Setup @antfu/ni
         run: npm i -g @antfu/ni
 
-      - name: Install Playwright for pre-rendering
-        run: npm i -D playwright-chromium
+      - name: Cache node modules
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
       - name: Install dependencies
         run: nci
 
-      - name: Build
-        # run: nr build *.md --base /${{github.event.repository.name}}/
-        run: nr build:all
+      - name: Install Playwright for pre-rendering
+        run: npm i -D playwright-chromium
 
-      # - name: Copy Index files
-      #   run: cp -r dist/*/* dist/
+      - name: Cache dist directory
+        uses: actions/cache@v4
+        with:
+          path: dist
+          key: ${{ runner.os }}-dist-${{ hashFiles('**/*.md') }}
+          restore-keys: |
+            ${{ runner.os }}-dist-
+
+      - name: Build
+        run: nr build:all
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -59,27 +71,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
-
-# name: Deploy to GitHub Pages
-
-# on:
-#   push:
-#     branches: [ main ]
-
-# jobs:
-#   deploy:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v3
-#       - uses: actions/setup-node@v4
-#         with:
-#           node-version: 'lts/*'
-          
-#       - run: npm ci
-#       - run: npm install playwright-chromium
-#       - run: npm run build
-#       - uses: peaceiris/actions-gh-pages@v3
-#         with:
-#           github_token: ${{ secrets.GITHUB_TOKEN }}
-#           publish_dir: dist

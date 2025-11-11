@@ -8,7 +8,7 @@ htmlAttrs:
   lang: heb
 mdc: true
 download: true
-exportFilename: false  # מונע יצירת PDF
+exportFilename: 03-posets.pdf
 ---
 # יחסי סדר (חלקי)
 ## הרצאה בקורס: מבוא ללוגיקה ותורת הקבוצות

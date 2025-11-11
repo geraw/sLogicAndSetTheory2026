@@ -1796,6 +1796,6 @@ layout: TwoColsHeaderCustom
 # תרגיל הבית
 
 <iframe 
-  src="2026א - עבודה 1 - קבוצות.pdf#toolbar=0"
+  src="ex1.pdf#toolbar=0"
   style="width: 100%; height: 100%; border: none; overflow: auto;"
 ></iframe> 

@@ -8,6 +8,7 @@ htmlAttrs:
   lang: heb
 mdc: true
 download: true
+exportFilename: 01-sets.pdf
 ---
 # מבוא לקבוצות ולפעולות בוליאניות
 ## הרצאה בקורס: מבוא ללוגיקה ותורת הקבוצות

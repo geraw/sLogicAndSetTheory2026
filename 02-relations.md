@@ -175,6 +175,105 @@ $$\text{Board} = \{\langle \langle 1, e \rangle, \text{מלך לבן} \rangle, \
 
 
 ---
+
+# טענה: $A \times B = \emptyset$ אם ורק אם $A = \emptyset$ או $B = \emptyset$
+
+<div class="grid grid-cols-2 gap-8" dir="rtl">
+
+<div>
+
+**הוכחה (כיוון ראשון: $\Rightarrow$)**
+
+- נניח ש-$A \times B = \emptyset$.
+
+- נניח בשלילה ש-$A \neq \emptyset$ וגם $B \neq \emptyset$.
+
+- אז קיים $a \in A$ וקיים $b \in B$.
+
+- לפי הגדרת המכפלה הקרטזית: $\langle a, b \rangle \in A \times B$.
+
+- סתירה להנחה ש-$A \times B = \emptyset$.
+
+- לכן $A = \emptyset$ או $B = \emptyset$.
+
+</div>
+
+<div>
+
+**הוכחה (כיוון שני: $\Leftarrow$)**
+
+- נניח ש-$A = \emptyset$ או $B = \emptyset$.
+
+- **מקרה 1:** אם $A = \emptyset$:
+  - לכל זוג $\langle x, y \rangle$, התנאי $x \in A$ אינו מתקיים.
+  - לכן $A \times B = \{\langle x, y \rangle \mid x \in A \land y \in B\} = \emptyset$.
+
+- **מקרה 2:** אם $B = \emptyset$:
+  - לכל זוג $\langle x, y \rangle$, התנאי $y \in B$ אינו מתקיים.
+  - לכן $A \times B = \{\langle x, y \rangle \mid x \in A \land y \in B\} = \emptyset$.
+
+- **מסקנה:** $A \times B = \emptyset$. 
+
+</div>
+
+</div>
+
+---
+layout: TwoColsHeaderCustom
+---
+
+# חוקי הפילוג של המכפלה הקרטזית
+
+
+
+::left::
+
+<div class="text-left text-2xl" dir="rtl">
+
+$$
+(B \cup C) \times A = (B \times A) \cup (C \times A)
+$$
+<br>
+$$
+(B \cap C) \times A = (B \times A) \cap (C \times A)
+$$
+<br>  
+$$
+(B \setminus C) \times A = (B \times A) \setminus (C \times A)
+$$
+
+</div>
+
+::right::
+
+<div class="text-left text-2xl" dir="rtl" >
+
+$$
+A \times (B \cup C) = (A \times B) \cup (A \times C)
+$$
+
+<br>
+$$
+A \times (B \cap C) = (A \times B) \cap (A \times C)
+$$
+<br>
+
+$$
+A \times (B \setminus C) = (A \times B) \setminus (A \times C)
+$$
+
+</div>
+
+::after::
+
+- 💡 המכפלה הקרטזית מתנהגת "כמו פעולה אלגברית רגילה" ביחס לאיחוד, חיתוך והפרש קבוצות:
+
+  - היא **מתפזרת** עליהם בדומה לחוקי הפילוג של כפל על חיבור.
+
+
+
+
+---
 layout: two-cols-header
 ---
 
@@ -268,7 +367,10 @@ section: יחסים
 
 # יחסים
 
-- **הגדרה:** יחס מ-$A$ ל-$B$ הוא תת-קבוצה של $A \times B$.
+- הגדרה: **יחס מ-$A$ ל-$B$** הוא תת-קבוצה של $A \times B$. יחס דו מקומי מ-$A$ ל-$A$ נקרא **יחס על $A$**.
+
+  - לדוגמה, אם $A = \{1, 2, 3\}$ ו-$B = \{a, b\}$, אז $R = \{\langle 1, a \rangle, \langle 2, b \rangle\}$ הוא יחס מ-$A$ ל-$B$.
+
 
 - **תחום היחס (Domain):** לתת-קבוצה $R \subseteq A \times B$, התחום של $R$ הוא הקבוצה 
 
@@ -301,13 +403,13 @@ section: יחסים
     - $dom(R) \times img(R) = \{ \langle 1, a \rangle, \langle 1, b \rangle, \langle 2, a \rangle, \langle 2, b \rangle \}$ 
 
 
-<div class="absolute top-1.95/3 left-1/4 transform -translate-x-1/2 w-80 h-80" style="scale:.5;">
+<div class="absolute top-1.95/3 left-.5/4 transform -translate-x-1/2 w-80 h-80" style="scale:.5;">
 <BipartiteGraph
   :left="['1','2']"
-  :right="['A','B']"
+  :right="['a','b']"
   :edges="[
-    ['L1','RA',''],
-    ['L2','RB','']
+    ['L1','Ra',''],
+    ['L2','Rb','']
   ]"
 />
 </div>

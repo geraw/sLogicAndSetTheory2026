@@ -83,7 +83,7 @@ for (const file of decks) {
     
     // Build HTML only (no --pdf flag)
     execSync(
-        `npx slidev build ${file} --base "/${REPO}" --without-pdf -o ${outputDir}`,
+        `npx slidev build ${file} --base "/${REPO}" -o ${outputDir}`,
         { stdio: "inherit" }
     );
 

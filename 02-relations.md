@@ -622,8 +622,9 @@ $$S$$
 
 # היחס ההופכי
 
-- הגדרה: עבור יחס $R\subseteq A\times B$ נגדיר
-
+- הגדרה: עבור יחס $R\subseteq A\times B$ 
+-$A$ ו-$B$, נגדיר יחס מ-$B$ ל-$A$ הנקרא **היחס ההופכי של $R$** ונסמן אותו $R^{-1}$
+  
 <div class="formula-box">
 
   $$
@@ -632,19 +633,24 @@ $$S$$
 
 </div>
 
+- דוגמה: אם $R=\{\langle1,a\rangle,\langle2,b\rangle\}$ אז $R^{-1}=\{\langle a,1\rangle,\langle b,2\rangle\}$.
 
 - תכונות:
   - $\operatorname{dom}(R^{-1})=\operatorname{img}(R)$.
-    - אם $\langle y,x\rangle\in R^{-1}$ אז קיים $x,y$ כך ש $\langle x,y\rangle\in R$, ולכן $y\in \operatorname{img}(R)$.
+    
+    - אם $x \in \operatorname{dom}(R^{-1})$ אז קיים $y$ כך ש $\langle x,y\rangle\in R^{-1}$, ולכן $x\in \operatorname{img}(R)$.
+    - אם $x \in \operatorname{img}(R)$ אז קיים $y$ כך ש $\langle y,x\rangle\in R$, ולכן $x\in \operatorname{dom}(R^{-1})$.
+
+  - $(R^{-1})^{-1}=R$  
+    -  $\langle y,x\rangle\in R^{-1}$ אם ורק אם $\langle x,y\rangle\in R$ ולכן $\langle y,x\rangle\in (R^{-1})^{-1}$.
 
 
-  - $\operatorname{img}(R^{-1})=\operatorname{dom}(R)$.
-    - אם $\langle y,x\rangle\in R^{-1}$ אז קיים $x,y$ כך ש $\langle x,y\rangle\in R$, ולכן $x\in \operatorname{dom}(R)$.
+    <!-- -  $\langle x,y\rangle\in R$  אם ורק אם $\langle y,x\rangle\in R^{-1}$ ולכן $\langle x,y\rangle\in (R^{-1})^{-1}$. -->
+
+  - $\operatorname{img}(R^{-1})=\operatorname{dom}(R)$ **$\longrightarrow$ תרגיל**
+    <!-- - אם $\langle y,x\rangle\in R^{-1}$ אז קיים $x,y$ כך ש $\langle x,y\rangle\in R$, ולכן $x\in \operatorname{dom}(R)$. -->
   
-  - $(R^{-1})^{-1}=R$.
-  -  $\langle x,y\rangle\in R$  אם ורק אם $\langle y,x\rangle\in R^{-1}$ ולכן $\langle x,y\rangle\in (R^{-1})^{-1}$.
 
-- דוגמה: אם $R=\{\langle1,a\rangle,\langle2,b\rangle\}$ אז $R^{-1}=\{\langle a,1\rangle,\langle b,2\rangle\}$.
 
 
 <div class="absolute top-1.2/4 right-7/10">

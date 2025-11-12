@@ -17,23 +17,87 @@ exportFilename: 02-relations.pdf
 ---
 section: זוגות סדורים 
 ---
-# זוגות סדורים ומכפלות קרטזיות
+# זוגות סדורים - מושג והגדרה
 
-הקבוצה $\{a, b\}$ שווה לקבוצה $\{b, a\}$, שכן לשתי קבוצות אלו אותם איברים: $a$ ו-$b$. עם זאת, לפעמים הסדר חשוב לנו, ולכן נגדיר אובייקט מתמטי חדש בשם "זוג סדור", שבו הסדר בין האיברים מובחן.
+- למה צריך זוגות סדורים? 
+  - בקבוצות : $\{a,b\}=\{b,a\}$.  כלומר, אין חשיבות לסדר כתיבת האיברים.
+  - לעיתים הסדר כן חשוב כי הוא מייצג מידע שונה (למשל, שם ושם משפחה).
 
-- **הגדרה:** בהנתן $a$ ו-$b$ כלשהם ניתן לייצר את הזוג הסדור $\langle a, b \rangle$ בו $a$ הוא האיבר הראשון (איבר שמאלי) ו-$b$ האיבר השני (הימני).
+- **הגדרה:**
+  - זוג סדור הוא אובייקט $\langle a,b\rangle$ שבו $a$ האיבר הראשון ו־$b$ האיבר השני.
+  - **שוויון זוגות**: $\langle a,b\rangle=\langle c,d\rangle \iff a=c \land b=d$.
+  
+  - **סימון הטלות**: אם $p=\langle a,b\rangle$ אז $\pi_0(p)=a$ ו־$\pi_1(p)=b$.
 
-  - שני זוגות סדורים שווים אם ורק אם לשניהם אותו איבר ראשון ואותו איבר שני, כלומר: $a = c \land b = d \iff \langle a, b \rangle = \langle c, d \rangle$.
+- דוגמאות:
+  - $\langle 1,3\rangle \neq \langle 3,1\rangle$.
 
-  - למשל: $\langle 1, 3 \rangle \neq \langle 3, 1 \rangle$.
+  - אם $p=\langle 2,\{2\}\rangle$ אז $\pi_0(p)=2$, $\pi_1(p)=\{2\}$.
 
-- **סימון:** אם $p = \langle a, b \rangle$ הוא זוג סדור, נסמן $\pi_0(p) = a$ להיות איברו הראשון ו-$\pi_1(p) = b$ להיות איברו השני. 
-  - כלומר, לכל זוג סדור $p$, $p = \langle \pi_0(p), \pi_1(p) \rangle$.
+- הערה: תאורטית, גם זוגות סדורים הם בעצם קבוצות, למשל, במודל הנקרא  ייצוג קרטובסקי - $\langle a,b\rangle := \{\{a\},\{a,b\}\}$.
 
-- **הגדרה:** המכפלה קרטזית של קבוצות $A$ ו-$B$ היא הקבוצה: $A \times B = \{\langle a, b \rangle \mid a \in A \land b \in B\}$.
-  - כלומר קבוצת כל הזוגות שאיברם הראשון לקוח מ-$A$ והשני מ-$B$.
+<img src="/images/זוגות סדורים.png" class="absolute top-1/5 left-1/100  h-70" />
 
-  - **דוגמה:** $\{1, 2\} \times \{\{2\}, 3\} = \{\langle 1, \{2\} \rangle, \langle 1, 3 \rangle, \langle 2, \{2\} \rangle, \langle 2, 3 \rangle\}$.
+---
+layout: two-cols-header
+---
+
+# מכפלה קרטזית – הגדרה ודוגמאות
+
+::left::
+
+### 📘 הגדרה פורמלית
+
+<br>
+
+<div class="formula-box">
+
+$$
+A \times B = \{\langle a, b \rangle \mid a \in A \land b \in B\}
+$$
+</div>
+
+קריאה: הזוגות הסדורים שהאיבר הראשון נלקח מ־$A$ והשני מ־$B$.
+
+
+
+### ✳️ דוגמאות
+
+- דוגמה מספרית:  
+  $\{1,2\}\times\{\{2\},3\}=\{\langle 1,\{2\}\rangle,\langle 1,3\rangle,\langle 2,\{2\}\rangle,\langle 2,3\rangle\}$  
+
+- יישום במדעי המחשב:  
+  $\{0,\ldots,n\} \times \{0,\ldots,m\}$ מייצג את כל הפיקסלים במסך ברזולוציה של $n \times m$.
+
+
+- יישום בתורת הקבוצות:  
+  $\mathbb{Z} = \{+,-\} \times \mathbb{N}$ מייצג את כל המספרים השלמים.
+
+
+::right::
+
+### 🧮 משמעות גיאומטרית
+
+<div class="flex justify-center my-0">
+  <img src="/images/המישור הקרטזי.png" class="w-40" />
+</div>
+
+
+
+נקודות $\langle x,y \rangle$ יוצרות רשת אינסופית של זוגות אפשריים –  
+זו המכפלה הקרטזית של קבוצת המספרים הממשיים בעצמה.
+
+
+
+
+> 💡 **תיבול היסטורי:**  
+> המונח *"קרטזי"* בא משמו של **רנה דקארט (René Descartes, 1596–1650)**,  
+> שהציג ב-1637 בספרו *La Géométrie* את השיטה הקואורדינטית -  
+> דרך לתאר נקודה במישור כזוג מספרים $(x, y)$.  
+> כך נוצר לראשונה החיבור בין **גאומטריה** ל-**אלגברה**,  
+> רעיון שהפך מאוחר יותר למושג הפורמלי של **המכפלה הקרטזית**:
+>
+
 
 
 ---
@@ -367,12 +431,12 @@ section: יחסים
 
 # יחסים
 
-- הגדרה: **יחס מ-$A$ ל-$B$** הוא תת-קבוצה של $A \times B$. יחס דו מקומי מ-$A$ ל-$A$ נקרא **יחס על $A$**.
+- הגדרה: **יחס מ-$A$ ל-$B$** הוא תת-קבוצה של $A \times B$. יחס  מ-$A$ ל-$A$ נקרא **יחס על $A$**.
 
   - לדוגמה, אם $A = \{1, 2, 3\}$ ו-$B = \{a, b\}$, אז $R = \{\langle 1, a \rangle, \langle 2, b \rangle\}$ הוא יחס מ-$A$ ל-$B$.
 
 
-- **תחום היחס (Domain):** לתת-קבוצה $R \subseteq A \times B$, התחום של $R$ הוא הקבוצה 
+- **תחום היחס (Domain):** התחום של יחס $R \subseteq A \times B$ הוא הקבוצה 
 
 
 
@@ -396,7 +460,7 @@ section: יחסים
 
 - **תכונה:** $R \subseteq \operatorname{dom}(R) \times \operatorname{img}(R)$.
 
-  -  אם $\langle x,y\rangle\in R$ אז $x\in\operatorname{dom}(R)$ ו-$y\in\operatorname{img}(R)$, ולכן $\langle x,y\rangle\in\operatorname{dom}(R)\times\operatorname{img}(R)$.
+  -  הוכחה: אם $\langle x,y\rangle\in R$ אז $x\in\operatorname{dom}(R)$ ו-$y\in\operatorname{img}(R)$, ולכן $\langle x,y\rangle\in\operatorname{dom}(R)\times\operatorname{img}(R)$.
 
 
 - **דוגמה:** אם $R=\{\langle1,a\rangle,\langle2,b\rangle\}$ אז $\operatorname{dom}(R)=\{1,2\}$ ו-$\operatorname{img}(R)=\{a,b\}$.
@@ -423,7 +487,10 @@ layout: two-cols-header
 # הוכיחו או הפריכו: $\operatorname{dom}(R \cup S) = \operatorname{dom}(R) \cup \operatorname{dom}(S)$
 
 
+
 ::left::
+
+<v-click>
 
   - **כיוון ראשון ($\subseteq$):**
 
@@ -433,8 +500,12 @@ layout: two-cols-header
     - כלומר $\langle x, y \rangle \in R$ או $\langle x, y \rangle \in S$.
     - אם $\langle x, y \rangle \in R$, אז $x \in \operatorname{dom}(R) \subseteq \operatorname{dom}(R) \cup \operatorname{dom}(S)$.
     - אם $\langle x, y \rangle \in S$, אז $x \in \operatorname{dom}(S) \subseteq \operatorname{dom}(R) \cup \operatorname{dom}(S)$.
-  
+</v-click>
+
 ::right::  
+
+<v-click>
+
   - **כיוון שני ($\supseteq$):**
 
     - תהי $x \in \operatorname{dom}(R) \cup \operatorname{dom}(S)$.
@@ -444,11 +515,15 @@ layout: two-cols-header
     - אם $x \in \operatorname{dom}(S)$, קיים $y$ עם $\langle x, y \rangle \in S \subseteq R \cup S$, 
       - אז $x \in \operatorname{dom}(R \cup S)$.
 
+</v-click>
+
+
+
 ---
 
 # הוכיחו או הפריכו: $\operatorname{dom}(R \cap S) = \operatorname{dom}(R) \cap \operatorname{dom}(S)$
 
-
+<v-click>
 
 - **דוגמה נגדית:**
 
@@ -500,6 +575,8 @@ $$S$$
 
 </div>
 
+</v-click>
+
 
 ---
 
@@ -515,11 +592,11 @@ $$S$$
   ולרוב נרשום $x=y$ במקום $\langle x,y\rangle\in Eq_A$. 
 
 
-- יחס הסדר על הממשיים אינו זהה ליחס על הטבעיים; מתקיימת הכלה
-  $\le_{\mathbb{N}}\subseteq\le_{\mathbb{R}},$
+- יחס הסדר על הממשיים **אינו** זהה ליחס הסדר על הטבעיים; מתקיימת הכלה
+  $\le_{\mathbb{N}}\,\subseteq\,\le_{\mathbb{R}},$
   כלומר $\forall m,n\in\mathbb{N}\,(m\le_{\mathbb{N}} n\to m\le_{\mathbb{R}} n)$.
 
-- **הגדרה:** אם $R \subseteq A \times A$, אנו אומרים ש-$R$ יחס על $A$ (ואז $R$ יחס על כל $A' \subseteq A$ כי $R \subseteq A' \times A'$).
+- **תזכורת:** אם $R \subseteq A \times A$, אנו אומרים ש-$R$ יחס על $A$ (ואז $R$ יחס על כל $A'$ המקיימת $A \subseteq A'$ כי $R \subseteq A' \times A'$).
 
 - לעיתים, בהינתן יחס $R$, במקום לרשום $\langle a,b\rangle\in R$ אנו רושמים $a\,R\,b$.
 
@@ -723,17 +800,19 @@ $$R = \{\langle 1,2 \rangle, \langle 2,1 \rangle, \langle 2,3 \rangle, \langle 3
 
 - ניסוח שקול: לכל $x,y\in A$, אם $x\,R\,y$ ו־$x\neq y$ אז $\neg\,(y\,R\,x)$.
 
+- אין חיצים דו-כיווניים בין איברים שונים של $A$.
+
 - דוגמאות קצרות:
   
-  - יחס $\le$ על $\mathbb{N}$ אנטי-סימטרי.
+  - היחס $\le$ על $\mathbb{N}$ הוא אנטי-סימטרי.
    
-  - יחס השוויון $=$ אנטי-סימטרי וגם רפלקסיבי.
+  - יחס השוויון, $=$, הוא אנטי-סימטרי וגם רפלקסיבי.
   
-  - יחס "שונה" (i.e. $x\neq y$) <span style="color:red">אינו</span> אנטי-סימטרי, כי אם $x\neq y$ אז גם $y\neq x$ ולכן יש מקרים של $x\neq y$ עם קשר דו-כיווני.
+  - יחס "שונה" (ז"א $x\neq y$) <span style="color:red">אינו</span> אנטי-סימטרי, כי אם $x\neq y$ אז גם $y\neq x$ ולכן יש מקרים של $x\neq y$ עם קשר דו-כיווני.
 
 
 
-<div class="absolute top-1.5/3 left-1/9" style="scale: .5;">
+<div class="absolute top-1.7/3 left-1/9" style="scale: .5;">
 <GraphCytoscape
   :nodes=" [
     { id: '1', x: 100, y: 100, label: '1' },
@@ -754,7 +833,7 @@ $$R = \{\langle 1,2 \rangle, \langle 2,1 \rangle, \langle 2,3 \rangle, \langle 3
 </div>
 </div>
 
-<div class="absolute top-1.5/3 left-5/9" style="scale:.5;">
+<div class="absolute top-1.7/3 left-5/9" style="scale:.5;">
 <GraphCytoscape
   :nodes=" [
     { id: '1', x: 100, y: 100, label: '1' },
@@ -1161,7 +1240,7 @@ $$R_1 \cap R_2$$
 - אם $x=y$ אז היינו מקבלים $\langle x,x\rangle\notin S$, בסתירה לעיל, לכן $x\neq y$.
 - מאנטי-סימטריות של $R$ נובע ש־$\langle y,x\rangle\notin R$ (אחרת נקבל $x=y$).
 - לכן ב־$R\cap S$ חסרים גם $\langle x,y\rangle$ וגם $\langle y,x\rangle$.
-- מסקנה: $R\cap S$ אינו שלם, ולפיכך $T\subseteq R\cap S$ אינו שלם — סתירה.
+- מסקנה: $R\cap S$ אינו שלם, ולפיכך $T\subseteq R\cap S$ אינו שלם - סתירה.
 - לכן החיתוך אינו שלם.
 
 

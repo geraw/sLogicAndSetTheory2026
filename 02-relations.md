@@ -932,11 +932,14 @@ $$R = \{\langle 1,2 \rangle, \langle 2,1 \rangle, \langle 2,3 \rangle, \langle 3
     { source: '1', target: '2' },
     { source: '2', target: '1' },
     { source: '3', target: '1' },
-    { source: '3', target: '2' }
+    { source: '3', target: '2' },
+    { source: '1', target: '1' },
+    { source: '2', target: '2', loopDirection: '90deg' },
+    { source: '3', target: '3' }
   ]"/>
 <div style="text-align: center; margin-top: -1rem; scale: 1.1;">
   
-  $$R = \{\langle1,2\rangle,\langle2,1\rangle,\langle3,1\rangle,\langle3,2\rangle\}$$
+  $$R = \{\langle1,2\rangle,\langle2,1\rangle,\langle3,1\rangle,\langle3,2\rangle, \langle 1,1 \rangle,\langle 2,2 \rangle,\langle 3,3 \rangle\}$$
   יחס שלם
 </div>
 </div>
@@ -950,11 +953,14 @@ $$R = \{\langle 1,2 \rangle, \langle 2,1 \rangle, \langle 2,3 \rangle, \langle 3
   ]"
   :edges=" [
     { source: '1', target: '2' },
-    { source: '2', target: '3' }
+    { source: '2', target: '3' },
+    { source: '1', target: '1' },
+    { source: '2', target: '2', loopDirection: '90deg' },
+    { source: '3', target: '3' }
   ]"/>
 <div style="text-align: center; margin-top: -1rem; scale: 1.1;">
   
-  $$S = \{\langle1,2\rangle,\langle2,3\rangle\}$$  
+  $$S = \{\langle1,2\rangle,\langle2,3\rangle,\langle 1,1 \rangle,\langle 2,2 \rangle,\langle 3,3 \rangle\}$$  
   אינו שלם (אין חיבור בין 1 ל-3)
 </div>
 </div>

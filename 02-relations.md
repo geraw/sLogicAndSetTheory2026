@@ -1106,33 +1106,42 @@ layout: two-cols-header
 
 # תכונות חיתוך יחסים על קבוצה $A$
 
--  אם $\mathcal{S}$ קבוצה לא ריקה של יחסים על קבוצה $A$. (כלומר לכל $S \in \mathcal{S}$, $S \subseteq A \times A$ יחס על הקבוצה $A$.)
+-  אם $\mathcal{Q}$ קבוצה לא ריקה של יחסים על קבוצה $A$. (כלומר לכל $S \in \mathcal{Q}$, $S \subseteq A \times A$ יחס על הקבוצה $A$.)
 
-  - החיתוך האונרי של $\mathcal{S}$ הוא יחס על $A$, כלומר $\bigcap \mathcal{S} \subseteq A \times A$.
+  - החיתוך האונרי של $\mathcal{Q}$ הוא יחס על $A$, כלומר $\bigcap \mathcal{Q} \subseteq A \times A$.
+
 
 ::left::
-
+<v-clicks depth=2>
+  
   - **רפלקסיביות**:
-    - אם כל $S \in \mathcal{S}$  רפלקסיבי על $A$, גם $\bigcap \mathcal{S}$ רפלקסיבי על $A$.
-    - אם $T = \bigcap \mathcal{S}$  רפלקסיבי על $A$, גם כל $S \in \mathcal{S}$  רפלקסיבי על $A$.
+    - אם כל $S \in \mathcal{Q}$  רפלקסיבי על $A$, גם $\bigcap \mathcal{Q}$ רפלקסיבי על $A$.
+    - אם $T = \bigcap \mathcal{Q}$  רפלקסיבי על $A$, גם כל $S \in \mathcal{Q}$  רפלקסיבי על $A$.
+
 
   - **שלמות**:
-    - אם $T$ יחס שלם על $A$, אז גם כל $S \in \mathcal{S}$ יחס שלם על $A$. 
-    - אם יש ב-$\mathcal{S}$ שני יחסים אנטי-סימטרים שונים, אז $\bigcap \mathcal{S}$ אינו שלם.
+    - אם $T$ יחס שלם על $A$, אז גם כל $S \in \mathcal{Q}$ יחס שלם על $A$. 
+    - אם יש ב-$\mathcal{Q}$ שני יחסים אנטי-סימטרים שונים, אז $\bigcap \mathcal{Q}$ אינו שלם.
 
 
 - **טרנזיטיביות**:
-    - אם כל $S \in \mathcal{S}$ יחס טרנזיטיבי, אז גם $\bigcap \mathcal{S}$ טרנזיטיבי.
+    - אם כל $S \in \mathcal{Q}$ יחס טרנזיטיבי, אז גם $\bigcap \mathcal{Q}$ טרנזיטיבי.
+    - יכול להיות ש-$\bigcap \mathcal{Q}$ טרנזיטיבי אך לא כל $S \in \mathcal{Q}$ טרנזיטיבי.
+</v-clicks>
 
 ::right::
 
+<v-clicks depth=2>
+
 - **אנטי-סימטריות**:
-  - אם יש $S \in \mathcal{S}$ שהוא אנטי-סימטרי, אז גם $\bigcap \mathcal{S}$ אנטי-סימטרי. 
-  - אם יש ב־$\mathcal{S}$ שני יחסים אנטי-סימטריים שונים, אז $\bigcap \mathcal{S}$ אינו שלם.
+  - אם יש $S \in \mathcal{Q}$ שהוא אנטי-סימטרי, אז גם $\bigcap \mathcal{Q}$ אנטי-סימטרי. 
+  - אם $\bigcap \mathcal{Q}$ אנטי-סימטרי, לא בהכרח שיש ב-$\mathcal{Q}$ יחס אנטי-סימטרי.
 
 - **סימטריות**:
-  - אם כל $S \in \mathcal{S}$ יחס סימטרי, אז גם $\bigcap \mathcal{S}$ סימטרי.
+  - אם כל $S \in \mathcal{Q}$ יחס סימטרי, אז גם $\bigcap \mathcal{Q}$ סימטרי.
+  - גם אם $\bigcap \mathcal{Q}$ סימטרי, לא בהכרח שכל $S \in \mathcal{Q}$ סימטרי.
 
+</v-clicks>
 
 
 
@@ -1147,7 +1156,7 @@ layout: two-cols-header
   color: #2563eb;
 }
 .two-cols-header h2 {
-  margin-top: 3rem;
+  margin-top: 1rem;
 }
 .two-cols-header h2:first-of-type {
   margin-top: 0;
@@ -1316,6 +1325,8 @@ layout: two-cols-header
 
 ::left::
 
+<v-clicks depth=1>
+
 - **איחוד שומר רפלקסיביות**:
   - אם לכל $R\in\mathcal{S}$ וּלכל $x\in A$ מתקיים $\langle x,x\rangle\in R$, 
 
@@ -1330,6 +1341,8 @@ layout: two-cols-header
   - אז קיים $R$ עם $\langle a,b\rangle\in R$; 
   - בזכות הסימטריות של $R$ גם $\langle b,a\rangle\in R$
   - לכן $\langle b,a\rangle\in\bigcup\mathcal{S}$.
+
+</v-clicks>
 
 ::right::
 

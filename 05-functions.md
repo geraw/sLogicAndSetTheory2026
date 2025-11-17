@@ -10,34 +10,33 @@ mdc: true
 download: true
 exportFilename: 05-functions.pdf
 ---
+
 # פונקציות: הגדרה ותכונות יסוד
+
 #### הרצאה בקורס: מבוא ללוגיקה ותורת הקבוצות
 
 ---
 
 # הגדרת המושג פונקציה
 
+- יחס $F \subseteq A \times B$ הוא **פונקציה** אם לכל $a \in A$ קיים בדיוק $b \in B$ אחד כך ש-$\langle a,b \rangle \in F$.
+  - תנאי **מלאות**:
+      <div class="formula-box">
 
+    $\forall x \in X \bigl(\;\exists y \in Y (\;\langle x,y \rangle \in F) \; \bigr)$
+      </div>
 
-* יחס $F \subseteq A \times B$ הוא **פונקציה** אם לכל $a \in A$ קיים בדיוק $b \in B$ אחד כך ש-$\langle a,b \rangle \in F$.  
-    
-    * תנאי **מלאות**: 
-        <div class="formula-box">
+  - תנאי **חד-ערכיות**:
+      <div class="formula-box">
 
-        $\forall x \in X \bigl(\;\exists y \in Y (\;\langle x,y \rangle \in F) \; \bigr)$
-        </div>
+    $\forall x \in X,  y_1,y_2 \in Y  (\langle x,y_1 \rangle \in F \land \langle x,y_2 \rangle \in F \Rightarrow y_1 = y_2)$
+      </div>
 
-    * תנאי **חד-ערכיות**: 
-        <div class="formula-box">
-
-        $\forall x \in X,  y_1,y_2 \in Y  (\langle x,y_1 \rangle \in F \land \langle x,y_2 \rangle \in F \Rightarrow y_1 = y_2)$
-        </div>
-
-* נסמן: $F \colon A \to B$.
-  * נקרא ל-$A$ **תחום** של $F$ ול-$B$ **טווח חוקי** של $F$.
-  *  פונקציה היא בעצם שלשה: התחום, הטווח החוקי והיחס. כשכותבים $F$ מתיחסים רק ליחס.
-  * הטווח חייב להכיל את התמונה של היחס : $\operatorname{img}(F) \subseteq B$.
-
+- נסמן: $F \colon A \to B$.
+  - נקרא ל-$A$ **תחום** של $F$ ול-$B$ **טווח חוקי** של $F$.
+  - פונקציה היא בעצם שלשה: התחום, הטווח החוקי והיחס. כשכותבים $F$ מתיחסים רק ליחס.
+  - התחום חייב להיות שווה לתחום של היחס : $\operatorname{dom}(F) = A$.
+  - הטווח חייב להכיל את התמונה של היחס : $\operatorname{img}(F) \subseteq B$.
 
 <div class="absolute top-1.5/3 left-.3/4 transform -translate-x-1/2 w-80 h-80" style="scale:.5;">
 <BipartiteGraph
@@ -50,13 +49,10 @@ exportFilename: 05-functions.pdf
   ]"
 />
 
-
   <div class="text-4xl font-bold text-center">
     לא פונקציה
   </div>
 </div>
-
-
 
 <div class="absolute top-.5/3 left-.3/4 transform -translate-x-1/2 w-80 h-80" style="scale:.5;">
 <BipartiteGraph
@@ -74,19 +70,47 @@ exportFilename: 05-functions.pdf
   </div>
 </div>
 
-
-
 ---
 
+# תת־קבוצה של פונקציה
 
-# תתי־קבוצות, חיתוך ואיחוד של פונקציות
+**הוכיחו או הפריכו :** אם $F\colon A \to B$ ו-$G \subseteq F$, אז בהכרח $G\colon A \to B$.
 
+<v-click>
 
-## תת-קבוצה של פונקציה
+- דוגמה נגדית :
+  - יהי $A=\{1,2\}$, $B=\{a,b\}$.
+  - נגדיר $F=\{\langle 1,a\rangle,\langle 2,b\rangle\}$ — פונקציה $F\colon A\to B$.
+  - נגדיר $G=\{\langle 1,a\rangle\}\subseteq F$.
+  - אז $G$ אינה פונקציה $A\to B$ כי אינה מוגדרת על $2$ (חוסר מלאות).
 
-**טענה:** אם $G \subseteq F$ ופונקציה $F$, אז לא בהכרח ש-$G$ פונקציה.
+<div class="flex gap-8 items-start -mt-15">
+  <div class="w-1/2 scale-60">
+    <BipartiteGraph
+      :left="['1','2']"
+      :right="['a','b']"
+      :edges="[['L1','Ra',''], ['L2','Rb','']]"
+    />
+    <div class="text-2xl font-bold text-center mt-2">F: A→B — פונקציה מלאה</div>
+  </div>
+  <div class="w-1/2 scale-60">
+    <BipartiteGraph
+      :left="['1','2']"
+      :right="['a','b']"
+      :edges="[['L1','Ra','']]"
+    />
+    <div class="text-2xl font-bold text-center mt-2">G⊆F — לא פונקציה A→B (1 מוגדר, 2 לא)</div>
+  </div>
+</div>
 
-**נימוק:** ייתכן ש-$G$ "מאבד" חלק מהזוגות כך שיש $a$ ללא תמונה.
+<div class="-mt-4">
+
+- הערה חשובה: אם נסמן $A'=\operatorname{dom}(G)$, אז - **$G\colon A' \to B$ היא פונקציה תקינה.** - הבעיה נובעת רק מהדרישה שהתחום יהיה בדיוק $A$.
+</div>
+
+<img src="/images/תת-קבוצה של פונקציה.png" class="absolute top-60 left-20 w-70 transform -translate-y-1/2" />
+
+</v-click>
 
 ---
 
@@ -102,19 +126,10 @@ exportFilename: 05-functions.pdf
 
 **אפיונים:**
 
-* $F \cup G$ היא פונקציה אמ"ם לכל $a \in A$: או שלא מופיע כלל באחת מהן, או ש-$F(a)=G(a)$.
-* כלומר: אין סתירה בין התמונות.
-
-
-
-
-
-
-
-
+- $F \cup G$ היא פונקציה אמ"ם לכל $a \in A$: או שלא מופיע כלל באחת מהן, או ש-$F(a)=G(a)$.
+- כלומר: אין סתירה בין התמונות.
 
 ---
-
 
 # חח״ע ועל
 
@@ -122,11 +137,11 @@ exportFilename: 05-functions.pdf
 
 ## פונקציה חח"ע
 
-* $F \colon A \to B$ חח"ע אם $F(a_1)=F(a_2) \Rightarrow a_1=a_2$.
+- $F \colon A \to B$ חח"ע אם $F(a_1)=F(a_2) \Rightarrow a_1=a_2$.
 
 ## פונקציה חח"ע והפונקציה ההפוכה
 
-* הגדרה: $F^{-1} = \{\langle b,a \rangle : \langle a,b \rangle \in F\}$.
+- הגדרה: $F^{-1} = \{\langle b,a \rangle : \langle a,b \rangle \in F\}$.
 
 **טענה:** $F$ חח"ע אמ"ם $F^{-1}$ פונקציה.
 
@@ -144,9 +159,9 @@ layout: section
 
 פונקציה מוצגת כ-$(A,B,F)$:
 
-* תחום: $A$
-* טווח חוקי: $B$
-* הגרף: $F \subseteq A \times B$
+- תחום: $A$
+- טווח חוקי: $B$
+- הגרף: $F \subseteq A \times B$
 
 **חשוב:** $B$ חייב להכיל את **התמונה** של $F$.
 
@@ -160,7 +175,7 @@ layout: section
 
 ## הגדרה
 
-* $F \colon A \to B$ **על** אם לכל $b \in B$ יש $a \in A$ עם $F(a)=b$.
+- $F \colon A \to B$ **על** אם לכל $b \in B$ יש $a \in A$ עם $F(a)=b$.
 
 ---
 
@@ -172,12 +187,12 @@ layout: section
 
 ## צמצום לתת-קבוצה של $A$
 
-* אם $A' \subseteq A$ נגדיר $F|_{A'} = \{\langle a,b \rangle \in F : a \in A'\}$.
+- אם $A' \subseteq A$ נגדיר $F|_{A'} = \{\langle a,b \rangle \in F : a \in A'\}$.
 
 **משפט (בעזרת אקסיומת הבחירה):** לכל $F \colon A \to B$ קיימת $A'\subseteq A$ כך ש:
 
-* $F|_{A'}$ חח"ע
-* $\operatorname{Im}(F|_{A'}) = \operatorname{Im}(F)$
+- $F|_{A'}$ חח"ע
+- $\operatorname{Im}(F|_{A'}) = \operatorname{Im}(F)$
 
 ---
 
@@ -189,17 +204,17 @@ layout: section
 
 ## הגדרות
 
-* תמונה: $F[X] = \{F(a) : a\in X\}$.
-* קדם־תמונה: $F^{-1}[Y] = \{a\in A : F(a)\in Y\}$.
+- תמונה: $F[X] = \{F(a) : a\in X\}$.
+- קדם־תמונה: $F^{-1}[Y] = \{a\in A : F(a)\in Y\}$.
 
 ## טענות לבדיקה
 
-* $F[X\cup Y] = F[X] \cup F[Y]$ — תמיד נכון.
-* $F[X\cap Y] = F[X] \cap F[Y]$ — **לא נכון בכלליות**.
-* $F^{-1}[Y\cup Z] = F^{-1}[Y] \cup F^{-1}[Z]$ — נכון.
-* $F^{-1}[Y\cap Z] = F^{-1}[Y] \cap F^{-1}[Z]$ — נכון.
-* $F[F^{-1}[Y]] = Y$? — לא תמיד. תנאי מספיק: $Y \subseteq \operatorname{Im}(F)$.
-* $F^{-1}[F[X]] = X$? — לא תמיד. נכון אם $F$ חח"ע.
+- $F[X\cup Y] = F[X] \cup F[Y]$ — תמיד נכון.
+- $F[X\cap Y] = F[X] \cap F[Y]$ — **לא נכון בכלליות**.
+- $F^{-1}[Y\cup Z] = F^{-1}[Y] \cup F^{-1}[Z]$ — נכון.
+- $F^{-1}[Y\cap Z] = F^{-1}[Y] \cap F^{-1}[Z]$ — נכון.
+- $F[F^{-1}[Y]] = Y$? — לא תמיד. תנאי מספיק: $Y \subseteq \operatorname{Im}(F)$.
+- $F^{-1}[F[X]] = X$? — לא תמיד. נכון אם $F$ חח"ע.
 
 ---
 
@@ -213,14 +228,14 @@ layout: section
 
 אם $F\colon A\to B$ ו-$G\colon B\to C$:
 
-* נגדיר $G\circ F = \{\langle a,c \rangle : \exists b,\ \langle a,b \rangle \in F \wedge \langle b,c \rangle \in G\}$.
-* התחום של ההרכבה: $A$.
-* ההרכבה מוגדרת היטב רק אם **תמונת $F$ מוכלת בתחום של $G$**.
+- נגדיר $G\circ F = \{\langle a,c \rangle : \exists b,\ \langle a,b \rangle \in F \wedge \langle b,c \rangle \in G\}$.
+- התחום של ההרכבה: $A$.
+- ההרכבה מוגדרת היטב רק אם **תמונת $F$ מוכלת בתחום של $G$**.
 
 ## תכונות של הרכבה
 
-* אם $F,G$ חח"ע $\Rightarrow$ $G\circ F$ חח"ע.
-* אם $F,G$ על $\Rightarrow$ $G\circ F$ על.
+- אם $F,G$ חח"ע $\Rightarrow$ $G\circ F$ חח"ע.
+- אם $F,G$ על $\Rightarrow$ $G\circ F$ על.
 
 ## שאלות נכון/לא נכון
 
@@ -249,6 +264,5 @@ layout: section
 
 ---
 
-* יחס מוגדר היטב על מחלקות שקילות: התוצאה אינה תלויה בנציג.
-* פונקציה חד־מקומית/דו־מקומית מוגדרת היטב אם הערך שלה אינו תלוי בבחירת הנציגים.
-
+- יחס מוגדר היטב על מחלקות שקילות: התוצאה אינה תלויה בנציג.
+- פונקציה חד־מקומית/דו־מקומית מוגדרת היטב אם הערך שלה אינו תלוי בבחירת הנציגים.

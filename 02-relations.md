@@ -15,7 +15,7 @@ exportFilename: 02-relations.pdf
 
  מרצה: פרופ. גרא וייס
 ---
-section: זוגות סדורים 
+section: זוגות סדורים
 ---
 # זוגות סדורים - מושג והגדרה
 
@@ -426,7 +426,7 @@ layout: two-cols-header
   - אז $\langle a, b \rangle \in A \times (B \setminus C)$.
 
 ---
-section: יחסים 
+section: יחסים
 ---
 
 # יחסים
@@ -683,7 +683,7 @@ $$R^{-1}$$
 
 
 ---
-section: תכונות של יחסים 
+section: תכונות של יחסים
 ---
 
 # רפלקסיביות על $A$
@@ -982,7 +982,7 @@ $$R = \{\langle 1,2 \rangle, \langle 2,1 \rangle, \langle 2,3 \rangle, \langle 3
 - שימו לב: השלילה של הסימטריות (כלומר "לא סימטרי") אינה זהה לאנטי-סימטריות. יתכנו יחסים שהם גם סימטריים וגם אנטי-סימטריים, וכן יחסים שאינם סימטריים ואינם אנטי-סימטריים.
 
 ---
-section: דוגמאות 
+section: דוגמאות
 ---
 
 # יחס השוויון על קבוצה לא ריקה
@@ -1039,7 +1039,7 @@ section: דוגמאות
   </v-click>
 
 ---
-section:  חיתוך ואיחוד יחסים
+section: חיתוך ואיחוד יחסים
 ---
 
 # חיתוך של יחסים
@@ -1171,11 +1171,112 @@ layout: two-cols-header
 
 ---
 
-# הוכחה לדוגמה: טרנזיטיביות של החיתוך
+# חיתוך ורפלקסיביות
 
-טענה. תהי $\mathcal{S}\neq\varnothing$ קבוצה של יחסים על $A$ כך שכל $R\in\mathcal{S}$ טרנזיטיבי. נסמן $T=\bigcap\mathcal{S}$. אז $T$ טרנזיטיבי.
+1. **טענה:** אם כל $S \in \mathcal{Q}$ רפלקסיבי, אז $\bigcap \mathcal{Q}$ רפלקסיבי.
+   - **הוכחה:**
+     - יהי $x \in A$.
+     - לכל $S \in \mathcal{Q}$, $S$ רפלקסיבי ולכן $\langle x,x \rangle \in S$.
+     - לכן $\langle x,x \rangle \in \bigcap \mathcal{Q}$.
 
-הוכחה.
+2. **טענה:** אם $\bigcap \mathcal{Q}$ רפלקסיבי, אז כל $S \in \mathcal{Q}$ רפלקסיבי.
+   - **הוכחה:**
+     - נתון ש-$\bigcap \mathcal{Q}$ רפלקסיבי.
+     - יהי $S_0 \in \mathcal{Q}$.
+     - מתקיים $\bigcap \mathcal{Q} \subseteq S_0$.
+     - לכל $x \in A$, $\langle x,x \rangle \in \bigcap \mathcal{Q}$ ולכן $\langle x,x \rangle \in S_0$.
+
+---
+
+# חיתוך ושלמות
+
+3. **טענה:** אם $\bigcap \mathcal{Q}$ שלם, אז כל $S \in \mathcal{Q}$ שלם.
+   - **הוכחה:**
+     - יהי $S_0 \in \mathcal{Q}$. מתקיים $\bigcap \mathcal{Q} \subseteq S_0$.
+     - יהיו $x,y \in A$.
+     - מכיוון ש-$\bigcap \mathcal{Q}$ שלם, מתקיים $\langle x,y \rangle \in \bigcap \mathcal{Q}$ או $\langle y,x \rangle \in \bigcap \mathcal{Q}$.
+     - לכן $\langle x,y \rangle \in S_0$ או $\langle y,x \rangle \in S_0$.
+
+---
+
+# חוסר שלמות של החיתוך כשיש שני אנטי-סימטריים שונים
+
+4. **טענה:** אם יש ב-$\mathcal{Q}$ שני יחסים אנטי-סימטרים שונים, אז $\bigcap \mathcal{Q}$ אינו שלם.
+
+- הנחה: יש ב־$\mathcal{S}$ שני יחסים אנטי-סימטריים שונים, נסמנם $R$ ו-$S$.
+
+- נניח בדרך השלילה ש־$T=\bigcap\mathcal{S}$ שלם על $A$.
+- אז לכל $x\in A$ יש $\langle x,x\rangle\in T$ (ולכן גם ב־$R\cap S$).
+- מאחר ש־$R\neq S$ קיים זוג $\langle x,y\rangle$ שבו הם נבדלים; נניח $\langle x,y\rangle\in R$ ו־$\langle x,y\rangle\notin S$.
+- אם $x=y$ אז היינו מקבלים $\langle x,x\rangle\notin S$, בסתירה לעיל, לכן $x\neq y$.
+- מאנטי-סימטריות של $R$ נובע ש־$\langle y,x\rangle\notin R$ (אחרת נקבל $x=y$).
+- לכן ב־$R\cap S$ חסרים גם $\langle x,y\rangle$ וגם $\langle y,x\rangle$.
+- מסקנה: $R\cap S$ אינו שלם, ולפיכך $T\subseteq R\cap S$ אינו שלם - סתירה.
+- לכן החיתוך אינו שלם.
+
+
+<div class="absolute top-1/5 left-0/11" style="scale:.5;">
+<GraphCytoscape 
+  :nodes=" [
+    { id: 'u', x: 100, y: 120, label: 'u' },
+    { id: 'v', x: 300, y: 120, label: 'v' }
+  ]"
+  :edges=" [
+    { source: 'u', target: 'v', color: 'red', label: '' }
+  ]"/>
+
+<div style="text-align: center; margin-top: -4rem; scale: 2;">
+<span style="color:red">
+
+$$R$$
+</span>
+</div>
+
+
+</div>
+
+<div class="absolute top-2/5 left-0/11" style="scale:.5;">
+<GraphCytoscape 
+  :nodes=" [
+    { id: 'u', x: 100, y: 120, label: 'u' },
+    { id: 'v', x: 300, y: 120, label: 'v' }
+  ]"
+  :edges=" [
+    { source: 'v', target: 'u', color: 'blue', label: '' }
+  ]"/>
+
+
+<div style="text-align: center; margin-top: -4rem; scale: 2;">
+<span style="color:blue">
+
+$$S$$
+</span>
+</div>
+
+</div>
+
+<div class="absolute top-3/5 left-0/11" style="scale:.5;">
+<GraphCytoscape 
+  :nodes=" [
+    { id: 'u', x: 100, y: 120, label: 'u' },
+    { id: 'v', x: 300, y: 120, label: 'v' }
+  ]"
+  :edges=" []"/>
+<div style="text-align: center; margin-top: -4rem; scale: 2;">
+<span style="color:purple">
+
+$$R \cap S$$
+</span>
+</div>
+</div>
+
+---
+
+# חיתוך וטרנזיטיביות
+
+5. **טענה:** אם כל $R\in\mathcal{S}$ טרנזיטיבי, אז $T=\bigcap\mathcal{S}$ טרנזיטיבי.
+
+**הוכחה:**
 - נניח $a,b,c\in A$ ו־$\langle a,b\rangle,\langle b,c\rangle\in T$.
 
 - לפי הגדרת החיתוך: לכל $R\in\mathcal{S}$ מתקיים $\langle a,b\rangle,\langle b,c\rangle\in R$.
@@ -1248,77 +1349,54 @@ $$R_1 \cap R_2$$
 </div>
 </div>
 
+---
 
+# חיתוך וטרנזיטיביות (המשך)
+
+6. **טענה:** ייתכן ש-$\bigcap \mathcal{Q}$ טרנזיטיבי אך לא כל $S \in \mathcal{Q}$ טרנזיטיבי.
+   - **דוגמה נגדית:**
+     - $A = \{1,2,3\}$.
+     - $R_1 = \{\langle 1,2 \rangle, \langle 2,3 \rangle\}$. (לא טרנזיטיבי כי חסר $\langle 1,3 \rangle$).
+     - $R_2 = \{\langle 2,3 \rangle, \langle 3,1 \rangle\}$. (לא טרנזיטיבי).
+     - החיתוך: $T = R_1 \cap R_2 = \{\langle 2,3 \rangle\}$.
+     - $T$ טרנזיטיבי (באופן ריק, אין זוגות להרכיב).
 
 ---
 
-# חוסר שלמות של החיתוך כשיש שני אנטי-סימטריים שונים
-- הנחה: יש ב־$\mathcal{S}$ שני יחסים אנטי-סימטריים שונים, נסמנם $R$ ו-$S$.
+# חיתוך ואנטי-סימטריות
 
-- נניח בדרך השלילה ש־$T=\bigcap\mathcal{S}$ שלם על $A$.
-- אז לכל $x\in A$ יש $\langle x,x\rangle\in T$ (ולכן גם ב־$R\cap S$).
-- מאחר ש־$R\neq S$ קיים זוג $\langle x,y\rangle$ שבו הם נבדלים; נניח $\langle x,y\rangle\in R$ ו־$\langle x,y\rangle\notin S$.
-- אם $x=y$ אז היינו מקבלים $\langle x,x\rangle\notin S$, בסתירה לעיל, לכן $x\neq y$.
-- מאנטי-סימטריות של $R$ נובע ש־$\langle y,x\rangle\notin R$ (אחרת נקבל $x=y$).
-- לכן ב־$R\cap S$ חסרים גם $\langle x,y\rangle$ וגם $\langle y,x\rangle$.
-- מסקנה: $R\cap S$ אינו שלם, ולפיכך $T\subseteq R\cap S$ אינו שלם - סתירה.
-- לכן החיתוך אינו שלם.
+7. **טענה:** אם קיים $S \in \mathcal{Q}$ אנטי-סימטרי, אז $\bigcap \mathcal{Q}$ אנטי-סימטרי.
+   - **הוכחה:**
+     - יהי $S_0 \in \mathcal{Q}$ אנטי-סימטרי.
+     - נניח $\langle x,y \rangle \in \bigcap \mathcal{Q}$ וגם $\langle y,x \rangle \in \bigcap \mathcal{Q}$.
+     - מכיוון ש-$\bigcap \mathcal{Q} \subseteq S_0$, נובע ש-$\langle x,y \rangle \in S_0$ וגם $\langle y,x \rangle \in S_0$.
+     - מאנטי-סימטריות של $S_0$, נובע $x=y$.
 
+8. **טענה:** ייתכן ש-$\bigcap \mathcal{Q}$ אנטי-סימטרי אך אף $S \in \mathcal{Q}$ אינו כזה.
+   - **דוגמה נגדית:**
+     - $R_1 = \{\langle 1,2 \rangle, \langle 2,1 \rangle, \langle 1,3 \rangle\}$. (לא אנטי-סימטרי).
+     - $R_2 = \{\langle 2,3 \rangle, \langle 3,2 \rangle, \langle 1,3 \rangle\}$. (לא אנטי-סימטרי).
+     - החיתוך: $T = \{\langle 1,3 \rangle\}$.
+     - $T$ אנטי-סימטרי.
 
-<div class="absolute top-1/5 left-0/11" style="scale:.5;">
-<GraphCytoscape 
-  :nodes=" [
-    { id: 'u', x: 100, y: 120, label: 'u' },
-    { id: 'v', x: 300, y: 120, label: 'v' }
-  ]"
-  :edges=" [
-    { source: 'u', target: 'v', color: 'red', label: '' }
-  ]"/>
+---
 
-<div style="text-align: center; margin-top: -4rem; scale: 2;">
-<span style="color:red">
+# חיתוך וסימטריות
 
-$$R$$
-</span>
-</div>
+9. **טענה:** אם כל $S \in \mathcal{Q}$ סימטרי, אז $\bigcap \mathcal{Q}$ סימטרי.
+   - **הוכחה:**
+     - נניח $\langle x,y \rangle \in \bigcap \mathcal{Q}$.
+     - לכל $S \in \mathcal{Q}$, $\langle x,y \rangle \in S$.
+     - מכיוון שכל $S$ סימטרי, $\langle y,x \rangle \in S$ לכל $S$.
+     - לכן $\langle y,x \rangle \in \bigcap \mathcal{Q}$.
 
+10. **טענה:** ייתכן ש-$\bigcap \mathcal{Q}$ סימטרי אך לא כל $S \in \mathcal{Q}$ סימטרי.
+    - **דוגמה נגדית:**
+      - $R_1 = \{\langle 1,2 \rangle\}$. (לא סימטרי).
+      - $R_2 = \{\langle 2,1 \rangle\}$. (לא סימטרי).
+      - החיתוך: $T = \emptyset$.
+      - $T$ סימטרי (באופן ריק).
 
-</div>
-
-<div class="absolute top-2/5 left-0/11" style="scale:.5;">
-<GraphCytoscape 
-  :nodes=" [
-    { id: 'u', x: 100, y: 120, label: 'u' },
-    { id: 'v', x: 300, y: 120, label: 'v' }
-  ]"
-  :edges=" [
-    { source: 'v', target: 'u', color: 'blue', label: '' }
-  ]"/>
-
-
-<div style="text-align: center; margin-top: -4rem; scale: 2;">
-<span style="color:blue">
-
-$$S$$
-</span>
-</div>
-
-</div>
-
-<div class="absolute top-3/5 left-0/11" style="scale:.5;">
-<GraphCytoscape 
-  :nodes=" [
-    { id: 'u', x: 100, y: 120, label: 'u' },
-    { id: 'v', x: 300, y: 120, label: 'v' }
-  ]"
-  :edges=" []"/>
-<div style="text-align: center; margin-top: -4rem; scale: 2;">
-<span style="color:purple">
-
-$$R \cap S$$
-</span>
-</div>
-</div>
 
 ---
 layout: two-cols-header

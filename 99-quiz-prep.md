@@ -224,3 +224,16 @@ $$
    $$ R \circ R = \{ \langle 1, 3 \rangle, \langle 2, 1 \rangle, \langle 3, 2 \rangle \} $$
 
 </v-click>
+
+---
+
+# פעולות אונריות  
+תהי משפחת קבוצות  
+\[
+F=\{X\subseteq \mathbb{N} : 0\in X\}.
+\]
+
+חשבו:
+
+1. \(\displaystyle \bigcup F\)  
+2. \(\displaystyle \bigcap F\)

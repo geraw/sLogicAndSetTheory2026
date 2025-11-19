@@ -340,141 +340,272 @@ layout: two-cols-header
 
 # תמונה וקדם־תמונה
 
-## הגדרות
+
+- **תמונה:**  $F[X] = \{F(a) : a \in X\}$
+
+- **קדם־תמונה:**  $F^{-1}[Y] = \{a \in A : F(a)\in Y\}.$
+
+
+::left::
+
+<div class="flex flex-col gap-0">
+
+<br />
 
 <v-click>
 
-- **תמונה:**  
-  $$F[X] = \{F(a) : a \in X\}.$$
+1. $F[X \cup Y] = F[X] \cup F[Y]$
+<v-click>
+
+✔️ **תמיד נכון**.
+</v-click>
 
 </v-click>
 
 <v-click>
 
-- **קדם־תמונה:**  
-  $$F^{-1}[Y] = \{a \in A : F(a)\in Y\}.$$
+<br />
+
+2. $F[X \cap Y] = F[X] \cap F[Y]$
+<v-click>
+
+❌ **לא תמיד נכון**.
+**תנאי מספיק:** $X \subseteq \operatorname{dom}(F)$.
+</v-click>
 
 </v-click>
+
+<v-click>
+
+<br />
+
+3. $F^{-1}[Y \cup Z] = F^{-1}[Y] \cup F^{-1}[Z]$
+<v-click>
+
+✔️ **תמיד נכון**.
+</v-click>
+
+</v-click>
+
+</div>
 
 ::right::
 
-## טענות לבדיקה
+<div class="flex flex-col gap-0">
+
+<br />
 
 <v-click>
 
-### ✔️ 1.  
-$$F[X \cup Y] = F[X] \cup F[Y]$$  
-תמיד נכון.
+4. $F^{-1}[Y \cap Z] = F^{-1}[Y] \cap F^{-1}[Z]$
+<v-click>
+
+✔️ **תמיד נכון**.
+</v-click>
 
 </v-click>
+
+<br />
 
 <v-click>
 
-### ❌ 2.  
-$$F[X \cap Y] \neq F[X] \cap F[Y]$$  
-בדרך כלל לא נכון.
+5. $F[F^{-1}[Y]] = Y$
+<v-click>
+
+❌ **לא תמיד נכון**.  
+**תנאי מספיק:** $Y \subseteq \operatorname{Im}(F)$.
+</v-click>
 
 </v-click>
+
+<br />
 
 <v-click>
 
-### ✔️ 3.  
-$$F^{-1}[Y \cup Z] = F^{-1}[Y] \cup F^{-1}[Z]$$
-
-</v-click>
-
+6. $F^{-1}[F[X]] = X$
 <v-click>
 
-### ✔️ 4.  
-$$F^{-1}[Y \cap Z] = F^{-1}[Y] \cap F^{-1}[Z]$$
+❌ **לא תמיד נכון**.  
+**תנאי מספיק:** \(F\) חח"ע.
+</v-click>
 
 </v-click>
 
-<v-click>
-
-### ❓ 5.  
-$$F[F^{-1}[Y]] \stackrel{?}{=} Y$$  
-לא תמיד.  
-**תנאי מספיק:**  
-$$Y \subseteq \operatorname{Im}(F).$$
-
-</v-click>
-
-<v-click>
-
-### ❓ 6.  
-$$F^{-1}[F[X]] \stackrel{?}{=} X$$  
-לא תמיד.  
-נכון אם **\(F\) חח"ע**.
-
-</v-click>
+</div>
 
 
 ---
-
-# תמונה וקדם־תמונה
-
-- **תמונה:** $F[X] = \{F(a) : a\in X\}$.
-- **קדם־תמונה:** $F^{-1}[Y] = \{a\in A : F(a)\in Y\}$.
-
-- טענות לבדיקה
-
-  - $F[X\cup Y] = F[X] \cup F[Y]$ - תמיד נכון.
-  
-  - $F[X\cap Y] = F[X] \cap F[Y]$ - **לא נכון בכלליות**.
-
-  - $F^{-1}[Y\cup Z] = F^{-1}[Y] \cup F^{-1}[Z]$ - נכון.
-  - $F^{-1}[Y\cap Z] = F^{-1}[Y] \cap F^{-1}[Z]$ - נכון.
-  - $F[F^{-1}[Y]] = Y$? - לא תמיד. תנאי מספיק: $Y \subseteq \operatorname{Im}(F)$.
-  - $F^{-1}[F[X]] = X$? - לא תמיד. נכון אם $F$ חח"ע.
-
+layout: two-cols-header
 ---
-
-layout: section
 
 # הרכבת פונקציות
 
+- אם $F\colon A\to B$ ו-$G\colon B\to C$:
+
+  - נגדיר $G\circ F = \{\langle a,c \rangle : \exists b,\ \langle a,b \rangle \in F \wedge \langle b,c \rangle \in G\}$.
+  - ההרכבה מוגדרת היטב רק אם **תמונת $F$ מוכלת בתחום של $G$**.
+
+תכונות:
+
+::left::
+
+1. אם $F,G$ חח"ע $\Leftarrow$ $G\circ F$ חח"ע.
+   <v-click> ✔️ נכון </v-click>
+
+2. אם $F,G$ על $\Leftarrow$ $G\circ F$ על.
+   <v-click> ✔️ נכון </v-click>
+
+3. אם $G\circ F$ חח"ע $\Leftarrow$ $G$ חח"ע
+   <v-click> ❌ לא נכון </v-click>
+
+::right::
+
+4. אם $G\circ F$ על $\Leftarrow$ $G$ על
+   <v-click> ✔️ נכון </v-click>
+
+5. אם $G\circ F$ על $\Leftarrow$ $F$ על
+   <v-click> ❌ לא נכון </v-click>
+
+6. אם $G\circ F$ חח"ע $\Leftarrow$ $F$ חח"ע
+   <v-click> ✔️ נכון </v-click>
+
 ---
-
-## הרכבה
-
-אם $F\colon A\to B$ ו-$G\colon B\to C$:
-
-- נגדיר $G\circ F = \{\langle a,c \rangle : \exists b,\ \langle a,b \rangle \in F \wedge \langle b,c \rangle \in G\}$.
-- התחום של ההרכבה: $A$.
-- ההרכבה מוגדרת היטב רק אם **תמונת $F$ מוכלת בתחום של $G$**.
-
-## תכונות של הרכבה
-
-- אם $F,G$ חח"ע $\Rightarrow$ $G\circ F$ חח"ע.
-- אם $F,G$ על $\Rightarrow$ $G\circ F$ על.
-
-## שאלות נכון/לא נכון
-
-1. אם $G\circ F$ חח"ע $\Rightarrow$ $F$ חח"ע - נכון.
-2. אם $G\circ F$ חח"ע $\Rightarrow$ $G$ חח"ע - לא נכון.
-3. אם $G\circ F$ על $\Rightarrow$ $G$ על - נכון.
-4. אם $G\circ F$ על $\Rightarrow$ $F$ על - לא נכון.
-
+layout: two-cols-header
 ---
-
-layout: section
 
 # קדם־תמונה של תמונה
 
----
 
 **טענה:** אם $F$ חח"ע אז:
 
 $$F^{-1}[F[X]] = X$$
 
+
+
+
+
+::left::
+
+<v-click>
+
+- נראה ש-$F^{-1}[F[X]] \subseteq X$:
+
+  - יהי $a \in F^{-1}[F[X]]$.
+  
+  - מהגדרה: $F(a) \in F[X]$.
+  
+  - לכן קיים $x \in X$ כך ש-$F(x) = F(a)$.
+  
+  - **נתון ש-$F$ חח"ע**, ולכן $a = x$.
+  
+  - קיבלנו $a \in X$.
+
+</v-click>
+
+::right::
+
+<v-click>
+
+- נראה ש-$F^{-1}[F[X]] \supseteq X$:
+
+  - יהי $a \in X$.
+
+  - אז $F(a) \in F[X]$.
+
+  - לכן $a \in F^{-1}[F[X]]$.
+</v-click>
+
 ---
 
-layout: section
+# דוגמה נגדית: כש-$F$ לא חח"ע
 
-# נספח: פונקציות ויחסים מעל מרחב מנה
+נראה דוגמה שבה $F^{-1}[F[X]] \neq X$.
+
+- נגדיר $F: \mathbb{R} \to \mathbb{R}$ ע"י $F(x) = x^2$.
+- נבחר $X = \{2\}$.
+
+<v-click>
+
+1. נחשב את התמונה של $X$:
+   $$F[X] = \{F(2)\} = \{4\}$$
+
+2. נחשב את הקדם־תמונה של התוצאה:
+   $$F^{-1}[\{4\}] = \{x \in \mathbb{R} : x^2 = 4\} = \{-2, 2\}$$
+
+3. קיבלנו:
+   $$F^{-1}[F[X]] = \{-2, 2\} \neq \{2\} = X$$
+
+</v-click>
+
+<v-click>
+
+**מסקנה:** אם $F$ לא חח"ע, הפעולה $F^{-1} \circ F$ עשויה "להרחיב" את הקבוצה המקורית.
+
+</v-click>
 
 ---
 
-- יחס מוגדר היטב על מחלקות שקילות: התוצאה אינה תלויה בנציג.
-- פונקציה חד־מקומית/דו־מקומית מוגדרת היטב אם הערך שלה אינו תלוי בבחירת הנציגים.
+# יחסים מעל מרחב מנה
+
+יהי $A$ קבוצה ו-$E$ יחס שקילות על $A$.
+נגדיר יחס $R$ על $A/E$ (קבוצת המנה) בעזרת נציגים: $[a] R [b] \iff a S b$.
+
+**הגדרה:** היחס $R$ **מוגדר היטב** אם ערך האמת שלו אינו תלוי בנציגים שנבחרו.
+כלומר:
+$$a_1 E a_2 \land b_1 E b_2 \implies (a_1 S b_1 \iff a_2 S b_2)$$
+
+**דוגמאות:**
+1. ב-$\mathbb{Z}/n\mathbb{Z}$, היחס $[a] < [b]$ **אינו** מוגדר היטב.
+   - ב-$\mathbb{Z}/3\mathbb{Z}$: $[1]=[4]$ ו-$[2]=[2]$.
+   - $1 < 2$ (אמת) אבל $4 < 2$ (שקר).
+
+2. ב-$\mathbb{Q}$ (זוגות סדורים), שוויון שברים $\frac{a}{b} = \frac{c}{d}$ מוגדר היטב.
+
+
+---
+
+# פונקציות מעל מרחב מנה
+
+תהי $F: A/E \to B$ פונקציה המוגדרת ע"י נציגים: $F([a]) = f(a)$.
+
+**הגדרה:** הפונקציה $F$ **מוגדרת היטב** אם הערך שלה אינו תלוי בנציג.
+כלומר:
+$$a_1 E a_2 \implies f(a_1) = f(a_2)$$
+
+**דוגמה לפונקציה שאינה מוגדרת היטב:**
+- ננסה להגדיר $F: \mathbb{Z}/3\mathbb{Z} \to \mathbb{Z}$ ע"י $F
+z([x]) = x^2$.
+
+- נבחר שני נציגים לאותה מחלקה: $1 \equiv 4 \pmod 3$.
+
+- אבל $F([1]) = 1^2 = 1$ ואילו $F([4]) = 4^2 = 16$.
+
+- קיבלנו $1 \neq 16$, ולכן הפונקציה אינה מוגדרת היטב.
+
+---
+
+# תרגול: מוגדר היטב?
+
+- **נכון / לא נכון:**
+
+  1. $f: \mathbb{Q} \to \mathbb{Z}$ המוגדרת ע"י $f(\frac{a}{b}) = a+b$ מוגדרת היטב.
+    <v-click> 
+    
+    ❌ **לא נכון** ($\frac{1}{2} = \frac{2}{4}$ אבל $1+2 \neq 2+4$)
+    </v-click>
+
+  <br />
+
+  2. $f: \mathbb{Z}/5\mathbb{Z} \to \mathbb{Z}/5\mathbb{Z}$ המוגדרת ע"י $f([x]) = [x^2]$ מוגדרת היטב.
+    <v-click>
+    
+    ✔️ **נכון** (אם $x \equiv y \pmod 5$ אז $x^2 \equiv y^2 \pmod 5$) 
+    </v-click>
+
+  <br />
+
+  3. היחס על $\mathbb{Z}/4\mathbb{Z}$ המוגדר ע"י: $[a] R [b] \iff a+b$ זוגי.
+    <v-click>
+    
+    ✔️ **נכון** (זוגיות הסכום נשמרת במודולו 4) 
+    </v-click>

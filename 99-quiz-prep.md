@@ -177,7 +177,7 @@ $$
 
 # מכפלה קרטזית
 
-**שאלה 5:**
+**שאלה:**
 הוכיחו או הפריכו:
 $$ A \times (B \setminus C) = (A \times B) \setminus (A \times C) $$
 

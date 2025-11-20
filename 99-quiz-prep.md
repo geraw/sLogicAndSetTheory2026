@@ -388,4 +388,43 @@ $$
 5. לכל A,B,C,D, הוכיחו או הפריכו:
    $$ (A \times C) \Delta (B \times D) \stackrel{?}{=} (A \Delta B) \times (C \Delta D). $$
 
+---
+
+# שאלות על פעולות אונאריות
+
+1. הוכיחו או הפריכו:
+   $$ A \setminus \bigcap F = \bigcup \{A \setminus X : X \in F\}, \qquad
+      A \setminus \bigcup F = \bigcap \{A \setminus X : X \in F\}. $$
+
+3. הוכיחו או הפריכו:
+   $$ A \subseteq \bigcup F \iff \forall x \in A\ \exists X \in F\ (x \in X), \qquad
+      A \subseteq \bigcap F \iff \forall X \in F\ (A \subseteq X). $$
+
+4. הוכיחו או הפריכו:
+   $$ A \subseteq B \iff \forall x\ (x \in A \Rightarrow x \in B), $$
+   $$ A \setminus (B \cup C) = (A \setminus B) \cap (A \setminus C), $$
+   $$ (A \Delta B) \setminus C = (A \setminus C) \Delta (B \setminus C). $$
+
+5. הוכיחו או הפריכו:
+   $$ \bigl[\forall X \in F\ \exists Y \in G\ (X \subseteq Y)\bigr] \Rightarrow
+      \bigl(\bigcup F \subseteq \bigcup G \ \land\ \bigcap G \subseteq \bigcap F\bigr). $$
+
+---
+
+# שאלות על פעולות אונריות
+
+
+6. הוכיחו או הפריכו:
+   $$ \bigcup \{X \setminus A : X \in F\} = \left(\bigcup F\right) \setminus A, \qquad
+      A \setminus \bigcup F = \bigcap \{A \setminus X : X \in F\}. $$
+
+7. הוכיחו או הפריכו: קיימת  קבוצה יחידה $S$ כך שלכל $x$,
+   $$ x \in S \iff \bigl( \forall X \in F\ (x \in X)\bigr)$$
+
+
+8. הוכיחו או הפריכו:
+   $$ \bigcup \{A_i \setminus B_i : i \in I\} \subseteq
+      \left(\bigcup \{A_i : i \in I\}\right) \setminus \left(\bigcap \{B_i : i \in I\}\right), $$
+   והאם שוויון מתקיים תמיד?
+
 

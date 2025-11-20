@@ -237,3 +237,53 @@ F=\{X\subseteq \mathbb{N} : 0\in X\}.
 
 1. \(\displaystyle \bigcup F\)  
 2. \(\displaystyle \bigcap F\)
+
+---
+layout: two-cols-header
+---
+
+# חוקי הפילוג והפרש
+
+**תרגיל:** הוכיחו שלכל קבוצות $A,B,C$ מתקיים:
+
+1. $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$  
+2. $A \cup (B \setminus C) = (A \cup B) \setminus (A \cap C)$  
+3. $A \setminus (B \cup C) = (A \setminus B) \cap (A \setminus C)$  
+
+::left::
+
+<v-click>
+
+1. פילוג איחוד מעל חיתוך
+נראה ששני הצדדים מכילים אותם איברים:  
+$x \in A \cup (B \cap C)$  
+$\iff x \in A \ \lor\ (x \in B \land x \in C)$  
+$\iff (x \in A \lor x \in B) \land (x \in A \lor x \in C)$  
+$\iff x \in (A \cup B) \cap (A \cup C)$.
+
+</v-click>
+
+<v-click>
+
+2. איחוד עם פרש
+$x \in A \cup (B \setminus C)$  
+$\iff x \in A \ \lor\ (x \in B \land x \notin C)$  
+$\iff (x \in A \lor x \in B) \land (x \in A \lor x \notin C)$  
+$\iff x \in (A \cup B) \land x \notin (A \cap C)$  
+$\iff x \in (A \cup B) \setminus (A \cap C)$.
+
+</v-click>
+
+::right::
+
+<v-click>
+
+
+3. הפרש עם איחוד
+$x \in A \setminus (B \cup C)$  
+$\iff x \in A \land x \notin B \land x \notin C$  
+$\iff (x \in A \land x \notin B) \land (x \in A \land x \notin C)$  
+$\iff x \in (A \setminus B) \cap (A \setminus C)$.
+
+</v-click>
+

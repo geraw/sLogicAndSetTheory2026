@@ -167,9 +167,7 @@ $$
 
 2. **כן.** $\{1\}$ היא תת-קבוצה של $A$, ולכן היא איבר ב-$\mathcal{P}(A)$.
 
-3. **לא.** כדי ש-$\{\{1\}\} \subseteq \mathcal{P}(A)$, האיבר $1$ צריך להיות ב-$\mathcal{P}(A)$, אבל $1$ הוא מספר ולא קבוצה (בהקשר זה), והאיברים של $\mathcal{P}(A)$ הם קבוצות.
-   *תיקון:* השאלה היא האם $\{1\} \subseteq \mathcal{P}(A)$. זה אומר ש-$1 \in \mathcal{P}(A)$. אבל $1 \notin \mathcal{P}(A)$ (רק $\{1\} \in \mathcal{P}(A)$). לכן לא.
-   *(אם הכוונה הייתה ל-$\{\{1\}\} \subseteq \mathcal{P}(A)$, אז התשובה הייתה כן).*
+3. **לא.** כדי ש-$\{1\} \subseteq \mathcal{P}(A)$, האיבר $1$ צריך להיות ב-$\mathcal{P}(A)$, אבל $1$ הוא מספר ולא קבוצה (בהקשר זה), והאיברים של $\mathcal{P}(A)$ הם קבוצות.
 
 </v-click>
 
@@ -244,46 +242,89 @@ layout: two-cols-header
 
 # חוקי הפילוג והפרש
 
+::left::
+
 **תרגיל:** הוכיחו שלכל קבוצות $A,B,C$ מתקיים:
 
 1. $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$  
 2. $A \cup (B \setminus C) = (A \cup B) \setminus (A \cap C)$  
 3. $A \setminus (B \cup C) = (A \setminus B) \cap (A \setminus C)$  
 
-::left::
-
+<br/>
+<br/>
 <v-click>
 
-1. פילוג איחוד מעל חיתוך
-נראה ששני הצדדים מכילים אותם איברים:  
-$x \in A \cup (B \cap C)$  
-$\iff x \in A \ \lor\ (x \in B \land x \in C)$  
-$\iff (x \in A \lor x \in B) \land (x \in A \lor x \in C)$  
-$\iff x \in (A \cup B) \cap (A \cup C)$.
+1. פילוג איחוד מעל חיתוך  
 
-</v-click>
-
-<v-click>
-
-2. איחוד עם פרש
-$x \in A \cup (B \setminus C)$  
-$\iff x \in A \ \lor\ (x \in B \land x \notin C)$  
-$\iff (x \in A \lor x \in B) \land (x \in A \lor x \notin C)$  
-$\iff x \in (A \cup B) \land x \notin (A \cap C)$  
-$\iff x \in (A \cup B) \setminus (A \cap C)$.
+$$
+\begin{aligned}
+x \in A \cup (B \cap C) &\iff x \in A \ \lor\ (x \in B \land x \in C) \\
+&\iff (x \in A \lor x \in B) \land (x \in A \lor x \in C) \\
+&\iff x \in (A \cup B) \cap (A \cup C)
+\end{aligned}
+$$
 
 </v-click>
 
 ::right::
+<v-click>
+
+2. איחוד עם פרש
+$$
+\begin{aligned}
+x \in A \cup (B \setminus C) &\iff x \in A \ \lor\ (x \in B \land x \notin C) \\
+&\iff (x \in A \lor x \in B) \land (x \in A \lor x \notin C) \\
+&\iff x \in (A \cup B) \land x \notin (A \cap C) \\
+&\iff x \in (A \cup B) \setminus (A \cap C)
+\end{aligned}
+$$
+
+</v-click>
+
 
 <v-click>
 
-
 3. הפרש עם איחוד
-$x \in A \setminus (B \cup C)$  
-$\iff x \in A \land x \notin B \land x \notin C$  
-$\iff (x \in A \land x \notin B) \land (x \in A \land x \notin C)$  
-$\iff x \in (A \setminus B) \cap (A \setminus C)$.
+$$
+\begin{aligned}
+x \in A \setminus (B \cup C) &\iff x \in A \land x \notin (B \cup C) \\
+&\iff x \in A \land (x \notin B \land x \notin C) \\
+&\iff (x \in A \land x \notin B) \land (x \in A \land x \notin C) \\
+&\iff x \in (A \setminus B) \cap (A \setminus C)
+\end{aligned}
+$$
 
 </v-click>
+
+---
+
+# הפרש: תרגול נוסף
+
+נניח שכל הקבוצות מוכלות בקבוצה אוניברסלית $U$.
+
+1. הוכיחו: לכל קבוצה $A \subseteq U$ מתקיים
+   $$ U \setminus (U \setminus A) = A. $$
+
+2. הוכיחו: לכל שתי קבוצות $A,B \subseteq U$ מתקיים
+   $$ A \subseteq B \iff (U \setminus B) \subseteq (U \setminus A). $$
+
+3. הוכיחו את כללי דה־מורגן ביחס ל-$U$:
+   $$ U \setminus (A \cup B) = (U \setminus A) \cap (U \setminus B), $$
+   $$ U \setminus (A \cap B) = (U \setminus A) \cup (U \setminus B). $$
+
+---
+
+# הפרש: אם לכל B מתקיים תנאי - אז A ריקה
+
+להלן תרגילים. בכל אחד, הוכיחו שאם הטענה על $A \setminus B$ נכונה לכל קבוצה $B$, אז $A = \emptyset$.
+
+1. לכל A, אם לכל $B$ מתקיים $A \setminus B = \emptyset$, אז $A = \emptyset$.
+   
+2. לכל A, אם לכל $B$ מתקיים $A \setminus B \subseteq B$, אז $A = \emptyset$.
+   
+3. לכל A, אם לכל $B$ מתקיים $A \setminus B = A$, אז $A = \emptyset$.
+   
+4. לכל A, אם לכל $B$ מתקיים $A \setminus B \subseteq A \cap B$, אז $A = \emptyset$.
+   
+5. לכל A, אם לכל $B$ מתקיים $A \subseteq A \setminus B$, אז $A = \emptyset$.
 

@@ -227,14 +227,15 @@ $$
 
 # פעולות אונריות  
 תהי משפחת קבוצות  
-\[
+$$
 F=\{X\subseteq \mathbb{N} : 0\in X\}.
-\]
+$$
 
 חשבו:
 
-1. \(\displaystyle \bigcup F\)  
-2. \(\displaystyle \bigcap F\)
+1. $\displaystyle \bigcup F$
+   
+2. $\displaystyle \bigcap F$
 
 ---
 layout: two-cols-header

@@ -344,3 +344,29 @@ $$
 
 5. לכל A,B, אם לכל $C$ מתקיים $(A \setminus C) \setminus B = (B \setminus C) \setminus A$, אז $A = B$.
 
+---
+
+# הפרש סימטרי: אם לכל B מתקיים תנאי - אז A ריקה
+
+להלן תרגילים. בכל אחד, הוכיחו שאם הטענה על $A \Delta B$ נכונה לכל קבוצה $B$, אז $A = \emptyset$.
+
+1. לכל A, אם לכל $B$ מתקיים $A \Delta B = B$, אז $A = \emptyset$.
+
+2. לכל A, אם לכל $B$ מתקיים $A \Delta B \subseteq B$, אז $A = \emptyset$.
+3. לכל A, אם לכל $B$ מתקיים $A \subseteq A \Delta B$, אז $A = \emptyset$.
+4. לכל A, אם לכל $B$ מתקיים $A \Delta B = A \cup B$, אז $A = \emptyset$.
+5. לכל A, אם לכל $B$ מתקיים $(A \Delta B) \cap A = \emptyset$, אז $A = \emptyset$.
+
+---
+
+# הפרש סימטרי: אם לכל C מתקיים תנאי - אז A = B
+
+להלן תרגילים. בכל אחד, הוכיחו שאם הטענה על $A \Delta C$ ו-$B \Delta C$ נכונה לכל קבוצה $C$, אז $A = B$.
+
+1. לכל A,B, אם לכל $C$ מתקיים $A \Delta C = B \Delta C$, אז $A = B$.
+
+2. לכל A,B, אם לכל $C$ מתקיימות ההכללות $A \Delta C \subseteq B \Delta C$ וגם $B \Delta C \subseteq A \Delta C$, אז $A = B$.
+3. לכל A,B, אם לכל $C$ מתקיים $(A \Delta C) \Delta (B \Delta C) = \emptyset$, אז $A = B$.
+4. לכל A,B, אם לכל $C$ מתקיים $(A \Delta C) \Delta (B \Delta C) \subseteq C$, אז $A = B$.
+5. לכל A,B, אם לכל $C$ מתקיים $(A \Delta C) \cap C = (B \Delta C) \cap C$, אז $A = B$.
+

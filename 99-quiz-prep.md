@@ -419,13 +419,9 @@ $$
    $$ \bigcup \{X \setminus A : X \in F\} = \left(\bigcup F\right) \setminus A, \qquad
       A \setminus \bigcup F = \bigcap \{A \setminus X : X \in F\}. $$
 
-7. הוכיחו או הפריכו: קיימת  קבוצה יחידה $S$ כך שלכל $x$,
-   $$ x \in S \iff \bigl( \forall X \in F\ (x \in X)\bigr)$$
+7. הוכיחו או הפריכו: לכל קבוצה של קבוצות $\mathcal{F}$  קיימת  קבוצה יחידה $S$ כך שלכל $x$,
+   $$ x \in S \iff \bigl( \forall X \in \mathcal{F}\ (x \in X)\bigr)$$
 
 
-8. הוכיחו או הפריכו:
-   $$ \bigcup \{A_i \setminus B_i : i \in I\} \subseteq
-      \left(\bigcup \{A_i : i \in I\}\right) \setminus \left(\bigcap \{B_i : i \in I\}\right), $$
-   והאם שוויון מתקיים תמיד?
 
 

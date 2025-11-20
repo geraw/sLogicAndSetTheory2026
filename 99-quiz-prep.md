@@ -328,3 +328,19 @@ $$
    
 5. לכל A, אם לכל $B$ מתקיים $A \subseteq A \setminus B$, אז $A = \emptyset$.
 
+---
+
+# הפרש: אם לכל C מתקיים תנאי - אז A = B
+
+להלן תרגילים. בכל אחד, הוכיחו שאם הטענה על $A \setminus C$ ו-$B \setminus C$ נכונה לכל קבוצה $C$, אז $A = B$.
+
+1. לכל A,B, אם לכל $C$ מתקיים $A \setminus C = B \setminus C$, אז $A = B$.
+
+2. לכל A,B, אם לכל $C$ מתקיים $A \setminus C \subseteq B \setminus C$ וגם $B \setminus C \subseteq A \setminus C$, אז $A = B$.
+
+3. לכל A,B, אם לכל $C$ מתקיים $A \setminus C \subseteq B$ וגם $B \setminus C \subseteq A$, אז $A = B$.
+
+4. לכל A,B, אם לכל $C$ מתקיים $A \setminus (B \cup C) = B \setminus (A \cup C)$, אז $A = B$.
+
+5. לכל A,B, אם לכל $C$ מתקיים $(A \setminus C) \setminus B = (B \setminus C) \setminus A$, אז $A = B$.
+

@@ -415,13 +415,23 @@ $$
 # שאלות על פעולות אונריות
 
 
-6. הוכיחו או הפריכו:
-   $$ \bigcup \{X \setminus A : X \in F\} = \left(\bigcup F\right) \setminus A, \qquad
-      A \setminus \bigcup F = \bigcap \{A \setminus X : X \in F\}. $$
+1. הוכיחו או הפריכו: לכל קבוצה של קבוצות $\mathcal{F}$  ולכל קבוצה $A$  
+   $$ \bigcup \{X \setminus A : X \in \mathcal{F}\} = \left(\bigcup \mathcal{F}\right) \setminus A$$     
 
-7. הוכיחו או הפריכו: לכל קבוצה של קבוצות $\mathcal{F}$  קיימת  קבוצה יחידה $S$ כך שלכל $x$,
+<br>
+      
+2. הוכיחו או הפריכו: לכל קבוצה של קבוצות $\mathcal{F}$  ולכל קבוצה $A$
+     $$A \setminus \bigcup \mathcal{F} = \bigcap \{A \setminus X : X \in \mathcal{F}\}. $$
+<br>
+
+3. הוכיחו או הפריכו: לכל קבוצה של קבוצות $\mathcal{F}$  קיימת  קבוצה יחידה $S$ כך שלכל $x$,
    $$ x \in S \iff \bigl( \forall X \in \mathcal{F}\ (x \in X)\bigr)$$
+<br>
 
+4. הוכיחו או הפריכו: לכל קבוצה של קבוצות $\mathcal{F}$  קיימת יחידה קבוצה $S$ כך שלכל $x$,
+   $$ x \in S \iff \bigl(\exists X \in \mathcal{F}\ (x \in X)\bigr), $$
+
+    
 
 
 

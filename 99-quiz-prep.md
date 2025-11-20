@@ -370,3 +370,22 @@ $$
 4. לכל A,B, אם לכל $C$ מתקיים $(A \Delta C) \Delta (B \Delta C) \subseteq C$, אז $A = B$.
 5. לכל A,B, אם לכל $C$ מתקיים $(A \Delta C) \cap C = (B \Delta C) \cap C$, אז $A = B$.
 
+---
+
+# תרגילים נוספים
+1. לכל A,B,C, הוכיחו: 
+   $$ C \cap (A \Delta B) = (C \cap A) \Delta (C \cap B). $$
+
+2. לכל A,B,C, הוכיחו (חוק ביטול): 
+   $$ (A \Delta B) \Delta (A \Delta C) = B \Delta C. $$
+
+3. לכל A,B, הוכיחו:
+   $$ A \subseteq B \iff A \Delta B \subseteq B \setminus A. $$
+
+4. לכל A,B,C, הוכיחו:
+   $$ (A \times C) \Delta (B \times C) = (A \Delta B) \times C. $$
+
+5. לכל A,B,C,D, הוכיחו או הפריכו:
+   $$ (A \times C) \Delta (B \times D) \stackrel{?}{=} (A \Delta B) \times (C \Delta D). $$
+
+

@@ -10,19 +10,30 @@ mdc: true
 download: true
 exportFilename: 03-posets.pdf
 ---
-# יחסי סדר (חלקי)
+# יחסי סדר 
 ## הרצאה בקורס: מבוא ללוגיקה ותורת הקבוצות
 
 מרצה: פרופ. גרא וייס
+
+---
+
+# תכונות של יחס שמתצאים לקרוא לו "סדר"
+
+<div style="position: absolute; top: 120px; left: 45px; width: 900px; height: 400px; overflow: hidden; border: 0px dashed red;">
+  <img src="/images/יחס סדר.png" style="width: 900px; margin-top: -90px; margin-left: -100px;" />
+</div>
+
+
+
+
+
 ---
 section: יחסי סדר
 ---
 
+# יחס סדר 
 
-
-# יחס סדר (חלקי)
-
-- הגדרה: לכל קבוצה $A$, יחס $\le_R$ על $A$ נקרא יחס סדר (חלקי) אם הוא מקיים את שלוש התכונות הבאות:
+- הגדרה: לכל קבוצה $A$, יחס $\le_R$ על $A$ נקרא יחס סדר אם הוא מקיים את שלוש התכונות הבאות:
 
   1. רפלקסיביות: $\forall a\in A\; (a \le_R a)$.
   2. אנטי-סימטריות: $\forall a,b\in A\; \bigl((a \le_R b \land b \le_R a) \to a=b\bigr)$.
@@ -30,21 +41,21 @@ section: יחסי סדר
 
 - לזוג $(A,\leq_R)$ אנו קוראים "**קבוצה סדורה חלקית**" (קס"ח).
 
-
 - הערות קצרות:
   - רבים כותבים פשוט $\le$ כאשר ברור מהו היחס $R$.
-  - יחס סדר שאינו בהכרח משווה בין כל זוג איברים נקרא "סדר חלקי" (partial order).
-  - אם בנוסף לכל $a,b\in A$ מתקיים $a\le b$ או $b\le a$, אז הסדר נקרא "שלם" או "סדר מלא".
+  - אם, בנוסף, לכל $a,b\in A$ מתקיים $a\le b$ או $b\le a$, אז הסדר נקרא "שלם" או "סדר מלא".
 
 - דוגמאות:
   - $(\mathbb{N},\le), (\mathbb{Z},\le), (\mathbb{Q},\le), (\mathbb{R},\le)$ יחסי הסדר המוכרים על קבוצות של מספרים.
 
   - $(\mathcal{P}(X),\subseteq)$: יחס ההכלה על קבוצת החלקים של $X$ הוא יחס סדר חלקי.
 
+
 ---
 
 # כמה יחסי סדר חלקי יש על הקבוצה $\{1,2,3\}$?
 
+<v-clicks>
 
 - על קבוצה של 3 איברים, מספר היחסים האפשריים הוא $2^{9} = 512$.
 
@@ -56,6 +67,8 @@ section: יחסי סדר
 - **סינון טרנזיטיבי**: מצמצם מ-27 ל-19. 
   - מבין היחסים הרפלקסיביים והאנטי-סימטריים, אנו דורשים טרנזיטיביות (אם $\langle a,b \rangle$ ו-$\langle b,c \rangle$ אז $\langle a,c \rangle$). לא כל ה-27 יחסים עומדים בתנאי זה, ונשארים 19.
 - השקף הבא מציג את כל 19 היחסים הללו באמצעות גרפים.
+
+</v-clicks>
 
 ---
 
@@ -133,7 +146,7 @@ const allPosets = generateAllPosets()
 
 ---
 layout: TwoColsHeaderCustom
-cols: 80% 20%   # ← change to 60% 40%, 320px 1fr, etc.
+cols: 80% 20% # ← change to 60% 40%, 320px 1fr, etc.
 gap: 24px
 ---
 
@@ -633,12 +646,6 @@ section: מושגים
 <div style="position: absolute; bottom: 100px; left: 50px;">
 <img src="/images/עוקב מידי יחיד.png" alt="Exercise Icon" style="width:200pt; height:200pt;" />
 </div>
-
-
---- 
-
-# סדר בין יחסי סדר
-
 
 
 

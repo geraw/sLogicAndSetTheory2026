@@ -374,19 +374,20 @@ $$
 ---
 
 # תרגילים נוספים
-1. לכל A,B,C, הוכיחו: 
+
+1. לכל $A,B,C$, הוכיחו: 
    $$ C \cap (A \Delta B) = (C \cap A) \Delta (C \cap B). $$
 
-2. לכל A,B,C, הוכיחו (חוק ביטול): 
+2. לכל $A,B,C$, הוכיחו (חוק ביטול): 
    $$ (A \Delta B) \Delta (A \Delta C) = B \Delta C. $$
 
-3. לכל A,B, הוכיחו:
+3. לכל $A,B$, הוכיחו:
    $$ A \subseteq B \iff A \Delta B \subseteq B \setminus A. $$
 
-4. לכל A,B,C, הוכיחו:
+4. לכל $A,B,C$, הוכיחו:
    $$ (A \times C) \Delta (B \times C) = (A \Delta B) \times C. $$
 
-5. לכל A,B,C,D, הוכיחו או הפריכו:
+5. לכל $A,B,C,D$, הוכיחו או הפריכו:
    $$ (A \times C) \Delta (B \times D) \stackrel{?}{=} (A \Delta B) \times (C \Delta D). $$
 
 ---
@@ -420,16 +421,18 @@ $$
 
 <br>
       
-2. הוכיחו או הפריכו: לכל קבוצה של קבוצות $\mathcal{F}$  ולכל קבוצה $A$
+2. הוכיחו או הפריכו: לכל קבוצה לא ריקה של קבוצות $\mathcal{F}$  ולכל קבוצה $A$
      $$A \setminus \bigcup \mathcal{F} = \bigcap \{A \setminus X : X \in \mathcal{F}\}. $$
 <br>
 
-3. הוכיחו או הפריכו: לכל קבוצה של קבוצות $\mathcal{F}$  קיימת  קבוצה יחידה $S$ כך שלכל $x$,
-   $$ x \in S \iff \bigl( \forall X \in \mathcal{F}\ (x \in X)\bigr)$$
-<br>
+3. הוכיחו: לכל קבוצה של קבוצות $\mathcal{F}$  קיימת  קבוצה יחידה $S$  המקיימת את שתי התכונות הבאות: 
+   
+   1) $x \in S \iff \bigl( \forall X \in \mathcal{F}\ (x \in X)\bigr)$
+   2) לכל קבוצה $T$ המקיימת את התכונה הראשונה, מתקיים $S \subseteq T$.
 
-4. הוכיחו או הפריכו: לכל קבוצה של קבוצות $\mathcal{F}$  קיימת יחידה קבוצה $S$ כך שלכל $x$,
-   $$ x \in S \iff \bigl(\exists X \in \mathcal{F}\ (x \in X)\bigr), $$
+
+
+
 
     
 

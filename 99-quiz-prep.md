@@ -92,11 +92,11 @@ $$A\setminus\bigcap \mathcal{F}=\bigcup \{A\setminus X \mid X\in \mathcal{F}\}$$
 
 $$
 \begin{aligned}
-A\setminus\bigcup \mathcal{F}&=\{x : x\in A \land x\notin \bigcup \mathcal{F}\}\\
-&=\{x : x\in A \land \neg(x\in \bigcup \mathcal{F})\}\\
-&=\{x : x\in A \land \neg(\exists X\in \mathcal{F} (x\in X))\}\\
-&=\{x : x\in A \land \forall X\in \mathcal{F} (x\notin X)\}\\
-&=\{x : \forall X\in \mathcal{F} (x\in A\setminus X)\}\\
+A\setminus\bigcup \mathcal{F}&=\{x \mid x\in A \land x\notin \bigcup \mathcal{F}\}\\
+&=\{x \mid x\in A \land \neg(x\in \bigcup \mathcal{F})\}\\
+&=\{x \mid x\in A \land \neg(\exists X\in \mathcal{F} (x\in X))\}\\
+&=\{x \mid x\in A \land \forall X\in \mathcal{F} (x\notin X)\}\\
+&=\{x \mid \forall X\in \mathcal{F} (x\in A\setminus X)\}\\
 &=\bigcap \{A\setminus X \mid X\in \mathcal{F}\}
 \end{aligned}
 $$

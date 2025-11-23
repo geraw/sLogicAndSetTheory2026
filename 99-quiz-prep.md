@@ -47,25 +47,25 @@ layout: two-cols-header
 ::left::
 
 -  **איחוד**:  
-  $$A\cup B=\{x : x\in A \text{ או } x\in B\}$$
+  $$A\cup B=\{x \mid x\in A \text{ או } x\in B\}$$
 
 -  **חיתוך**:  
-  $$A\cap B=\{x : x\in A \text{ וגם } x\in B\}$$
+  $$A\cap B=\{x \mid x\in A \text{ וגם } x\in B\}$$
 
 - **הפרש קבוצות**:  
-  $$A\setminus B=\{x : x\in A \text{ ו } x\notin B\}$$
+  $$A\setminus B=\{x \mid x\in A \text{ וגם } x\notin B\}$$
 
 - **הפרש סימטרי**:  
   $$A\Delta B = (A \cup B) \setminus (A \cap B)$$
 
 
 - **מכפלה קרטזית**:  
-  $$A\times B=\{\langle x,y\rangle : x\in A \text{ וגם } y\in B\}$$
+  $$A\times B=\{\langle x,y\rangle \mid x\in A \text{ וגם } y\in B\}$$
 
 ::right::
 
 - **קבוצת חזקה**:  
-  $$\mathcal{P}(A)=\{X : X\subseteq A\}$$
+  $$\mathcal{P}(A)=\{X \mid X\subseteq A\}$$
 
 - **איחוד/חיתוך אונרי**:  
   $$\bigcup \mathcal{F} = \{x \mid \exists X\in \mathcal{F} (x\in X)\}$$

@@ -60,7 +60,7 @@ layout: two-cols-header
 
 
 - **מכפלה קרטזית**:  
-  $$A\times B=\{\langle x,y\rangle : x\in A \text{ ו } y\in B\}$$
+  $$A\times B=\{\langle x,y\rangle : x\in A \text{ וגם } y\in B\}$$
 
 ::right::
 

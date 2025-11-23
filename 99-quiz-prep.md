@@ -254,7 +254,7 @@ $$
 # פעולות אונריות  
 תהי משפחת קבוצות  
 $$
-F=\{X\subseteq \mathbb{N} : 0\in X\}.
+F=\{X\subseteq \mathbb{N} \mid  0\in X\}.
 $$
 
 חשבו:
@@ -262,6 +262,124 @@ $$
 1. $\displaystyle \bigcup F$
    
 2. $\displaystyle \bigcap F$
+
+<br/>
+<br/>
+
+<v-click>
+
+**תשובה:**
+
+1. $\displaystyle \bigcup F = \mathbb{N}$
+2. $\displaystyle \bigcap F = \{0\}$
+
+</v-click>
+
+
+---
+layout: two-cols-header
+---
+
+# דוגמה: שרשרת יורדת של קבוצות
+
+::left::
+
+נגדיר לכל $n \in \mathbb{N}$ את הקבוצה:
+$$ A_n = \{k \in \mathbb{N} \mid k \ge n\} $$
+תהי המשפחה $\mathcal{F} = \{A_n \mid n \in \mathbb{N}\}$.
+
+חשבו את:
+1. $\displaystyle \bigcup \mathcal{F}$
+2. $\displaystyle \bigcap \mathcal{F}$
+
+::right::
+
+<v-click>
+
+**פתרון:**
+
+1. **איחוד:**
+   האיחוד מכיל איברים ששייכים ללפחות קבוצה אחת.
+   שימו לב ש-$A_0 = \mathbb{N}$.
+   לכן $\bigcup \mathcal{F} = \mathbb{N}$.
+
+2. **חיתוך:**
+   החיתוך מכיל איברים ששייכים ל**כל** הקבוצות.
+   יהי $k \in \mathbb{N}$. האם $k \in \bigcap \mathcal{F}$?
+   לא, כי $k \notin A_{k+1}$ (שהרי $k < k+1$).
+   לכן אין אף מספר טבעי שנמצא בכולן.
+   $\bigcap \mathcal{F} = \emptyset$.
+
+</v-click>
+
+---
+layout: two-cols-header
+---
+
+# דוגמה: כפולות של מספרים
+
+::left::
+
+לכל $n \in \mathbb{N}, n \ge 1$ נגדיר:
+$$ B_n = \{k \in \mathbb{N} \mid n \text{ מחלק את } k\} $$
+(כלומר $B_n$ היא קבוצת הכפולות של $n$).
+תהי $\mathcal{G} = \{B_n \mid n \ge 1\}$.
+
+חשבו את:
+1. $\displaystyle \bigcup \mathcal{G}$
+2. $\displaystyle \bigcap \mathcal{G}$
+
+::right::
+
+<v-click>
+
+**פתרון:**
+
+1. **איחוד:**
+   $B_1$ היא קבוצת כל המספרים ש-1 מחלק אותם (כל הטבעיים, או הטבעיים החיוביים תלוי בהגדרה, נניח $k \ge 1$).
+   מכיוון ש-$B_1 \in \mathcal{G}$, האיחוד הוא לפחות $B_1$. שאר הקבוצות מוכלות ב-$B_1$.
+   לכן $\bigcup \mathcal{G} = B_1 = \{1, 2, 3, \dots\}$.
+
+2. **חיתוך:**
+   איבר $k$ נמצא בחיתוך אם הוא מתחלק ב-**כל** מספר טבעי $n$.
+   אבל לכל $k$, המספר $n = k+1$ לא מחלק את $k$ (עבור $k>0$).
+   לכן $\bigcap \mathcal{G} = \emptyset$.
+
+</v-click>
+
+---
+layout: two-cols-header
+---
+
+# דוגמה: משפחה מתוך קבוצת החזקה
+
+תהי $A = \{1, 2, 3\}$.
+נגדיר משפחה $\mathcal{H}$ המכילה את כל תתי-הקבוצות של $A$ בגודל 2 בדיוק.
+$$ \mathcal{H} = \{X \in \mathcal{P}(A) \mid |X| = 2\} $$
+
+**חשבו את האיחוד והחיתוך של $\mathcal{H}$.**
+
+::left::
+<v-click>
+
+1. נרשום את איברי המשפחה במפורש:
+   $$ \mathcal{H} = \{ \;\{1, 2\}, \{1, 3\}, \{2, 3\} \} $$
+
+2. **איחוד:**
+   $$ \bigcup \mathcal{H} = \{1, 2\} \cup \{1, 3\} \cup \{2, 3\} = \{1, 2, 3\} = A $$
+</v-click>
+
+::right::
+<v-click>
+
+3. **חיתוך:**
+   נבדוק איזה איבר נמצא ב**כל** הקבוצות:
+   - 1 לא נמצא ב-$\{\mathbf{2, 3}\}$.
+   - 2 לא נמצא ב-$\{\mathbf{1, 3}\}$.
+   - 3 לא נמצא ב-$\{\mathbf{1, 2}\}$.
+   - לכן $\bigcap \mathcal{H} = \emptyset$.
+</v-click>
+
 
 ---
 layout: two-cols-header
@@ -341,61 +459,64 @@ $$
 
 ---
 
-# הפרש: אם לכל B מתקיים תנאי - אז A ריקה
+# הפרש: אם לכל $B$ מתקיים תנאי - אז $A = \emptyset$
 
 להלן תרגילים. בכל אחד, הוכיחו שאם הטענה על $A \setminus B$ נכונה לכל קבוצה $B$, אז $A = \emptyset$.
 
-1. לכל A, אם לכל $B$ מתקיים $A \setminus B = \emptyset$, אז $A = \emptyset$.
+1. לכל $A$, אם לכל $B$ מתקיים $A \setminus B = \emptyset$, אז $A = \emptyset$.
    
-2. לכל A, אם לכל $B$ מתקיים $A \setminus B \subseteq B$, אז $A = \emptyset$.
+2. לכל $A$, אם לכל $B$ מתקיים $A \setminus B \subseteq B$, אז $A = \emptyset$.
    
-3. לכל A, אם לכל $B$ מתקיים $A \setminus B = A$, אז $A = \emptyset$.
+3. לכל $A$, אם לכל $B$ מתקיים $A \setminus B = A$, אז $A = \emptyset$.
    
-4. לכל A, אם לכל $B$ מתקיים $A \setminus B \subseteq A \cap B$, אז $A = \emptyset$.
+4. לכל $A$, אם לכל $B$ מתקיים $A \setminus B \subseteq A \cap B$, אז $A = \emptyset$.
    
-5. לכל A, אם לכל $B$ מתקיים $A \subseteq A \setminus B$, אז $A = \emptyset$.
+5. לכל $A$, אם לכל $B$ מתקיים $A \subseteq A \setminus B$, אז $A = \emptyset$.
 
 ---
 
-# הפרש: אם לכל C מתקיים תנאי - אז A = B
+# הפרש: אם לכל $C$ מתקיים תנאי - אז $A = B$
 
 להלן תרגילים. בכל אחד, הוכיחו שאם הטענה על $A \setminus C$ ו-$B \setminus C$ נכונה לכל קבוצה $C$, אז $A = B$.
 
-1. לכל A,B, אם לכל $C$ מתקיים $A \setminus C = B \setminus C$, אז $A = B$.
+1. לכל $A,B$, אם לכל $C$ מתקיים $A \setminus C = B \setminus C$, אז $A = B$.
 
-2. לכל A,B, אם לכל $C$ מתקיים $A \setminus C \subseteq B \setminus C$ וגם $B \setminus C \subseteq A \setminus C$, אז $A = B$.
+2. לכל $A,B$, אם לכל $C$ מתקיים $A \setminus C \subseteq B \setminus C$ וגם $B \setminus C \subseteq A \setminus C$, אז $A = B$.
 
-3. לכל A,B, אם לכל $C$ מתקיים $A \setminus C \subseteq B$ וגם $B \setminus C \subseteq A$, אז $A = B$.
+3. לכל $A,B$, אם לכל $C$ מתקיים $A \setminus C \subseteq B$ וגם $B \setminus C \subseteq A$, אז $A = B$.
 
-4. לכל A,B, אם לכל $C$ מתקיים $A \setminus (B \cup C) = B \setminus (A \cup C)$, אז $A = B$.
+4. לכל $A,B$, אם לכל $C$ מתקיים $A \setminus (B \cup C) = B \setminus (A \cup C)$, אז $A = B$.
 
-5. לכל A,B, אם לכל $C$ מתקיים $(A \setminus C) \setminus B = (B \setminus C) \setminus A$, אז $A = B$.
+5. לכל $A,B$, אם לכל $C$ מתקיים $(A \setminus C) \setminus B = (B \setminus C) \setminus A$, אז $A = B$.
 
 ---
 
-# הפרש סימטרי: אם לכל B מתקיים תנאי - אז A ריקה
+# הפרש סימטרי: אם לכל $B$ מתקיים תנאי - אז   $A = \emptyset$
 
 להלן תרגילים. בכל אחד, הוכיחו שאם הטענה על $A \Delta B$ נכונה לכל קבוצה $B$, אז $A = \emptyset$.
 
-1. לכל A, אם לכל $B$ מתקיים $A \Delta B = B$, אז $A = \emptyset$.
+1. לכל $A$, אם לכל $B$ מתקיים $A \Delta B = B$, אז $A = \emptyset$.
 
-2. לכל A, אם לכל $B$ מתקיים $A \Delta B \subseteq B$, אז $A = \emptyset$.
-3. לכל A, אם לכל $B$ מתקיים $A \subseteq A \Delta B$, אז $A = \emptyset$.
-4. לכל A, אם לכל $B$ מתקיים $A \Delta B = A \cup B$, אז $A = \emptyset$.
-5. לכל A, אם לכל $B$ מתקיים $(A \Delta B) \cap A = \emptyset$, אז $A = \emptyset$.
+2. לכל $A$, אם לכל $B$ מתקיים $A \Delta B \subseteq B$, אז $A = \emptyset$.
+
+3. לכל $A$, אם לכל $B$ מתקיים $A \subseteq A \Delta B$, אז $A = \emptyset$.
+
+4. לכל $A$, אם לכל $B$ מתקיים $A \Delta B = A \cup B$, אז $A = \emptyset$.
+
+5. לכל $A$, אם לכל $B$ מתקיים $(A \Delta B) \cap A = \emptyset$, אז $A = \emptyset$.
 
 ---
 
-# הפרש סימטרי: אם לכל C מתקיים תנאי - אז A = B
+# הפרש סימטרי: אם לכל $C$ מתקיים תנאי - אז $A = B$
 
 להלן תרגילים. בכל אחד, הוכיחו שאם הטענה על $A \Delta C$ ו-$B \Delta C$ נכונה לכל קבוצה $C$, אז $A = B$.
 
-1. לכל A,B, אם לכל $C$ מתקיים $A \Delta C = B \Delta C$, אז $A = B$.
+1. לכל $A,B$, אם לכל $C$ מתקיים $A \Delta C = B \Delta C$, אז $A = B$.
 
-2. לכל A,B, אם לכל $C$ מתקיימות ההכללות $A \Delta C \subseteq B \Delta C$ וגם $B \Delta C \subseteq A \Delta C$, אז $A = B$.
-3. לכל A,B, אם לכל $C$ מתקיים $(A \Delta C) \Delta (B \Delta C) = \emptyset$, אז $A = B$.
-4. לכל A,B, אם לכל $C$ מתקיים $(A \Delta C) \Delta (B \Delta C) \subseteq C$, אז $A = B$.
-5. לכל A,B, אם לכל $C$ מתקיים $(A \Delta C) \cap C = (B \Delta C) \cap C$, אז $A = B$.
+2. לכל $A,B$, אם לכל $C$ מתקיימות ההכללות $A \Delta C \subseteq B \Delta C$ וגם $B \Delta C \subseteq A \Delta C$, אז $A = B$.
+3. לכל $A,B$, אם לכל $C$ מתקיים $(A \Delta C) \Delta (B \Delta C) = \emptyset$, אז $A = B$.
+4. לכל $A,B$, אם לכל $C$ מתקיים $(A \Delta C) \Delta (B \Delta C) \subseteq C$, אז $A = B$.
+5. לכל $A,B$, אם לכל $C$ מתקיים $(A \Delta C) \cap C = (B \Delta C) \cap C$, אז $A = B$.
 
 ---
 
@@ -421,8 +542,8 @@ $$
 # שאלות על פעולות אונאריות
 
 1. הוכיחו או הפריכו:
-   $$ A \setminus \bigcap F = \bigcup \{A \setminus X : X \in F\}, \qquad
-      A \setminus \bigcup F = \bigcap \{A \setminus X : X \in F\}. $$
+   $$ A \setminus \bigcap F = \bigcup \{A \setminus X \mid X \in F\}, \qquad
+      A \setminus \bigcup F = \bigcap \{A \setminus X \mid X \in F\}. $$
 
 3. הוכיחו או הפריכו:
    $$ A \subseteq \bigcup F \iff \forall x \in A\ \exists X \in F\ (x \in X), \qquad
@@ -443,12 +564,12 @@ $$
 
 
 1. הוכיחו או הפריכו: לכל קבוצה של קבוצות $\mathcal{F}$  ולכל קבוצה $A$  
-   $$ \bigcup \{X \setminus A : X \in \mathcal{F}\} = \left(\bigcup \mathcal{F}\right) \setminus A$$     
+   $$ \bigcup \{X \setminus A \mid X \in \mathcal{F}\} = \left(\bigcup \mathcal{F}\right) \setminus A$$     
 
 <br>
       
 2. הוכיחו או הפריכו: לכל קבוצה לא ריקה של קבוצות $\mathcal{F}$  ולכל קבוצה $A$
-     $$A \setminus \bigcup \mathcal{F} = \bigcap \{A \setminus X : X \in \mathcal{F}\}. $$
+     $$A \setminus \bigcup \mathcal{F} = \bigcap \{A \setminus X \mid X \in \mathcal{F}\}. $$
 <br>
 
 3. הוכיחו: לכל קבוצה של קבוצות $\mathcal{F}$  קיימת  קבוצה יחידה $S$  המקיימת את שתי התכונות הבאות: 

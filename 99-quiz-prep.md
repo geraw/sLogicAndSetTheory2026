@@ -76,8 +76,8 @@ layout: two-cols-header
   $$R\subseteq A\times B$$
 
 - **תחום ותמונה**: 
-  $$\operatorname{dom}(R) = \{x \mid \exists y (x,y)\in R\}$$
-  $$\operatorname{img}(R) = \{y \mid \exists x (x,y)\in R\}$$
+  $$\operatorname{dom}(R) = \{x \mid \exists y (\langle x,y\rangle\in R)\}$$
+  $$\operatorname{img}(R) = \{y \mid \exists x (\langle x,y\rangle\in R)\}$$
 
 ---
 

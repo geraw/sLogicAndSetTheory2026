@@ -4,8 +4,8 @@ infoLine: true
 author: "גרא וייס"
 title: "חזרה לקראת הבוחן הראשון"
 htmlAttrs:
-  dir: rtl
-  lang: heb
+   dir: rtl
+   lang: heb
 mdc: true
 download: true
 ---
@@ -58,23 +58,49 @@ layout: two-cols-header
 - **הפרש סימטרי**:  
   $$A\Delta B = (A \cup B) \setminus (A \cap B)$$
 
+
 - **מכפלה קרטזית**:  
-  $$A\times B=\{(x,y) : x\in A \text{ ו } y\in B\}$$
+  $$A\times B=\{\langle x,y\rangle : x\in A \text{ ו } y\in B\}$$
 
 ::right::
 
 - **קבוצת חזקה**:  
   $$\mathcal{P}(A)=\{X : X\subseteq A\}$$
 
-- **כללי דה־מורגן**:  
-  $$A\setminus\bigcup F=\bigcap_{X\in F}(A\setminus X)$$  
-  $$A\setminus\bigcap F=\bigcup_{X\in F}(A\setminus X)$$
-
 - **איחוד/חיתוך אונרי**:  
-  $$\bigcup_{X\in F} X = \bigcup F$$
-  $$\bigcap_{X\in F} X = \bigcap F$$
+  $$\bigcup \mathcal{F} = \{x \mid \exists X\in \mathcal{F} (x\in X)\}$$
+  $$\bigcap \mathcal{F} = \{x \mid \forall X\in \mathcal{F} (x\in X)\}$$
 
 
+- **יחס**: 
+  $$R\subseteq A\times B$$
+
+- **תחום ותמונה**: 
+  $$\operatorname{dom}(R) = \{x \mid \exists y (x,y)\in R\}$$
+  $$\operatorname{img}(R) = \{y \mid \exists x (x,y)\in R\}$$
+
+---
+
+# כללי דה־מורגן
+
+**הוכיחו או הפריכו**: לכל קבוצה לא ריקה של קבוצות $\mathcal{F}$ וקבוצה $A$:
+$$A\setminus\bigcup \mathcal{F}=\bigcap \{A\setminus X \mid X\in \mathcal{F}\}$$  
+$$A\setminus\bigcap \mathcal{F}=\bigcup \{A\setminus X \mid X\in \mathcal{F}\}$$
+
+<v-click>
+הוכחת השוויון הראשון: 
+
+$$
+\begin{aligned}
+A\setminus\bigcup \mathcal{F}&=\{x : x\in A \land x\notin \bigcup \mathcal{F}\}\\
+&=\{x : x\in A \land \neg(x\in \bigcup \mathcal{F})\}\\
+&=\{x : x\in A \land \neg(\exists X\in \mathcal{F} (x\in X))\}\\
+&=\{x : x\in A \land \forall X\in \mathcal{F} (x\notin X)\}\\
+&=\{x : \forall X\in \mathcal{F} (x\in A\setminus X)\}\\
+&=\bigcap \{A\setminus X \mid X\in \mathcal{F}\}
+\end{aligned}
+$$
+</v-click>
 
 ---
 

@@ -12,14 +12,14 @@ function escapeBracesInMath(source: string): string {
   // Replace inside display math first
   source = source.replace(/\$\$([\s\S]*?)\$\$/g, (_m, inner) => {
     const replaced = inner
-      .replace(/\\{\\{/g, '\\{\\!\\,\\{')
+      .replace(/\\{\s*\\{/g, '\\{\\!\\{')
     return `$$${replaced}$$`
   })
 
   // Then inline math — use negative lookbehind/lookahead to avoid $$ parts
   source = source.replace(/(?<!\$)\$([^\n]*?)\$(?!\$)/g, (_m, inner) => {
     const replaced = inner
-      .replace(/\\{\\{/g, '\\{\\!\\,\\{')
+      .replace(/\\{\s*\\{/g, '\\{\\!\\{')
     return `$${replaced}$`
   })
 

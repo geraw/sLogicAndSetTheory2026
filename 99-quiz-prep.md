@@ -93,7 +93,7 @@ dir: rtl
 | <span dir="rtl">$\alpha \to \beta$</span> | <span dir="rtl">נניח $\alpha$, נוכיח $\beta$</span> | <span dir="rtl">אם ידוע $\alpha$, נסיק $\beta$ (MP)</span> |
 | <span dir="rtl">$\alpha \lor \beta$</span> | <span dir="rtl">נניח $\neg \alpha$ ונוכיח $\beta$</span> | <span dir="rtl">חלוקה למקרים: מקרה 1 $\alpha$, מקרה 2 $\beta$</span> |
 | <span dir="rtl">$\forall x P(x)$</span> | <span dir="rtl">יהי $x$ שרירותי. נוכיח $P(x)$</span> | <span dir="rtl">ניתן להסיק $P(c)$ לכל איבר $c$ שנרצה</span> |
-| <span dir="rtl">$\exists x P(x)$</span> | <span dir="rtl">נציג דוגמה ל-$c$ המקיים $P(c)$</span> | <span dir="rtl">יהי $c$ המקיים $P(c)$ (שם חדש!)</span> |
+| <span dir="rtl">$\exists x P(x)$</span> | <span dir="rtl">נציג דוגמה ל-$c$ המקיים $P(c)$</span> | <span dir="rtl">ניקח $c$ המקיים $P(c)$ (שם חדש!)</span> |
 | <span dir="rtl">$A = B$</span> | <span dir="rtl">נוכיח $A \subseteq B$ וגם $B \subseteq A$</span> | <span dir="rtl">ניתן להחליף את $A$ ב-$B$ (הצבה)</span> |
 
 

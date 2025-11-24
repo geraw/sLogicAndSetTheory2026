@@ -36,7 +36,7 @@ section: יחסי סדר
 
 # יחס סדר 
 
-<div style="position: absolute; top: 340px; left: 10px; width: 300px;">
+<div style="position: absolute; top: 170px; left: 10px; width: 300px;">
   <img src="/images/order_relation_comic.png" class="rounded-xl shadow-lg border-2 border-gray-200" />
 </div> 
 
@@ -44,7 +44,11 @@ section: יחסי סדר
 
   1. **רפלקסיביות**: $\forall a\in A\; (a \le_R a)$.
 
+  <br />
+
   2. **אנטי-סימטריות**: $\forall a,b\in A\; \bigl((a \le_R b \land b \le_R a) \to a=b\bigr)$.
+
+  <br />
 
   3. **טרנזיטיביות**: $\forall a,b,c\in A\; \bigl((a \le_R b \land b \le_R c) \to a \le_R c\bigr)$.
 
@@ -55,13 +59,14 @@ section: יחסי סדר
 - אם, בנוסף, לכל $a,b\in A$ מתקיים $a\le_R b$ או $b\le_R a$, אז הסדר נקרא "מלא" או "סדר קווי".
 
 - דוגמאות:
-  - $(\mathbb{N},\le_{\mathbb{N}}), (\mathbb{Z},\le_{\mathbb{Z}}), (\mathbb{Q},\le_{\mathbb{Q}}), (\mathbb{R},\le_{\mathbb{R}})$ יחסי הסדר המוכרים על קבוצות של מספרים.
+  - $(\mathbb{N},\le_{\mathbb{N}}), (\mathbb{Z},\le_{\mathbb{Z}}), (\mathbb{Q},\le_{\mathbb{Q}}), (\mathbb{R},\le_{\mathbb{R}})$ - יחסי הסדר המוכרים על קבוצות של מספרים הם יחסי סדר קווי.
 
   - $(\mathcal{P}(X),\subseteq)$: יחס ההכלה על קבוצת החזקה של $X$ הוא יחס סדר חלקי.
 
 
 ---
-
+layout: TwoColsHeaderCustom
+---
 
 # תרגיל לדוגמה: תת-קבוצה של קס"ח היא קס"ח
 
@@ -69,16 +74,40 @@ section: יחסי סדר
 
 <v-click>
 
-**פתרון:**
-הטענה **נכונה**.
 נסמן $R' = R \cap (A' \times A')$. נבדוק את תכונות יחס הסדר:
-1. **רפלקסיביות:** יהי $a \in A'$. מכיוון ש-$A' \subseteq A$, אז $a \in A$. כיוון ש-$R$ רפלקסיבי על $A$, $\langle a,a \rangle \in R$. כמו כן $\langle a,a \rangle \in A' \times A'$. לכן $\langle a,a \rangle \in R'$.
-2. **אנטי-סימטריות:** נניח $\langle a,b \rangle \in R'$ ו-$\langle b,a \rangle \in R'$. מהגדרת החיתוך, נובע ש-$\langle a,b \rangle \in R$ ו-$\langle b,a \rangle \in R$. כיוון ש-$R$ אנטי-סימטרי, $a=b$.
-3. **טרנזיטיביות:** נניח $\langle a,b \rangle \in R'$ ו-$\langle b,c \rangle \in R'$. אז $\langle a,b \rangle, \langle b,c \rangle \in R$. כיוון ש-$R$ טרנזיטיבי, $\langle a,c \rangle \in R$. כמו כן $a,c \in A'$, ולכן $\langle a,c \rangle \in A' \times A'$. לכן $\langle a,c \rangle \in R'$.
+</v-click>
+
+::left::
+<v-click>
+
+1. **רפלקסיביות:** 
+   - יהי $a \in A'$. 
+   - מכיוון ש-$A' \subseteq A$, אז $a \in A$. 
+   - כיוון ש-$R$ רפלקסיבי על $A$, $\langle a,a \rangle \in R$. 
+   - כמו כן $\langle a,a \rangle \in A' \times A'$. 
+   - לכן $\langle a,a \rangle \in R'$.
+
+2. **אנטי-סימטריות:** 
+   - נניח $\langle a,b \rangle \in R'$ ו-$\langle b,a \rangle \in R'$. 
+   - מהגדרת החיתוך, נובע ש-$\langle a,b \rangle \in R$ ו-$\langle b,a \rangle \in R$. 
+   - כיוון ש-$R$ אנטי-סימטרי, $a=b$.
+</v-click>
+
+::right::
+<v-click>
+
+3. **טרנזיטיביות:** 
+   - נניח $\langle a,b \rangle \in R'$ ו-$\langle b,c \rangle \in R'$. 
+   - אז $\langle a,b \rangle, \langle b,c \rangle \in R$. 
+   - כיוון ש-$R$ טרנזיטיבי, $\langle a,c \rangle \in R$. 
+   - כמו כן $a,c \in A'$, ולכן $\langle a,c \rangle \in A' \times A'$. 
+   - לכן $\langle a,c \rangle \in R'$.
+</v-click>
+
+::after::
 
 **מסקנה:** $(A', R')$ הוא קס"ח.
 
-</v-click>
 
 
 

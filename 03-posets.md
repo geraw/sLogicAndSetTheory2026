@@ -36,7 +36,7 @@ section: יחסי סדר
 
 # יחס סדר 
 
-<div style="position: absolute; top: 70px; left: 10px; width: 300px;">
+<div style="position: absolute; top: 340px; left: 10px; width: 300px;">
   <img src="/images/order_relation_comic.png" class="rounded-xl shadow-lg border-2 border-gray-200" />
 </div> 
 
@@ -52,12 +52,34 @@ section: יחסי סדר
 
 - לזוג $(A,\leq_R)$ אנו קוראים "**קבוצה סדורה חלקית**" (קס"ח).
 
-- אם, בנוסף, לכל $a,b\in A$ מתקיים $a\le_R b$ או $b\le_R a$, אז הסדר נקרא "שלם" או "סדר מלא".
+- אם, בנוסף, לכל $a,b\in A$ מתקיים $a\le_R b$ או $b\le_R a$, אז הסדר נקרא "מלא" או "סדר קווי".
 
 - דוגמאות:
-  - $(\mathbb{N},\le), (\mathbb{Z},\le), (\mathbb{Q},\le), (\mathbb{R},\le)$ יחסי הסדר המוכרים על קבוצות של מספרים.
+  - $(\mathbb{N},\le_{\mathbb{N}}), (\mathbb{Z},\le_{\mathbb{Z}}), (\mathbb{Q},\le_{\mathbb{Q}}), (\mathbb{R},\le_{\mathbb{R}})$ יחסי הסדר המוכרים על קבוצות של מספרים.
 
-  - $(\mathcal{P}(X),\subseteq)$: יחס ההכלה על קבוצת החלקים של $X$ הוא יחס סדר חלקי.
+  - $(\mathcal{P}(X),\subseteq)$: יחס ההכלה על קבוצת החזקה של $X$ הוא יחס סדר חלקי.
+
+
+---
+
+
+# תרגיל לדוגמה: תת-קבוצה של קס"ח היא קס"ח
+
+**הוכיחו או הפריכו**: אם $(A,R)$ קס"ח, אז גם $(A', R \cap (A' \times A'))$ קס"ח עבור כל תת קבוצה $A' \subseteq A$.
+
+<v-click>
+
+**פתרון:**
+הטענה **נכונה**.
+נסמן $R' = R \cap (A' \times A')$. נבדוק את תכונות יחס הסדר:
+1. **רפלקסיביות:** יהי $a \in A'$. מכיוון ש-$A' \subseteq A$, אז $a \in A$. כיוון ש-$R$ רפלקסיבי על $A$, $\langle a,a \rangle \in R$. כמו כן $\langle a,a \rangle \in A' \times A'$. לכן $\langle a,a \rangle \in R'$.
+2. **אנטי-סימטריות:** נניח $\langle a,b \rangle \in R'$ ו-$\langle b,a \rangle \in R'$. מהגדרת החיתוך, נובע ש-$\langle a,b \rangle \in R$ ו-$\langle b,a \rangle \in R$. כיוון ש-$R$ אנטי-סימטרי, $a=b$.
+3. **טרנזיטיביות:** נניח $\langle a,b \rangle \in R'$ ו-$\langle b,c \rangle \in R'$. אז $\langle a,b \rangle, \langle b,c \rangle \in R$. כיוון ש-$R$ טרנזיטיבי, $\langle a,c \rangle \in R$. כמו כן $a,c \in A'$, ולכן $\langle a,c \rangle \in A' \times A'$. לכן $\langle a,c \rangle \in R'$.
+
+**מסקנה:** $(A', R')$ הוא קס"ח.
+
+</v-click>
+
 
 
 ---
@@ -662,7 +684,7 @@ section: מושגים
 
 ---
 
-# יחס סדר חלקי מקסימלי (תחת הכלה) הוא סדר קווי 
+# יחס סדר מקסימלי (תחת הכלה) הוא סדר קווי 
 
 - נניח בשלילה ש-$R$  מקסימלי ואינו קווי: קיימים $a,b \in A$ כך שאין $a≤_R b$ וגם אין $b \leq_R a$.
 
@@ -811,6 +833,12 @@ $(a,b) \le_{lex} (c,d)$ אם ($a < c$) או ($a = c$ וגם $b \le d$).
 1. הוכיחו כי $\le_{lex}$ הוא יחס סדר חלקי.
 2. האם הוא סדר קווי (מלא)?
 
+
+<div style="position: absolute; top: 50px; left: 30px; width: 200px;">
+  <img src="/images/lexicographical_order_hebrew_dictionary.png" class="rounded-xl shadow-lg border-2 border-gray-200" />
+</div>
+
+
 <v-click>
 
 **פתרון:**
@@ -823,6 +851,7 @@ $(a,b) \le_{lex} (c,d)$ אם ($a < c$) או ($a = c$ וגם $b \le d$).
    - אחרת $a=c=e$, ואז $b \le d$ ו-$d \le f \implies b \le f$, ולכן $\langle a,b \rangle \le \langle e,f \rangle$.
 
 2. **כן, זהו סדר קווי.** לכל שני זוגות שונים, או שהרכיבים הראשונים שונים (ואז הקטן קובע), או שהם שווים (ואז הרכיבים השניים ניתנים להשוואה ב-$\mathbb{N}$).
+
 
 </v-click>
 
@@ -848,6 +877,10 @@ $\langle a,b \rangle \le_{prod} \langle c,d \rangle$ אם $a \le c$ וגם $b \l
   לכן הוא גם **מירבי יחיד**.
 
 שימו לב: בניגוד לסדר הלקסיקוגרפי, כאן $\langle 1,2 \rangle$ ו-$\langle 2,1 \rangle$ **אינם ניתנים להשוואה** (כי $1 \le 2$ אבל $2 \not\le 1$). לכן זהו **אינו** סדר קווי.
+
+<div style="position: absolute; bottom: 10px; left: 400px; width: 200px;">
+  <img src="/images/product_order_incomparable.png" />
+</div>
 
 </v-click>
 
@@ -955,22 +988,3 @@ $$ \langle a, b \rangle \in R^{-1} \iff \langle b, a \rangle \in R $$
 
 </v-click>
 
----
-
-# תת-קבוצה של קס"ח היא קס"ח
-
-**שאלה:**
-הוכיחו או הפריכו: אם $(A,R)$ קס"ח, אז גם $(A', R \cap (A' \times A'))$ קס"ח עבור כל תת קבוצה $A' \subseteq A$.
-
-<v-click>
-
-**פתרון:**
-הטענה **נכונה**.
-נסמן $R' = R \cap (A' \times A')$. נבדוק את תכונות יחס הסדר:
-1. **רפלקסיביות:** יהי $a \in A'$. מכיוון ש-$A' \subseteq A$, אז $a \in A$. כיוון ש-$R$ רפלקסיבי על $A$, $\langle a,a \rangle \in R$. כמו כן $\langle a,a \rangle \in A' \times A'$. לכן $\langle a,a \rangle \in R'$.
-2. **אנטי-סימטריות:** נניח $\langle a,b \rangle \in R'$ ו-$\langle b,a \rangle \in R'$. מהגדרת החיתוך, נובע ש-$\langle a,b \rangle \in R$ ו-$\langle b,a \rangle \in R$. כיוון ש-$R$ אנטי-סימטרי, $a=b$.
-3. **טרנזיטיביות:** נניח $\langle a,b \rangle \in R'$ ו-$\langle b,c \rangle \in R'$. אז $\langle a,b \rangle, \langle b,c \rangle \in R$. כיוון ש-$R$ טרנזיטיבי, $\langle a,c \rangle \in R$. כמו כן $a,c \in A'$, ולכן $\langle a,c \rangle \in A' \times A'$. לכן $\langle a,c \rangle \in R'$.
-
-**מסקנה:** $(A', R')$ הוא קס"ח.
-
-</v-click>

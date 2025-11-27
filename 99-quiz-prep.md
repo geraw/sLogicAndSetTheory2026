@@ -407,11 +407,11 @@ layout: two-cols-header
 
 ::left::
 
-**תרגיל:** הוכיחו שלכל קבוצות $A,B,C$ מתקיים:
+**תרגיל:** הוכיחו או הפריכו כל אחת מהטענות הבאות:
 
-1. $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$  
-2. $A \cup (B \setminus C) = (A \cup B) \setminus (A \cap C)$  
-3. $A \setminus (B \cup C) = (A \setminus B) \cap (A \setminus C)$  
+1. $\forall A,B,C (A \cup (B \cap C) = (A \cup B) \cap (A \cup C))$  
+2. $\forall A,B,C (A \cup (B \setminus C) = (A \cup B) \setminus (A \cap C))$  
+3. $\forall A,B,C (A \setminus (B \cup C) = (A \setminus B) \cap (A \setminus C))$  
 
 <br/>
 <br/>
@@ -432,15 +432,23 @@ $$
 ::right::
 <v-click>
 
-2. איחוד עם פרש
+2. איחוד עם הפרש 
+
+דוגמה נגדית:
 $$
-\begin{aligned}
-x \in A \cup (B \setminus C) &\iff x \in A \ \lor\ (x \in B \land x \notin C) \\
-&\iff (x \in A \lor x \in B) \land (x \in A \lor x \notin C) \\
-&\iff x \in (A \cup B) \land x \notin (A \cap C) \\
-&\iff x \in (A \cup B) \setminus (A \cap C)
-\end{aligned}
+A = \{1,2\}, 
+B = \{2,3\}, 
+C = \{3,4\}
 $$
+
+$$
+A \cup (B \setminus C) = \{1,2\} \cup \{2\} = \{1,2\}
+$$
+
+$$
+(A \cup B) \setminus (A \cap C) = \{1,2,3\} \setminus \{2\} = \{1,3\}
+$$
+
 
 </v-click>
 

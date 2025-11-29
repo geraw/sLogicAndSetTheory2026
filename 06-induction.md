@@ -167,7 +167,7 @@ $$|A \cup B| = |A| + |B|$$
 - מכיוון ש-$A$ ו-$B$ זרות, הפונקציה $h$ מוגדרת היטב.
 - קל לוודא ש-$h$ היא חח"ע ועל, ולכן $|A \cup B| = n+m$.
 
-<img src="/images/union_proof_hebrew_v2.png" class="absolute top-80 left-20 w-80 " />
+<img src="/images/גודל של איחוד זר.jpg" class="absolute top-90 left-5 w-100 " />
 
 </v-click>
 

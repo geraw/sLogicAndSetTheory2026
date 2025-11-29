@@ -169,6 +169,9 @@ $$|A \cup B| = |A| + |B|$$
 
 <img src="/images/גודל של איחוד זר.jpg" class="absolute top-90 left-5 w-100 " />
 
+<img src="/images/h-sorter.jpg" class="absolute top-30 left-5 w-100 " />
+
+
 </v-click>
 
 

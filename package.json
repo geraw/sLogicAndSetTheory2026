@@ -8,14 +8,14 @@
     "dev": "slidev"
   },
   "dependencies": {
-    "@slidev/cli": "^52.2.4",
+    "@slidev/cli": "^52.9.1",
     "@slidev/theme-default": "latest",
     "@slidev/theme-seriph": "latest",
-    "cytoscape": "^3.23.0",
+    "cytoscape": "^3.33.1",
     "slidev-theme-academic": "latest",
     "slidev-theme-frankfurt": "^1.0.8"
   },
   "devDependencies": {
-    "playwright-chromium": "^1.56.1"
+    "playwright-chromium": "^1.57.0"
   }
 }

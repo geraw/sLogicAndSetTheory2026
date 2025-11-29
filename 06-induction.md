@@ -134,28 +134,40 @@ layout: two-cols-header
 <v-click>
 
 **הוכחה:**
-- תהי $f: A \to \mathbb{N}^{<n}$ פונקציה הפיכה ( קיימת כזאת כי $A$ סופית).
+- תהי $f \colon A \to \mathbb{N}^{<n}$ פונקציה הפיכה ( קיימת כזאת כי $A$ סופית).
 
 - נתבונן בקבוצת התמונות $S = \{f(b) \mid b \in B\} \subseteq \mathbb{N}^{<n}$.
 - נסמן את איברי $S$ לפי הסדר: $k_0 < k_1 < \ldots < k_{m-1}$.
-- נגדיר פונקציה $g: B \to \mathbb{N}^{<m}$ באופן הבא: לכל $b \in B$, אם $f(b) = k_i$ אז $g(b) = i$.
+- נגדיר פונקציה $g \colon B \to \mathbb{N}^{<m}$ באופן הבא: לכל $b \in B$, אם $f(b) = k_i$ אז $g(b) = i$.
 - הפונקציה $g$ היא חח"ע ועל (הפיכה), ולכן $B$ סופית (בגודל $m$).
+
+<img src="/images/subset_proof_comic_hebrew.png" class="absolute top-50 left-10 w-80 rounded-lg shadow-lg" />
+
+<br>
+
+מסקנה מההוכחה: אם מורידים $k$ איברים מ-$A$, נשאר לנו $n-k$ איברים.
 
 </v-click>
 
 
 ---
 
-# תכונות של קבוצות סופיות
+# גודל האיחוד של שתי קבוצות סופיות זרות
 
 **טענה:** אם $A,B$ קבוצות סופיות זרות, אז:
 $$|A \cup B| = |A| + |B|$$
 
 <v-click>
 
-**רעיון הוכחה:** 
-- בונים פונקציה חח"ע ועל מ-$\{1,\ldots,|A|+|B|\}$ אל $A \cup B$.
-- הרעיון: "מספרים" תחילה את איברי $A$ ואחר כך את איברי $B$.
+**הוכחה:**
+- נסמן $|A|=n$ ו-$|B|=m$.
+- קיימות פונקציות הפיכות $f \colon A \to \mathbb{N}^{<n}$ ו-$g \colon B \to \mathbb{N}^{<m}$.
+- נגדיר פונקציה $h \colon A \cup B \to \mathbb{N}^{<n+m}$ באופן הבא:
+  $$ h(x) = \begin{cases} f(x) & x \in A \\ g(x) + n & x \in B \end{cases} $$
+- מכיוון ש-$A$ ו-$B$ זרות, הפונקציה $h$ מוגדרת היטב.
+- קל לוודא ש-$h$ היא חח"ע ועל, ולכן $|A \cup B| = n+m$.
+
+<img src="/images/union_proof_hebrew_v2.png" class="absolute top-80 left-20 w-80 " />
 
 </v-click>
 

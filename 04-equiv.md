@@ -698,12 +698,16 @@ section: תרגול
 
 # אימון קצר
 
-- תארו את כל מחלקות השקילות של היחסים הבאים על $\{1,2,3\}$:
-  1) $a\sim b$ אם ורק אם $a=b$.
-  2) $a\sim b$ אם ורק אם $a\equiv b\pmod 2$ (על $\{1,2,3\}$ זה יוצר שתי מחלקות?).
-  3) $a\sim b$ אם ורק אם $\min(a,b)=1$.
+- עבור היחסים הבאים על $\{1,2,3\}$, קבעו האם הם יחסי שקילות (רפלקסיבי, סימטרי, טרנזיטיבי):
 
-> בדקו מי מהיחסים אכן שקילות, ומדוע.
+  1. $R_1 = \{\langle 1,1\rangle, \langle 2,2\rangle, \langle 3,3\rangle\}$
+  2. $R_2 = \{\langle 1,1\rangle, \langle 2,2\rangle, \langle 3,3\rangle, \langle 1,3\rangle, \langle 3,1\rangle\}$
+  3. $R_3 = \{\langle 1,1\rangle, \langle 1,2\rangle, \langle 2,1\rangle, \langle 1,3\rangle, \langle 3,1\rangle\}$
+  4. $R_4 = \{\langle 1,1\rangle, \langle 2,2\rangle, \langle 3,3\rangle, \langle 1,2\rangle\}$
+  5. $R_5 = \{\langle 1,1\rangle, \langle 2,2\rangle, \langle 3,3\rangle, \langle 1,2\rangle, \langle 2,1\rangle, \langle 2,3\rangle, \langle 3,2\rangle\}$
+  6. $R_6 = \{\langle 1,2\rangle, \langle 2,1\rangle\}$
+
+> עבור יחסי השקילות, תארו את מחלקות השקילות. עבור האחרים, ציינו איזו תכונה חסרה.
 
 
 ---

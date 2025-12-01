@@ -16,10 +16,42 @@ exportFilename: 04-equiv.pdf
  מרצה: פרופ. גרא וייס
 
 ---
+section: אינטואיציה
+---
+
+# אינטואיציה: מה אנחנו מצפים מ"שקילות"?
+
+
+אנחנו רוצים להכליל מושגים מוכרים של "דמיון" או "שוויון" בין אובייקטים:
+- **חפיפת משולשים:** שני משולשים הם "אותו דבר" מבחינת צורה וגודל.
+
+- **דמיון משולשים:** שני משולשים הם "אותו דבר" מבחינת צורה.
+- **שקילות מודולו 7:** ימים ביומן הם "אותו דבר" אם הם נופלים באותו יום בשבוע.
+
+
+
+
+<img 
+  src="/images/similar-joke.png" 
+  class="absolute top-45 left-10 w-80 h-50 object-cover" 
+/>
+
+<br>
+
+<br>
+
+
+**הדרישות הטבעיות מיחס כזה:**
+
+1. **רפלקסיביות:** כל איבר שקול לעצמו (משולש חופף לעצמו).
+2. **סימטריות:** אם א' שקול ל-ב', אז ב' שקול ל-א' (אם היום יום ראשון, ובעוד 7 ימים יום ראשון, אז לפני 7 ימים היה יום ראשון).
+3. **טרנזיטיביות:** אם א' שקול ל-ב' ו-ב' שקול ל-ג', אז א' שקול ל-ג'.
+
+---
 section: הגדרה ואפיונים
 ---
 
-# יחס שקילות – הגדרה
+# יחס שקילות - הגדרה
 
  יחס $R\subseteq A\times A$ נקרא יחס שקילות מעל $A$ אם מתקיימות בו כל התכונות:
 
@@ -52,10 +84,10 @@ section: הגדרה ואפיונים
 
 <div class="formula-box">
  
- $Id_A\subseteq R$
+ $Eq_A\subseteq R$
 </div>
  
-  באשר **$Id_A=\{\langle a,a\rangle: a\in A\}$**.
+  באשר **$Eq_A=\{\langle a,a\rangle\mid a\in A\}$**.
 
 - סימטרי:
   
@@ -64,16 +96,36 @@ section: הגדרה ואפיונים
   $R=R^{-1}$
 </div>
 
-באשר **$R^{-1}=\{\langle b,a\rangle: \langle a,b\rangle\in R\}$**.
+באשר **$R^{-1}=\{\langle b,a\rangle\mid \langle a,b\rangle\in R\}$**.
 
 - טרנזיטיבי:
 <div class="formula-box">    
 
-   $R\circ R\subseteq R$, כאשר
+   $R\circ R\subseteq R$
 </div>   
 
-באשר
-  **$R\circ R=\{\langle a,c\rangle\mid \exists b\in A: \langle a,b\rangle\in R\wedge \langle b,c\rangle\in R\}$**
+באשר **$R\circ R=\{\langle a,c\rangle\mid \exists b\in A(\langle a,b\rangle\in R\wedge \langle b,c\rangle\in R)\}$**
+
+---
+
+# דוגמה: זוגיות
+
+יהי $R_1$ היחס הבא על $\mathbb{N}$:
+$$R_1 = \{\langle a, b\rangle \in \mathbb{N} \times \mathbb{N} \mid  (\text{זוגיים } a,b)\lor  (\text{אי-זוגיים } a,b)\}$$
+
+**טענה:** זהו יחס שקילות.
+
+**הוכחה:**
+
+- **רפלקסיביות:** לכל $a \in \mathbb{N}$, מתקיים $aR_1a$ מכיוון שאם $a$ זוגי אז הוא זוגי, ואם הוא אי-זוגי אז הוא אי-זוגי. <br> (זה נשמע טריוויאלי, אך בשלב זה אנו נמנעים משימוש בביטויים כמו "ברור ש...").
+
+- **סימטריות:** לכל $a, b \in \mathbb{N}$, אם $a$ ו-$b$ שניהם זוגיים, אז גם $b$ ו-$a$ שניהם זוגיים. כנ"ל לגבי אי-זוגיים. לכן $aR_1b \iff bR_1a$.
+
+- **טרנזיטיביות:** יהיו $a, b, c \in \mathbb{N}$ כך ש-$aR_1b$ וגם $bR_1c$. המספר $b$ הוא או זוגי או אי-זוגי.
+  - **מקרה 1 - $b$ זוגי:** אזי $a$ זוגי (כי $aR_1b$) וגם $c$ זוגי (כי $bR_1c$). לכן $a$ ו-$c$ שניהם זוגיים, ולכן $aR_1c$.
+  - **מקרה 2 - $b$ אי-זוגי:** אזי $a$ אי-זוגי וגם $c$ אי-זוגי. לכן $aR_1c$.
+
+לכן זהו יחס שקילות.
 
 ---
 section: דוגמאות
@@ -101,28 +153,12 @@ $$ \mathbb{Z}: a\equiv b \pmod n \iff n\mid(a-b) \iff \exists k\in\mathbb{Z} \;(
 
 <img src="/images/שקילות מודולו 3.png" class="absolute top-45 left-10 w-70 h-60" />
 
----
-
-# דוגמה: על $\mathcal{P}(\{1,2,3\})$ עם $1\notin A\,\Delta\,B$
-
-- נגדיר על $\mathcal{P}(\{1,2,3\})$:
-  $$A\sim B \iff 1\notin A\,\Delta\,B \iff (1\in A \Leftrightarrow 1\in B).$$
-
-- יש כאן שתי מחלקות שקילות:
-  - כל תת־הקבוצות שמכילות את $1$;
-
-  - כל תת־הקבוצות שאינן מכילות את $1$.
-
-- זוהי חלוקה של $\mathcal{P}(\{1,2,3\})$ לשתי מחלקות.
-
-- באופן כללי יותר: לכל קבוצה $X$ ו-$A \subseteq X$ ניתן להגדיר יחס שקילות על $\mathcal{P}(X)$ לפי הכלל:
-  $$B\sim C \iff (A\cap B = A\cap C).$$
-
-    - למשל: שתי קבוצות של אנשים הן שקולות אם יש בהן את אותם הישראלים
 
 ---
 
 # כל יחסי השקילות על $\{1,2,3\}$
+
+<v-click>
 
 
 ישנם חמישה יחסי שקילות אפשריים על הקבוצה $\{1,2,3\}$, המתאימים לחלוקות השונות של הקבוצה הזו:
@@ -228,6 +264,7 @@ $$ \mathbb{Z}: a\equiv b \pmod n \iff n\mid(a-b) \iff \exists k\in\mathbb{Z} \;(
 
 בכל אחד מהיחסים קבענו אילו איברים יהיו שקולים זה לזה ואז מילאנו את כל הקשתות בתוך כל "מחלקת שקילות".
 
+</  v-click>
 
 ---
 section: מחלקות וקבוצת מנה
@@ -251,13 +288,32 @@ section: מחלקות וקבוצת מנה
   $$A/R=\{[a]_R \mid a\in A\}.$$
 </div>
 
-- מאפיינים:
+- מאפיינים שקל להוכיח:
 
-  - $a\in [a]_R$.
+  - $\forall a\in A\; \bigl(a\in [a]_R\bigr)$.
 
-  - $[a]_R=[b]_R$ או $[a]_R\cap[b]_R=\emptyset$.
-  - $aRb\iff [a]_R=[b]_R$.
+  - $\forall a,b\in A\; \bigl([a]_R=[b]_R\vee [a]_R\cap[b]_R=\emptyset\bigr)$.
 
+  - $\forall a,b\in A\; \bigl(aRb\iff [a]_R=[b]_R\bigr)$.
+
+---
+
+# דוגמה: על $\mathcal{P}(\{1,2,3\})$ עם $1\notin A\,\Delta\,B$
+
+- נגדיר על $\mathcal{P}(\{1,2,3\})$:
+  $$A\sim B \iff 1\notin A\,\Delta\,B \iff (1\in A \Leftrightarrow 1\in B).$$
+
+- יש כאן שתי מחלקות שקילות:
+  - כל תת־הקבוצות שמכילות את $1$;
+
+  - כל תת־הקבוצות שאינן מכילות את $1$.
+
+- זוהי חלוקה של $\mathcal{P}(\{1,2,3\})$ לשתי מחלקות.
+
+- באופן כללי יותר: לכל קבוצה $X$ ו-$A \subseteq X$ ניתן להגדיר יחס שקילות על $\mathcal{P}(X)$ לפי הכלל:
+  $$B\sim C \iff (A\cap B = A\cap C).$$
+
+    - למשל: שתי קבוצות של אנשים הן שקולות אם יש בהן את אותם הישראלים
 
 
 
@@ -303,9 +359,9 @@ layout: two-cols-header
 
 <div class="formula-box" style="text-align: left; padding-left: 2rem;">
 
-1. $\forall S \in P\;(S \neq \emptyset)$
+1. $\forall S \in P\; \bigl(S \neq \emptyset\bigr)$
 
-2. $\forall S_1, S_2 \in P\;(S_1 \neq S_2 \Rightarrow S_1 \cap S_2 = \emptyset)$
+2. $\forall S_1, S_2 \in P\; \bigl(S_1 \neq S_2 \Rightarrow S_1 \cap S_2 = \emptyset\bigr)$
 
 3. $\bigcup P = X$
 </div>

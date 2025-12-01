@@ -465,38 +465,6 @@ $\langle a,b\rangle \in \sim_P \iff \exists S\in P\;(a\in S \wedge b\in S)$ הו
 
 
 
----
-section: מערכות נציגים
----
-
-
-# מערכת נציגים
-
-- יהי $R$ יחס שקילות על $A$ ותהי $A_0 \subseteq A$. 
-
-- נאמר ש-$A_0$ היא **מערכת נציגים** של $R$ על $A$ אם ורק אם מתקיימים שני התנאים  הבאים:
-
-  - הפרדה (נציג אחד לכל מחלקה):
-
-  <div class="formula-box" >
-
-  $$\forall a,a'\in A_0\;(a\neq a' \Rightarrow \neg(aRa')) \quad \equiv \quad \forall a\neq a'\in A_0\;([a]_R\cap[a']_R=\emptyset)$$
-
-  </div>
-  <br> 
-  
-  - כיסוי (לכל מחלקה יש נציג):
-
-  <div class="formula-box" >
-  
-  $$A/R=\{[a']_R\mid a'\in A_0\} \quad \equiv \quad \forall a\in A\;(\exists a'\in A_0\;(aRa'))$$
-  </div>
-  <br>
-  
-  - ביחד: $A_0$ בוחרת בדיוק נציג אחד מכל מחלקת שקילות של $R$.
-
-- רשמנו שני ניסוחים שקולים לכל אחד מהתנאים כי לפעמים נוח להתייחס ליחס השקילות באופן ישיר ולפעמים למחלקות השקילות שלו.
-
 
 ---
 
@@ -528,6 +496,8 @@ $\;\sim\;=\;\{\,\langle\,\langle a,b\rangle,\langle x,y\rangle\,\rangle\mid ay=x
   </div>
 
 
+---
+section: מוגדר היטב
 ---
 
 # "מוגדר היטב"
@@ -615,6 +585,40 @@ $$S = \{\langle [a],[b]\rangle \mid \text{זרים } b \text{-ו } a \}$$
 קיבלנו תוצאה שונה עבור נציגים שונים של אותה מחלקה, ולכן ההגדרה תלויה בנציג.
 
 ---
+section: מערכות נציגים
+---
+
+
+# מערכת נציגים
+
+- יהי $R$ יחס שקילות על $A$ ותהי $A_0 \subseteq A$. 
+
+- נאמר ש-$A_0$ היא **מערכת נציגים** של $R$ על $A$ אם ורק אם מתקיימים שני התנאים  הבאים:
+
+  - הפרדה (נציג אחד לכל מחלקה):
+
+  <div class="formula-box" >
+
+  $$\forall a,a'\in A_0\;(a\neq a' \Rightarrow \neg(aRa')) \quad \equiv \quad \forall a\neq a'\in A_0\;([a]_R\cap[a']_R=\emptyset)$$
+
+  </div>
+  <br> 
+  
+  - כיסוי (לכל מחלקה יש נציג):
+
+  <div class="formula-box" >
+  
+  $$A/R=\{[a']_R\mid a'\in A_0\} \quad \equiv \quad \forall a\in A\;(\exists a'\in A_0\;(aRa'))$$
+  </div>
+  <br>
+  
+  - ביחד: $A_0$ בוחרת בדיוק נציג אחד מכל מחלקת שקילות של $R$.
+
+- רשמנו שני ניסוחים שקולים לכל אחד מהתנאים כי לפעמים נוח להתייחס ליחס השקילות באופן ישיר ולפעמים למחלקות השקילות שלו.
+
+
+
+---
 
 # דוגמה: מציאת מערכות נציגים
 
@@ -687,8 +691,9 @@ layout: two-cols-header
 
 </div>
 
+
 ---
-section: תרגול וסיכום
+section: תרגול
 ---
 
 # אימון קצר
@@ -700,3 +705,25 @@ section: תרגול וסיכום
 
 > בדקו מי מהיחסים אכן שקילות, ומדוע.
 
+
+---
+
+# תרגיל פתור: בניית השלמים
+
+נגדיר יחס $\sim$ על $\mathbb{N} \times \mathbb{N}$ באופן הבא:
+$$ \langle a,b\rangle \sim \langle c,d\rangle \iff a+d = b+c $$
+(הרעיון: הזוג $\langle a,b\rangle$ מייצג את המספר השלם $a-b$).
+
+**הוכחה שזהו יחס שקילות:**
+
+1.  **רפלקסיביות:** לכל $\langle a,b\rangle$, מתקיים $a+b = b+a$, ולכן $\langle a,b\rangle \sim \langle a,b\rangle$.
+
+2.  **סימטריות:** נניח $\langle a,b\rangle \sim \langle c,d\rangle$. אזי $a+d = b+c$. לכן $c+b = d+a$, כלומר $\langle c,d\rangle \sim \langle a,b\rangle$.
+
+3.  **טרנזיטיביות:** נניח $\langle a,b\rangle \sim \langle c,d\rangle$ וגם $\langle c,d\rangle \sim \langle e,f\rangle$.
+    אזי $a+d = b+c$ וגם $c+f = d+e$.
+    נחבר את המשוואות: $(a+d) + (c+f) = (b+c) + (d+e)$.
+    נצמצם את $c$ ו-$d$ משני האגפים ונקבל: $a+f = b+e$.
+    לכן $\langle a,b\rangle \sim \langle e,f\rangle$.
+
+**מסקנה:** היחס הוא יחס שקילות. מחלקות השקילות הן המספרים השלמים ($\mathbb{Z}$).

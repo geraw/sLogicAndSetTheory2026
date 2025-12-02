@@ -16,10 +16,42 @@ exportFilename: 04-equiv.pdf
  מרצה: פרופ. גרא וייס
 
 ---
+section: אינטואיציה
+---
+
+# אינטואיציה: מה אנחנו מצפים מ"שקילות"?
+
+
+אנחנו רוצים להכליל מושגים מוכרים של "דמיון" או "שוויון" בין אובייקטים:
+- **חפיפת משולשים:** שני משולשים הם "אותו דבר" מבחינת צורה וגודל.
+
+- **דמיון משולשים:** שני משולשים הם "אותו דבר" מבחינת צורה.
+- **שקילות מודולו 7:** ימים ביומן הם "אותו דבר" אם הם נופלים באותו יום בשבוע.
+
+
+
+
+<img 
+  src="/images/similar-joke.png" 
+  class="absolute top-45 left-10 w-80 h-50 object-cover" 
+/>
+
+<br>
+
+<br>
+
+
+**הדרישות הטבעיות מיחס כזה:**
+
+1. **רפלקסיביות:** כל איבר שקול לעצמו (משולש חופף לעצמו).
+2. **סימטריות:** אם א' שקול ל-ב', אז ב' שקול ל-א' (אם היום יום ראשון, ובעוד 7 ימים יום ראשון, אז לפני 7 ימים היה יום ראשון).
+3. **טרנזיטיביות:** אם א' שקול ל-ב' ו-ב' שקול ל-ג', אז א' שקול ל-ג'.
+
+---
 section: הגדרה ואפיונים
 ---
 
-# יחס שקילות – הגדרה
+# יחס שקילות - הגדרה
 
  יחס $R\subseteq A\times A$ נקרא יחס שקילות מעל $A$ אם מתקיימות בו כל התכונות:
 
@@ -52,10 +84,10 @@ section: הגדרה ואפיונים
 
 <div class="formula-box">
  
- $Id_A\subseteq R$
+ $Eq_A\subseteq R$
 </div>
  
-  באשר **$Id_A=\{\langle a,a\rangle: a\in A\}$**.
+  באשר **$Eq_A=\{\langle a,a\rangle\mid a\in A\}$**.
 
 - סימטרי:
   
@@ -64,65 +96,67 @@ section: הגדרה ואפיונים
   $R=R^{-1}$
 </div>
 
-באשר **$R^{-1}=\{\langle b,a\rangle: \langle a,b\rangle\in R\}$**.
+באשר **$R^{-1}=\{\langle b,a\rangle\mid \langle a,b\rangle\in R\}$**.
 
 - טרנזיטיבי:
 <div class="formula-box">    
 
-   $R\circ R\subseteq R$, כאשר
+   $R\circ R\subseteq R$
 </div>   
 
-באשר
-  **$R\circ R=\{\langle a,c\rangle\mid \exists b\in A: \langle a,b\rangle\in R\wedge \langle b,c\rangle\in R\}$**
+באשר **$R\circ R=\{\langle a,c\rangle\mid \exists b\in A(\langle a,b\rangle\in R\wedge \langle b,c\rangle\in R)\}$**
+
+---
+
+# דוגמה: זוגיות
+
+יהי $\equiv_2$ היחס הבא על $\mathbb{N}$:
+$$\equiv_2 \;=\; \{\langle a, b\rangle \in \mathbb{N} \times \mathbb{N} \mid  (\text{זוגיים } a,b)\lor  (\text{אי-זוגיים } a,b)\}$$
+
+**טענה:** זהו יחס שקילות.
+
+**הוכחה:**
+
+- **רפלקסיביות:** לכל $a \in \mathbb{N}$, מתקיים $a\equiv_2a$ מכיוון שאם $a$ זוגי אז הוא זוגי, ואם הוא אי-זוגי אז הוא אי-זוגי. <br> (זה נשמע טריוויאלי, אך בשלב זה אנו נמנעים משימוש בביטויים כמו "ברור ש...").
+
+- **סימטריות:** לכל $a, b \in \mathbb{N}$, אם $a$ ו-$b$ שניהם זוגיים, אז גם $b$ ו-$a$ שניהם זוגיים. כנ"ל לגבי אי-זוגיים. לכן $a\equiv_2b \iff b\equiv_2a$.
+
+- **טרנזיטיביות:** יהיו $a, b, c \in \mathbb{N}$ כך ש-$a\equiv_2b$ וגם $b\equiv_2c$. המספר $b$ הוא או זוגי או אי-זוגי.
+  - **מקרה 1 - $b$ זוגי:** אזי $a$ זוגי (כי $a\equiv_2b$) וגם $c$ זוגי (כי $b\equiv_2c$). לכן $a$ ו-$c$ שניהם זוגיים, ולכן $a\equiv_2c$.
+  - **מקרה 2 - $b$ אי-זוגי:** אזי $a$ אי-זוגי וגם $c$ אי-זוגי. לכן $a\equiv_2c$.
+
+לכן זהו יחס שקילות.
 
 ---
 section: דוגמאות
 ---
 
-# דוגמאות ליחסי שקילות
+# דוגמאות נוספות ליחסי שקילות
 
-1. **יחס השוויון** על $A$ הוא יחס שקילות: 
+1. **יחס השוויון** על $A$:
    $$Eq_A = \{\langle x,x\rangle \mid x\in A\}$$
+   
+2. **היחס המלא** על $A$:
+   $$A\times A = \{\langle a,b\rangle \mid a,b\in A\}$$
 
-  - זהו היחס הרפלקסיבי המינימלי (כל איבר שקול רק לעצמו).
+3. **שקילות מודולו $n$** על $\mathbb{Z}$:
+   $$ \equiv_ n \;=\; \{\langle a,b\rangle \in \mathbb{Z}\times \mathbb{Z} \mid \exists k\in\mathbb{Z} \;(a-b=nk) \} $$
 
-2. **היחס המלא** $A\times A$ הוא יחס שקילות על $A$:
-   - כל שני איברים ב-$A$ שקולים זה לזה.
-   - זהו היחס השקילות המקסימלי (כל האיברים שקולים זה לזה).
+4. **שקילות בגודל** על אוסף קבוצות סופיות $\mathcal{F}$:
+   $$ \sim_{card} \;=\; \{\langle A,B\rangle \in \mathcal{F}\times \mathcal{F}\mid |A|=|B| \} $$
 
-3. **שקילות מודולו $n$** על 
-
-$$ \mathbb{Z}: a\equiv b \pmod n \iff n\mid(a-b) \iff \exists k\in\mathbb{Z} \;(a-b=nk) $$
-
-4. **שקילות בגודל** על קבוצות סופיות: $A\sim B \iff |A|=|B|$
-
-5. **חפיפה ודמיון משולשים** (בהינתן אוסף משולשים כלשהם).
+5. **חפיפה ודמיון משולשים** (על אוסף המשולשים $\mathcal{T}$):
+   $$ \cong \;=\; \{\langle T_1, T_2\rangle \in \mathcal{T}\times \mathcal{T}\mid T_1 \cong T_2 \} $$
 
 
 <img src="/images/שקילות מודולו 3.png" class="absolute top-45 left-10 w-70 h-60" />
 
----
-
-# דוגמה: על $\mathcal{P}(\{1,2,3\})$ עם $1\notin A\,\Delta\,B$
-
-- נגדיר על $\mathcal{P}(\{1,2,3\})$:
-  $$A\sim B \iff 1\notin A\,\Delta\,B \iff (1\in A \Leftrightarrow 1\in B).$$
-
-- יש כאן שתי מחלקות שקילות:
-  - כל תת־הקבוצות שמכילות את $1$;
-
-  - כל תת־הקבוצות שאינן מכילות את $1$.
-
-- זוהי חלוקה של $\mathcal{P}(\{1,2,3\})$ לשתי מחלקות.
-
-- באופן כללי יותר: לכל קבוצה $X$ ו-$A \subseteq X$ ניתן להגדיר יחס שקילות על $\mathcal{P}(X)$ לפי הכלל:
-  $$B\sim C \iff (A\cap B = A\cap C).$$
-
-    - למשל: שתי קבוצות של אנשים הן שקולות אם יש בהן את אותם הישראלים
 
 ---
 
 # כל יחסי השקילות על $\{1,2,3\}$
+
+<v-click>
 
 
 ישנם חמישה יחסי שקילות אפשריים על הקבוצה $\{1,2,3\}$, המתאימים לחלוקות השונות של הקבוצה הזו:
@@ -228,6 +262,7 @@ $$ \mathbb{Z}: a\equiv b \pmod n \iff n\mid(a-b) \iff \exists k\in\mathbb{Z} \;(
 
 בכל אחד מהיחסים קבענו אילו איברים יהיו שקולים זה לזה ואז מילאנו את כל הקשתות בתוך כל "מחלקת שקילות".
 
+</v-click>
 
 ---
 section: מחלקות וקבוצת מנה
@@ -251,13 +286,32 @@ section: מחלקות וקבוצת מנה
   $$A/R=\{[a]_R \mid a\in A\}.$$
 </div>
 
-- מאפיינים:
+- מאפיינים שקל להוכיח:
 
-  - $a\in [a]_R$.
+  - $\forall a\in A\; \bigl(a\in [a]_R\bigr)$.
 
-  - $[a]_R=[b]_R$ או $[a]_R\cap[b]_R=\emptyset$.
-  - $aRb\iff [a]_R=[b]_R$.
+  - $\forall a,b\in A\; \bigl([a]_R=[b]_R\vee [a]_R\cap[b]_R=\emptyset\bigr)$.
 
+  - $\forall a,b\in A\; \bigl(aRb\iff [a]_R=[b]_R\bigr)$.
+
+---
+
+# דוגמה: על $\mathcal{P}(\{1,2,3\})$ עם $1\notin A\,\Delta\,B$
+
+- נגדיר על $\mathcal{P}(\{1,2,3\})$:
+  $$A\sim B \iff 1\notin A\,\Delta\,B \iff (1\in A \Leftrightarrow 1\in B).$$
+
+- יש כאן שתי מחלקות שקילות:
+  - כל תת־הקבוצות שמכילות את $1$;
+
+  - כל תת־הקבוצות שאינן מכילות את $1$.
+
+- זוהי חלוקה של $\mathcal{P}(\{1,2,3\})$ לשתי מחלקות.
+
+- באופן כללי יותר: לכל קבוצה $X$ ו-$A \subseteq X$ ניתן להגדיר יחס שקילות על $\mathcal{P}(X)$ לפי הכלל:
+  $$B\sim C \iff (A\cap B = A\cap C).$$
+
+    - למשל: שתי קבוצות של אנשים הן שקולות אם יש בהן את אותם הישראלים
 
 
 
@@ -303,9 +357,9 @@ layout: two-cols-header
 
 <div class="formula-box" style="text-align: left; padding-left: 2rem;">
 
-1. $\forall S \in P\;(S \neq \emptyset)$
+1. $\forall S \in P\; \bigl(S \neq \emptyset\bigr)$
 
-2. $\forall S_1, S_2 \in P\;(S_1 \neq S_2 \Rightarrow S_1 \cap S_2 = \emptyset)$
+2. $\forall S_1, S_2 \in P\; \bigl(S_1 \neq S_2 \Rightarrow S_1 \cap S_2 = \emptyset\bigr)$
 
 3. $\bigcup P = X$
 </div>
@@ -354,6 +408,8 @@ layout: two-cols-header
 
 ::left::
 
+<v-clicks  depth="2">
+
 - **כל מחלקה לא ריקה:**
   - לכל $a\in A$, מרפלקסיביות $aRa$, ולכן $a\in [a]_R$.
   - מסקנה: $[a]_R\neq\emptyset$ לכל $a\in A$.
@@ -365,13 +421,19 @@ layout: two-cols-header
   - לכן $[a]_R=[b]_R$ 
   - מסקנה: אם $[a]_R\neq [b]_R$ אז $[a]_R\cap [b]_R=\emptyset$.
 
+</v-clicks>
+
 ::right::
+
+<v-clicks  depth="2">
 
 **האיחוד מכסה את $A$**  :
 - מהנקודה הראשונה, לכל $a\in A$ מתקיים $a\in [a]_R$.
 - לכן $A\subseteq \bigcup A/R$.
 - מצד שני, כל מחלקה היא תת-קבוצה של $A$, ולכן $\bigcup A/R\subseteq A$.
 - מסקנה: $\bigcup A/R = A$.
+
+</v-clicks>
 
 ---
 
@@ -381,6 +443,8 @@ layout: two-cols-header
 $\langle a,b\rangle \in \sim_P \iff \exists S\in P\;(a\in S \wedge b\in S)$ הוא יחס שקילות.
 
 **הוכחה:** עלינו להוכיח שלוש תכונות:
+
+<v-clicks  depth="2">
 
 **1. רפלקסיביות:**
 - לכל $a\in A$, מכיוון ש-$P$ חלוקה, קיים $S\in P$ כך ש-$a\in S$.
@@ -395,43 +459,11 @@ $\langle a,b\rangle \in \sim_P \iff \exists S\in P\;(a\in S \wedge b\in S)$ הו
 - מכיוון ש-$b\in S_1\cap S_2$ והחלוקה זרה בזוגות, מתקיים $S_1=S_2$.
 - לכן $a,c\in S_1$, ומכאן $a\sim_P c$.
 
-
+</v-clicks>
 
 <img src="/images/מחלוקה ליחס שקילות.png" class="absolute top-60 left-20 h-70" style="z-index:-1" />
 
 
-
----
-section: מערכות נציגים
----
-
-
-# מערכת נציגים
-
-- יהי $R$ יחס שקילות על $A$ ותהי $A_0 \subseteq A$. 
-
-- נאמר ש-$A_0$ היא **מערכת נציגים** של $R$ על $A$ אם ורק אם מתקיימים שני התנאים  הבאים:
-
-  - הפרדה (נציג אחד לכל מחלקה):
-
-  <div class="formula-box" >
-
-  $$\forall a,a'\in A_0\;(a\neq a' \Rightarrow \neg(aRa')) \quad \equiv \quad \forall a\neq a'\in A_0\;([a]_R\cap[a']_R=\emptyset)$$
-
-  </div>
-  <br> 
-  
-  - כיסוי (לכל מחלקה יש נציג):
-
-  <div class="formula-box" >
-  
-  $$A/R=\{[a']_R\mid a'\in A_0\} \quad \equiv \quad \forall a\in A\;(\exists a'\in A_0\;(aRa'))$$
-  </div>
-  <br>
-  
-  - ביחד: $A_0$ בוחרת בדיוק נציג אחד מכל מחלקת שקילות של $R$.
-
-- רשמנו שני ניסוחים שקולים לכל אחד מהתנאים כי לפעמים נוח להתייחס ליחס השקילות באופן ישיר ולפעמים למחלקות השקילות שלו.
 
 
 ---
@@ -456,7 +488,7 @@ $\;\sim\;=\;\{\,\langle\,\langle a,b\rangle,\langle x,y\rangle\,\rangle\mid ay=x
   $$\mathbb{Q} := (\mathbb{Z}\times(\mathbb{Z}\setminus\{0\}))/\sim$$
   </div>
 
-- נהוג, כמובן לסמן את מחלקת השקילות של $\langle a,b\rangle$ בתור השבר $\frac{a}{b}$:
+- נהוג, כמובן, לסמן את מחלקת השקילות של $\langle a,b\rangle$ בתור השבר $\frac{a}{b}$:
 
   <div class="formula-box">
 
@@ -464,6 +496,8 @@ $\;\sim\;=\;\{\,\langle\,\langle a,b\rangle,\langle x,y\rangle\,\rangle\mid ay=x
   </div>
 
 
+---
+section: מוגדר היטב
 ---
 
 # "מוגדר היטב"
@@ -502,6 +536,87 @@ $\;\sim\;=\;\{\,\langle\,\langle a,b\rangle,\langle x,y\rangle\,\rangle\mid ay=x
   $[\langle 2,6\rangle]+[\langle 8,12\rangle]=[\langle 72,72\rangle]=[\langle 1,1\rangle]$
   </div>
 </div>
+
+
+---
+
+# דוגמה: "מוגדר היטב"
+
+נתבונן שוב ביחס השקילות שלנו $\equiv_2$ (זוגיות) על $\mathbb{N}$.
+נגדיר יחס $T$ על מרחב המנה $\mathbb{N}/\equiv_2$ באופן הבא:
+$$T = \{\langle [a],[b]\rangle \mid  \text{הוא זוגי } a - b \}$$
+(נשים לב ש-$a-b$ יכול להיות שלילי).
+
+אנו טוענים שיחס זה **מוגדר היטב**.
+כדי להוכיח זאת, עלינו להראות שאם $a-b$ זוגי, אז לכל נציג אחר $c \in [a]$ ולכל נציג אחר $d \in [b]$, גם $c-d$ יהיה זוגי.
+
+
+
+**טענת עזר:** לכל $a,b \in \mathbb{N}$, ההפרש $a-b$ הוא זוגי אם ורק אם $a,b$ שניהם זוגיים או שניהם אי-זוגיים.
+
+**הוכחת טענת העזר:**
+($\Leftarrow$) נניח ששניהם זוגיים. אזי $a=2r, b=2s$ ולכן $a-b=2(r-s)$, זוגי. נניח ששניהם אי-זוגיים. אזי $a=2r+1, b=2s+1$ ולכן $a-b=2r-2s=2(r-s)$, זוגי.
+($\Rightarrow$) נראה את הקונטרה-פוזיטיב: אם אחד זוגי והשני אי-זוגי, ההפרש אי-זוגי. נניח $a=2r+1, b=2s$. אזי $a-b=2(r-s)+1$, אי-זוגי.
+
+**חזרה לטענה המקורית:**
+נניח $\langle [a],[b]\rangle \in T$, כלומר $a-b$ זוגי. יהיו $c \in [a]$ ו-$d \in [b]$.
+לפי טענת העזר, ל-$a$ ו-$b$ אותה זוגיות, ולכן $[a]=[b]$.
+מכיוון ש-$c \in [a]$, מתקיים $[c]=[a]$. מכיוון ש-$d \in [b]$, מתקיים $[d]=[b]$.
+לכן $[c]=[d]$.
+שוב לפי טענת העזר (בכיוון השני), מכיוון ש-$[c]=[d]$, ל-$c$ ו-$d$ אותה זוגיות, ולכן $c-d$ זוגי.
+
+---
+
+# דוגמה: יחס שאינו "מוגדר היטב"
+
+נאמר ששני מספרים טבעיים שונים מאפס הם **זרים** אם המחלק המשותף המקסימלי שלהם הוא 1.
+
+נתבונן שוב ביחס השקילות שלנו $\equiv_2$ על $\mathbb{N}$, ונגדיר יחס $S$ על $\mathbb{N}/\equiv_2$ באופן הבא:
+$$S = \{\langle [a],[b]\rangle \mid \text{זרים } b \text{-ו } a \}$$
+
+יחס זה **אינו מוגדר היטב**.
+
+כדי לראות זאת, נשים לב שלפי ההגדרה:
+- $\langle [3],[10]\rangle \in S$ מכיוון ש-3 ו-10 זרים.
+
+- לעומת זאת, $\langle [5],[10]\rangle \notin S$ מכיוון ש-5 ו-10 אינם זרים (המחלק המשותף הוא 5).
+
+- אבל, $[3] = [5]$ (שניהם אי-זוגיים).
+קיבלנו תוצאה שונה עבור נציגים שונים של אותה מחלקה, ולכן ההגדרה תלויה בנציג.
+
+---
+section: מערכות נציגים
+---
+
+
+# מערכת נציגים
+
+- יהי $R$ יחס שקילות על $A$ ותהי $A_0 \subseteq A$. 
+
+- נאמר ש-$A_0$ היא **מערכת נציגים** של $R$ על $A$ אם ורק אם מתקיימים שני התנאים  הבאים:
+
+  - הפרדה (נציג אחד לכל מחלקה):
+
+  <div class="formula-box" >
+
+  $$\forall a,a'\in A_0\;(a\neq a' \Rightarrow \neg(aRa')) \quad \equiv \quad \forall a\neq a'\in A_0\;([a]_R\cap[a']_R=\emptyset)$$
+
+  </div>
+  <br> 
+  
+  - כיסוי (לכל מחלקה יש נציג):
+
+  <div class="formula-box" >
+  
+  $$A/R=\{[a']_R\mid a'\in A_0\} \quad \equiv \quad \forall a\in A\;(\exists a'\in A_0\;(aRa'))$$
+  </div>
+  <br>
+  
+  - ביחד: $A_0$ בוחרת בדיוק נציג אחד מכל מחלקת שקילות של $R$.
+
+- רשמנו שני ניסוחים שקולים לכל אחד מהתנאים כי לפעמים נוח להתייחס ליחס השקילות באופן ישיר ולפעמים למחלקות השקילות שלו.
+
+
 
 ---
 
@@ -576,24 +691,43 @@ layout: two-cols-header
 
 </div>
 
+
 ---
-section: תרגול וסיכום
+section: תרגול
 ---
 
 # אימון קצר
 
-- תארו את כל מחלקות השקילות של היחסים הבאים על $\{1,2,3\}$:
-  1) $a\sim b$ אם ורק אם $a=b$.
-  2) $a\sim b$ אם ורק אם $a\equiv b\pmod 2$ (על $\{1,2,3\}$ זה יוצר שתי מחלקות?).
-  3) $a\sim b$ אם ורק אם $\min(a,b)=1$.
+- עבור היחסים הבאים על $\{1,2,3\}$, קבעו האם הם יחסי שקילות (רפלקסיבי, סימטרי, טרנזיטיבי):
 
-> בדקו מי מהיחסים אכן שקילות, ומדוע.
+  1. $R_1 = \{\langle 1,1\rangle, \langle 2,2\rangle, \langle 3,3\rangle\}$
+  2. $R_2 = \{\langle 1,1\rangle, \langle 2,2\rangle, \langle 3,3\rangle, \langle 1,3\rangle, \langle 3,1\rangle\}$
+  3. $R_3 = \{\langle 1,1\rangle, \langle 1,2\rangle, \langle 2,1\rangle, \langle 1,3\rangle, \langle 3,1\rangle\}$
+  4. $R_4 = \{\langle 1,1\rangle, \langle 2,2\rangle, \langle 3,3\rangle, \langle 1,2\rangle\}$
+  5. $R_5 = \{\langle 1,1\rangle, \langle 2,2\rangle, \langle 3,3\rangle, \langle 1,2\rangle, \langle 2,1\rangle, \langle 2,3\rangle, \langle 3,2\rangle\}$
+  6. $R_6 = \{\langle 1,2\rangle, \langle 2,1\rangle\}$
+
+> עבור יחסי השקילות, תארו את מחלקות השקילות. עבור האחרים, ציינו איזו תכונה חסרה.
+
 
 ---
 
-# סיכום
+# תרגיל פתור: בניית השלמים
 
-- יחס שקילות = רפלקסיבי + סימטרי + טרנזיטיבי.
-- מחלקות שקילות יוצרות חלוקה; חלוקה מגדירה יחס שקילות.
-- מרחבי מנה מסייעים לזהות אובייקטים "שקולים" ולפעול עליהם כעל ישות אחת.
-- אקסיומת הבחירה מבטיחה מערכות נציגים כלליות אך אינה מספקת דרך קונסטרוקטיבית לבחירה.
+נגדיר יחס $\sim$ על $\mathbb{N} \times \mathbb{N}$ באופן הבא:
+$$ \langle a,b\rangle \sim \langle c,d\rangle \iff a+d = b+c $$
+(הרעיון: הזוג $\langle a,b\rangle$ מייצג את המספר השלם $a-b$).
+
+**הוכחה שזהו יחס שקילות:**
+
+1.  **רפלקסיביות:** לכל $\langle a,b\rangle$, מתקיים $a+b = b+a$, ולכן $\langle a,b\rangle \sim \langle a,b\rangle$.
+
+2.  **סימטריות:** נניח $\langle a,b\rangle \sim \langle c,d\rangle$. אזי $a+d = b+c$. לכן $c+b = d+a$, כלומר $\langle c,d\rangle \sim \langle a,b\rangle$.
+
+3.  **טרנזיטיביות:** נניח $\langle a,b\rangle \sim \langle c,d\rangle$ וגם $\langle c,d\rangle \sim \langle e,f\rangle$.
+    אזי $a+d = b+c$ וגם $c+f = d+e$.
+    נחבר את המשוואות: $(a+d) + (c+f) = (b+c) + (d+e)$.
+    נצמצם את $c$ ו-$d$ משני האגפים ונקבל: $a+f = b+e$.
+    לכן $\langle a,b\rangle \sim \langle e,f\rangle$.
+
+**מסקנה:** היחס הוא יחס שקילות. מחלקות השקילות הן המספרים השלמים ($\mathbb{Z}$).

@@ -82,13 +82,15 @@ layout: two-cols-header
 
 # עקרון שובך היונים
 
-- **משפט:** יהיו $n > m$ שני מספרים טבעיים. פונקציה $f \colon \mathbb{N}^{<n} \to \mathbb{N}^{<m}$ אינה יכולה להיות חד-חד-ערכית.
+- **ניסוח אינטואיטיבי:** אם מכניסים $n$ יונים ל-$m$ שובכים, כאשר $n > m$, אז קיים שובך המכיל לפחות שתי יונים.
 
-  - בפרט, אם $m$ ו-$n$ הם שני מספרים טבעיים ו-$m \neq n$, אזי או ש-$m > n$ או ש-$n > m$, ולכן אין פונקציה הפיכה (bijection) מ-$\mathbb{N}^{<n}$ ל-$\mathbb{N}^{<m}$
+- **ניסוח פורמלי:** יהיו $n > m$ מספרים טבעיים. לא קיימת פונקציה חד-חד-ערכית $f \colon \mathbb{N}^{<n} \to \mathbb{N}^{<m}$.
+
+- **מסקנה:** אם $n \neq m$, לא קיימת פונקציה הפיכה (bijection) בין $\mathbb{N}^{<n}$ ל-$\mathbb{N}^{<m}$.
 
 - הוכחת עקרון שובך היונים באינדוקציה נמצאת בתרגול העצמי - מומלץ להשתמש במשאב זה.
 
-<img src="/images/pigeons_in_holes.png" class="absolute top-80 left-110 w-65 rounded-lg shadow-lg" />
+<img src="/images/pigeons_in_holes.png" class="absolute top-90 left-110 w-55 rounded-lg shadow-lg" />
 
 
 ---
@@ -143,6 +145,8 @@ layout: two-cols-header
 
 - **מסקנה:** לקבוצה סופית יש גודל יחיד בלבד.
 
+
+<img src="/images/verification.png" class="absolute top-80 left-40 w-90 "  />
 
 ---
 

@@ -112,6 +112,25 @@ layout: two-cols-header
 
 ---
 
+# שקילות עוצמה בין קבוצות סופיות
+
+**טענה:** אם $A$ ו-$B$ הן קבוצות סופיות ו-$A \sim B$, אזי $|A| = |B|$.
+
+**הוכחה:**
+- נניח ש-$|A| = n$. נוכיח ש-$|B| = n$.
+
+- כיוון ש-$|A| = n$, קיימת פונקציה הפיכה $f \colon A \to \mathbb{N}^{<n}$.
+- כיוון ש-$A \sim B$, קיימת פונקציה הפיכה $g \colon A \to B$.
+- נתבונן בהרכבה $f \circ g^{-1} \colon B \to \mathbb{N}^{<n}$.
+- כיוון ש-$g$ הפיכה, גם $g^{-1}$ הפיכה.
+- הוכחתם בתרגילים שהרכבה של פונקציות הפיכות היא הפיכה.
+- לכן $f \circ g^{-1}$ היא פונקציה הפיכה.
+    - מכאן נובע ש-$B \sim \mathbb{N}^{<n}$, ולכן $|B| = n$.
+
+<img src="/images/bijection_composition_comic.png" class="absolute top-50 left-20 w-100" />
+
+---
+
 # יחידות הגודל 
 
 - נניח שקיימות שתי פונקציות הפיכות:
@@ -176,7 +195,76 @@ $$|A \cup B| = |A| + |B|$$
 
 
 ---
+layout: TwoColsHeaderCustom
+---
+
+# אינסוף גרירות
+
+- נניח שהצלחנו להוכיח את שתי העובדות הבאות עבור תכונה $P(n)$:
+  - $P(0)$ נכונה
+
+  - לכל $n$, אם $P(n)$ נכונה אז גם $P(n+1)$ נכונה
+
+::left::
+
+- בפרט, אם בוחרים $n=0$
+  - $P(0) \implies P(1)$
+  - מכיוון ש-$P(0)$ נכונה, גם $P(1)$ נכונה.
+
+- ואז, בפרט, אם בוחרים $n=1$
+  - $P(1) \implies P(2)$
+  - מכיוון ש-$P(1)$ נכונה, גם $P(2)$ נכונה.
+
+::right::
+
+- ואז, בפרט, אם בוחרים $n=2$
+  - $P(2) \implies P(3)$
+  - מכיוון ש-$P(2)$ נכונה, גם $P(3)$ נכונה.
+
+- ואפשר להמשיך כך עד עולם.
+
+- **מסקנה:**
+מקבלים $\forall n \in \mathbb{N} (P(n))$.
+
+::after::
+
+<div class="text-center mt-8">
+  <span class="text-2xl text-yellow-300 bg-red-600 px-2 rounded font-bold">האם חוקי להסיק כך מסקנה מקיום אינסוף גרירות?</span>
+</div>
+
+<img src="/images/infinite_implications_dominoes.png" class="absolute top-20 left-10 w-60 rounded-lg shadow-lg" />
+
+---
 layout: two-cols-header
+---
+
+# עיקרון האינדוקציה הראשון (אינדוקציה חלשה)
+
+::left::
+
+אם $A \subseteq \mathbb{N}$ המקיימת את שני התנאים הבאים:
+
+1. $0 \in A$
+
+2. לכל $a \in A$ מתקיים $a + 1 \in A$
+
+**אזי:** $A = \mathbb{N}$.
+
+::right::
+
+<br>
+
+**דוגמה:** לכל $n \in \mathbb{N}$ מתקיים $\sum_{i=0}^{n} i = \frac{n(n+1)}{2}$.
+
+**הוכחה:**
+- נגדיר $A = \{n \in \mathbb{N} \mid \sum_{i=0}^{n} i = \frac{n(n+1)}{2}\}$.
+- **בסיס:** עבור $n=0$, הסכום הוא 0 והנוסחה נותנת $\frac{0(1)}{2} = 0$. לכן $0 \in A$.
+- **צעד:** נניח $n \in A$. נוכיח $n+1 \in A$:
+  $$\sum_{i=0}^{n+1} i = \left(\sum_{i=0}^{n} i\right) + (n+1) = \frac{n(n+1)}{2} + (n+1) = \frac{(n+1)(n+2)}{2}$$
+- לכן $n+1 \in A$. לפי עיקרון האינדוקציה, $A = \mathbb{N}$.
+
+<img src="/images/weak_induction_ladder.png" class="absolute bottom-15 right-30 w-60 rounded-lg shadow-lg" />
+
 ---
 
 # אינדוקציה מתמטית - עיקרון בסיסי

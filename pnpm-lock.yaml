@@ -9,7 +9,7 @@ importers:
   .:
     dependencies:
       '@slidev/cli':
-        specifier: latest
+        specifier: ^52.9.1
         version: 52.10.1(@babel/parser@7.28.5)(@nuxt/kit@3.20.1)(@types/markdown-it@14.1.2)(@types/node@22.19.1)(@vue/compiler-sfc@3.5.25)(markdown-it-async@2.2.0)(playwright-chromium@1.57.0)(postcss@8.5.6)(tsx@4.20.6)
       '@slidev/theme-default':
         specifier: latest

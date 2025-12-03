@@ -11,11 +11,11 @@
     "@slidev/cli": "latest",
     "@slidev/theme-default": "latest",
     "@slidev/theme-seriph": "latest",
-    "cytoscape": "^3.33.1",
+    "cytoscape": "latest",
     "slidev-theme-academic": "latest",
-    "slidev-theme-frankfurt": "^1.0.8"
+    "slidev-theme-frankfurt": "latest"
   },
   "devDependencies": {
-    "playwright-chromium": "^1.57.0"
+    "playwright-chromium": "latest"
   }
 }

@@ -399,6 +399,196 @@ $$\forall A \in P_1 \; (\exists B \in P_2 \;(A \subseteq B))$$
 - המינימום והמקסימום שלו הן החלוקות הטריוויאליות
 
 ---
+
+<script setup>
+import { computed } from 'vue'
+
+// Generate partitions of a set
+function getPartitions(setElements) {
+  if (setElements.length === 0) return [[]]
+  
+  const first = setElements[0]
+  const rest = setElements.slice(1)
+  const partitions = []
+  
+  // Helper to generate combinations
+  function getCombinations(arr, k) {
+    if (k === 0) return [[]]
+    if (arr.length === k) return [arr]
+    if (arr.length < k) return []
+    
+    const withFirst = getCombinations(arr.slice(1), k - 1).map(c => [arr[0], ...c])
+    const withoutFirst = getCombinations(arr.slice(1), k)
+    return [...withFirst, ...withoutFirst]
+  }
+
+  for (let i = 1; i <= setElements.length; i++) {
+    const subsets = getCombinations(rest, i - 1).map(c => [first, ...c])
+    for (const subset of subsets) {
+      const remaining = setElements.filter(x => !subset.includes(x))
+      const subPartitions = getPartitions(remaining)
+      for (const p of subPartitions) {
+        partitions.push([subset, ...p])
+      }
+    }
+  }
+  return partitions
+}
+
+// Check if p1 is a refinement of p2 (p1 <= p2)
+function isRefinement(p1, p2) {
+  return p1.every(b1 => p2.some(b2 => b1.every(x => b2.includes(x))))
+}
+
+// Format partition as string
+function partitionToStr(p) {
+  return p.map(block => block.sort().join('')).sort().join('|')
+}
+
+const elements = [1, 2, 3, 4]
+const allPartitions = getPartitions(elements)
+
+// Create nodes
+const nodes = allPartitions.map((p, i) => ({
+  id: String(i),
+  label: partitionToStr(p),
+  partition: p
+}))
+
+// Create edges (covering relation)
+const relations = []
+for (let i = 0; i < nodes.length; i++) {
+  for (let j = 0; j < nodes.length; j++) {
+    if (i === j) continue
+    const p1 = nodes[i].partition
+    const p2 = nodes[j].partition
+    // Check if p2 covers p1: p1 <= p2 and |p1| = |p2| + 1
+    if (p1.length === p2.length + 1 && isRefinement(p1, p2)) {
+      relations.push([nodes[i].id, nodes[j].id])
+    }
+  }
+}
+</script>
+
+# דיאגרמת הסה של החלוקות של $\{1,2,3,4\}$ ע"פ סדר העידון
+
+<div class="flex justify-center items-center">
+  <HasseDiagram 
+    :nodes="nodes" 
+    :relations="relations" 
+    :nodeRadius="20"
+    :levelGap="110"
+    :nodeGap="100"
+    :fontSize="12"
+  />
+</div>
+
+---
+
+<script setup>
+import { computed } from 'vue'
+
+// Reuse the same partition generation logic or copy it if scope is isolated
+// Since slidev scripts are scoped per slide by default or global if not scoped, 
+// but here we are in a markdown file. 
+// Safest is to redefine or use a shared setup if possible. 
+// Given the previous slide has a <script setup>, it might be local to that slide or global.
+// Slidev <script setup> is usually per slide if inside the slide block, but let's check.
+// Actually, <script setup> in Slidev markdown is usually for the whole page or component.
+// However, to avoid conflicts, I will use unique variable names or rely on the fact that 
+// I'm defining a new component logic. 
+// Wait, Slidev treats <script setup> as global for the markdown file usually.
+// But I can just use the variables from the previous script if they are available, 
+// or redefine them if they are not.
+// Let's try to redefine with different names to be safe, or check if we can reuse `nodes`.
+// Actually, `nodes` from previous slide might be available. 
+// But to be safe and clean, I will define `nodesInclusion` and `relationsInclusion`.
+
+// Re-implementing generation to be self-contained for this slide logic
+function getPartitions2(setElements) {
+  if (setElements.length === 0) return [[]]
+  const first = setElements[0]
+  const rest = setElements.slice(1)
+  const partitions = []
+  function getCombinations(arr, k) {
+    if (k === 0) return [[]]
+    if (arr.length === k) return [arr]
+    if (arr.length < k) return []
+    const withFirst = getCombinations(arr.slice(1), k - 1).map(c => [arr[0], ...c])
+    const withoutFirst = getCombinations(arr.slice(1), k)
+    return [...withFirst, ...withoutFirst]
+  }
+  for (let i = 1; i <= setElements.length; i++) {
+    const subsets = getCombinations(rest, i - 1).map(c => [first, ...c])
+    for (const subset of subsets) {
+      const remaining = setElements.filter(x => !subset.includes(x))
+      const subPartitions = getPartitions2(remaining)
+      for (const p of subPartitions) {
+        partitions.push([subset, ...p])
+      }
+    }
+  }
+  return partitions
+}
+
+function partitionToStr2(p) {
+  return p.map(block => block.sort().join('')).sort().join('|')
+}
+
+const elements2 = [1, 2, 3, 4]
+const allPartitions2 = getPartitions2(elements2)
+
+const nodesInclusion = allPartitions2.map((p, i) => ({
+  id: String(i),
+  label: partitionToStr2(p),
+  partition: p
+}))
+
+// Inclusion relation: P1 <= P2 iff P1 is a subset of P2
+// For partitions of the same set, P1 subset P2 implies P1 = P2.
+// So there should be NO edges in the Hasse diagram (reflexive edges are implied but not drawn).
+const relationsInclusion = []
+for (let i = 0; i < nodesInclusion.length; i++) {
+  for (let j = 0; j < nodesInclusion.length; j++) {
+    if (i === j) continue
+    const p1 = nodesInclusion[i].partition
+    const p2 = nodesInclusion[j].partition
+    
+    // Check if every block in p1 is also a block in p2
+    // We need to compare blocks (arrays) by content
+    const isSubset = p1.every(b1 => 
+      p2.some(b2 => 
+        b1.length === b2.length && b1.every(x => b2.includes(x))
+      )
+    )
+    
+    if (isSubset) {
+      relationsInclusion.push([nodesInclusion[i].id, nodesInclusion[j].id])
+    }
+  }
+}
+</script>
+
+# דיאגרמת הסה של החלוקות של $\{1,2,3,4\}$ ע"פ סדר ההכלה
+
+<div class="flex justify-center items-center">
+  <HasseDiagram 
+    :nodes="nodesInclusion" 
+    :relations="relationsInclusion" 
+    :nodeRadius="20"
+    :levelGap="110"
+    :nodeGap="65"
+    :fontSize="12"
+  />
+</div>
+
+<div class="absolute bottom-10 right-10 text-sm ">
+
+  עבור חלוקות של אותה קבוצה, $P_1 \subseteq P_2 \iff P_1 = P_2$. <br>
+  לכן יחס ההכלה הוא טריוויאלי (רק רפלקסיבי), ואין קשתות בדיאגרמה.
+</div>
+
+---
 layout: two-cols-header
 ---
 
@@ -427,11 +617,12 @@ layout: two-cols-header
 
 <v-clicks  depth="2">
 
-**האיחוד מכסה את $A$**  :
-- מהנקודה הראשונה, לכל $a\in A$ מתקיים $a\in [a]_R$.
-- לכן $A\subseteq \bigcup A/R$.
-- מצד שני, כל מחלקה היא תת-קבוצה של $A$, ולכן $\bigcup A/R\subseteq A$.
-- מסקנה: $\bigcup A/R = A$.
+- **האיחוד מכסה את $A$**  :
+  - מהנקודה הראשונה, לכל $a\in A$ מתקיים $a\in [a]_R$.
+
+  - לכן $A\subseteq \bigcup A/R$.
+  - מצד שני, כל מחלקה היא תת-קבוצה של $A$, ולכן $\bigcup A/R\subseteq A$.
+  - מסקנה: $\bigcup A/R = A$.
 
 </v-clicks>
 
@@ -463,6 +654,76 @@ $\langle a,b\rangle \in \sim_P \iff \exists S\in P\;(a\in S \wedge b\in S)$ הו
 
 <img src="/images/מחלוקה ליחס שקילות.png" class="absolute top-60 left-20 h-70" style="z-index:-1" />
 
+---
+layout: two-cols-header
+class: gap-20
+---
+
+# מרחב המנה הוא החלוקה המקורית
+
+**נזכיר:** בהינתן חלוקה $P$, הגדרנו $a \sim_P b \iff \exists S \in P\;(a,b \in S)$.
+
+**טענה:** $A/\sim_P \;=\; P$.
+
+**הוכחה:**
+
+::left::
+
+<v-clicks depth="2">
+
+
+- **כיוון 1 ($A/\sim_P \;\subseteq P$)**
+  - תהי $[a] \in A/\sim_P$.
+  
+  - מכיוון ש-$P$ חלוקה, קיים $S \in P$ כך ש-$a \in S$.
+  - נראה ש-$[a] = S$:
+    - יהי $x\in S$. אז $x\sim_P a$ כי $a\in S$. לכן $x\in [a]$
+    - יהי $x\in [a]$. אז $x\sim_P a$ כי $a\in S$. לכן $x\in S$
+  
+  - לכן $[a] \in P$
+
+</v-clicks>
+
+::right::
+
+<v-clicks depth="2">
+
+- **כיוון 2 ($P \subseteq A/\sim_P$):**
+  - תהי $S \in P$.
+  - $S$ לא ריקה, אז ניקח $a \in S$.
+  - נראה ש-$[a] = S$:
+    - יהי $x\in S$. אז $x\sim_P a$ כי $a\in S$. לכן $x\in [a]$
+    - יהי $x\in [a]$. אז $x\sim_P a$ כי $a\in S$. לכן $x\in S$
+    
+  - לכן $S \in A/\sim_P$
+</v-clicks>
+
+
+
+
+---
+
+
+
+# היחס המושרה על ידי מרחב המנה הוא היחס המקורי
+
+**טענה:** $\sim_{(A/\sim)} \;=\; \sim$.
+
+**הוכחה:**
+
+<v-clicks>
+
+
+
+| | |
+| :--- | :--- |
+| $a \sim_{(A/\sim)} b$ | |
+| $\iff \exists S \in A/\sim \; (a,b \in S)$ | (לפי הגדרת היחס המושרה ע"י חלוקה) |
+| $\iff \exists x \in A \; (a,b \in [x]_\sim)$ | (לפי הגדרת מרחב המנה) |
+| $\iff [a]_\sim = [b]_\sim$ | (תכונות מחלקות שקילות) |
+| $\iff a \sim b$ | (תכונות מחלקות שקילות) |
+
+</v-clicks>
 
 
 

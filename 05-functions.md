@@ -26,7 +26,7 @@ exportFilename: 05-functions.pdf
     $$\forall x, y_1, y_2 \; (\langle x,y_1 \rangle \in f \land \langle x,y_2 \rangle \in f \Rightarrow y_1 = y_2)$$
   </div>
 
-- כשמדובר בפונקציות, כותבים $f(x)=y$ במקום $\langle x,y\rangle \in f$.
+- כשמדובר בפונקציות, נהוג לכתוב $f(x)=y$ במקום $\langle x,y\rangle \in f$.
 
 - **הגדרה (פונקציה מ-$A$ ל-$B$):**
   שלשה $\langle f, A, B \rangle$ נקראת פונקציה מ-$A$ ל-$B$ (מסומן $f \colon A \to B$) אם:
@@ -38,6 +38,7 @@ exportFilename: 05-functions.pdf
     - $A$ נקרא ה**תחום** (Domain).
     - $B$ נקרא ה**טווח החוקי** (Codomain).
     - $f$ נקראת ה**גרף** או כלל ההתאמה.
+    - נכתוב "$f\colon A\to B$ מוגדרת על ידי $f(x)=...$"  במקום לכתוב "$f=\{\langle x,...\rangle \mid x \in A\}$".
 
 
 <div class="absolute top-1.5/3 left-.3/4 transform -translate-x-1/2 w-80 h-80" style="scale:.5;">

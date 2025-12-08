@@ -1013,6 +1013,8 @@ layout: two-cols-header
 
 - היא שימושית מאוד בתורת הקבוצות ובמתמטיקה בכלל.
 
+- אנחנו נרשה לעצמנו להשתמש בה באופן חופשי
+
 </div>
 <div class="absolute bottom-15 right-0 left-0 text-center">
   <span class="text-gray-500 text-sm">להרחבה: </span>

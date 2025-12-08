@@ -180,11 +180,11 @@ $$ A \Delta B = (A \cup B) \setminus (A \cap B) $$
 
 $$
 \begin{aligned}
-(A \cup B) \setminus (A \cap B) &= \{x : x \in (A \cup B) \land x \notin (A \cap B)\} \\[.3cm]
-&= \{x : (x \in A \lor x \in B) \land \neg(x \in A \land x \in B)\} \\[.3cm]
-&= \{x : (x \in A \lor x \in B) \land (x \notin A \lor x \notin B)\} \\[.3cm]
-&= \{x : (x \in A \land x \notin B) \lor (x \in B \land x \notin A)\} \\[.3cm]
-&= \{x : x \in (A \setminus B) \lor x \in (B \setminus A)\} \\[.3cm]
+(A \cup B) \setminus (A \cap B) &= \{x \mid x \in (A \cup B) \land x \notin (A \cap B)\} \\[.3cm]
+&= \{x \mid (x \in A \lor x \in B) \land \neg(x \in A \land x \in B)\} \\[.3cm]
+&= \{x \mid (x \in A \lor x \in B) \land (x \notin A \lor x \notin B)\} \\[.3cm]
+&= \{x \mid (x \in A \land x \notin B) \lor (x \in B \land x \notin A)\} \\[.3cm]
+&= \{x \mid x \in (A \setminus B) \lor x \in (B \setminus A)\} \\[.3cm]
 &= (A \setminus B) \cup (B \setminus A)
 \end{aligned}
 $$

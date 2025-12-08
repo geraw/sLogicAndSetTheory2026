@@ -374,7 +374,7 @@ $$P=\{\{0,2,4,6,\dots\}, \{1,3,5,7,\dots\}\}$$
 
   - $\{X\}$ – חלוקה לקבוצה אחת (המקסימלית)
 
-  - $\bigl\{\{x\} : x \in X\bigr\}$ – פירוק לאיברים בודדים (המינימלית)
+  - $\bigl\{\{x\} \mid x \in X\bigr\}$ – פירוק לאיברים בודדים (המינימלית)
 
 ---
 
@@ -951,7 +951,7 @@ section: מערכות נציגים
 
 - $\mathcal{F}=\mathcal{P}(\mathbb{N})\setminus\{\emptyset\}$ (כל תת-קבוצות הטבעיים הלא-ריקות):
 
-  - <span style="color: green;">✓</span> **מערכת נציגים**: בכל $A$ נבחר את $\min A$; אז $S=\{\min A: A\in\mathcal{F}\}$
+  - <span style="color: green;">✓</span> **מערכת נציגים**: בכל $A$ נבחר את $\min A$; אז $S=\{\min A \mid A\in\mathcal{F}\}$
 
 
 - $\mathcal{F}=\mathcal{P}(\mathbb{Z})\setminus\{\emptyset\}$ (כל תת-קבוצות השלמים הלא-ריקות):

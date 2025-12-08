@@ -153,28 +153,28 @@ exportFilename: 05-functions.pdf
 - הוכחנו כבר שכל תת-קבוצה של פונקציה היא פונקציה.
 - לכן $f \cap g$ היא פונקציה.
 
-</v-click>
 
 <div class="flex justify-center mt-5">
-  <img src="/images/intersection_caricature.png" class="absolute top-100 left-50 w-90 transform -translate-y-1/2" style="clip-path: inset(0px 0 0px 0); display:block;" />
+  <img src="/images/intersection_caricature.png" class="absolute top-100 left-50 w-70 transform -translate-y-1/2" style="clip-path: inset(0px 0 0px 0); display:block;" />
 </div>
+</v-click>
 
 ---
 
 # האם חיתוך פונקציות מ-$A$ ל-$B$ הוא פונקציה מ-$A$ ל-$B$?
 
-**הוכיחו או הפריכו:** אם $F, G \colon A \to B$ פונקציות, אז $F \cap G\colon A \to B$ פונקציה.
+**הוכיחו או הפריכו:** אם $f, g \colon A \to B$ פונקציות, אז $f \cap g\colon A \to B$ פונקציה.
 
 <v-click>
 
-- דוגמה נגדית :
+- דוגמה נגדית : 
   - יהי $A=\{1,2\}$, $B=\{a,b\}$.
-  - נגדיר $F=\{\langle 1,a\rangle,\langle 2,a\rangle\}$ ו-$G=\{\langle 1,a\rangle,\langle 2,b\rangle\}$ - שתיהן פונקציות $A\to B$.
-  - אז $F\cap G=\{\langle 1,a\rangle\}$.
-  - $F\cap G$ אינה פונקציה $A\to B$ כי אינה מלאה על $A$ (למספר $2$ אין תמונה).
+  - נגדיר $f=\{\langle 1,a\rangle,\langle 2,a\rangle\}$ ו-$g=\{\langle 1,a\rangle,\langle 2,b\rangle\}$ - שתיהן פונקציות $A\to B$.
+  - אז $f\cap g=\{\langle 1,a\rangle\}$.
+  - $f\cap g$ אינה פונקציה $A\to B$ כי אינה מלאה על $A$ (למספר $2$ אין תמונה).
 
 - לעומת זאת:
-  - אם נגדיר $A'=\operatorname{dom}(F\cap G)=\{a\in A:\ F(a)=G(a)\}$, אז $F\cap G \colon A' \to B$ היא פונקציה תקינה.
+  - אם נגדיר $A'=\operatorname{dom}(f\cap g)=\{a\in A:\ f(a)=g(a)\}$, אז $f\cap g \colon A' \to B$ היא פונקציה תקינה.
 
 
 <div class="flex gap-8 items-start -mt-15">
@@ -184,7 +184,7 @@ exportFilename: 05-functions.pdf
       :right="['a','b']"
       :edges="[['L1','Ra',''], ['L2','Ra','']]"
     />
-    <div class="text-2xl font-bold text-center -mt-2">F: A→B</div>
+    <div class="text-2xl font-bold text-center -mt-2">f: A→B</div>
   </div>
   <div class="w-1/3 scale-60">
     <BipartiteGraph
@@ -192,7 +192,7 @@ exportFilename: 05-functions.pdf
       :right="['a','b']"
       :edges="[['L1','Ra',''], ['L2','Rb','']]"
     />
-    <div class="text-2xl font-bold text-center -mt-2">G: A→B</div>
+    <div class="text-2xl font-bold text-center -mt-2">g: A→B</div>
   </div>
   <div class="w-1/3 scale-60">
     <BipartiteGraph
@@ -200,11 +200,11 @@ exportFilename: 05-functions.pdf
       :right="['a','b']"
       :edges="[['L1','Ra','']]"
     />
-    <div class="text-2xl font-bold text-center -mt-2">F∩G - פונקציה A'→B, לא A→B</div>
+    <div class="text-2xl font-bold text-center -mt-2">f∩g - פונקציה A'→B, לא A→B</div>
   </div>
 </div>
 
-<img src="/images/חיתוך פונקציות.png" class="absolute top-65 left-20 w-70 transform -translate-y-1/2" />
+<img src="/images/intersection_functions_lowercase_edited.png" class="absolute top-65 left-20 w-70 transform -translate-y-1/2" />
 
 </v-click>
 
@@ -216,46 +216,46 @@ dir: rtl
 # איחוד שתי פונקציות
 
 **טענה:**
-היחס $F \cup G$ הוא פונקציה  אמ"ם לכל $a \in \operatorname{dom}(F)\cap\operatorname{dom}(G)$ מתקיים $F(a)=G(a)$.
+היחס $f \cup g$ הוא פונקציה  אמ"ם לכל $a \in \operatorname{dom}(f)\cap\operatorname{dom}(g)$ מתקיים $f(a)=g(a)$.
 
 ::left::
 
 **(⟸)  אם הערכים מסכימים - האיחוד פונקציה**
-  - נניח שלכל $a$ בתחום המשותף מתקיים $F(a)=G(a)$.
-  - נבחן $a$ בתחום של $F \cup G$:
+  - נניח שלכל $a$ בתחום המשותף מתקיים $f(a)=g(a)$.
+  - נבחן $a$ בתחום של $f \cup g$:
 
-    - אם $a$ בתחום של $F$ בלבד - יש זוג יחיד מ־$F$.
+    - אם $a$ בתחום של $f$ בלבד - יש זוג יחיד מ־$f$.
   
-    - אם $a$ בתחום של $G$ בלבד - יש זוג יחיד מ־$G$.
-    - אם $a$ בתחום של שניהם - לפי ההנחה $F(a)=G(a)$.
-  - לכן $F \cup G$ חד־ערכית ⇒ פונקציה.
+    - אם $a$ בתחום של $g$ בלבד - יש זוג יחיד מ־$g$.
+    - אם $a$ בתחום של שניהם - לפי ההנחה $f(a)=g(a)$.
+  - לכן $f \cup g$ חד־ערכית ⇒ פונקציה.
 
 ::right::
 
 **(⟹)  אם האיחוד פונקציה - הערכים חייבים להתאים**
-- נניח ש־$F \cup G$ פונקציה.
+- נניח ש־$f \cup g$ פונקציה.
 
-- אם יש $a$ בתחום המשותף עם $F(a)\neq G(a)$:
-  - יופיעו ב־$F \cup G$ שני זוגות שונים עם אותו רכיב ראשון $a$:
-    - $\langle a,F(a)\rangle$
+- אם יש $a$ בתחום המשותף עם $f(a)\neq g(a)$:
+  - יופיעו ב־$f \cup g$ שני זוגות שונים עם אותו רכיב ראשון $a$:
+    - $\langle a,f(a)\rangle$
 
-    - $\langle a,G(a)\rangle$
+    - $\langle a,g(a)\rangle$
   - סתירה לחד־ערכיות.
-- לכן בהכרח $F(a)=G(a)$ לכל $a$ בתחום המשותף.
+- לכן בהכרח $f(a)=g(a)$ לכל $a$ בתחום המשותף.
 
 
 ---
 
 # פונקציה חח"ע
 
-**הגדרה:** $F \colon A \to B$ חח"ע אם $F(a_1)=F(a_2) \Rightarrow a_1=a_2$.
+**הגדרה:** $f \colon A \to B$ חח"ע אם $f(a_1)=f(a_2) \Rightarrow a_1=a_2$.
 
 - דוגמאות לחח"ע:
-  - $F=\{\langle 1,a\rangle,\langle 2,b\rangle,\langle 3,c\rangle\}\colon \{1,2,3\}\to\{a,b,c\}$ - ערכים שונים מקבלים תמונות שונות.
+  - $f=\{\langle 1,a\rangle,\langle 2,b\rangle,\langle 3,c\rangle\}\colon \{1,2,3\}\to\{a,b,c\}$ - ערכים שונים מקבלים תמונות שונות.
   - $f\colon \mathbb{Z}\to\mathbb{Z},\ f(x)=2x$ - אם $2x_1=2x_2$ אז $x_1=x_2$.
 
 - דוגמאות שלא חח"ע:
-  - $H=\{\langle 1,a\rangle,\langle 2,a\rangle,\langle 3,b\rangle\}\colon \{1,2,3\}\to\{a,b\}$ לא חח"ע כי $1\neq2$ אבל $H(1)=H(2)=a$.
+  - $h=\{\langle 1,a\rangle,\langle 2,a\rangle,\langle 3,b\rangle\}\colon \{1,2,3\}\to\{a,b\}$ לא חח"ע כי $1\neq2$ אבל $h(1)=h(2)=a$.
   - $g\colon \mathbb{Z}\to\mathbb{Z},\ g(x)=x^2$ לא חח"ע כי, למשל, $g(1)=g(-1)=1$.
 
 <div class="flex gap-8 items-start -mt-8">
@@ -283,33 +283,33 @@ layout: TwoColsHeaderCustom
 
 # הפונקציה ההפוכה
 
-**תזכורת:** $F^{-1} = \{\langle b,a \rangle \colon \langle a,b \rangle \in F\}$.
+**תזכורת:** $f^{-1} = \{\langle b,a \rangle \colon \langle a,b \rangle \in f\}$.
 
-**טענה:** $F$ חח"ע אמ"ם $F^{-1}$ פונקציה.
+**טענה:** $f$ חח"ע אמ"ם $f^{-1}$ פונקציה.
 
 ::left::
 
-- (⇒) נניח ש־$F$ חח"ע.
-  - יהי $b \in \operatorname{img}(F)$.
-  - קיים $a$ כך ש־$\langle a,b\rangle \in F$.
-  - אם $\langle a_1,b\rangle,\ \langle a_2,b\rangle \in F$ 
-    - אז $F(a_1)=F(a_2)=b$ ומחח"ע $a_1=a_2$.
-  - לכן יש בדיוק $a$ אחד עם $\langle b,a\rangle \in F^{-1}$, ומכאן $F^{-1}$ פונקציה 
+- (⇒) נניח ש־$f$ חח"ע.
+  - יהי $b \in \operatorname{img}(f)$.
+  - קיים $a$ כך ש־$\langle a,b\rangle \in f$.
+  - אם $\langle a_1,b\rangle,\ \langle a_2,b\rangle \in f$ 
+    - אז $f(a_1)=f(a_2)=b$ ומחח"ע $a_1=a_2$.
+  - לכן יש בדיוק $a$ אחד עם $\langle b,a\rangle \in f^{-1}$, ומכאן $f^{-1}$ פונקציה 
 
 ::right::
-- (⇐) נניח ש־$F^{-1}$ פונקציה.
-  - יהי $a_1,a_2$ כך ש־$F(a_1)=F(a_2)=b$.
-  - אז $\langle b,a_1\rangle,\ \langle b,a_2\rangle \in F^{-1}$.
-  - מחד־ערכיות של $F^{-1}$ נקבל $a_1=a_2$.
-  - לכן $F$ חח"ע.
+- (⇐) נניח ש־$f^{-1}$ פונקציה.
+  - יהי $a_1,a_2$ כך ש־$f(a_1)=f(a_2)=b$.
+  - אז $\langle b,a_1\rangle,\ \langle b,a_2\rangle \in f^{-1}$.
+  - מחד־ערכיות של $f^{-1}$ נקבל $a_1=a_2$.
+  - לכן $f$ חח"ע.
 
 ::after::
 
-- במקרה זה $F^{-1}$ גם חח"ע:
-  - אם $F^{-1}(b_1)=F^{-1}(b_2)=a$ אז $\langle a,b_1\rangle,\ \langle a,b_2\rangle \in F$.
-  - מחד־ערכיות של $F$ נקבל $b_1=b_2$.
+- במקרה זה $f^{-1}$ גם חח"ע:
+  - אם $f^{-1}(b_1)=f^{-1}(b_2)=a$ אז $\langle a,b_1\rangle,\ \langle a,b_2\rangle \in f$.
+  - מחד־ערכיות של $f$ נקבל $b_1=b_2$.
 
-- כבר ראינו ש-ו-$\operatorname{dom}(F^{-1})=\operatorname{img}(F)$ ו-$\operatorname{img}(F^{-1})=\operatorname{dom}(F)$.
+- כבר ראינו ש-ו-$\operatorname{dom}(f^{-1})=\operatorname{img}(f)$ ו-$\operatorname{img}(f^{-1})=\operatorname{dom}(f)$.
 
 
 <img src="/images/פונקציה הפוכה.png" class="absolute top-40 left-10 w-50 transform -translate-y-1/2" />
@@ -321,15 +321,15 @@ layout: TwoColsHeaderCustom
 # פונקציה על
 
 
-- $F \colon A \to B$ נקראת "**עַל**" אם לכל $b \in B$ יש $a \in A$ עם $F(a)=b$
-זה, כמובן, שקול ללהגיד ש  $img(F) = B$.
+- $f \colon A \to B$ נקראת "**עַל**" אם לכל $b \in B$ יש $a \in A$ עם $f(a)=b$
+זה, כמובן, שקול ללהגיד ש  $\operatorname{img}(f) = B$.
 
 - דוגמאות לפונקציות עַל:
-  - $F=\{\langle 1,a\rangle,\langle 2,b\rangle,\langle 3,c\rangle\}\colon \{1,2,3\}\to\{a,b,c\}$ - על כי כל ערך ב־$B$ הוא תמונה של ערך ב־$A$.
+  - $f=\{\langle 1,a\rangle,\langle 2,b\rangle,\langle 3,c\rangle\}\colon \{1,2,3\}\to\{a,b,c\}$ - על כי כל ערך ב־$B$ הוא תמונה של ערך ב־$A$.
   - $f\colon \mathbb{Z}\to\mathbb{Z},\ f(x)=x+1$ - על כי לכל $y \in \mathbb{ז}$ קיים $x=y-1$ כך ש־$f(x)=y$.
 
 - דוגמאות שלא עַל:
-  - $H=\{\langle 1,a\rangle,\langle 2,a\rangle,\langle 3,b\rangle\}\colon \{1,2,3\}\to\{a,b,c\}$ לא על כי $c$ אינו תמונה של אף ערך ב־$A$.
+  - $h=\{\langle 1,a\rangle,\langle 2,a\rangle,\langle 3,b\rangle\}\colon \{1,2,3\}\to\{a,b,c\}$ לא על כי $c$ אינו תמונה של אף ערך ב־$A$.
   - $g\colon \mathbb{Z}\to\mathbb{Z},\ g(x)=x^2$ לא על כי אין $x$ כך ש־$g(x)=-1$.
 
 <div class="flex gap-8 items-start -mt-10">
@@ -359,23 +359,23 @@ layout: TwoColsHeaderCustom
 # צמצום פונקציות
 
 
-- אם $A' \subseteq A$ נגדיר $F|_{A'} = \{\langle a,b \rangle \in F \colon a \in A'\}$.
+- אם $A' \subseteq A$ נגדיר $f|_{A'} = \{\langle a,b \rangle \in f \colon a \in A'\}$.
 
-- **הוכיחו או הפריכו:** לכל $F \colon A \to B$ קיימת $A'\subseteq A$ כך ש:
+- **הוכיחו או הפריכו:** לכל $f \colon A \to B$ קיימת $A'\subseteq A$ כך ש:
 
-  1) $F|_{A'}$ חח"ע
+  1) $f|_{A'}$ חח"ע
 
-  2) $\operatorname{img}(F|_{A'}) = \operatorname{img}(F)$
+  2) $\operatorname{img}(f|_{A'}) = \operatorname{img}(f)$
 
 <v-click>
 
 - הוכחה:
-  - נגדיר יחס שקילות על $A$ כך ש-$a_1 \sim a_2$ אם ורק אם $F(a_1)=F(a_2)$.
+  - נגדיר יחס שקילות על $A$ כך ש-$a_1 \sim a_2$ אם ורק אם $f(a_1)=f(a_2)$.
 
   - לפי **אקסיומת הבחירה**, קיימת קבוצה $A' \subseteq A$ שמכילה בדיוק נציג אחד מכל מחלקת שקילות.
 
-  - אכן, $F|_{A'}$ חח"ע כי אם $F(a_1)=F(a_2)$ עם $a_1,a_2 \in A'$ אז $a_1 \sim a_2$ ולכן $a_1=a_2$.
-  - בנוסף, כל תמונה של $F$ מתקבלת גם על ידי $F|_{A'}$ כי בחרנו לפחות ערך אחד מכל קבוצה.
+  - אכן, $f|_{A'}$ חח"ע כי אם $f(a_1)=f(a_2)$ עם $a_1,a_2 \in A'$ אז $a_1 \sim a_2$ ולכן $a_1=a_2$.
+  - בנוסף, כל תמונה של $f$ מתקבלת גם על ידי $f|_{A'}$ כי בחרנו לפחות ערך אחד מכל קבוצה.
 
 <img src="/images/צמצום פונקציה.png" class="absolute top-60 left-20 w-70 transform -translate-y-1/2" />
 
@@ -388,9 +388,9 @@ layout: two-cols-header
 # תמונה וקדם־תמונה
 
 
-- **תמונה:**  $F[X] = \{F(a) : a \in X\}$
+- **תמונה:**  $f[X] = \{f(a) : a \in X\}$
 
-- **קדם־תמונה:**  $F^{-1}[Y] = \{a \in A : F(a)\in Y\}.$
+- **קדם־תמונה:**  $f^{-1}[Y] = \{a \in A : f(a)\in Y\}.$
 
 
 ::left::
@@ -401,7 +401,7 @@ layout: two-cols-header
 
 <v-click>
 
-1. $F[X \cup Y] = F[X] \cup F[Y]$
+1. $f[X \cup Y] = f[X] \cup f[Y]$
 <v-click>
 
 ✔️ **תמיד נכון**.
@@ -413,11 +413,11 @@ layout: two-cols-header
 
 <br />
 
-2. $F[X \cap Y] = F[X] \cap F[Y]$
+2. $f[X \cap Y] = f[X] \cap f[Y]$
 <v-click>
 
 ❌ **לא תמיד נכון**.
-**תנאי מספיק:** $X \subseteq \operatorname{dom}(F)$.
+**תנאי מספיק:** $X \subseteq \operatorname{dom}(f)$.
 </v-click>
 
 </v-click>
@@ -426,7 +426,7 @@ layout: two-cols-header
 
 <br />
 
-3. $F^{-1}[Y \cup Z] = F^{-1}[Y] \cup F^{-1}[Z]$
+3. $f^{-1}[Y \cup Z] = f^{-1}[Y] \cup f^{-1}[Z]$
 <v-click>
 
 ✔️ **תמיד נכון**.
@@ -444,7 +444,7 @@ layout: two-cols-header
 
 <v-click>
 
-4. $F^{-1}[Y \cap Z] = F^{-1}[Y] \cap F^{-1}[Z]$
+4. $f^{-1}[Y \cap Z] = f^{-1}[Y] \cap f^{-1}[Z]$
 <v-click>
 
 ✔️ **תמיד נכון**.
@@ -456,11 +456,11 @@ layout: two-cols-header
 
 <v-click>
 
-5. $F[F^{-1}[Y]] = Y$
+5. $f[f^{-1}[Y]] = Y$
 <v-click>
 
 ❌ **לא תמיד נכון**.  
-**תנאי מספיק:** $Y \subseteq \operatorname{img}(F)$.
+**תנאי מספיק:** $Y \subseteq \operatorname{img}(f)$.
 </v-click>
 
 </v-click>
@@ -469,11 +469,11 @@ layout: two-cols-header
 
 <v-click>
 
-6. $F^{-1}[F[X]] = X$
+6. $f^{-1}[f[X]] = X$
 <v-click>
 
 ❌ **לא תמיד נכון**.  
-**תנאי מספיק:** \(F\) חח"ע.
+**תנאי מספיק:** \(f\) חח"ע.
 </v-click>
 
 </v-click>
@@ -487,33 +487,33 @@ layout: two-cols-header
 
 # הרכבת פונקציות
 
-- אם $F\colon A\to B$ ו-$G\colon B\to C$:
+- אם $f\colon A\to B$ ו-$g\colon B\to C$:
 
-  - נגדיר $G\circ F = \{\langle a,c \rangle : \exists b,\ \langle a,b \rangle \in F \wedge \langle b,c \rangle \in G\}$.
-  - ההרכבה מוגדרת היטב רק אם **תמונת $F$ מוכלת בתחום של $G$**.
+  - נגדיר $g\circ f = \{\langle a,c \rangle : \exists b,\ \langle a,b \rangle \in f \wedge \langle b,c \rangle \in g\}$.
+  - ההרכבה מוגדרת היטב רק אם **תמונת $f$ מוכלת בתחום של $g$**.
 
 תכונות:
 
 ::left::
 
-1. אם $F,G$ חח"ע $\Leftarrow$ $G\circ F$ חח"ע.
+1. אם $f,g$ חח"ע $\Leftarrow$ $g\circ f$ חח"ע.
    <v-click> ✔️ נכון </v-click>
 
-2. אם $F,G$ על $\Leftarrow$ $G\circ F$ על.
+2. אם $f,g$ על $\Leftarrow$ $g\circ f$ על.
    <v-click> ✔️ נכון </v-click>
 
-3. אם $G\circ F$ חח"ע $\Leftarrow$ $G$ חח"ע
+3. אם $g\circ f$ חח"ע $\Leftarrow$ $g$ חח"ע
    <v-click> ❌ לא נכון </v-click>
 
 ::right::
 
-4. אם $G\circ F$ על $\Leftarrow$ $G$ על
+4. אם $g\circ f$ על $\Leftarrow$ $g$ על
    <v-click> ✔️ נכון </v-click>
 
-5. אם $G\circ F$ על $\Leftarrow$ $F$ על
+5. אם $g\circ f$ על $\Leftarrow$ $f$ על
    <v-click> ❌ לא נכון </v-click>
 
-6. אם $G\circ F$ חח"ע $\Leftarrow$ $F$ חח"ע
+6. אם $g\circ f$ חח"ע $\Leftarrow$ $f$ חח"ע
    <v-click> ✔️ נכון </v-click>
 
 ---
@@ -523,9 +523,9 @@ layout: two-cols-header
 # קדם־תמונה של תמונה
 
 
-**טענה:** אם $F$ חח"ע אז:
+**טענה:** אם $f$ חח"ע אז:
 
-$$F^{-1}[F[X]] = X$$
+$$f^{-1}[f[X]] = X$$
 
 
 
@@ -535,15 +535,15 @@ $$F^{-1}[F[X]] = X$$
 
 <v-click>
 
-- נראה ש-$F^{-1}[F[X]] \subseteq X$:
+- נראה ש-$f^{-1}[f[X]] \subseteq X$:
 
-  - יהי $a \in F^{-1}[F[X]]$.
+  - יהי $a \in f^{-1}[f[X]]$.
   
-  - מהגדרה: $F(a) \in F[X]$.
+  - מהגדרה: $f(a) \in f[X]$.
   
-  - לכן קיים $x \in X$ כך ש-$F(x) = F(a)$.
+  - לכן קיים $x \in X$ כך ש-$f(x) = f(a)$.
   
-  - **נתון ש-$F$ חח"ע**, ולכן $a = x$.
+  - **נתון ש-$f$ חח"ע**, ולכן $a = x$.
   
   - קיבלנו $a \in X$.
 
@@ -553,40 +553,40 @@ $$F^{-1}[F[X]] = X$$
 
 <v-click>
 
-- נראה ש-$F^{-1}[F[X]] \supseteq X$:
+- נראה ש-$f^{-1}[f[X]] \supseteq X$:
 
   - יהי $a \in X$.
 
-  - אז $F(a) \in F[X]$.
+  - אז $f(a) \in f[X]$.
 
-  - לכן $a \in F^{-1}[F[X]]$.
+  - לכן $a \in f^{-1}[f[X]]$.
 </v-click>
 
 ---
 
-# דוגמה נגדית: כש-$F$ לא חח"ע
+# דוגמה נגדית: כש-$f$ לא חח"ע
 
-נראה דוגמה שבה $F^{-1}[F[X]] \neq X$.
+נראה דוגמה שבה $f^{-1}[f[X]] \neq X$.
 
-- נגדיר $F: \mathbb{R} \to \mathbb{R}$ ע"י $F(x) = x^2$.
+- נגדיר $f: \mathbb{R} \to \mathbb{R}$ ע"י $f(x) = x^2$.
 - נבחר $X = \{2\}$.
 
 <v-click>
 
 1. נחשב את התמונה של $X$:
-   $$F[X] = \{F(2)\} = \{4\}$$
+   $$f[X] = \{f(2)\} = \{4\}$$
 
 2. נחשב את הקדם־תמונה של התוצאה:
-   $$F^{-1}[\{4\}] = \{x \in \mathbb{R} : x^2 = 4\} = \{-2, 2\}$$
+   $$f^{-1}[\{4\}] = \{x \in \mathbb{R} : x^2 = 4\} = \{-2, 2\}$$
 
 3. קיבלנו:
-   $$F^{-1}[F[X]] = \{-2, 2\} \neq \{2\} = X$$
+   $$f^{-1}[f[X]] = \{-2, 2\} \neq \{2\} = X$$
 
 </v-click>
 
 <v-click>
 
-**מסקנה:** אם $F$ לא חח"ע, הפעולה $F^{-1} \circ F$ עשויה "להרחיב" את הקבוצה המקורית.
+**מסקנה:** אם $f$ לא חח"ע, הפעולה $f^{-1} \circ f$ עשויה "להרחיב" את הקבוצה המקורית.
 
 </v-click>
 
@@ -613,19 +613,18 @@ $$a_1 E a_2 \land b_1 E b_2 \implies (a_1 S b_1 \iff a_2 S b_2)$$
 
 # פונקציות מעל מרחב מנה
 
-תהי $F: A/E \to B$ פונקציה המוגדרת ע"י נציגים: $F([a]) = f(a)$.
+תהי $g: A/E \to B$ פונקציה המוגדרת ע"י נציגים: $g([a]) = f(a)$.
 
-**הגדרה:** הפונקציה $F$ **מוגדרת היטב** אם הערך שלה אינו תלוי בנציג.
+**הגדרה:** הפונקציה $g$ **מוגדרת היטב** אם הערך שלה אינו תלוי בנציג.
 כלומר:
 $$a_1 E a_2 \implies f(a_1) = f(a_2)$$
 
 **דוגמה לפונקציה שאינה מוגדרת היטב:**
-- ננסה להגדיר $F: \mathbb{Z}/3\mathbb{Z} \to \mathbb{Z}$ ע"י $F
-z([x]) = x^2$.
+- ננסה להגדיר $g: \mathbb{Z}/3\mathbb{Z} \to \mathbb{Z}$ ע"י $g([x]) = x^2$.
 
 - נבחר שני נציגים לאותה מחלקה: $1 \equiv 4 \pmod 3$.
 
-- אבל $F([1]) = 1^2 = 1$ ואילו $F([4]) = 4^2 = 16$.
+- אבל $g([1]) = 1^2 = 1$ ואילו $g([4]) = 4^2 = 16$.
 
 - קיבלנו $1 \neq 16$, ולכן הפונקציה אינה מוגדרת היטב.
 

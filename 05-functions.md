@@ -310,28 +310,14 @@ layout: TwoColsHeaderCustom
 
 # מתי היחס ההפוך הוא פונקציה?
 
-**טענה:** $f$ חח"ע אמ"ם $f^{-1}$ פונקציה.
-
-::left::
-
-- ($\Rightarrow$) נניח ש־$f$ חח"ע.
-  - יהיו $\langle a,b_1\rangle, \langle a,b_2\rangle \in f^{-1}$.
-  - אז $\langle b_1, a\rangle, \langle b_2, a\rangle \in f$.
-  - מחד־ערכיות של $f$ נקבל $b_1=b_2$.  
-
-::right::
-
-- ($\Leftarrow$) נניח ש־$f^{-1}$ פונקציה.
-  - יהיו $\langle b_1,a\rangle, \langle b_2,a\rangle \in f$.
   - אז $\langle a,b_1\rangle, \langle a,b_2\rangle \in f^{-1}$.
   - העובדה ש־$f^{-1}$ פונקציה מובילה ל $b_1=b_2$.
 
 ::after::
 
 - **מסקנה:** אם $f^{-1}$ פונקציה, אז היא גם חח"ע.
-  - הוכחה: אם $f^{-1}(b_1)=f^{-1}(b_2)=a$ אז $\langle a,b_1\rangle,\ \langle a,b_2\rangle \in f$.
-  - מחד־ערכיות של $f$ נקבל $b_1=b_2$.
 
+  
 - תזכורת: $\operatorname{dom}(f^{-1})=\operatorname{img}(f)$ ו-$\operatorname{img}(f^{-1})=\operatorname{dom}(f)$.
 
 

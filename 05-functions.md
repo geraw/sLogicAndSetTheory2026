@@ -204,7 +204,7 @@ exportFilename: 05-functions.pdf
   </div>
 </div>
 
-<img src="/images/intersection_functions_lowercase_edited.png" class="absolute top-65 left-20 w-70 transform -translate-y-1/2" />
+<img src="/images/intersection_functions_lowercase_edited.png" class="absolute top-70 left-20 w-70 transform -translate-y-1/2" />
 
 </v-click>
 
@@ -215,10 +215,17 @@ dir: rtl
 
 # איחוד שתי פונקציות
 
+
+<v-click>
+
 **טענה:**
-היחס $f \cup g$ הוא פונקציה  אמ"ם לכל $a \in \operatorname{dom}(f)\cap\operatorname{dom}(g)$ מתקיים $f(a)=g(a)$.
+היחס $f \cup g$ הוא פונקציה  אם ורק אם לכל $a \in \operatorname{dom}(f)\cap\operatorname{dom}(g)$ מתקיים $f(a)=g(a)$.
+
+</v-click>
 
 ::left::
+
+<v-click>
 
 **(⟸)  אם הערכים מסכימים - האיחוד פונקציה**
   - נניח שלכל $a$ בתחום המשותף מתקיים $f(a)=g(a)$.
@@ -229,8 +236,12 @@ dir: rtl
     - אם $a$ בתחום של $g$ בלבד - יש זוג יחיד מ־$g$.
     - אם $a$ בתחום של שניהם - לפי ההנחה $f(a)=g(a)$.
   - לכן $f \cup g$ חד־ערכית ⇒ פונקציה.
+</v-click>
 
 ::right::
+
+
+<v-click>
 
 **(⟹)  אם האיחוד פונקציה - הערכים חייבים להתאים**
 - נניח ש־$f \cup g$ פונקציה.
@@ -243,6 +254,7 @@ dir: rtl
   - סתירה לחד־ערכיות.
 - לכן בהכרח $f(a)=g(a)$ לכל $a$ בתחום המשותף.
 
+</v-click>
 
 ---
 
@@ -285,11 +297,24 @@ layout: TwoColsHeaderCustom
 
 **תזכורת:** $f^{-1} = \{\langle b,a \rangle \colon \langle a,b \rangle \in f\}$.
 
+- אם $f\colon A \to B$ פונקציה, היחס $f^{-1}$ מתקבל על ידי היפוך כיוון החצים.
+- אך האם היחס ההפוך הוא תמיד פונקציה?
+
+<div class="flex justify-center mt-10">
+  <img src="/images/פונקציה הפוכה.png" class="w-60 shadow-lg rounded" />
+</div>
+
+---
+layout: TwoColsHeaderCustom
+---
+
+# מתי היחס ההפוך הוא פונקציה?
+
 **טענה:** $f$ חח"ע אמ"ם $f^{-1}$ פונקציה.
 
 ::left::
 
-- (⇒) נניח ש־$f$ חח"ע.
+- ($\Rightarrow$) נניח ש־$f$ חח"ע.
   - יהי $b \in \operatorname{img}(f)$.
   - קיים $a$ כך ש־$\langle a,b\rangle \in f$.
   - אם $\langle a_1,b\rangle,\ \langle a_2,b\rangle \in f$ 
@@ -297,22 +322,20 @@ layout: TwoColsHeaderCustom
   - לכן יש בדיוק $a$ אחד עם $\langle b,a\rangle \in f^{-1}$, ומכאן $f^{-1}$ פונקציה 
 
 ::right::
-- (⇐) נניח ש־$f^{-1}$ פונקציה.
-  - יהי $a_1,a_2$ כך ש־$f(a_1)=f(a_2)=b$.
+
+- ($\Leftarrow$) נניח ש־$f^{-1}$ פונקציה.
+  - יהיו $a_1,a_2$ כך ש־$f(a_1)=f(a_2)=b$.
   - אז $\langle b,a_1\rangle,\ \langle b,a_2\rangle \in f^{-1}$.
   - מחד־ערכיות של $f^{-1}$ נקבל $a_1=a_2$.
   - לכן $f$ חח"ע.
 
 ::after::
 
-- במקרה זה $f^{-1}$ גם חח"ע:
-  - אם $f^{-1}(b_1)=f^{-1}(b_2)=a$ אז $\langle a,b_1\rangle,\ \langle a,b_2\rangle \in f$.
+- **מסקנה:** אם $f^{-1}$ פונקציה, אז היא גם חח"ע.
+  - הוכחה: אם $f^{-1}(b_1)=f^{-1}(b_2)=a$ אז $\langle a,b_1\rangle,\ \langle a,b_2\rangle \in f$.
   - מחד־ערכיות של $f$ נקבל $b_1=b_2$.
 
-- כבר ראינו ש-ו-$\operatorname{dom}(f^{-1})=\operatorname{img}(f)$ ו-$\operatorname{img}(f^{-1})=\operatorname{dom}(f)$.
-
-
-<img src="/images/פונקציה הפוכה.png" class="absolute top-40 left-10 w-50 transform -translate-y-1/2" />
+- תזכורת: $\operatorname{dom}(f^{-1})=\operatorname{img}(f)$ ו-$\operatorname{img}(f^{-1})=\operatorname{dom}(f)$.
 
 
 ---

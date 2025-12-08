@@ -434,8 +434,14 @@ layout: two-cols-header
 
 
 - **תמונה:**  $f[X] = \{f(a) \mid a \in X\}$
+  <div class="absolute top-30 left-5 w-60">
+    <img src="/images/function_image_concept.png" class="rounded shadow-lg border border-gray-200" />
+  </div>
 
 - **קדם־תמונה:**  $f^{-1}[Y] = \{a \in A \mid f(a)\in Y\}.$
+  <div class="absolute top-95 left-5 w-60">
+    <img src="/images/function_preimage_concept.png" class="rounded shadow-lg border border-gray-200" />
+  </div>
 
 
 ::left::

@@ -543,6 +543,10 @@ layout: two-cols-header
   - נגדיר $g\circ f = \{\langle a,c \rangle \mid \exists b,\ \langle a,b \rangle \in f \wedge \langle b,c \rangle \in g\}$.
   - ההרכבה מוגדרת היטב רק אם **תמונת $f$ מוכלת בתחום של $g$**.
 
+<div class="absolute top-25 left-10 w-60">
+  <img src="/images/function_composition_hebrew.png" class="rounded shadow-lg border border-gray-200" />
+</div>
+
 תכונות:
 
 ::left::

@@ -19,24 +19,23 @@ exportFilename: 05-functions.pdf
 
 # הגדרת המושג פונקציה
 
-- יחס $F \subseteq A \times B$ הוא **פונקציה** אם לכל $a \in A$ קיים בדיוק $b \in B$ אחד כך ש-$\langle a,b \rangle \in F$.
-  - תנאי **מלאות**:
-      <div class="formula-box">
+- **הגדרה:**
+  יחס $f$ נקרא **פונקציה** אם הוא מקיים את תנאי ה**חד-ערכיות**:
+  <div class="formula-box">
 
-    $\forall x \in X \bigl(\;\exists y \in Y (\;\langle x,y \rangle \in F) \; \bigr)$
-      </div>
+    $$\forall x, y_1, y_2 \; (\langle x,y_1 \rangle \in f \land \langle x,y_2 \rangle \in f \Rightarrow y_1 = y_2)$$
+  </div>
 
-  - תנאי **חד-ערכיות**:
-      <div class="formula-box">
+- **הגדרה (פונקציה מ-$A$ ל-$B$):**
+  שלשה $\langle f, A, B \rangle$ נקראת פונקציה מ-$A$ ל-$B$ (מסומן $f \colon A \to B$) אם:
+  1. $f$ היא פונקציה (לפי ההגדרה לעיל).
+  2. $\operatorname{dom}(f) = A$ (תנאי ה**מלאות**).
+  3. $\operatorname{img}(f) \subseteq B$.
 
-    $\forall x \in X,  y_1,y_2 \in Y  (\langle x,y_1 \rangle \in F \land \langle x,y_2 \rangle \in F \Rightarrow y_1 = y_2)$
-      </div>
-
-- נסמן: $F \colon A \to B$.
-  - נקרא ל-$A$ **תחום** של $F$ ול-$B$ **טווח חוקי** של $F$.
-  - פונקציה היא בעצם שלשה: התחום, הטווח החוקי והיחס. כשכותבים $F$ מתיחסים רק ליחס.
-  - התחום חייב להיות שווה לתחום של היחס : $\operatorname{dom}(F) = A$.
-  - הטווח חייב להכיל את התמונה של היחס : $\operatorname{img}(F) \subseteq B$.
+- **טרמינולוגיה:**
+  - $A$ נקרא ה**תחום** (Domain).
+  - $B$ נקרא ה**טווח החוקי** (Codomain).
+  - $f$ נקראת ה**גרף** או כלל ההתאמה.
 
 <div class="absolute top-1.5/3 left-.3/4 transform -translate-x-1/2 w-80 h-80" style="scale:.5;">
 <BipartiteGraph
@@ -44,6 +43,7 @@ exportFilename: 05-functions.pdf
   :right="['a','b','c']"
   :edges="[
     ['L1','Ra',''],
+    ['L2','Ra',''],
     ['L3','Rb',''],
     ['L3','Rc','']
   ]"
@@ -72,17 +72,42 @@ exportFilename: 05-functions.pdf
 
 ---
 
-# תת־קבוצה של פונקציה
+# תת-קבוצה של פונקציה היא פונקציה
 
-**הוכיחו או הפריכו :** אם $F\colon A \to B$ ו-$G \subseteq F$, אז בהכרח $G\colon A \to B$.
+**טענה:**
+תהי $f$ פונקציה, ותהי $g \subseteq f$. אזי $g$ היא פונקציה.
+
+**הוכחה:**
+- עלינו להראות ש-$g$ מקיימת את תנאי החד-ערכיות.
+
+- יהיו $\langle x, y_1 \rangle, \langle x, y_2 \rangle \in g$.
+- מכיוון ש-$g \subseteq f$, נובע ש-$\langle x, y_1 \rangle \in f$ וגם $\langle x, y_2 \rangle \in f$.
+- מכיוון ש-$f$ היא פונקציה, היא חד-ערכית, ולכן בהכרח $y_1 = y_2$.
+- לכן גם $g$ חד-ערכית, ולכן היא פונקציה.
+
+<br>
+
+**הערה:**
+התחום של $g$, המסומן $\operatorname{dom}(g)$, הוא תת-קבוצה של התחום של $f$.
+
+
+<div class="flex justify-center mt-10">
+  <img src="/images/subset_function_caricature.png" class="absolute  top-60 left-20 w-70 transform -translate-y-1/2 rounded shadow-lg border border-gray-200" />
+</div>
+
+---
+
+# האם תת־קבוצה של פונקציה מ-$A$ ל-$B$ היא פונקציה מ-$A$ ל-$B$?
+
+**הוכיחו או הפריכו :** אם $f\colon A \to B$ ו-$g \subseteq f$, אז בהכרח $g\colon A \to B$.
 
 <v-click>
 
 - דוגמה נגדית :
   - יהי $A=\{1,2\}$, $B=\{a,b\}$.
-  - נגדיר $F=\{\langle 1,a\rangle,\langle 2,b\rangle\}$ - פונקציה $F\colon A\to B$.
-  - נגדיר $G=\{\langle 1,a\rangle\}\subseteq F$.
-  - אז $G$ אינה פונקציה $A\to B$ כי אינה מוגדרת על $2$ (חוסר מלאות).
+  - נגדיר $f=\{\langle 1,a\rangle,\langle 2,b\rangle\}$ - פונקציה $f\colon A\to B$.
+  - נגדיר $g=\{\langle 1,a\rangle\}\subseteq f$.
+  - אז $g$ אינה פונקציה $A\to B$ כי אינה מוגדרת על $2$ (חוסר מלאות).
 
 <div class="flex gap-8 items-start -mt-15">
   <div class="w-1/2 scale-60">
@@ -91,7 +116,7 @@ exportFilename: 05-functions.pdf
       :right="['a','b']"
       :edges="[['L1','Ra',''], ['L2','Rb','']]"
     />
-    <div class="text-2xl font-bold text-center mt-2">F: A→B - פונקציה מלאה</div>
+    <div class="text-2xl font-bold text-center mt-2">f: A→B - פונקציה מלאה</div>
   </div>
   <div class="w-1/2 scale-60">
     <BipartiteGraph
@@ -99,22 +124,44 @@ exportFilename: 05-functions.pdf
       :right="['a','b']"
       :edges="[['L1','Ra','']]"
     />
-    <div class="text-2xl font-bold text-center mt-2">G⊆F - לא פונקציה A→B (1 מוגדר, 2 לא)</div>
+    <div class="text-2xl font-bold text-center mt-2">g⊆f - לא פונקציה A→B (1 מוגדר, 2 לא)</div>
   </div>
 </div>
 
 <div class="-mt-4">
 
-- הערה חשובה: אם נסמן $A'=\operatorname{dom}(G)$, אז - **$G\colon A' \to B$ היא פונקציה תקינה.** - הבעיה נובעת רק מהדרישה שהתחום יהיה בדיוק $A$.
+- הערה חשובה: אם נסמן $A'=\operatorname{dom}(g)$, אז - **$g\colon A' \to B$ היא פונקציה תקינה.** - הבעיה נובעת רק מהדרישה שהתחום יהיה בדיוק $A$.
 </div>
 
-<img src="/images/תת-קבוצה של פונקציה.png" class="absolute top-60 left-20 w-70 transform -translate-y-1/2" />
+<img src="/images/subset_cats_lowercase.png" class="absolute top-60 left-20 w-70 transform -translate-y-1/2" style="clip-path: inset(35px 0 40px 0); display:block;" />
 
 </v-click>
 
 ---
 
-# חיתוך שתי פונקציות
+# חיתוך פונקציות הוא פונקציה
+
+**טענה:**
+יהיו $f, g$ פונקציות. אזי $f \cap g$ היא פונקציה.
+
+
+**הוכחה:**
+<v-click>
+
+- מתקיים $f \cap g \subseteq f$.
+
+- הוכחנו כבר שכל תת-קבוצה של פונקציה היא פונקציה.
+- לכן $f \cap g$ היא פונקציה.
+
+</v-click>
+
+<div class="flex justify-center mt-5">
+  <img src="/images/intersection_caricature.png" class="absolute top-100 left-50 w-90 transform -translate-y-1/2" style="clip-path: inset(0px 0 0px 0); display:block;" />
+</div>
+
+---
+
+# האם חיתוך פונקציות מ-$A$ ל-$B$ הוא פונקציה מ-$A$ ל-$B$?
 
 **הוכיחו או הפריכו:** אם $F, G \colon A \to B$ פונקציות, אז $F \cap G\colon A \to B$ פונקציה.
 
@@ -137,7 +184,7 @@ exportFilename: 05-functions.pdf
       :right="['a','b']"
       :edges="[['L1','Ra',''], ['L2','Ra','']]"
     />
-    <div class="text-2xl font-bold text-center mt-2">F: A→B</div>
+    <div class="text-2xl font-bold text-center -mt-2">F: A→B</div>
   </div>
   <div class="w-1/3 scale-60">
     <BipartiteGraph
@@ -145,7 +192,7 @@ exportFilename: 05-functions.pdf
       :right="['a','b']"
       :edges="[['L1','Ra',''], ['L2','Rb','']]"
     />
-    <div class="text-2xl font-bold text-center mt-2">G: A→B</div>
+    <div class="text-2xl font-bold text-center -mt-2">G: A→B</div>
   </div>
   <div class="w-1/3 scale-60">
     <BipartiteGraph
@@ -153,7 +200,7 @@ exportFilename: 05-functions.pdf
       :right="['a','b']"
       :edges="[['L1','Ra','']]"
     />
-    <div class="text-2xl font-bold text-center mt-2">F∩G - פונקציה A'→B, לא A→B</div>
+    <div class="text-2xl font-bold text-center -mt-2">F∩G - פונקציה A'→B, לא A→B</div>
   </div>
 </div>
 

@@ -881,18 +881,35 @@ section: מערכות נציגים
 
   - הפרדה (נציג אחד לכל מחלקה):
 
-  <div class="formula-box" >
+  <div class="flex items-center justify-center">
+    <div class="formula-box">
 
-  $$\forall a,a'\in A_0\;(a\neq a' \Rightarrow \neg(aRa')) \quad \equiv \quad \forall a\neq a'\in A_0\;([a]_R\cap[a']_R=\emptyset)$$
+    $$\forall a,a'\in A_0\;(a\neq a' \Rightarrow \neg(aRa'))$$
+    </div>
+    <div class="shrink-0">
+      או הניסוח השקול
+    </div>
+    <div class="formula-box">
 
+    $$\forall a\neq a'\in A_0\;([a]_R\cap[a']_R=\emptyset)$$
+    </div>
   </div>
   <br> 
   
   - כיסוי (לכל מחלקה יש נציג):
 
-  <div class="formula-box" >
-  
-  $$A/R=\{[a']_R\mid a'\in A_0\} \quad \equiv \quad \forall a\in A\;(\exists a'\in A_0\;(aRa'))$$
+  <div class="flex items-center justify-center">
+    <div class="formula-box">
+    
+    $$A/R=\{[a']_R\mid a'\in A_0\}$$
+    </div>
+    <div class="shrink-0">
+      או הניסוח השקול
+    </div>
+    <div class="formula-box">
+
+    $$\forall a\in A\;(\exists a'\in A_0\;(aRa'))$$
+    </div>
   </div>
   <br>
   

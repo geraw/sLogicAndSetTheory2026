@@ -290,7 +290,7 @@ layout: TwoColsHeaderCustom
 ::left::
 
 - (⇒) נניח ש־$F$ חח"ע.
-  - יהי $b \in \operatorname{Im}(F)$.
+  - יהי $b \in \operatorname{img}(F)$.
   - קיים $a$ כך ש־$\langle a,b\rangle \in F$.
   - אם $\langle a_1,b\rangle,\ \langle a_2,b\rangle \in F$ 
     - אז $F(a_1)=F(a_2)=b$ ומחח"ע $a_1=a_2$.
@@ -309,7 +309,7 @@ layout: TwoColsHeaderCustom
   - אם $F^{-1}(b_1)=F^{-1}(b_2)=a$ אז $\langle a,b_1\rangle,\ \langle a,b_2\rangle \in F$.
   - מחד־ערכיות של $F$ נקבל $b_1=b_2$.
 
-- כבר ראינו ש-ו-$\operatorname{dom}(F^{-1})=\operatorname{Im}(F)$ ו-$\operatorname{img}(F^{-1})=\operatorname{dom}(F)$.
+- כבר ראינו ש-ו-$\operatorname{dom}(F^{-1})=\operatorname{img}(F)$ ו-$\operatorname{img}(F^{-1})=\operatorname{dom}(F)$.
 
 
 <img src="/images/פונקציה הפוכה.png" class="absolute top-40 left-10 w-50 transform -translate-y-1/2" />
@@ -365,7 +365,7 @@ layout: TwoColsHeaderCustom
 
   1) $F|_{A'}$ חח"ע
 
-  2) $\operatorname{Im}(F|_{A'}) = \operatorname{Im}(F)$
+  2) $\operatorname{img}(F|_{A'}) = \operatorname{img}(F)$
 
 <v-click>
 
@@ -460,7 +460,7 @@ layout: two-cols-header
 <v-click>
 
 ❌ **לא תמיד נכון**.  
-**תנאי מספיק:** $Y \subseteq \operatorname{Im}(F)$.
+**תנאי מספיק:** $Y \subseteq \operatorname{img}(F)$.
 </v-click>
 
 </v-click>

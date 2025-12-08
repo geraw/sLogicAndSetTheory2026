@@ -26,16 +26,19 @@ exportFilename: 05-functions.pdf
     $$\forall x, y_1, y_2 \; (\langle x,y_1 \rangle \in f \land \langle x,y_2 \rangle \in f \Rightarrow y_1 = y_2)$$
   </div>
 
+- כשמדובר בפונקציות, כותבים $f(x)=y$ במקום $\langle x,y\rangle \in f$.
+
 - **הגדרה (פונקציה מ-$A$ ל-$B$):**
   שלשה $\langle f, A, B \rangle$ נקראת פונקציה מ-$A$ ל-$B$ (מסומן $f \colon A \to B$) אם:
   1. $f$ היא פונקציה (לפי ההגדרה לעיל).
   2. $\operatorname{dom}(f) = A$ (תנאי ה**מלאות**).
   3. $\operatorname{img}(f) \subseteq B$.
 
-- **טרמינולוגיה:**
-  - $A$ נקרא ה**תחום** (Domain).
-  - $B$ נקרא ה**טווח החוקי** (Codomain).
-  - $f$ נקראת ה**גרף** או כלל ההתאמה.
+  - **טרמינולוגיה:**
+    - $A$ נקרא ה**תחום** (Domain).
+    - $B$ נקרא ה**טווח החוקי** (Codomain).
+    - $f$ נקראת ה**גרף** או כלל ההתאמה.
+
 
 <div class="absolute top-1.5/3 left-.3/4 transform -translate-x-1/2 w-80 h-80" style="scale:.5;">
 <BipartiteGraph
@@ -174,7 +177,7 @@ exportFilename: 05-functions.pdf
   - $f\cap g$ אינה פונקציה $A\to B$ כי אינה מלאה על $A$ (למספר $2$ אין תמונה).
 
 - לעומת זאת:
-  - אם נגדיר $A'=\operatorname{dom}(f\cap g)=\{a\in A:\ f(a)=g(a)\}$, אז $f\cap g \colon A' \to B$ היא פונקציה תקינה.
+  - אם נגדיר $A'=\operatorname{dom}(f\cap g)=\{a\in A \mid f(a)=g(a)\}$, אז $f\cap g \colon A' \to B$ היא פונקציה תקינה.
 
 
 <div class="flex gap-8 items-start -mt-15">
@@ -295,7 +298,7 @@ layout: TwoColsHeaderCustom
 
 # הפונקציה ההפוכה
 
-**תזכורת:** $f^{-1} = \{\langle b,a \rangle \colon \langle a,b \rangle \in f\}$.
+**תזכורת:** $f^{-1} = \{\langle b,a \rangle \mid \langle a,b \rangle \in f\}$.
 
 - אם $f\colon A \to B$ פונקציה, היחס $f^{-1}$ מתקבל על ידי היפוך כיוון החצים.
 - אך האם היחס ההפוך הוא תמיד פונקציה?
@@ -374,13 +377,36 @@ layout: TwoColsHeaderCustom
 
 ---
 
+# תרגיל: בדיקת "על"
+
+**תרגיל:**
+הוכיחו או הפריכו: הפונקציה $f: \mathbb{Z} \times \mathbb{Z} \to \mathbb{Z}$ המוגדרת ע"י $f(\langle x,y \rangle) = x+y$ היא על.
+
+**פתרון:**
+<v-click>
+
+- הטענה **נכונה**.
+- עלינו להראות שלכל $z \in \mathbb{Z}$ (בטווח) קיים מקור $\langle x,y \rangle \in \mathbb{Z} \times \mathbb{Z}$ (בתחום).
+- יהי $z \in \mathbb{Z}$.
+- נבחר $x=z$ ו-$y=0$ (שניהם שלמים, ולכן הזוג בתחום).
+- אזי: $f(\langle z,0 \rangle) = z+0 = z$.
+- מצאנו מקור ל-$z$, ולכן הפונקציה היא על.
+
+<div class="flex justify-center mt-5">
+  <img src="/images/surjective_sum_illustration.png" class="absolute top-60 left-20 w-80 shadow-lg rounded" />
+</div>
+
+</v-click>
+
+---
+
 
 # צמצום פונקציות
 
 
-- אם $A' \subseteq A$ נגדיר $f|_{A'} = \{\langle a,b \rangle \in f \colon a \in A'\}$.
+- אם $A' \subseteq A$ נגדיר $f|_{A'} = \{\langle a,b \rangle \in f \mid a \in A'\}$.
 
-- **הוכיחו או הפריכו:** לכל $f \colon A \to B$ קיימת $A'\subseteq A$ כך ש:
+- **הוכיחו או הפריכו:** לכל $f \colon A \to B$ קיימת $A'\subseteq A$ כך ששתי התכונות הבאות מתקיימות:
 
   1) $f|_{A'}$ חח"ע
 
@@ -407,9 +433,9 @@ layout: two-cols-header
 # תמונה וקדם־תמונה
 
 
-- **תמונה:**  $f[X] = \{f(a) : a \in X\}$
+- **תמונה:**  $f[X] = \{f(a) \mid a \in X\}$
 
-- **קדם־תמונה:**  $f^{-1}[Y] = \{a \in A : f(a)\in Y\}.$
+- **קדם־תמונה:**  $f^{-1}[Y] = \{a \in A \mid f(a)\in Y\}.$
 
 
 ::left::
@@ -508,7 +534,7 @@ layout: two-cols-header
 
 - אם $f\colon A\to B$ ו-$g\colon B\to C$:
 
-  - נגדיר $g\circ f = \{\langle a,c \rangle : \exists b,\ \langle a,b \rangle \in f \wedge \langle b,c \rangle \in g\}$.
+  - נגדיר $g\circ f = \{\langle a,c \rangle \mid \exists b,\ \langle a,b \rangle \in f \wedge \langle b,c \rangle \in g\}$.
   - ההרכבה מוגדרת היטב רק אם **תמונת $f$ מוכלת בתחום של $g$**.
 
 תכונות:
@@ -596,7 +622,7 @@ $$f^{-1}[f[X]] = X$$
    $$f[X] = \{f(2)\} = \{4\}$$
 
 2. נחשב את הקדם־תמונה של התוצאה:
-   $$f^{-1}[\{4\}] = \{x \in \mathbb{R} : x^2 = 4\} = \{-2, 2\}$$
+   $$f^{-1}[\{4\}] = \{x \in \mathbb{R} \mid x^2 = 4\} = \{-2, 2\}$$
 
 3. קיבלנו:
    $$f^{-1}[f[X]] = \{-2, 2\} \neq \{2\} = X$$

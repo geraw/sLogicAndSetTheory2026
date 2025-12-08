@@ -315,19 +315,16 @@ layout: TwoColsHeaderCustom
 ::left::
 
 - ($\Rightarrow$) נניח ש־$f$ חח"ע.
-  - יהי $b \in \operatorname{img}(f)$.
-  - קיים $a$ כך ש־$\langle a,b\rangle \in f$.
-  - אם $\langle a_1,b\rangle,\ \langle a_2,b\rangle \in f$ 
-    - אז $f(a_1)=f(a_2)=b$ ומחח"ע $a_1=a_2$.
-  - לכן יש בדיוק $a$ אחד עם $\langle b,a\rangle \in f^{-1}$, ומכאן $f^{-1}$ פונקציה 
+  - יהיו $\langle a,b_1\rangle, \langle a,b_2\rangle \in f^{-1}$.
+  - אז $\langle b_1, a\rangle, \langle b_2, a\rangle \in f$.
+  - מחד־ערכיות של $f$ נקבל $b_1=b_2$.  
 
 ::right::
 
 - ($\Leftarrow$) נניח ש־$f^{-1}$ פונקציה.
-  - יהיו $a_1,a_2$ כך ש־$f(a_1)=f(a_2)=b$.
-  - אז $\langle b,a_1\rangle,\ \langle b,a_2\rangle \in f^{-1}$.
-  - מחד־ערכיות של $f^{-1}$ נקבל $a_1=a_2$.
-  - לכן $f$ חח"ע.
+  - יהיו $\langle b_1,a\rangle, \langle b_2,a\rangle \in f$.
+  - אז $\langle a,b_1\rangle, \langle a,b_2\rangle \in f^{-1}$.
+  - העובדה ש־$f^{-1}$ פונקציה מובילה ל $b_1=b_2$.
 
 ::after::
 

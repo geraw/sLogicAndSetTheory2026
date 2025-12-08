@@ -999,7 +999,7 @@ layout: two-cols-header
 
   - ניתן להוכיח באמצעותה דברים מוזרים:
     - אפשר לסדר את $\mathbb{R}$ כך שלכל תת-קבוצה יהיה מינימום
-    - אפשר לפרק כדור ליחידות קטנות ולסדר אותן מחדש לכדור בגודל שונה (פרדוקס בנך - [סרטון](https://www.youtube.com/watch?v=_cr46G2K5Fo&t=38s)).
+    - אפשר לפרק כדור ליחידות קטנות ולסדר אותן מחדש לכדור בגודל שונה (פרדוקס בנך טרסקי).
 
 </div>
 
@@ -1013,6 +1013,12 @@ layout: two-cols-header
 
 - היא שימושית מאוד בתורת הקבוצות ובמתמטיקה בכלל.
 
+</div>
+<div class="absolute bottom-15 right-0 left-0 text-center">
+  <span class="text-gray-500 text-sm">להרחבה: </span>
+  <a href="https://www.youtube.com/watch?v=_cr46G2K5Fo&t=38s" target="_blank" class="text-blue-600 hover:text-blue-800 font-bold">
+    סרטון הסבר על פרדוקס בנך-טרסקי והקשר לאקסיומת הבחירה
+  </a>
 </div>
 
 

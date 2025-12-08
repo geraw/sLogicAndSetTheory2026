@@ -939,7 +939,7 @@ section: מערכות נציגים
   - אם $P$ היא מרחב המנה של $A$ ביחס $R$, אז מערכת נציגים של $P$ היא מערכת נציגים של $R$ ולהיפך.
 
 
-<img src="/images/partition_selector_he.png" class="absolute -bottom-10 left-90 w-120 h-80"  style="clip-path: inset(70px 0 70px 0);" />
+<img src="/images/partition_selector_he.png" class="absolute bottom-20 left-5 h-70" style="clip-path: inset(0px 0 20px 0);" />
 
 ---
 

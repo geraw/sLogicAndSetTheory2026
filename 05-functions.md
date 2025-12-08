@@ -541,16 +541,17 @@ layout: two-cols-header
 
 - אם $f\colon A\to B$ ו-$g\colon B\to C$:
 
-  - נגדיר $g\circ f = \{\langle a,c \rangle \mid \exists b,\ \langle a,b \rangle \in f \wedge \langle b,c \rangle \in g\}$.
-  - ההרכבה מוגדרת היטב רק אם **תמונת $f$ מוכלת בתחום של $g$**.
+  - נגדיר $g\circ f = \{\langle a,c \rangle \mid \exists b(\langle a,b \rangle \in f \wedge \langle b,c \rangle \in g)\}$.
+  - משתמשים בהרכבת פונקציות רק אם **תמונת $f$ מוכלת בתחום של $g$**.
 
 <div class="absolute top-25 left-10 w-60">
   <img src="/images/function_composition_hebrew.png" class="rounded shadow-lg border border-gray-200" />
 </div>
 
-תכונות:
-
 ::left::
+
+1. $g\circ f$ היא פונקציה מ-$A$ ל-$C$. 
+   <v-click> ✔️ נכון </v-click>
 
 1. אם $f,g$ חח"ע $\Leftarrow$ $g\circ f$ חח"ע.
    <v-click> ✔️ נכון </v-click>
@@ -558,10 +559,11 @@ layout: two-cols-header
 2. אם $f,g$ על $\Leftarrow$ $g\circ f$ על.
    <v-click> ✔️ נכון </v-click>
 
-3. אם $g\circ f$ חח"ע $\Leftarrow$ $g$ חח"ע
-   <v-click> ❌ לא נכון </v-click>
 
 ::right::
+
+4. אם $g\circ f$ חח"ע $\Leftarrow$ $g$ חח"ע
+   <v-click> ❌ לא נכון </v-click>
 
 4. אם $g\circ f$ על $\Leftarrow$ $g$ על
    <v-click> ✔️ נכון </v-click>
@@ -571,6 +573,43 @@ layout: two-cols-header
 
 6. אם $g\circ f$ חח"ע $\Leftarrow$ $f$ חח"ע
    <v-click> ✔️ נכון </v-click>
+
+---
+layout: two-cols-header
+---
+
+# הרכבת פונקציות
+
+**טענה:** אם $f: A \to B$ ו-$g: B \to C$ פונקציות, אז היחס $g \circ f$ הוא פונקציה מ-$A$ ל-$C$.
+
+**הוכחה:**
+
+::left::
+
+<v-click>
+
+- **קיום (מלאות):**
+   - יהי $a \in A$. מכיוון ש-$f$ מלאה, קיים $b \in B$ כך ש-$f(a)=b$.
+
+   - מכיוון ש-$g$ מלאה, עבור $b$ זה קיים $c \in C$ כך ש-$g(b)=c$.
+   - לכן קיים $c$ כך ש-$\langle a,c \rangle \in g \circ f$.
+</v-click>
+
+::right::
+
+<v-click> 
+
+- **יחידות (חד-ערכיות):**
+   - נניח $\langle a,c_1 \rangle \in g \circ f$ וגם $\langle a,c_2 \rangle \in g \circ f$.
+
+   - מהגדרה, קיימים $b_1, b_2 \in B$ כך ש:
+     - $f(a)=b_1$ וגם $g(b_1)=c_1$.
+     - $f(a)=b_2$ וגם $g(b_2)=c_2$.
+   - מחד-ערכיות של $f$: $b_1 = f(a) = b_2$. נסמן ב-$b$.
+   - מחד-ערכיות של $g$: $c_1 = g(b) = c_2$.
+   - לכן $c_1 = c_2$.
+
+</v-click>
 
 ---
 layout: two-cols-header

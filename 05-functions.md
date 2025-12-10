@@ -451,39 +451,95 @@ layout: two-cols-header
 
 <br />
 
-<v-click>
+<ClaimProof class="v-click">
 
 1. $f[X \cup Y] = f[X] \cup f[Y]$
+
+
+<ProofContent>
+
+### הוכחה: $f[X \cup Y] = f[X] \cup f[Y]$
+
+**כיוון ראשון ($\subseteq$):**
+
+- יהי $b \in f[X \cup Y]$.
+- מהגדרה, קיים $a \in X \cup Y$ כך ש-$f(a)=b$.
+- אם $a \in X$, אז $b = f(a) \in f[X]$.
+- אם $a \in Y$, אז $b = f(a) \in f[Y]$.
+- בשני המקרים, $b \in f[X] \cup f[Y]$.
+
+**כיוון שני ($\supseteq$):**
+
+- יהי $b \in f[X] \cup f[Y]$.
+- אם $b \in f[X]$, קיים $a \in X$ עם $f(a)=b$. מכיוון ש-$a \in X \cup Y$, אז $b \in f[X \cup Y]$.
+- אם $b \in f[Y]$, קיים $a \in Y$ עם $f(a)=b$. מכיוון ש-$a \in X \cup Y$, אז $b \in f[X \cup Y]$.
+- לכן $f[X] \cup f[Y] \subseteq f[X \cup Y]$.
+
+</ProofContent>
+</ClaimProof>
+
 <v-click>
 
 ✔️ **תמיד נכון**.
 </v-click>
 
-</v-click>
-
-<v-click>
+<ClaimProof class="v-click">
 
 <br />
 
 2. $f[X \cap Y] = f[X] \cap f[Y]$
+
+<ProofContent>
+
+### הפרכה: $f[X \cap Y] = f[X] \cap f[Y]$
+
+**דוגמה נגדית:**
+
+- נגדיר $f: \{1,2\} \to \{a\}$ כך ש-$f(1)=a$ ו-$f(2)=a$.
+- נבחר $X=\{1\}$ ו-$Y=\{2\}$.
+- אזי $X \cap Y = \emptyset$, ולכן $f[X \cap Y] = f[\emptyset] = \emptyset$.
+- לעומת זאת, $f[X] = \{a\}$ ו-$f[Y] = \{a\}$.
+- החיתוך הוא $f[X] \cap f[Y] = \{a\}$.
+- קיבלנו $\emptyset \neq \{a\}$, כלומר השוויון לא מתקיים.
+
+**הערה:**
+תמיד מתקיים $f[X \cap Y] \subseteq f[X] \cap f[Y]$, אך ההכלה ההפוכה דורשת תנאים נוספים (למשל, ש-$f$ תהיה חח"ע).
+
+</ProofContent>
+</ClaimProof>
+
 <v-click>
 
 ❌ **לא תמיד נכון**.
-**תנאי מספיק:** $X \subseteq \operatorname{dom}(f)$.
-</v-click>
 
 </v-click>
 
-<v-click>
+<ClaimProof class="v-click">
 
 <br />
 
 3. $f^{-1}[Y \cup Z] = f^{-1}[Y] \cup f^{-1}[Z]$
+
+<ProofContent>
+
+### הוכחה: $f^{-1}[Y \cup Z] = f^{-1}[Y] \cup f^{-1}[Z]$
+
+$$
+\begin{aligned}
+x \in f^{-1}[Y \cup Z] &\iff f(x) \in Y \cup Z \\
+&\iff f(x) \in Y \lor f(x) \in Z \\
+&\iff x \in f^{-1}[Y] \lor x \in f^{-1}[Z] \\
+&\iff x \in f^{-1}[Y] \cup f^{-1}[Z]
+\end{aligned}
+$$
+
+</ProofContent>
+</ClaimProof>
+
+
 <v-click>
 
 ✔️ **תמיד נכון**.
-</v-click>
-
 </v-click>
 
 </div>
@@ -494,40 +550,91 @@ layout: two-cols-header
 
 <br />
 
-<v-click>
+<ClaimProof class="v-click">
+
 
 4. $f^{-1}[Y \cap Z] = f^{-1}[Y] \cap f^{-1}[Z]$
+<ProofContent>
+
+### הוכחה: $f^{-1}[Y \cap Z] = f^{-1}[Y] \cap f^{-1}[Z]$
+
+$$
+\begin{aligned}
+x \in f^{-1}[Y \cap Z] &\iff f(x) \in Y \cap Z \\
+&\iff f(x) \in Y \land f(x) \in Z \\
+&\iff x \in f^{-1}[Y] \land x \in f^{-1}[Z] \\
+&\iff x \in f^{-1}[Y] \cap f^{-1}[Z]
+\end{aligned}
+$$
+
+</ProofContent>
+</ClaimProof>
+
 <v-click>
 
 ✔️ **תמיד נכון**.
 </v-click>
 
-</v-click>
-
 <br />
 
-<v-click>
+
+<ClaimProof class="v-click">
 
 5. $f[f^{-1}[Y]] = Y$
+
+<ProofContent>
+
+### הפרכה: $f[f^{-1}[Y]] = Y$
+
+**דוגמה נגדית:**
+
+- נגדיר $f: \{1\} \to \{a,b\}$ כך ש-$f(1)=a$.
+- נבחר $Y=\{a,b\}$.
+- הקדם־תמונה של $Y$ היא $f^{-1}[Y] = \{1\}$ (כי רק $a$ מתקבל מ-$1$, ו-$b$ לא מתקבל).
+- נפעיל את $f$ על התוצאה: $f[\{1\}] = \{a\}$.
+- קיבלנו $\{a\} \neq \{a,b\}$, כלומר השוויון לא מתקיים.
+
+**הערה:**
+תמיד מתקיים $f[f^{-1}[Y]] \subseteq Y$.
+שוויון מתקיים אם $Y \subseteq \operatorname{img}(f)$ (כלומר, אם לכל איבר ב-$Y$ יש מקור) או אם הפונקציה היא **על**.
+
+</ProofContent>
+</ClaimProof>
+
 <v-click>
 
 ❌ **לא תמיד נכון**.  
-**תנאי מספיק:** $Y \subseteq \operatorname{img}(f)$.
-</v-click>
-
 </v-click>
 
 <br />
 
-<v-click>
+
+<ClaimProof class="v-click">
 
 6. $f^{-1}[f[X]] = X$
+
+<ProofContent>
+
+### הפרכה: $f^{-1}[f[X]] = X$
+
+**דוגמה נגדית:**
+
+- נגדיר $f: \mathbb{R} \to \mathbb{R}$ ע"י $f(x)=x^2$.
+- נבחר $X=\{2\}$.
+- תמונת $X$ היא $f[X] = \{4\}$.
+- הקדם־תמונה של $\{4\}$ היא $f^{-1}[\{4\}] = \{-2, 2\}$.
+- קיבלנו $\{-2, 2\} \neq \{2\}$, כלומר השוויון לא מתקיים.
+
+**הערה:**
+תמיד מתקיים $X \subseteq f^{-1}[f[X]]$.
+שוויון מתקיים אם $f$ היא **חח"ע**.
+
+</ProofContent>
+</ClaimProof>
+
 <v-click>
 
 ❌ **לא תמיד נכון**.  
-**תנאי מספיק:** \(f\) חח"ע.
-</v-click>
-
 </v-click>
 
 </div>

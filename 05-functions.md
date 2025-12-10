@@ -651,35 +651,175 @@ layout: two-cols-header
   - נגדיר $g\circ f = \{\langle a,c \rangle \mid \exists b(\langle a,b \rangle \in f \wedge \langle b,c \rangle \in g)\}$.
   - משתמשים בהרכבת פונקציות רק אם **תמונת $f$ מוכלת בתחום של $g$**.
 
-<div class="absolute top-25 left-10 w-60">
+<div class="absolute top-3 left-10 w-60">
   <img src="/images/function_composition_hebrew.png" class="rounded shadow-lg border border-gray-200" />
 </div>
 
+<br>
+<br>
+
 ::left::
 
-1. $g\circ f$ היא פונקציה מ-$A$ ל-$C$. 
-   <v-click> ✔️ נכון </v-click>
+<ClaimProof class="v-click">
 
-1. אם $f,g$ חח"ע $\Leftarrow$ $g\circ f$ חח"ע.
-   <v-click> ✔️ נכון </v-click>
+1. $g\circ f$ היא פונקציה מ-$A$ ל-$C$.
 
-2. אם $f,g$ על $\Leftarrow$ $g\circ f$ על.
-   <v-click> ✔️ נכון </v-click>
+<ProofContent>
+
+### הוכחה: הרכבת פונקציות היא פונקציה
+
+**קיום (מלאות):**
+- לכל $a \in A$, קיים $f(a) \in B$ (כי $f$ פונקציה מלאה).
+
+- לכל $b \in B$, קיים $g(b) \in C$ (כי $g$ פונקציה מלאה).
+
+- לכן, לכל $a \in A$ קיים ערך $g(f(a)) \in C$.
+
+**יחידות (חד-ערכיות):**
+- נניח ש-$(g \circ f)(a) = c_1$ וגם $(g \circ f)(a) = c_2$.
+- פירושו $g(f(a)) = c_1$ ו-$g(f(a)) = c_2$.
+- כיוון ש-$g$ פונקציה, לכל קלט יש פלט יחיד, ולכן $c_1 = c_2$.
+
+</ProofContent>
+</ClaimProof>
+
+<v-click> ✔️ נכון </v-click>
+
+<ClaimProof class="v-click">
+
+<br>
+
+2. אם $f,g$ חח"ע $\Leftarrow$ $g\circ f$ חח"ע.
+
+<ProofContent>
+
+### הוכחה: הרכבת חח"ע היא חח"ע
+
+- נניח $(g \circ f)(x_1) = (g \circ f)(x_2)$.
+- לפי הגדרה: $g(f(x_1)) = g(f(x_2))$.
+- כיוון ש-$g$ חח"ע, נובע ש-$f(x_1) = f(x_2)$.
+- כיוון ש-$f$ חח"ע, נובע ש-$x_1 = x_2$.
+- לכן $g \circ f$ חח"ע.
+
+</ProofContent>
+</ClaimProof>
+
+<v-click> ✔️ נכון </v-click>
+
+<ClaimProof class="v-click">
+
+<br>
+
+3. אם $f,g$ על $\Leftarrow$ $g\circ f$ על.
+
+<ProofContent>
+
+### הוכחה: הרכבת על היא על
+
+- יהי $c \in C$.
+- כיוון ש-$g$ על $C$, קיים $b \in B$ כך ש-$g(b)=c$.
+- כיוון ש-$f$ על $B$, עבור $b$ זה קיים $a \in A$ כך ש-$f(a)=b$.
+- לכן: $(g \circ f)(a) = g(f(a)) = g(b) = c$.
+- מצאנו מקור ל-$c$, ולכן ההרכבה היא על.
+
+</ProofContent>
+</ClaimProof>
+
+<v-click> ✔️ נכון </v-click>
 
 
 ::right::
 
+<ClaimProof class="v-click">
+
 4. אם $g\circ f$ חח"ע $\Leftarrow$ $g$ חח"ע
-   <v-click> ❌ לא נכון </v-click>
 
-4. אם $g\circ f$ על $\Leftarrow$ $g$ על
-   <v-click> ✔️ נכון </v-click>
+<ProofContent>
 
-5. אם $g\circ f$ על $\Leftarrow$ $f$ על
-   <v-click> ❌ לא נכון </v-click>
+### הפרכה
 
-6. אם $g\circ f$ חח"ע $\Leftarrow$ $f$ חח"ע
-   <v-click> ✔️ נכון </v-click>
+**דוגמה נגדית:**
+- $f: \{1\} \to \{a,b\}$ המוגדרת $f(1)=a$.
+- $g: \{a,b\} \to \{x\}$ המוגדרת $g(a)=x, g(b)=x$.
+- ההרכבה $g \circ f: \{1\} \to \{x\}$ היא $1 \mapsto x$.
+- ההרכבה היא חח"ע (כי יש לה רק איבר אחד בתחום).
+- אבל $g$ אינה חח"ע, כי $g(a)=g(b)=x$.
+
+</ProofContent>
+</ClaimProof>
+
+<v-click> ❌ לא נכון </v-click>
+
+<br>
+
+<ClaimProof class="v-click">
+
+<br>
+
+5. אם $g\circ f$ על $\Leftarrow$ $g$ על
+
+<ProofContent>
+
+### הוכחה
+
+- יהי $c \in C$.
+- נתון ש-$g \circ f$ על $C$.
+- לכן קיים $a \in A$ כך ש-$(g \circ f)(a) = c$.
+- כלומר $g(f(a)) = c$.
+- נסמן $b = f(a)$. בבירור $b \in B$.
+- קיבלנו שקיים $b \in B$ כך ש-$g(b) = c$.
+- לכן $g$ היא על.
+
+</ProofContent>
+</ClaimProof>
+
+<v-click> ✔️ נכון </v-click>
+
+<br>
+<br>
+
+<ClaimProof class="v-click">
+
+6. אם $g\circ f$ על $\Leftarrow$ $f$ על
+
+<ProofContent>
+
+### הפרכה
+
+**דוגמה נגדית:**
+- $f: \{1\} \to \{a,b\}$ המוגדרת $f(1)=a$.
+- $g: \{a,b\} \to \{x\}$ המוגדרת $g(a)=x, g(b)=x$.
+- ההרכבה $g \circ f: \{1\} \to \{x\}$ היא על $\{x\}$.
+- אבל $f$ אינה על $\{a,b\}$ (כי $b$ לא נתקבל).
+
+</ProofContent>
+</ClaimProof>
+
+<v-click> ❌ לא נכון </v-click>
+
+<br>
+<br>
+
+<ClaimProof class="v-click">
+
+7. אם $g\circ f$ חח"ע $\Leftarrow$ $f$ חח"ע
+
+<ProofContent>
+
+### הוכחה
+
+- נניח ש-$f(x_1) = f(x_2)$.
+- נפעיל את $g$ על שני האגפים: $g(f(x_1)) = g(f(x_2))$.
+- כלומר $(g \circ f)(x_1) = (g \circ f)(x_2)$.
+- נתון שההרכבה $g \circ f$ היא חח"ע.
+- לכן נובע ש-$x_1 = x_2$.
+- הוכחנו: $f(x_1)=f(x_2) \implies x_1=x_2$.
+- לכן $f$ חח"ע.
+
+</ProofContent>
+</ClaimProof>
+
+<v-click> ✔️ נכון </v-click>
 
 ---
 layout: two-cols-header

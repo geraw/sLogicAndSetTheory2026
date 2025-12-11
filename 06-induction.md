@@ -267,7 +267,7 @@ layout: two-cols-header
   $$\sum_{i=0}^{n+1} i = \left(\sum_{i=0}^{n} i\right) + (n+1) = \frac{n(n+1)}{2} + (n+1) = \frac{(n+1)(n+2)}{2}$$
 - לכן $n+1 \in A$. לפי עיקרון האינדוקציה, $A = \mathbb{N}$.
 
-<img src="/images/weak_induction_ladder.png" class="absolute bottom-15 right-30 w-60 rounded-lg shadow-lg" />
+<img src="/images/weak_induction_ladder_hebrew.png" class="absolute bottom-15 right-30 w-60 rounded-lg shadow-lg" />
 
 ---
 

@@ -998,6 +998,10 @@ $$
 > שימו לב!
 > הבחירה בהגדרות אלו אינה שרירותית; עלינו לוודא שאלו פעולות **מוגדרות היטב** (שהתוצאה אינה תלויה בנציג).
 
+<div class="absolute top-20 left-10">
+  <img src="/images/rational_numbers_lattice_hebrew.png" class="h-100 rounded shadow-lg border border-gray-200" />
+</div>
+
 ---
 
 # תרגול: מוגדר היטב?

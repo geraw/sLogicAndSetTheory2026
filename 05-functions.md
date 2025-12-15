@@ -9,6 +9,7 @@ htmlAttrs:
 mdc: true
 download: true
 exportFilename: 05-functions.pdf
+transition: slide-left
 ---
 
 # פונקציות: הגדרה ותכונות יסוד
@@ -660,6 +661,7 @@ layout: two-cols-header
 
 ::left::
 
+
 <ClaimProof class="v-click">
 
 1. $g\circ f$ היא פונקציה מ-$A$ ל-$C$.
@@ -669,16 +671,19 @@ layout: two-cols-header
 ### הוכחה: הרכבת פונקציות היא פונקציה
 
 **קיום (מלאות):**
-- לכל $a \in A$, קיים $f(a) \in B$ (כי $f$ פונקציה מלאה).
-
-- לכל $b \in B$, קיים $g(b) \in C$ (כי $g$ פונקציה מלאה).
-
-- לכן, לכל $a \in A$ קיים ערך $g(f(a)) \in C$.
+- יהי $a \in A$.
+- מכיוון ש-$f$ מלאה על $A$, קיים $b \in B$ כך ש-$\langle a,b \rangle \in f$.
+- מכיוון ש-$g$ מלאה על $B$, קיים $c \in C$ כך ש-$\langle b,c \rangle \in g$.
+- לפי הגדרת ההרכבה, קיים $b$ כך ש-$\langle a,b \rangle \in f \land \langle b,c \rangle \in g$, לכן $\langle a,c \rangle \in g \circ f$.
 
 **יחידות (חד-ערכיות):**
-- נניח ש-$(g \circ f)(a) = c_1$ וגם $(g \circ f)(a) = c_2$.
-- פירושו $g(f(a)) = c_1$ ו-$g(f(a)) = c_2$.
-- כיוון ש-$g$ פונקציה, לכל קלט יש פלט יחיד, ולכן $c_1 = c_2$.
+- נניח $\langle a,c_1 \rangle \in g \circ f$ וגם $\langle a,c_2 \rangle \in g \circ f$.
+- מהגדרה, קיימים $b_1, b_2 \in B$ כך ש:
+  - $\langle a,b_1 \rangle \in f$ וגם $\langle b_1, c_1 \rangle \in g$.
+  - $\langle a,b_2 \rangle \in f$ וגם $\langle b_2, c_2 \rangle \in g$.
+- מחד-ערכיות $f$: כיוון ש-$\langle a,b_1 \rangle, \langle a,b_2 \rangle \in f$, נובע $b_1 = b_2$. נסמן $b$.
+- מחד-ערכיות $g$: כיוון ש-$\langle b,c_1 \rangle, \langle b,c_2 \rangle \in g$, נובע $c_1 = c_2$.
+- לכן $g \circ f$ חד-ערכית.
 
 </ProofContent>
 </ClaimProof>
@@ -821,88 +826,6 @@ layout: two-cols-header
 
 <v-click> ✔️ נכון </v-click>
 
----
-layout: two-cols-header
----
-
-# הרכבת פונקציות
-
-**טענה:** אם $f: A \to B$ ו-$g: B \to C$ פונקציות, אז היחס $g \circ f$ הוא פונקציה מ-$A$ ל-$C$.
-
-**הוכחה:**
-
-::left::
-
-<v-click>
-
-- **קיום (מלאות):**
-   - יהי $a \in A$. מכיוון ש-$f$ מלאה, קיים $b \in B$ כך ש-$f(a)=b$.
-
-   - מכיוון ש-$g$ מלאה, עבור $b$ זה קיים $c \in C$ כך ש-$g(b)=c$.
-   - לכן קיים $c$ כך ש-$\langle a,c \rangle \in g \circ f$.
-</v-click>
-
-::right::
-
-<v-click> 
-
-- **יחידות (חד-ערכיות):**
-   - נניח $\langle a,c_1 \rangle \in g \circ f$ וגם $\langle a,c_2 \rangle \in g \circ f$.
-
-   - מהגדרה, קיימים $b_1, b_2 \in B$ כך ש:
-     - $f(a)=b_1$ וגם $g(b_1)=c_1$.
-     - $f(a)=b_2$ וגם $g(b_2)=c_2$.
-   - מחד-ערכיות של $f$: $b_1 = f(a) = b_2$. נסמן ב-$b$.
-   - מחד-ערכיות של $g$: $c_1 = g(b) = c_2$.
-   - לכן $c_1 = c_2$.
-
-</v-click>
-
----
-layout: two-cols-header
----
-
-# קדם־תמונה של תמונה
-
-
-**טענה:** אם $f$ חח"ע אז:
-
-$$f^{-1}[f[X]] = X$$
-
-
-
-
-
-::left::
-
-<v-click>
-
-- נראה ש-$f^{-1}[f[X]] \subseteq X$:
-
-  - יהי $a \in f^{-1}[f[X]]$.
-  
-  - מהגדרה: $f(a) \in f[X]$.
-  
-  - לכן קיים $x \in X$ כך ש-$f(x) = f(a)$.
-  
-  - **נתון ש-$f$ חח"ע**, ולכן $a = x$.
-  
-  - קיבלנו $a \in X$.
-
-</v-click>
-
-::right::
-
-<v-click>
-
-- נראה ש-$f^{-1}[f[X]] \supseteq X$:
-
-  - יהי $a \in X$.
-
-  - אז $f(a) \in f[X]$.
-
-  - לכן $a \in f^{-1}[f[X]]$.
-</v-click>
 
 ---
 
@@ -936,7 +859,7 @@ $$f^{-1}[f[X]] = X$$
 
 # יחסים מעל מרחב מנה
 
-יהי $A$ קבוצה ו-$E$ יחס שקילות על $A$.
+תהי $A$ קבוצה ו-$E$ יחס שקילות על $A$.
 נגדיר יחס $R$ על $A/E$ (קבוצת המנה) בעזרת נציגים: $[a] R [b] \iff a S b$.
 
 **הגדרה:** היחס $R$ **מוגדר היטב** אם ערך האמת שלו אינו תלוי בנציגים שנבחרו.
@@ -962,13 +885,95 @@ $$a_1 E a_2 \land b_1 E b_2 \implies (a_1 S b_1 \iff a_2 S b_2)$$
 $$a_1 E a_2 \implies f(a_1) = f(a_2)$$
 
 **דוגמה לפונקציה שאינה מוגדרת היטב:**
-- ננסה להגדיר $g: \mathbb{Z}/3\mathbb{Z} \to \mathbb{Z}$ ע"י $g([x]) = x^2$.
+- הגדרנו את המספרים הראציונלים כזוגות סדורים.
+- עם יחס השקילות: $\frac{a}{b} \sim \frac{c}{d} \iff ad = bc$.
+- נגדיר את הפונקציה $g: \mathbb{Q} \to \mathbb{Z}$ ע"י $g(\frac{a}{b}) = a$.
+- נבחר שני ייצוגים לאותו שבר: $\frac{1}{2} = \frac{2}{4}$.
+- חישוב ראשון: $g(\frac{1}{2}) = 1$.
+- חישוב שני: $g(\frac{2}{4}) = 2$.
+- קיבלנו $g(\frac{1}{2}) \neq g(\frac{2}{4})$, ולכן $g$ אינה מוגדרת היטב.
 
-- נבחר שני נציגים לאותה מחלקה: $1 \equiv 4 \pmod 3$.
 
-- אבל $g([1]) = 1^2 = 1$ ואילו $g([4]) = 4^2 = 16$.
+---
 
-- קיבלנו $1 \neq 16$, ולכן הפונקציה אינה מוגדרת היטב.
+# פונקציות בינאריות מעל מרחב המנה
+
+
+- **הגדרה:** תהי $F\colon A \times A \to A$ ו-$E$ יחס שקילות על $A$. <br> נגיד ש-$F$ **מוגדרת היטב על $A/E$** אם לכל $a,a',b,b' \in A$:
+    $$a E a' \land b E b' \implies F(a, b) E F(a', b')$$
+
+- **משמעות:** החלפת נציגים לא משנה את מחלקת השקילות של התוצאה.
+- **הפונקציה המושרית:** ניתן להגדיר $\tilde{F}: A/E \times A/E \to A/E$ ע"י:
+    $$\tilde{F}([a], [b]) = [F(a, b)]$$
+
+- **דוגמה:** ב-$\mathbb{Z}/n\mathbb{Z}$, פעולת החיבור $F(x,y) = x+y$ מוגדרת היטב.
+  - נניח $a \equiv a' \pmod n$ ו-$b \equiv b' \pmod n$.
+  - אז $(a+b) - (a'+b') = (a-a') + (b-b')$.
+  - מכיוון ש-$n$ מחלק את ההפרשים, $n$ מחלק גם את הסכום, ולכן $a+b \equiv a'+b' \pmod n$.
+  - לכן הגדרת חיבור מחלקות $[a]+[b] = [a+b]$ היא תקינה.
+
+<div class="flex justify-center -mt-100 -ml-200">
+  <img src="/images/well_defined_binary_ops_hebrew.png" class="h-60 rounded shadow-lg border border-gray-200" />
+</div>
+
+
+---
+
+# מהם האיברים של $\mathbb{Z}_3$?
+
+נתבונן בקבוצת המספרים השלמים $\mathbb{Z} = \{\dots, -2, -1, 0, 1, 2, \dots\}$ וביחס השקילות $\equiv \pmod 3$.
+כלומר, $a \equiv b \pmod 3$ אם ורק אם $a-b$ מתחלק ב-3 (ראינו בתרגיל קודם שזהו יחס שקילות).
+
+- $\mathbb{Z}_3$ מוגדרת כמרחב המנה $\mathbb{Z}/\equiv_3$.
+- לכן $\mathbb{Z}_3$ מורכבת מ-3 מחלקות שקילות:
+  $[0], [1], [2]$
+
+<br>
+
+- הפעולות $+$ ו-$\cdot$ מתייחסות לחיבור וכפל רגיל של שלמים.
+- אנו יודעים שהן מקיימות את התכונות הרגילות (חילוף, קיבוץ, פילוג).
+
+
+
+<v-click>
+
+  - **קסם לחנוכה:** איך יודעים אם המספר $12,345,678$ מתחלק ב-3 בלי לבצע חילוק ארוך?
+    - **פתרון בעזרת $\mathbb{Z}_3$:**
+      - נשים לב ש-$10 \equiv 1 \pmod 3$, ולכן לכל חזקה: $10^k \equiv 1^k \equiv 1 \pmod 3$.
+      - נכתוב את המספר לפי הפיתוח העשרוני שלו: $n = d_k \cdot 10^k + \dots + d_1 \cdot 10 + d_0$.
+      - נעבור ל-$\mathbb{Z}_3$:
+        $[n] = [d_k] + \dots + [d_1] + [d_0] = [d_k + \dots + d_0]$
+      - **מסקנה:** שארית החלוקה ב-3 שווה לשארית סכום הספרות. המספר מתחלק ב-3 אמ"ם סכום ספרותיו מתחלק ב-3.
+
+    <img src="/images/hanukkiah_illustration.png" class="absolute bottom-25 left-10 w-50 rounded shadow-lg border border-gray-200" />
+ 
+
+</v-click>
+
+---
+
+
+
+# כפל מוגדר היטב ב-$\mathbb{Z}_3$
+
+**טענה:** הפעולה $\cdot$ מוגדרת היטב על $\mathbb{Z}_3$.
+
+**הוכחה:**
+עלינו להראות: אם $a' E a$ ו-$b' E b$, אזי $(a'b') E (ab)$.
+
+1. $a \equiv a' \pmod 3 \implies a' - a = 3r$.
+2. $b \equiv b' \pmod 3 \implies b' - b = 3s$.
+
+נחשב את ההפרש (בטריק של הוספה והחסרה):
+$$
+\begin{aligned}
+a'b' - ab &= a'b' - ab' + ab' - ab \\
+&= (a' - a)b' + a(b' - b) \\
+&= (3r)b' + a(3s) \\
+&= 3(rb' + as)
+\end{aligned}
+$$
+מכיוון שההפרש מתחלק ב-3, מתקיים $ab \equiv a'b' \pmod 3$.
 
 ---
 

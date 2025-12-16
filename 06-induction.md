@@ -103,7 +103,12 @@ layout: two-cols-header
 
 - הוכחת עקרון שובך היונים באינדוקציה נמצאת בתרגול העצמי - מומלץ להשתמש במשאב זה.
 
-<img src="/images/pigeons_in_holes.png" class="absolute top-90 left-20 w-55 rounded-lg shadow-lg" />
+<div class="absolute top-90 left-20 w-55">
+  <img src="/images/pigeons_in_holes_no_text.png" class="rounded-lg shadow-lg w-full" />
+  <div class="text-center text-xs -mt-53 font-bold text-gray-700">
+    5 יונים ב-4 שובכים  ⇐   <br> יש שתי יונים באחד מהשובכים
+  </div>
+</div>
 
 
 ---

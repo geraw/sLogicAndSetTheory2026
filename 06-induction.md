@@ -27,6 +27,7 @@ layout: two-cols-header
 
 # שקילות עוצמה בין קבוצות
 
+<img src="/images/bijection_bears_girls.png" class="absolute top-15 left-5 w-55 rounded-lg shadow-lg" />
 
 **הגדרה:** תהיינה $A,B$ קבוצות. נסמן $A \sim B$ אם קיימת פונקציה חח"ע ועל $f \colon A \to B$.
 
@@ -36,18 +37,28 @@ layout: two-cols-header
 
 ::left::
 
+<v-click>
+
 1. **רפלקסיביות:** לכל קבוצה $A$:
    - נגדיר את פונקציית הזהות $Id_A(x) = x$.
    - פונקציה זו היא חח"ע ועל.
    - לכן $A \sim A$.
+</v-click>
+
+<v-click>
+
+<br>
 
 2. **סימטריות:** נניח $A \sim B$.
    - קיימת $f \colon A \to B$ שהיא חח"ע ועל.
    - לכן קיימת הפונקציה ההפוכה $f^{-1} \colon B \to A$.
    - גם $f^{-1}$ היא חח"ע ועל.
    - לכן $B \sim A$.
+</v-click>
 
 ::right::
+
+<v-click>
 
 3. **טרנזיטיביות:** נניח $A \sim B$ ו-$B \sim C$.
    - קיימות פונקציות חח"ע ועל $f \colon A \to B$ ו-$g \colon B \to C$.
@@ -55,11 +66,13 @@ layout: two-cols-header
    - הרכבה של פונקציות חח"ע ועל היא גם חח"ע ועל.
    - לכן $A \sim C$.
 
+</v-click>
+
 <br>
+
 
 מחלקת שקילות של יחס זה היא<br>  קבוצת קבוצות שיש בהן אותו מספר איברים:
 
-<img src="/images/bijection_bears_girls.png" class="absolute top-15 left-5 w-55 rounded-lg shadow-lg" />
 
 <img src="/images/cardinality_equivalence_classes.png" class="absolute bottom-10 left-10 w-50 rounded-lg shadow-lg" />
 
@@ -127,6 +140,14 @@ layout: two-cols-header
 
 - הקבוצה $\mathbb{N}$ היא אינסופית.
 - הקבוצה הריקה $\emptyset$ היא סופית בת 0 איברים.
+
+<div class="absolute top-80 left-40 w-60">
+  <img src="/images/bijection_counting_from_zero_no_text.png" class="rounded-lg shadow-lg w-full" />
+  <div class="absolute top-7 left-31 w-25 text-center text-xs text-gray-800 leading-tight transform -rotate-2">
+    נספור מאפס<br>
+    3, 2, 1, 0
+  </div>
+</div>
 
 
 
@@ -208,9 +229,9 @@ $$|A \cup B| = |A| + |B|$$
 - מכיוון ש-$A$ ו-$B$ זרות, הפונקציה $h$ מוגדרת היטב.
 - קל לוודא ש-$h$ היא חח"ע ועל, ולכן $|A \cup B| = n+m$.
 
-<img src="/images/גודל של איחוד זר.jpg" class="absolute top-90 left-5 w-100 " />
+<img src="/images/גודל של איחוד זר.jpg" class="absolute top-100 left-15 w-80 " />
 
-<img src="/images/h-sorter.jpg" class="absolute top-30 left-5 w-100 " />
+<!-- <img src="/images/h-sorter.jpg" class="absolute top-30 left-5 w-100 " /> -->
 
 
 </v-click>

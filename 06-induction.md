@@ -125,6 +125,8 @@ layout: two-cols-header
 
 
 ---
+section: קבוצות סופיות
+---
 
 # קבוצות סופיות
 
@@ -239,6 +241,7 @@ $$|A \cup B| = |A| + |B|$$
 
 ---
 layout: TwoColsHeaderCustom
+section: אינדוקציה
 ---
 
 # אינסוף גרירות
@@ -307,6 +310,10 @@ layout: two-cols-header
 - לכן $n+1 \in A$. לפי עיקרון האינדוקציה, $A = \mathbb{N}$.
 
 <img src="/images/weak_induction_ladder_hebrew.png" class="absolute bottom-15 right-30 w-60 rounded-lg shadow-lg" />
+
+<div class="absolute top-20 left-5 w-80 h-25 rounded-lg shadow-lg overflow-hidden">
+  <img src="/images/hanukkah_candles_induction_cropped.png" class="w-full h-full object-cover object-center" />
+</div>
 
 
 

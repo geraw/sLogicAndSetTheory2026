@@ -296,9 +296,14 @@ layout: two-cols-header
 
 **אזי:** $A = \mathbb{N}$.
 
+<img src="/images/weak_induction_ladder_hebrew.png" class="absolute bottom-15 right-30 w-60 rounded-lg shadow-lg" />
+
 ::right::
 
 <br>
+
+
+<v-click>
 
 **דוגמה:** לכל $n \in \mathbb{N}$ מתקיים $\sum_{i=0}^{n} i = \frac{n(n+1)}{2}$.
 
@@ -309,13 +314,12 @@ layout: two-cols-header
   $$\sum_{i=0}^{n+1} i = \left(\sum_{i=0}^{n} i\right) + (n+1) = \frac{n(n+1)}{2} + (n+1) = \frac{(n+1)(n+2)}{2}$$
 - לכן $n+1 \in A$. לפי עיקרון האינדוקציה, $A = \mathbb{N}$.
 
-<img src="/images/weak_induction_ladder_hebrew.png" class="absolute bottom-15 right-30 w-60 rounded-lg shadow-lg" />
 
 <div class="absolute top-20 left-5 w-80 h-25 rounded-lg shadow-lg overflow-hidden">
   <img src="/images/hanukkah_candles_induction_cropped.png" class="w-full h-full object-cover object-center" />
 </div>
 
-
+</v-click>
 
 ---
 layout: two-cols-header
@@ -340,7 +344,7 @@ $$\mathbb{N}^{<n} \subseteq A \implies \mathbb{N}^{<n+1} \subseteq A$$
 
 ::right::
 
-<br>
+<v-click>
 
 **דוגמה:** תהי $F_n$ סדרת פיבונאצ'י 
 
@@ -350,13 +354,17 @@ $$\mathbb{N}^{<n} \subseteq A \implies \mathbb{N}^{<n+1} \subseteq A$$
 
 **הוכחה:** 
 - נסמן $A = \{n \in \mathbb{N} \mid F_n < 2^n\}$.
-- נניח $\mathbb{N}^{<n} \subseteq A$ (כלומר לכל $k < n$, $F_k < 2^k$).
-- נוכיח $n \in A$:
-  - **עבור $n=0$:** $0 < 1$ ✓
-  - **עבור $n=1$:** $1 < 2$ ✓
-  - **עבור $n \ge 2$:** $F_n = F_{n-1} + F_{n-2}$
-    $$< 2^{n-1} + 2^{n-2} < 2^{n-1} + 2^{n-1} = 2^n$$
-- לכן $n \in A$, ולפי האינדוקציה השלמה $A = \mathbb{N}$.
+- יהי $n \in \mathbb{N}$. נניח ש-$\mathbb{N}^{<n} \subseteq A$.
+- נוכיח ש-$\mathbb{N}^{<n+1} \subseteq A$:
+    - מכיוון ש-$\mathbb{N}^{<n+1} = \mathbb{N}^{<n} \cup \{n\}$, ומתוך ההנחה, מספיק להראות ש-$n \in A$:
+      - **עבור $n=0$:** $0 < 1$ ✓
+      - **עבור $n=1$:** $1 < 2$ ✓
+      - **עבור $n \ge 2$:** $F_n = F_{n-1} + F_{n-2}$
+        $$< 2^{n-1} + 2^{n-2} < 2^{n-1} + 2^{n-1} = 2^n$$
+    - הראנו ש-$n \in A$, ולכן $\mathbb{N}^{<n+1} \subseteq A$.
+- לפי האינדוקציה השלמה $A = \mathbb{N}$.
+
+</v-click>
 
 ---
 

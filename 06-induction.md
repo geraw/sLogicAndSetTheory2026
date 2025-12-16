@@ -18,6 +18,8 @@ transition: slide
 
  מרצה: פרופ. גרא וייס
 
+
+
 ---
 layout: two-cols-header
 ---
@@ -53,9 +55,13 @@ layout: two-cols-header
    - הרכבה של פונקציות חח"ע ועל היא גם חח"ע ועל.
    - לכן $A \sim C$.
 
+<br>
+
+מחלקת שקילות של יחס זה היא<br>  קבוצת קבוצות שיש בהן אותו מספר איברים:
+
 <img src="/images/bijection_bears_girls.png" class="absolute top-15 left-5 w-55 rounded-lg shadow-lg" />
 
-
+<img src="/images/cardinality_equivalence_classes.png" class="absolute bottom-10 left-10 w-50 rounded-lg shadow-lg" />
 
 
 
@@ -68,6 +74,8 @@ layout: two-cols-header
   יהי $n$ מספר טבעי. נגדיר $\mathbb{N}^{<n} = \{0, 1, \ldots, n-1\}$.
 
     - נובע מכך ש-$\mathbb{N}^{<0} = \emptyset$.
+
+<img src="/images/bounded_set_less_than_5_v2.png" class="absolute top-15 left-5 w-60 rounded-lg shadow-lg" />
 
 - **הגדרה:** תהי $S \subseteq \mathbb{N}$. הקבוצה $S$ נקראת **חסומה** (bounded) אם קיים $n \in \mathbb{N}$ כך ש-$S \subseteq \mathbb{N}^{<n}$.
 
@@ -87,10 +95,15 @@ layout: two-cols-header
 - **ניסוח פורמלי:** יהיו $n > m$ מספרים טבעיים. לא קיימת פונקציה חד-חד-ערכית $f \colon \mathbb{N}^{<n} \to \mathbb{N}^{<m}$.
 
 - **מסקנה:** אם $n \neq m$, לא קיימת פונקציה הפיכה (bijection) בין $\mathbb{N}^{<n}$ ל-$\mathbb{N}^{<m}$.
+  - **הוכחה:**
+      - נניח $n \neq m$. בה"כ נניח $n > m$.
+      - לפי עקרון שובך היונים, לא קיימת פונקציה חח"ע מ-$\mathbb{N}^{<n}$ ל-$\mathbb{N}^{<m}$.
+      - פונקציה הפיכה היא בפרט חח"ע.
+      - לכן לא קיימת פונקציה הפיכה.
 
 - הוכחת עקרון שובך היונים באינדוקציה נמצאת בתרגול העצמי - מומלץ להשתמש במשאב זה.
 
-<img src="/images/pigeons_in_holes.png" class="absolute top-90 left-110 w-55 rounded-lg shadow-lg" />
+<img src="/images/pigeons_in_holes.png" class="absolute top-90 left-20 w-55 rounded-lg shadow-lg" />
 
 
 ---

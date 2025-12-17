@@ -677,7 +677,7 @@ layout: two-cols-header
 
 </v-click>
 
----
+<!-- ---
 
 # אי-שקילות בין $\mathbb{N}$ לקבוצת החזקה שלו
 
@@ -759,4 +759,5 @@ layout: two-cols-header
 **צעד:** נניח נכון ל-$n$, נוכיח ל-$n+1$:
 $$\sum_{i=0}^{n+1} 2^i = \left(\sum_{i=0}^{n} 2^i\right) + 2^{n+1} = (2^{n+1} - 1) + 2^{n+1} = 2 \cdot 2^{n+1} - 1 = 2^{n+2} - 1$$ ✓
 
-</v-click>
+</v-click> -->
+ 

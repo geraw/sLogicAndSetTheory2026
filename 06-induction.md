@@ -240,8 +240,122 @@ $$|A \cup B| = |A| + |B|$$
 
 
 ---
+
+# גודל המכפלה הקרטזית
+
+**טענה:** אם $A,B$ קבוצות סופיות, אז:
+$$|A \times B| = |A| \cdot |B|$$
+
+<v-click>
+
+**הוכחה:**
+- נסמן $|A|=n$ ו-$|B|=m$.
+- קיימות פונקציות חח"ע ועל $f \colon A \to \mathbb{N}^{<n}$ ו-$g \colon B \to \mathbb{N}^{<m}$.
+- נגדיר פונקציה $h \colon A \times B \to \mathbb{N}^{<nm}$ באופן הבא:
+  $$ h(a,b) = f(a) \cdot m + g(b) $$
+- זהו בדיוק המיקום הסידורי של $(a,b)$ בטבלה בגודל $n \times m$ (כשסופרים שורה אחר שורה).
+- מכיוון שהצגה של מספר עם שארית וחלוקה היא יחידה (משפט החילוק עם שארית), $h$ היא חח"ע ועל.
+- לכן $|A \times B| = n \cdot m$.
+
+<img src="/images/מכפלה קרטזית.png" class="absolute bottom-15 left-20 w-150" />
+<div class="absolute top-60 left-20 w-60 flex flex-col items-center">
+  <img src="/images/cartesian_product_mapping.png" class="w-full" />
+  <div class="text-sm font-bold -mt-62   text-center bg-white/90 rounded px-2 shadow-sm text-black">מעבר על טבלה <br> כשסופרים שורה שורה</div>
+</div>
+
+</v-click>
+
+
+---
+
+# גודל קבוצת החזקה
+
+**טענה:** אם $|A| = n$, אז $|\mathcal{P}(A)| = 2^n$.
+
+<v-click>
+
+**רעיון הוכחה:**
+- נזכיר: מספר הפונקציות מ-$A$ ל-$\{0,1\}$ הוא $2^{|A|} = 2^n$.
+- נבנה התאמה חח"ע ועל $H$ בין $\mathcal{P}(A)$ לבין קבוצת הפונקציות $\{0,1\}^A$.
+- לכל תת-קבוצה $B \subseteq A$, נגדיר פונקציה מציינת $\chi_B \colon A \to \{0,1\}$:
+  $$ \chi_B(x) = \begin{cases} 1 & x \in B \\ 0 & x \notin B \end{cases} $$
+- קל לראות ש-$H(B) = \chi_B$ חח"ע ועל (כל פונקציה מגדירה תת-קבוצה באופן יחיד).
+- לכן מספר התת-קבוצות שווה למספר הפונקציות, שהוא $2^n$.
+
+<div class="absolute top-60 left-20 w-80 flex flex-col items-center">
+  <div class="text-sm font-bold -mb-5 text-center bg-white/90 rounded px-2 shadow-sm text-black">
+  
+  פונקציה מציינת $\chi_B$ עבור קבוצה $B$
+  </div>
+  <img src="/images/characteristic_function_chi.png" class="w-50" />
+</div>
+
+</v-click>
+
+
+---
 layout: TwoColsHeaderCustom
 section: אינדוקציה
+---
+
+# הוספת איבר לקבוצה סופית
+
+**טענה:** תהי $A$ קבוצה סופית בגודל $n$, ויהי $x \notin A$. אזי הקבוצה $A \cup \{x\}$ היא בגודל $n+1$.
+
+<v-click>
+
+**הוכחה:**
+- נתון ש-$|A|=n$, לכן קיימת פונקציה חח"ע ועל $f \colon A \to \mathbb{N}^{<n}$.
+- נגדיר פונקציה $g \colon A \cup \{x\} \to \mathbb{N}^{<n+1}$ באופן הבא:
+  $$ g(z) = \begin{cases} f(z) & z \in A \\ n & z = x \end{cases} $$
+
+- הפונקציה מוגדרת היטב כי $x \notin A$.
+
+</v-click>
+
+
+::left:: 
+<v-click> 
+
+- **חח"ע:** אם $g(z_1) = g(z_2)$:
+  - אם התמונה היא $n$, אז בהכרח המקור הוא $x$.
+  - אם התמונה ב-$\mathbb{N}^{<n}$, המקור ב-$A$ והחח"ע נובעת מ-$f$.
+
+</v-click>
+
+::right::
+
+<v-click>
+
+- **על:**
+  - $n$ מתקבל מ-$x$.
+  - כל מספר ב-$\mathbb{N}^{<n}$ מתקבל מאיבר ב-$A$ (כי $f$ על).
+
+  <img src="/images/function_g_element_addition.png" class="absolute top-40 left-10 w-70 " />
+
+</v-click>
+
+::after:: 
+<v-click >
+
+<div style="margin-top:0px;">
+<!-- - לכן $|A \cup \{x\}| = n+1$. -->
+</div>
+
+</v-click>
+
+<v-click>
+
+<div class="text-center mt-2  text-yellow-300 bg-red-600" style="margin-top:-px;">
+
+האם זה אומר שקיימת קבוצה מכל גודל $n \in \mathbb{N}$?
+
+</div>
+ 
+</v-click>
+
+---
+layout: TwoColsHeaderCustom
 ---
 
 # אינסוף גרירות
@@ -346,9 +460,10 @@ $$\mathbb{N}^{<n} \subseteq A \implies \mathbb{N}^{<n+1} \subseteq A$$
 
 <v-click>
 
-**דוגמה:** תהי $F_n$ סדרת פיבונאצ'י 
+<div style="margin-top:-15px;"/>
 
-(הסדרה מוגדרת באופן הבא: $F_0=0, F_1=1, F_n = F_{n-1} + F_{n-2}$). 
+
+**דוגמה:** תהי $F_n$ סדרת פיבונאצ'י ($F_0{=}0, F_1{=}1, F_n{=}F_{n-1} + F_{n-2}$).
 
 **טענה:** לכל $n \in \mathbb{N}$, מתקיים $F_n < 2^n$.
 
@@ -356,13 +471,13 @@ $$\mathbb{N}^{<n} \subseteq A \implies \mathbb{N}^{<n+1} \subseteq A$$
 - נסמן $A = \{n \in \mathbb{N} \mid F_n < 2^n\}$.
 - יהי $n \in \mathbb{N}$. נניח ש-$\mathbb{N}^{<n} \subseteq A$.
 - נוכיח ש-$\mathbb{N}^{<n+1} \subseteq A$:
-    - מכיוון ש-$\mathbb{N}^{<n+1} = \mathbb{N}^{<n} \cup \{n\}$, ומתוך ההנחה, מספיק להראות ש-$n \in A$:
+    - מכיוון ש-$\mathbb{N}^{<n+1} = \mathbb{N}^{<n} \cup \{n\}$, מספיק להראות ש-$n \in A$:
       - **עבור $n=0$:** $0 < 1$ ✓
       - **עבור $n=1$:** $1 < 2$ ✓
       - **עבור $n \ge 2$:** $F_n = F_{n-1} + F_{n-2}$
         $$< 2^{n-1} + 2^{n-2} < 2^{n-1} + 2^{n-1} = 2^n$$
     - הראנו ש-$n \in A$, ולכן $\mathbb{N}^{<n+1} \subseteq A$.
-- לפי האינדוקציה השלמה $A = \mathbb{N}$.
+- לפי עיקרון האינדוקציה השלמה $A = \mathbb{N}$.
 
 </v-click>
 
@@ -377,21 +492,19 @@ $$\mathbb{N}^{<n} \subseteq A \implies \mathbb{N}^{<n+1} \subseteq A$$
 
 **הוכחה באינדוקציה שלמה:**
 
-**בסיס:** $n=2$. המספר 2 הוא ראשוני, לכן $2 = 2$ (פירוק טריוויאלי). ✓
+**הוכחה (בנייה לפי ההגדרה):**
 
-</v-click>
-
-<v-click>
-
-**צעד אינדוקטיבי:** 
-- נניח שהטענה נכונה לכל $k$ כך ש-$2 \le k < n$.
-- נוכיח עבור $n$:
-
-  **מקרה 1:** אם $n$ ראשוני, אז $n$ עצמו הפירוק.
-  
-  **מקרה 2:** אם $n$ פריק, אז קיימים $a,b$ כך ש-$n = a \cdot b$ עם $2 \le a,b < n$.
-  - לפי הנחת האינדוקציה, $a$ ו-$b$ ניתנים לפירוק לראשוניים.
-  - לכן $n = a \cdot b$ הוא מכפלת הראשוניים של שני הפירוקים. ✓
+- נסמן $A = \{n \in \mathbb{N} \mid n < 2 \lor \text{ is a product of primes} \}$.
+- יהי $n \in \mathbb{N}$. נניח ש-$\mathbb{N}^{<n} \subseteq A$.
+- נוכיח ש-$n \in A$:
+    - **מקרה 1 ($n < 2$):** לפי ההגדרה, $n \in A$ באופן טריוויאלי.
+    - **מקרה 2 ($n \ge 2$ ראשוני):** $n$ הוא מכפלה של ראשוני אחד (עצמו), לכן $n \in A$.
+    - **מקרה 3 ($n \ge 2$ פריק):** קיים פירוק $n = a \cdot b$ כאשר $2 \le a,b < n$.
+        - מכיוון ש-$a,b < n$, נובע ש-$a,b \in \mathbb{N}^{<n}$.
+        - לפי הנחת האינדוקציה, $\mathbb{N}^{<n} \subseteq A$, ולכן $a,b \in A$.
+        - מכיוון שהם $\ge 2$, הם מכפלה של ראשוניים. לכן גם מכפלתם $n$ היא כזו.
+    - בכל המקרים $n \in A$, ולכן $\mathbb{N}^{<n+1} \subseteq A$.
+- לפי עיקרון האינדוקציה השלמה, $A = \mathbb{N}$.
 
 </v-click>
 

@@ -506,6 +506,8 @@ $$\mathbb{N}^{<n} \subseteq A \implies \mathbb{N}^{<n+1} \subseteq A$$
     - בכל המקרים $n \in A$, ולכן $\mathbb{N}^{<n+1} \subseteq A$.
 - לפי עיקרון האינדוקציה השלמה, $A = \mathbb{N}$.
 
+<img src="/images/prime_factorization_tree.png" class="absolute bottom-5 left-10 w-60 transform rotate-5" />
+
 </v-click>
 
 ---

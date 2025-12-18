@@ -512,6 +512,32 @@ $$\mathbb{N}^{<n} \subseteq A \implies \mathbb{N}^{<n+1} \subseteq A$$
 </v-click>
 
 ---
+
+# האם שתי הגרסאות של אקסיומת האינדוקציה שקולות זו לזו?
+
+<div class="text-center mt-10 text-7">
+
+$$
+\forall A \subseteq \mathbb{N} \left( [0 \in A \land \forall n \in \mathbb{N} (\textcolor{blue}{n \in A} \to n+1 \in A)] \to A = \mathbb{N} \right)
+$$
+
+<div class="my-10 text-4xl text-blue-200 font-bold">
+
+$\textcolor{blue}{\Updownarrow\quad ? }$ 
+</div>
+
+$$
+\forall A \subseteq \mathbb{N} \left( \forall n \in \mathbb{N} (\textcolor{blue}{\mathbb{N}^{<n} \subseteq A} \to \mathbb{N}^{<n+1} \subseteq A) \to A = \mathbb{N} \right)
+$$
+
+
+
+</div>
+
+<img src="/images/induction_comparison_logic_hebrew.png" class="absolute bottom-10 left-1/2 w-70 h-55 transform -translate-x-1/2" />
+
+
+---
 layout: two-cols-header
 ---
 

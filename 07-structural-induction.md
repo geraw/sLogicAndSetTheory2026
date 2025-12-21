@@ -148,6 +148,10 @@ layout: TwoColsHeaderCustom
 
 **אינדוקציה מבנית** היא הכלי המרכזי להוכחת תכונות על מבנים אלו.
 
+<div class="absolute bottom-40 left-20">
+  <img src="/cs_digital_construction_site.png" class="h-80" />
+</div>
+
 
 ---
 
@@ -206,6 +210,10 @@ layout: two-cols-header
     - סה"כ: הצדדים שווים ✓
 
 **מסקנה:** התכונה מתקיימת לכל פסוק ב-$\mathrm{PROP}(Atoms)$.
+
+<div class="flex justify-center mt-4">
+  <img src="/prop_parentheses_balance_scale.png" class="h-40" />
+</div>
 
 ---
 

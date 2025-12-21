@@ -171,37 +171,41 @@ layout: TwoColsHeaderCustom
 - $((P \land Q) \to (\neg R))$ - פסוק תקין.
 - $P \land Q$ - אינו פסוק לפי ההגדרה הפורמלית (חסרים סוגריים).
 
+<div class="absolute bottom-20 left-15">
+  <img src="/prop_formula_construction_kit.png" class="h-60" />
+</div>
+
 ---
 layout: two-cols-header
 ---
 
 # הוכחה באינדוקציה מבנית: איזון סוגריים
 
-**טענה:** בכל פסוק $\phi \in PROP$, מספר הסוגריים הימניים שווה למספר הסוגריים השמאליים.
+**טענה:** בכל פסוק $\phi \in \mathrm{PROP}(Atoms)$, מספר הסוגריים הימניים שווה למספר הסוגריים השמאליים.
 
 ::left::
 
 **הוכחה:**
 נגדיר תכונה $T(\phi)$: $L(\phi) = R(\phi)$.
 
-1.  **בסיס:** עבור אטום $P$:
-    - $L(P) = 0, R(P) = 0$.
+1.  **בסיס:** עבור אטום $p \in Atoms$:
+    - $L(p) = 0, R(p) = 0$.
     - $0=0$ ✓
 
-2.  **צעד (שלילה):** נניח $T(\phi)$. נבדוק עבור $(\neg \phi)$:
-    - $L((\neg \phi)) = 1 + L(\phi)$.
-    - $R((\neg \phi)) = R(\phi) + 1$.
-    - מהנחה $L(\phi)=R(\phi)$, לכן $1+L(\phi) = R(\phi)+1$ ✓
+2.  **צעד (שלילה):** נניח $T(\phi)$. נבדוק עבור $\neg \phi$:
+    - $L(\neg \phi) = L(\phi)$.
+    - $R(\neg \phi) = R(\phi)$.
+    - מההנחה $L(\phi)=R(\phi)$, ולכן השוויון נשמר. ✓
 
 ::right::
 
-3.  **צעד (בינארי):** נניח $T(\phi)$ ו-$T(\psi)$. נבדוק עבור $(\phi \land \psi)$:
-    - $L((\phi \land \psi)) = 1 + L(\phi) + L(\psi)$.
-    - $R((\phi \land \psi)) = R(\psi) + R(\phi) + 1$.
+3.  **צעד (בינארי):** נניח $T(\phi)$ ו-$T(\psi)$. נבדוק עבור $(\phi \circ \psi)$ כאשר $\circ \in \{\land, \lor, \to\}$:
+    - $L((\phi \circ \psi)) = 1 + L(\phi) + L(\psi)$.
+    - $R((\phi \circ \psi)) = R(\phi) + R(\psi) + 1$.
     - מההנחות $L(\phi)=R(\phi)$ ו-$L(\psi)=R(\psi)$.
     - סה"כ: הצדדים שווים ✓
 
-**מסקנה:** התכונה מתקיימת לכל פסוק ב-$PROP$.
+**מסקנה:** התכונה מתקיימת לכל פסוק ב-$\mathrm{PROP}(Atoms)$.
 
 ---
 

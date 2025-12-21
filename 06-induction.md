@@ -493,50 +493,28 @@ $$\mathbb{N}^{<n} \subseteq A \implies \mathbb{N}^{<n+1} \subseteq A$$
 <div style="margin-top:-15px;"/>
 
 
-**דוגמה:** תהי $F_n$ סדרת פיבונאצ'י ($F_0{=}0, F_1{=}1, F_n{=}F_{n-1} + F_{n-2}$).
+**דוגמה:** המשפט היסודי של האריתמטיקה.
 
-**טענה:** לכל $n \in \mathbb{N}$, מתקיים $F_n < 2^n$.
+**טענה:** כל $n \ge 2$ הוא מכפלת ראשוניים.
 
-**הוכחה:** 
-- נסמן $A = \{n \in \mathbb{N} \mid F_n < 2^n\}$.
-- יהי $n \in \mathbb{N}$. נניח ש-$\mathbb{N}^{<n} \subseteq A$.
-- נוכיח ש-$\mathbb{N}^{<n+1} \subseteq A$:
-    - מכיוון ש-$\mathbb{N}^{<n+1} = \mathbb{N}^{<n} \cup \{n\}$, מספיק להראות ש-$n \in A$:
-      - **עבור $n=0$:** $0 < 1$ ✓
-      - **עבור $n=1$:** $1 < 2$ ✓
-      - **עבור $n \ge 2$:** $F_n = F_{n-1} + F_{n-2}$
-        $$< 2^{n-1} + 2^{n-2} < 2^{n-1} + 2^{n-1} = 2^n$$
-    - הראנו ש-$n \in A$, ולכן $\mathbb{N}^{<n+1} \subseteq A$.
-- לפי עיקרון האינדוקציה השלמה $A = \mathbb{N}$.
+**הוכחה:**
+- נסמן $A = \{n \in \mathbb{N} \mid n < 2 \lor \text{ מכפלת ראשוניים} \}$.
 
-</v-click>
+- יהי $n \in \mathbb{N}$. נניח ש-$\mathbb{N}^{<n} \subseteq A$. נוכיח ש-$n \in A$:
+  - **אם $n < 2$:** $n \in A$ טריוויאלי.
+  - **אם $n$ ראשוני:** $n$ מכפלה של עצמו ולכן $n \in A$.
+  - **אם $n$ פריק:** $n = a \cdot b$ עם $2 \le a,b < n$.
+      - כיוון ש-$a,b < n$, הרי ש-$a,b \in \mathbb{N}^{<n} \subseteq A$.
+      - לכן $a,b$ מכפלת ראשוניים $\Longleftarrow$ $n$ כזה.
+- לכן $A = \mathbb{N}$.
 
----
-
-
-# דוגמה לאינדוקציה שלמה: המשפט היסודי של האריתמטיקה
-
-**טענה:** כל מספר טבעי $n \ge 2$ ניתן לפירוק למכפלת מספרים ראשוניים.
-
-<v-click>
-
-**הוכחה באינדוקציה שלמה:**
-
-- נסמן $A = \{n \in \mathbb{N} \mid n < 2 \lor \text{ is a product of primes} \}$.
-- יהי $n \in \mathbb{N}$. נניח ש-$\mathbb{N}^{<n} \subseteq A$.
-- נוכיח ש-$n \in A$:
-    - **מקרה 1 ($n < 2$):** לפי ההגדרה, $n \in A$ באופן טריוויאלי.
-    - **מקרה 2 ($n \ge 2$ ראשוני):** $n$ הוא מכפלה של ראשוני אחד (עצמו), לכן $n \in A$.
-    - **מקרה 3 ($n \ge 2$ פריק):** קיים פירוק $n = a \cdot b$ כאשר $2 \le a,b < n$.
-        - מכיוון ש-$a,b < n$, נובע ש-$a,b \in \mathbb{N}^{<n}$.
-        - לפי הנחת האינדוקציה, $\mathbb{N}^{<n} \subseteq A$, ולכן $a,b \in A$.
-        - מכיוון שהם $\ge 2$, הם מכפלה של ראשוניים. לכן גם מכפלתם $n$ היא כזו.
-    - בכל המקרים $n \in A$, ולכן $\mathbb{N}^{<n+1} \subseteq A$.
-- לפי עיקרון האינדוקציה השלמה, $A = \mathbb{N}$.
-
-<img src="/images/prime_factorization_comic.png" class="absolute bottom-20 left-10 w-60 transform rotate-5" />
+<div class="absolute bottom-10 left-5 w-40">
+  <img src="/images/prime_factorization_comic.png" class="w-full transform rotate-5" />
+</div>
 
 </v-click>
+
+
 
 ---
 
@@ -687,6 +665,30 @@ layout: two-cols-header
   - $f(n+1) = (n+1) \cdot f(n)$
 
 <img src="/images/recursive_definition_hebrew.png" class="absolute bottom-10 left-10 w-60 rounded-lg shadow-lg" />
+
+</v-click>
+
+---
+
+# דוגמה: חסם לסדרת פיבונאצ'י
+
+**הגדרה:** סדרת פיבונאצ'י מוגדרת: $F_0=0, F_1=1, F_{n} = F_{n-1} + F_{n-2}$.
+
+**טענה:** לכל $n \in \mathbb{N}$, מתקיים $F_n < 2^n$.
+
+<v-click>
+
+**הוכחה באינדוקציה שלמה:** 
+- נסמן $A = \{n \in \mathbb{N} \mid F_n < 2^n\}$.
+- יהי $n \in \mathbb{N}$. נניח ש-$\mathbb{N}^{<n} \subseteq A$.
+- נוכיח ש-$\mathbb{N}^{<n+1} \subseteq A$:
+    - מכיוון ש-$\mathbb{N}^{<n+1} = \mathbb{N}^{<n} \cup \{n\}$, מספיק להראות ש-$n \in A$:
+      - **עבור $n=0$:** $0 < 1$ ✓
+      - **עבור $n=1$:** $1 < 2$ ✓
+      - **עבור $n \ge 2$:** $F_n = F_{n-1} + F_{n-2}$
+        $$< 2^{n-1} + 2^{n-2} < 2^{n-1} + 2^{n-1} = 2^n$$
+    - הראנו ש-$n \in A$, ולכן $\mathbb{N}^{<n+1} \subseteq A$.
+- לפי עיקרון האינדוקציה השלמה $A = \mathbb{N}$.
 
 </v-click>
 

@@ -424,6 +424,7 @@ layout: two-cols-header
 
 **הוכחה:**
 - נגדיר $A = \{n \in \mathbb{N} \mid \sum_{i=0}^{n} i = \frac{n(n+1)}{2}\}$.
+
 - **בסיס:** עבור $n=0$, הסכום הוא 0 והנוסחה נותנת $\frac{0(1)}{2} = 0$. לכן $0 \in A$.
 - **צעד:** נניח $n \in A$. נוכיח $n+1 \in A$:
   $$\sum_{i=0}^{n+1} i = \left(\sum_{i=0}^{n} i\right) + (n+1) = \frac{n(n+1)}{2} + (n+1) = \frac{(n+1)(n+2)}{2}$$
@@ -435,6 +436,45 @@ layout: two-cols-header
 </div>
 
 </v-click>
+
+---
+
+# קבוצת החזקה של קבוצה סופית
+
+**טענה:** אם $|A| = n$, אז $|\mathcal{P}(A)| = 2^n$.
+
+<v-click>
+
+**הוכחה באינדוקציה על $n$:**
+
+**בסיס:** $n=0$, כלומר $A = \emptyset$.
+- $\mathcal{P}(\emptyset) = \{\emptyset\}$, ולכן $|\mathcal{P}(\emptyset)| = 1 = 2^0$ ✓
+
+</v-click>
+
+<v-click>
+
+**צעד אינדוקטיבי:** 
+- נניח שהטענה נכונה לקבוצה $A$ בת $n$ איברים.
+
+- תהי $B$ קבוצה בת $n+1$ איברים. נבחר $b \in B$ ונסמן $A = B \setminus \{b\}$.
+- כל תת-קבוצה $X \subseteq B$ היא מאחד משני טיפוסים:
+  1. $b \notin X$: אז $X \subseteq A$ (יש $2^n$ כאלה לפי הנחת האינדוקציה)
+  2. $b \in X$: אז $X = Y \cup \{b\}$ כאשר $Y \subseteq A$ (יש $2^n$ כאלה)
+- סה"כ: $|\mathcal{P}(B)| = 2^n + 2^n = 2 \cdot 2^n = 2^{n+1}$ ✓
+
+</v-click>
+
+
+<v-click>
+
+<div class="absolute bottom-10 left-10 w-80">
+  <img src="/images/power_set_induction_proof.png" class="w-full rounded-lg shadow-lg" />
+</div>
+
+</v-click>
+
+
 
 ---
 
@@ -643,6 +683,8 @@ layout: two-cols-header
 - לכן $S = \emptyset$.
 
 ---
+section: הגדרה רקורסיבית
+---
 
 # הגדרה רקורסיבית
 
@@ -651,7 +693,7 @@ layout: two-cols-header
 תהי $A$ קבוצה, יהי $c \in A$ איבר, ותהי $g \colon \mathbb{N} \times A \to A$ פונקציה.
 אזי קיימת פונקציה יחידה $f \colon \mathbb{N} \to A$ המקיימת:
 1. **תנאי התחלה:** $f(0) = c$
-2. **צעד האינדוקציה:** לכל $n \in \mathbb{N}$, $f(n+1) = g(n, f(n))$.
+2. **צעד הרקורסיה:** לכל $n \in \mathbb{N}$, $f(n+1) = g(n, f(n))$.
 
 <v-click>
 
@@ -665,6 +707,28 @@ layout: two-cols-header
   - $f(n+1) = (n+1) \cdot f(n)$
 
 <img src="/images/recursive_definition_hebrew.png" class="absolute bottom-10 left-10 w-60 rounded-lg shadow-lg" />
+
+</v-click>
+
+---
+
+# הוכחת משפט ההגדרה הרקורסיבית
+
+**יחידות:**
+- נניח שיש שתי פונקציות $f_1, f_2$ המקיימות את התנאים.
+- נוכיח באינדוקציה ש-$f_1(n) = f_2(n)$ לכל $n$.
+    - **בסיס:** $f_1(0) = c = f_2(0)$.
+    - **צעד:** נניח $f_1(n) = f_2(n)$. אזי: <br> <span style="display:inline-block; width:6cm;"></span> $f_1(n+1) = g(n, f_1(n)) = g(n, f_2(n)) = f_2(n+1)$
+- לכן $f_1 = f_2$.
+
+<v-click>
+
+**קיום (בנייה באמצעות קירובים):**
+- נגדיר "חישוב חלקי" באורך $k$ כפונקציה $h_k: \{0,\ldots,k\} \to A$ המקיימת את התנאים לכל $n < k$.
+- מוכיחים באינדוקציה ש**לכל $k$ קיים חישוב חלקי יחיד** $h_k$.
+- מתכונת היחידות נובע שכל חישוב מרחיב את קודמיו: $h_0 \subset h_1 \subset h_2 \subset \ldots$
+- נגדיר $f = \bigcup \{h_k \mid k \in \mathbb{N}\}$.
+- $f$ היא פונקציה המוגדרת לכל $n$ ומקיימת את תנאי הרקורסיה.
 
 </v-click>
 
@@ -690,33 +754,16 @@ layout: two-cols-header
     - הראנו ש-$n \in A$, ולכן $\mathbb{N}^{<n+1} \subseteq A$.
 - לפי עיקרון האינדוקציה השלמה $A = \mathbb{N}$.
 
-</v-click>
-
----
-
-# דוגמה 1: סכום מספרים אי-זוגיים
-
-**הגדרה:** נגדיר $S(n)$ כסכום $n$ המספרים האי-זוגיים הראשונים בצורה רקורסיבית:
-- **תנאי התחלה:** $S(0) = 0$
-- **צעד:** $S(n+1) = S(n) + (2n+1)$
-
-**טענה:** לכל $n \ge 0$, $S(n) = n^2$.
-
-<v-click>
-
-**הוכחה באינדוקציה:**
-- **בסיס:** $S(0) = 0 = 0^2$. נכון.
-- **צעד:** נניח $S(n) = n^2$. נוכיח עבור $n+1$:
-  $$ S(n+1) = S(n) + (2n+1) = n^2 + 2n + 1 = (n+1)^2 $$
-- לכן הנוסחה נכונה לכל $n$.
-
-<img src="/images/sum_of_odds_comic.png" class="absolute top-40 left-10 w-60" />
+<div class="absolute top-25 left-5 w-55 text-center">
+  <img src="/images/fibonacci_portrait.png" class="w-full rounded-lg shadow-lg mb-2" />
+  <div class="text-xs font-serif text-gray-700">ליאונרדו פיבונאצ'י<br>(c. 1170 – c. 1250)</div>
+</div>
 
 </v-click>
 
 ---
 
-# דוגמה 2: סכום איברי סדרת פיבונאצ'י
+# דוגמה: סכום איברי סדרת פיבונאצ'י
 
 **הגדרה:** סדרת פיבונאצ'י מוגדרת: $F_0=0, F_1=1, F_{n+2} = F_{n+1} + F_n$.
 
@@ -738,7 +785,29 @@ layout: two-cols-header
 
 ---
 
-# דוגמה לשימוש בעקרון הסדר הטוב
+# דוגמה: סכום מספרים אי-זוגיים
+
+**הגדרה:** נגדיר $S(n)$ כסכום $n$ המספרים האי-זוגיים הראשונים בצורה רקורסיבית:
+- **תנאי התחלה:** $S(0) = 0$
+- **צעד:** $S(n+1) = S(n) + (2n+1)$
+
+**טענה:** לכל $n \ge 0$, $S(n) = n^2$.
+
+<v-click>
+
+**הוכחה באינדוקציה:**
+- **בסיס:** $S(0) = 0 = 0^2$. נכון.
+- **צעד:** נניח $S(n) = n^2$. נוכיח עבור $n+1$:
+  $$ S(n+1) = S(n) + (2n+1) = n^2 + 2n + 1 = (n+1)^2 $$
+- לכן הנוסחה נכונה לכל $n$.
+
+<img src="/images/sum_of_odds_comic.png" class="absolute top-40 left-10 w-60" />
+
+</v-click>
+
+---
+
+# דוגמה: שימוש ישיר בעקרון הסדר הטוב
 
 **טענה:** כל מספר טבעי $n \ge 2$ ניתן לרישום בבסיס 2 (בינארי).
 
@@ -755,33 +824,6 @@ layout: two-cols-header
 - מכיוון ש-$m \ge 2$, אפשר לכתוב $m = 2q + r$ כאשר $r \in \{0,1\}$ ו-$q < m$.
 - מכיוון ש-$q < m$, המספר $q$ ניתן לרישום בבסיס 2: $q = (b_k b_{k-1} \cdots b_1 b_0)_2$.
 - לכן $m = 2q + r = (b_k b_{k-1} \cdots b_1 b_0 r)_2$ - סתירה למינימליות של $m$!
-
-</v-click>
-
----
-
-# קבוצת החזקה של קבוצה סופית
-
-**טענה:** אם $|A| = n$, אז $|\mathcal{P}(A)| = 2^n$.
-
-<v-click>
-
-**הוכחה באינדוקציה על $n$:**
-
-**בסיס:** $n=0$, כלומר $A = \emptyset$.
-- $\mathcal{P}(\emptyset) = \{\emptyset\}$, ולכן $|\mathcal{P}(\emptyset)| = 1 = 2^0$ ✓
-
-</v-click>
-
-<v-click>
-
-**צעד אינדוקטיבי:** 
-- נניח שהטענה נכונה לקבוצה $A$ בת $n$ איברים.
-- תהי $B$ קבוצה בת $n+1$ איברים. נבחר $b \in B$ ונסמן $A = B \setminus \{b\}$.
-- כל תת-קבוצה $X \subseteq B$ היא מאחד משני טיפוסים:
-  1. $b \notin X$: אז $X \subseteq A$ (יש $2^n$ כאלה לפי הנחת האינדוקציה)
-  2. $b \in X$: אז $X = Y \cup \{b\}$ כאשר $Y \subseteq A$ (יש $2^n$ כאלה)
-- סה"כ: $|\mathcal{P}(B)| = 2^n + 2^n = 2 \cdot 2^n = 2^{n+1}$ ✓
 
 </v-click>
 

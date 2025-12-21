@@ -447,28 +447,26 @@ layout: two-cols-header
 
 **הוכחה באינדוקציה על $n$:**
 
-**בסיס:** $n=0$, כלומר $A = \emptyset$.
-- $\mathcal{P}(\emptyset) = \{\emptyset\}$, ולכן $|\mathcal{P}(\emptyset)| = 1 = 2^0$ ✓
+**בסיס ($n=0$):** $A = \emptyset$, $\mathcal{P}(A) = \{\emptyset\}$. נגדיר $h(\emptyset) = 0$. $h \colon \mathcal{P}(\emptyset) \to \mathbb{N}^{<1}$ חח"ע ועל.
 
 </v-click>
 
 <v-click>
 
-**צעד אינדוקטיבי:** 
-- נניח שהטענה נכונה לקבוצה $A$ בת $n$ איברים.
-
-- תהי $B$ קבוצה בת $n+1$ איברים. נבחר $b \in B$ ונסמן $A = B \setminus \{b\}$.
-- כל תת-קבוצה $X \subseteq B$ היא מאחד משני טיפוסים:
-  1. $b \notin X$: אז $X \subseteq A$ (יש $2^n$ כאלה לפי הנחת האינדוקציה)
-  2. $b \in X$: אז $X = Y \cup \{b\}$ כאשר $Y \subseteq A$ (יש $2^n$ כאלה)
-- סה"כ: $|\mathcal{P}(B)| = 2^n + 2^n = 2 \cdot 2^n = 2^{n+1}$ ✓
+**צעד ($n \to n+1$):**
+- נניח שלכל קבוצה $A$ בגודל $n$, קיימת חח"ע ועל $f \colon \mathcal{P}(A) \to \mathbb{N}^{<2^n}$.
+- תהי $B$ בגודל $n+1$. נבחר $b \in B$ ונסמן $A = B \setminus \{b\}$ (גודל $n$).
+- נגדיר $g \colon \mathcal{P}(B) \to \mathbb{N}^{<2^{n+1}}$ ע"י:
+  $$ g(X) = \begin{cases} f(X) & b \notin X \\ f(X \setminus \{b\}) + 2^n & b \in X \end{cases} $$
+- קל לוודא ש-$g$ חח"ע ועל (ממפה את תתי-הקבוצות ללא $b$ לחצי הראשון, ואת אלו עם $b$ לחצי השני).
+- לכן $|\mathcal{P}(B)| = 2^{n+1}$.
 
 </v-click>
 
 
 <v-click>
 
-<div class="absolute bottom-10 left-10 w-80">
+<div class="absolute bottom-50 left-10 w-80">
   <img src="/images/power_set_induction_proof.png" class="w-full rounded-lg shadow-lg" />
 </div>
 

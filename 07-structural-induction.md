@@ -12,52 +12,156 @@ exportFilename: 07-structural-induction.pdf
 transition: slide
 ---
 
-# אינדוקציה מבנית ולוגיקה
+# אינדוקציה מבנית
 
 ## הרצאה בקורס: מבוא ללוגיקה ותורת הקבוצות
 
  מרצה: פרופ. גרא וייס
 
+
 ---
-layout: two-cols-header
+
+# הגדרה רקורסיבית של $\mathrm{Fin}(\mathbb N)$
+ 
+
+$\mathrm{Fin}(\mathbb N)$ היא הקבוצה של כל תתי־הקבוצות הסופיות של $\mathbb N$.
+נגדיר אותה כבנייה אינדוקטיבית (מבנית):
+
+
+## שלב בסיס
+
+$$
+\emptyset \in \mathrm{Fin}(\mathbb N)
+$$
+
+
+## צעד בנייה
+לכל $A \in \mathrm{Fin}(\mathbb N)$ ולכל $n\in\mathbb N$:
+$$
+A \cup \{n\} \in \mathrm{Fin}(\mathbb N)
+$$
+
+
+## אינטואיציה
+מתחילים מ־$\emptyset$  
+ומוסיפים איברים אחד־אחד - מספר סופי של פעמים.
+
 ---
 
-# הגדרה באינדוקציה מבנית של $\mathbb{N}$
+# אינדוקציה מבנית על $\mathrm{Fin}(\mathbb N)$
 
-**הגדרה:** נגדיר את הקבוצה $N_{ind}$ (המספרים הטבעיים האינדוקטיביים) באופן הבא:
+כדי להוכיח תכונה $P(A)$ לכל $A\in\mathrm{Fin}(\mathbb N)$ מספיק:
 
-1.  **בסיס:** $0 \in N_{ind}$.
-2.  **צעד:** לכל $n \in N_{ind}$, מתקיים $S(n) \in N_{ind}$ (כאשר $S(n) = n+1$).
-3.  **סגג:** $N_{ind}$ היא הקבוצה המינימלית המקיימת את 1 ו-2.
+- להוכיח $P(\emptyset)$
+- להראות:
+$
+P(A)\Rightarrow P(A\cup\{n\})
+$
+לכל $A\in\mathrm{Fin}(\mathbb N)$ ולכל $n\in\mathbb N$.
+
+<div class="flex justify-center mt-8">
+  <img src="/fin_n_induction_tree_v4.png" class="h-80" />
+</div> 
+
+---
+
+# דוגמה: כוחה של אינדוקציה מבנית
+
+**טענה:** לכל $A \in \mathrm{Fin}(\mathbb N)$, הקבוצה $A$ היא סופית (קיימת התאמה חח"ע ועל ל-$\mathbb{N}^{<k}$ עבור $k$ כלשהו).
+
+1.  **בסיס ($\emptyset$):**
+    - נבחר $k=0$. מתקיים $\emptyset = \mathbb{N}^{<0}$.
+    - פונקציית הזהות (הריקה) היא חח"ע ועל מ-$\emptyset$ ל-$\mathbb{N}^{<0}$.
+
+2.  **צעד ($A \cup \{n\}$):**
+    - נניח ש-$A$ סופית, כלומר קיימת $f: A \to \mathbb{N}^{<k}$ חח"ע ועל.
+    - **מקרה א ($n \in A$):** $A \cup \{n\} = A$, ולכן היא סופית (עם אותה $f$ ו-$k$).
+    - **מקרה ב ($n \notin A$):** נגדיר $g: A \cup \{n\} \to \mathbb{N}^{<k+1}$:
+      $$ g(x) = \begin{cases} f(x) & x \in A \\ k & x = n \end{cases} $$
+    - קל לראות ש-$g$ חח"ע ועל, ולכן $A \cup \{n\}$ סופית (בגודל $k+1$).
+
+
+
+
+
+---
+layout: TwoColsHeaderCustom
+---
+
+# כיוון שני: כל תת-קבוצה סופית היא ב-$\mathrm{Fin}(\mathbb N)$
+
+**טענה:** תהא $A \subseteq \mathbb{N}$. אם $A$ סופית, אז $A \in \mathrm{Fin}(\mathbb{N})$.
+
+**הוכחה:** באינדוקציה (רגילה) על גודל הקבוצה $|A|$.
 
 ::left::
 
-**טענה:** $N_{ind} = \mathbb{N}$ (קבוצת הטבעיים הסטנדרטית).
+**בסיס האינדוקציה:**
+- אם $|A|=0$, אז $A = \emptyset$.
 
-**הוכחה:**
-- **$\mathbb{N} \subseteq N_{ind}$:**
-  - $0 \in N_{ind}$.
-  - נניח $n \in N_{ind}$. לפי הכלל, $S(n) = n+1 \in N_{ind}$.
-  - לפי אינדוקציה מתמטית רגילה, כל $n \in \mathbb{N}$ נמצא ב-$N_{ind}$.
+- לפי הגדרת הבסיס של $\mathrm{Fin}(\mathbb{N})$, מתקיים $\emptyset \in \mathrm{Fin}(\mathbb{N})$.
 
 ::right::
 
-- **$N_{ind} \subseteq \mathbb{N}$:**
-  - $N_{ind}$ מוגדרת כקבוצה *המינימלית* המקיימת את הכללים.
-  - הקבוצה $\mathbb{N}$ מקיימת את הכללים:
-    1. $0 \in \mathbb{N}$.
-    2. אם $n \in \mathbb{N}$ אז $n+1 \in \mathbb{N}$.
-  - לכן, ממינימליות, $N_{ind} \subseteq \mathbb{N}$.
+**צעד האינדוקציה:**
+
+- נניח שהטענה נכונה לכל קבוצה בגודל $k$.
+- תהא $A$ קבוצה בגודל $k+1$.
+- נבחר איבר כלשהו $n \in A$.
+- נגדיר $A' = A \setminus \{n\}$. מתקיים $|A'| = k$.
+- לפי הנחת האינדוקציה, $A' \in \mathrm{Fin}(\mathbb{N})$.
+- לפי כלל הבנייה, $(A' \cup \{n\}) \in \mathrm{Fin}(\mathbb{N})$.
+
+- אבל $A' \cup \{n\} = (A \setminus \{n\}) \cup \{n\} = A$, ולכן $A \in \mathrm{Fin}(\mathbb{N})$.
+
+---
+
+# עקרון האינדוקציה המבנית
+
+**נתון:** קבוצה $S$ המוגדרת ע"י בסיס $B$ ופעולות בנייה $K$.
+
+**כדי להוכיח $\forall x \in S, P(x)$:**
+
+1.  **בסיס:** הוכח $P(b)$ לכל $b \in B$.
+
+2.  **צעד:** לכל $k \in K$, הוכח שהתכונה נשמרת:
+    $$
+    P(x_1) \land \dots \land P(x_m) \implies P(k(x_1, \dots, x_m))
+    $$
+
+**מסקנה:** התכונה מתקיימת לכל איברי הקבוצה.
+
+<div class="absolute bottom-20 left-5">
+  <img src="/general_induction_machine_no_checkerboard.png" class="h-70" />
+</div>
+
+---
+
+# שימוש באינדוקציה במדעי המחשב
+
+במדעי המחשב אנו עוסקים רבות במבנים המוגדרים באופן רקורסיבי:
+- **רשימות** (Lists)
+
+- **עצים** (Trees)
+- **נוסחאות** לוגיות (Formulas)
+- **דקדוקים** (Grammars)
+
+**אינדוקציה מבנית** היא הכלי המרכזי להוכחת תכונות על מבנים אלו.
+
 
 ---
 
 # תחביר תחשיב הפסוקים (Propositional Logic)
 
-**הגדרה:** נגדיר את קבוצת הפסוקים $PROP$ באופן אינדוקטיבי:
+**הגדרה:** תהי $Atoms$ קבוצה של פסוקים אטומים (למשל $\{P, Q, R, \dots\}$).
+נגדיר את קבוצת הפסוקים $\mathrm{PROP}(Atoms)$ באופן אינדוקטיבי:
 
-1.  **אטומים:** לכל $P \in Atoms$, מתקיים $P \in PROP$ (למשל $P, Q, R \ldots$).
-2.  **שלילה:** אם $\phi \in PROP$, אזי $(\neg \phi) \in PROP$.
-3.  **קשרים בינאריים:** אם $\phi, \psi \in PROP$, אזי $(\phi \land \psi) \in PROP$ (וכן עבור $\lor, \to$).
+1.  **אטומים:** לכל $p \in Atoms$, מתקיים $p \in \mathrm{PROP}(Atoms)$.
+2.  **שלילה:** אם $\phi \in \mathrm{PROP}(Atoms)$, אזי $\neg \phi \in \mathrm{PROP}(Atoms)$.
+3.  **קשרים בינאריים:** אם $\phi, \psi \in \mathrm{PROP}(Atoms)$, אזי:
+    - $(\phi \land \psi) \in \mathrm{PROP}(Atoms)$
+    - $(\phi \lor \psi) \in \mathrm{PROP}(Atoms)$
+    - $(\phi \to \psi) \in \mathrm{PROP}(Atoms)$
 
 **הערה:** אנו מקפידים על סוגריים מסביב לכל פעולה בינארית כדי למנוע דו-משמעות.
 

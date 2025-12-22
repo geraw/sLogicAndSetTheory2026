@@ -356,6 +356,152 @@ section: לוגיקה מסדר ראשון
 
 **הערה:** הערך של שם תלוי אך ורק בהשמה למשתנים המופיעים בו.
 
+---
+
+# עדכון השמה (Assignment Modification)
+
+תהי $\sigma \colon V \to M$ השמה, יהי $v \in V$ משתנה ויהי $a \in M$ איבר כלשהו.
+נגדיר **השמה חדשה** המהווה עדכון של $\sigma$, ונסמנה $\sigma[v \mapsto a]$ (או $\sigma[\frac{a}{v}]$), באופן הבא:
+
+$$ \sigma[v \mapsto a](v_i) = \begin{cases} a & v_i = v \\ \sigma(v_i) & v_i \neq v \end{cases} $$
+
+**דוגמה:**
+*   תהי השפה $L=\{+, 0\}$ ויהי המבנה $M = \langle \mathbb{Z}, +, 5 \rangle$ (כלומר הקבוע $0$ מתפרש כמספר $5$).
+*   תהי השמה $\sigma$ המקיימת $\sigma(v_i) = i$.
+*   נסמן $t_1 = v_1 + 0$ ו-$t_2 = v_2$, ו-$t = t_1 + t_2$.
+*   **חישוב עבור $\sigma$:**
+    *   $t_1^M[\sigma] = \sigma(v_1) + 0^M = 1 + 5 = 6$.
+    *   $t_2^M[\sigma] = \sigma(v_2) = 2$.
+    *   $t^M[\sigma] = t_1^M[\sigma] + t_2^M[\sigma] = 6 + 2 = 8$.
+*   **חישוב עבור $\sigma[v_2 \mapsto 5]$:**
+    *   $t_1^M[\sigma[v_2 \mapsto 5]] = \sigma(v_1) + 5 = 1 + 5 = 6$ (ללא שינוי).
+    *   $t_2^M[\sigma[v_2 \mapsto 5]] = 5$ (לפי העדכון).
+    *   $t^M[\sigma[v_2 \mapsto 5]] = 6 + 5 = 11$.
+
+---
+
+# הגדרת יחס הסיפוק (Satisfaction)
+
+יהיו $M$ מבנה-$L$ ו-$\sigma$ השמה.
+נגדיר באינדוקציה את יחס הסיפוק $M \models_\sigma \phi$ ("$M$ מספק את $\phi$ תחת ההשמה $\sigma$") לכל נוסחה $\phi$:
+
+1.  אם $\phi$ היא $t_1 = t_2$:
+    $M \models_\sigma \phi$  אם"ם $t_1^M[\sigma] = t_2^M[\sigma]$.
+2.  אם $\phi$ היא $r(t_1, \dots, t_{n_r})$:
+    $M \models_\sigma \phi$ אם"ם $(t_1^M[\sigma], \dots, t_{n_r}^M[\sigma]) \in r^M$.
+  
+3.  אם $\phi$ היא $\neg \psi$:
+    $M \models_\sigma \phi$ אם"ם לא מתקיים $M \models_\sigma \psi$ (נסמן $M \not\models_\sigma \psi$).
+4.  אם $\phi$ היא $(\psi \land \theta)$:
+    $M \models_\sigma \phi$ אם"ם $M \models_\sigma \psi$ וגם $M \models_\sigma \theta$.
+5.  אם $\phi$ היא $(\psi \lor \theta)$:
+    $M \models_\sigma \phi$ אם"ם $M \models_\sigma \psi$ או $M \models_\sigma \theta$.
+6.  אם $\phi$ היא $\exists v_j \psi$:
+    $M \models_\sigma \phi$ אם"ם קיים $a \in M$ כך ש-$M \models_{\sigma[v_j \mapsto a]} \psi$.
+
+7.  אם $\phi$ היא $\forall v_j \psi$:
+    $M \models_\sigma \phi$ אם"ם לכל $a \in M$ מתקיים $M \models_{\sigma[v_j \mapsto a]} \psi$.
+
+---
+section: גרפים
+---
+
+# מקרה פרטי: שפה עם יחס בינארי יחיד (גרפים)
+
+*   תהי $L = \{E\}$ שפה עם סימן יחס בינארי יחיד ($n_E = 2$).
+*   מבנה-$L$ הוא זוג $M = \langle D, E^M \rangle$, כאשר $E^M \subseteq D \times D$.
+*   מבנה זה נקרא **גרף מכוון** (Directed Graph):
+    *   $D$ היא קבוצת הצמתים.
+    *   $E^M$ הוא יחס הקשתות.
+
+<div class="absolute top-35 left-20">
+  <img src="/directed_graph_example.png" class="h-50" />
+
+    
+  <div class="text-center text-sm">
+    
+  $M=\langle \{1,2,3\}, \{ \langle 1,2\rangle, \langle 2,3\rangle, \langle 3,1\rangle \} \rangle$
+  </div>
+</div>
+
+- ניתן לתאר תכונות של גרפים בשפה שבנינו:
+
+  - **רפלקסיביות (Reflexivity):**
+    <div style="margin-top: -25px;"></div>
+
+    $$\forall x E(x, x)$$
+    
+  - **סימטריות (Symmetry):**
+    <div style="margin-top: -25px;"></div>
+
+    $$\forall x \forall y (E(x, y) \to E(y, x))$$
+
+  - **אנטי-סימטריות (Anti-Symmetry):**
+    <div style="margin-top: -25px;"></div>
+
+    $$\forall x \forall y ((E(x, y) \land E(y, x)) \to x = y)$$
+
+  - **טרנזיטיביות (Transitivity):**
+    <div style="margin-top: -25px;"></div>
+
+    $$\forall x \forall y \forall z ((E(x, y) \land E(y, z)) \to E(x, z))$$
+
+---
+
+# איזומורפיזם של מבנים (Isomorphism)
+
+יהיו $M, N$ שני מבנים לשפה $L$.
+**איזומורפיזם** מ-$M$ ל-$N$ הוא פונקציה חח"ע ועל $\pi \colon M \to N$ המקיימת:
+
+1.  **שימור קבועים:** לכל קבוע $c \in C$, מתקיים $\pi(c^M) = c^N$.
+
+2.  **שימור פונקציות:** לכל $f \in F$ ואיברים $a_1, \dots, a_{n_f} \in M$:
+    $$ \pi(f^M(a_1, \dots, a_{n_f})) = f^N(\pi(a_1), \dots, \pi(a_{n_f})) $$
+
+3.  **שימור יחסים:** לכל $R \in R$ ואיברים $a_1, \dots, a_{n_R} \in M$:
+    $$ (a_1, \dots, a_{n_R}) \in R^M \iff (\pi(a_1), \dots, \pi(a_{n_R})) \in R^N $$
+
+אם קיים איזומורפיזם כזה, נאמר ש-$M$ ו-$N$ **איזומורפיים** ונסמן $M \cong N$.
+איזומורפיזם שומר על המבנה הפנימי, ולכן מבנים איזומורפיים "בלתי ניתנים להבחנה" ע"י השפה.
+
+---
+layout: TwoColsHeaderCustom
+---
+
+
+# שמירת תכונות תחת איזומורפיזם
+
+**טענה:** אם $M \cong N$ (ע"י $\pi$), ו-$E^M$ מקיים תכונה (סימטריות / אנטי-סימטריות), אז גם $E^N$ מקיים אותה.
+
+::left::
+
+**הוכחה (סימטריות):**
+- נניח ש-$E^M$ סימטרי.
+
+- יהיו $a,b \in N$ כך ש-$(a,b) \in E^N$.
+- $\pi$ על $N$, לכן קיימים $x,y \in M$ כך ש-$\pi(x)=a, \pi(y)=b$.
+- מהגדרת איזומורפיזם: $(a,b) \in E^N \iff (x,y) \in E^M$.
+- מכיוון ש-$E^M$ סימטרי, $(y,x) \in E^M$.
+- שוב מהגדרת איזומורפיזם: $(y,x) \in E^M \iff (b,a) \in E^N$.
+- קיבלנו ש-$(b,a) \in E^N$, ולכן $E^N$ סימטרי.
+
+::right::
+
+**הוכחה (אנטי-סימטריות):**
+- נניח ש-$E^M$ אנטי-סימטרי.
+
+- יהיו $a,b \in N$ כך ש-$(a,b) \in E^N$ וגם $(b,a) \in E^N$.
+- קיימים $x,y \in M$ מתאימים (כנ"ל).
+- מהגדרת איזומורפיזם נובע ש-$(x,y) \in E^M$ וגם $(y,x) \in E^M$.
+- מאנטי-סימטריות של $M$, נובע $x=y$.
+- נפעיל את $\pi$: $\pi(x) = \pi(y)$, כלומר $a=b$.
+- ולכן $E^N$ אנטי-סימטרי.
+
+
+
+
+
+
 
 
  

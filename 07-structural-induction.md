@@ -4,8 +4,8 @@ infoLine: true
 author: "גרא וייס"
 title: "אינדוקציה מבנית ולוגיקה"
 htmlAttrs:
-    dir: rtl
-    lang: heb
+  dir: rtl
+  lang: heb
 mdc: true
 download: true
 exportFilename: 07-structural-induction.pdf
@@ -149,7 +149,7 @@ layout: TwoColsHeaderCustom
 **אינדוקציה מבנית** היא הכלי המרכזי להוכחת תכונות על מבנים אלו.
 
 <div class="absolute bottom-40 left-20">
-  <img src="/cs_digital_construction_site.png" class="h-80" />
+  <img src="/bubble_sort_induction.svg" class="h-70" />
 </div>
 
 

@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <!-- Background -->
+  <rect width="800" height="450" fill="white" opacity="0" />
+  
+  <!-- Title/Labels -->
+  <text x="400" y="40" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="#333">מיון בועות: צעד האינדוקציה</text>
+  
+  <!-- Bars Container -->
+  <g transform="translate(100, 100)">
+    
+    <!-- Unsorted Region Label -->
+    <text x="125" y="-20" font-family="Arial, sans-serif" font-size="18" fill="#d9534f" text-anchor="middle">אזור לא ממוין</text>
+    <line x1="0" y1="-10" x2="250" y2="-10" stroke="#d9534f" stroke-width="2" />
+
+    <!-- Sorted Region Label -->
+    <text x="425" y="-20" font-family="Arial, sans-serif" font-size="18" fill="#5cb85c" text-anchor="middle">אזור ממוין (אינווריאנטה)</text>
+    <text x="425" y="0" font-family="Arial, sans-serif" font-size="14" fill="#5cb85c" text-anchor="middle">k האיברים הגדולים</text>
+    <line x1="300" y1="-10" x2="550" y2="-10" stroke="#5cb85c" stroke-width="2" />
+
+    <!-- Bar 1 (Unsorted) -->
+    <rect x="0" y="100" width="40" height="150" fill="#add8e6" stroke="#333" />
+    <text x="20" y="270" text-anchor="middle" font-family="monospace">5</text>
+
+    <!-- Bar 2 (Unsorted - Swapping) -->
+    <rect x="60" y="50" width="40" height="200" fill="#add8e6" stroke="#d9534f" stroke-width="3" />
+    <text x="80" y="270" text-anchor="middle" font-family="monospace">8</text>
+
+    <!-- Bar 3 (Unsorted - Swapping) -->
+    <rect x="120" y="120" width="40" height="130" fill="#add8e6" stroke="#d9534f" stroke-width="3" />
+    <text x="140" y="270" text-anchor="middle" font-family="monospace">4</text>
+
+    <!-- Swap Arrow -->
+    <path d="M 90 290 Q 110 320 130 290" stroke="#d9534f" stroke-width="3" fill="none" marker-end="url(#arrowhead)" />
+    <path d="M 130 290 Q 110 260 90 290" stroke="#d9534f" stroke-width="3" fill="none" marker-end="url(#arrowhead)" />
+
+    <!-- Bar 4 (Unsorted) -->
+    <rect x="180" y="80" width="40" height="170" fill="#add8e6" stroke="#333" />
+    <text x="200" y="270" text-anchor="middle" font-family="monospace">6</text>
+
+    <!-- Separator -->
+    <line x1="275" y1="-30" x2="275" y2="300" stroke="#666" stroke-dasharray="5,5" />
+
+    <!-- Bar 5 (Sorted) -->
+    <rect x="330" y="40" width="40" height="210" fill="#5cb85c" stroke="#333" />
+    <text x="350" y="270" text-anchor="middle" font-family="monospace">10</text>
+
+    <!-- Bar 6 (Sorted) -->
+    <rect x="390" y="20" width="40" height="230" fill="#5cb85c" stroke="#333" />
+    <text x="410" y="270" text-anchor="middle" font-family="monospace">12</text>
+    
+    <!-- Bar 7 (Sorted) -->
+    <rect x="450" y="10" width="40" height="240" fill="#5cb85c" stroke="#333" />
+    <text x="470" y="270" text-anchor="middle" font-family="monospace">15</text>
+
+  </g>
+
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#d9534f" />
+    </marker>
+  </defs>
+</svg>

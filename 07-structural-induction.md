@@ -20,8 +20,55 @@ transition: slide
 
 
 ---
+section: אינדוקציה מבנית
+---
 
-# הגדרה רקורסיבית של $\mathrm{Fin}(\mathbb N)$
+# אינדוקציה רגילה / אינדוקציה מבנית
+
+<div class="grid grid-cols-2 gap-4">
+
+<div>
+
+## אינדוקציה מבנית: מגדל לגו 🧱
+
+**העיקרון:** היררכיה (חלקים $\to$ שלם).<br> לא "מה המספר הבא?", אלא **"איך זה נבנה?"**.
+
+1.  **בסיס (Basic Blocks):** אבני הבניין הפשוטות ביותר מקיימות את התכונה.
+
+2.  **צעד הבנייה (Construction Step):** חיבור חלקים תקינים יוצר שלם המקיים את התכונה.
+
+<div class="flex justify-center -mt-5">
+  <img src="/lego_tower_construction.png" class="h-60" />
+</div>
+
+</div>
+
+<div>
+
+## אינדוקציה רגילה: אפקט הדומינו 🁕
+
+**העיקרון:** ליניאריות (סדר קבוע $n \to n+1$).
+
+1.  **בסיס:** האבן הראשונה נופלת.
+
+2.  **צעד:** אם אבן $n$ נופלת $\implies$ אבן $n+1$ נופלת.
+3.  **תוצאה:** הכל נופל לפי הסדר (1, 2, 3...).
+
+
+
+<div class="flex justify-center mt-13 overflow-hidden h-60">
+  <img
+    src="/domino_effect.png"
+    class="relative top-[-40px] h-full w-auto object-cover object-top"
+  />
+</div>
+</div>
+
+</div>
+
+---
+
+# דוגמה: הגדרה רקורסיבית של $\mathrm{Fin}(\mathbb{N})$
  
 
 $\mathrm{Fin}(\mathbb N)$ היא הקבוצה של כל תתי־הקבוצות הסופיות של $\mathbb N$.

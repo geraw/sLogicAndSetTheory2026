@@ -552,23 +552,22 @@ $\phi_3 := \forall x (\exists y (R(x, y)))$
 
 מבנה $M = \langle D, R^M \rangle$ כולל **עולם** $D$ (איברים) ו**יחס** $R^M \subset D \times D$.
 
-כדי לקבוע אם נוסחה היא "אמת", עלינו לדעת אילו איברים מהעולם $D$ מוצבים במקום המשתנים החופשיים שלה.
-
-אנו אומרים שסדרת איברים $\bar{a} = (a_1, \dots, a_n)$ **מספקת** את הנוסחה $\phi(x_1, \dots, x_n)$ במבנה $M$, ומסמנים זאת כך:
+ערך האמת של נוסחה תלוי רק בהשמה ל**משתנים החופשיים** שלה.
+אם $x_1, \dots, x_n$ הם המשתנים החופשיים ב-$\phi$, ו-$\bar{a} = (a_1, \dots, a_n)$ הם איברים ב-$D$:
 
 $$M \models \phi[a_1, \dots, a_n]$$
 
-הסימון $\models$ (Satisfies) מציין שהטענה $\phi$ הופכת ל**אמת** במבנה $M$ תחת הצבת הערכים $\bar{a}$ במקום המשתנים.
+פירושו: $\phi$ אמיתית ב-$M$ כאשר מציבים את $a_i$ במקום $x_i$.
 
-**ההגדרה האינדוקטיבית:**
+**הגדרה אינדוקטיבית:**
 
-<div class="grid grid-cols-3 gap-4 mt-8 text-sm">
+<div class="grid grid-cols-3 gap-4 -mt-1 text-sm">
 
 <div class="text-sm"> 
 
 **1. אטומיות:**
-* $M \models (x_1 = x_2)[\bar{a}]$ $\iff$ $a_1, a_2$ אותו איבר.
-
+(משתנים חופשיים בלבד)
+* $M \models (x_1 = x_2)[\bar{a}]$ $\iff$ $a_1, a_2$ זהים.
 * $M \models R(x_1, x_2)[\bar{a}]$ $\iff$ $(a_1, a_2) \in R^M$.
 
 </div>
@@ -576,39 +575,42 @@ $$M \models \phi[a_1, \dots, a_n]$$
 <div>
 
 **2. קשרים:**
-* $M \models (\phi \land \psi)[\bar{a}]$ $\iff$ גם $\phi$ וגם $\psi$ מסופקות.
+(עבור אותה השמה $\bar{a}$)
+* $M \models (\phi \land \psi)[\bar{a}]$ $\Leftrightarrow$ גם $\phi[\bar{a}]$ וגם $\psi[\bar{a}]$ אמת.
+* $M \models (\neg \phi)[\bar{a}]$ $\Leftrightarrow$ $\phi[\bar{a}]$ אינה אמת.
 
-* $M \models (\phi \lor \psi)[\bar{a}]$ $\iff$ או $\phi$ או $\psi$ מסופקות.
-* $M \models (\phi \to \psi)[\bar{a}]$ $\iff$ אם $\phi$ אז $\psi$ מסופקת.
+* $M \models (\phi \lor \psi)[\bar{a}]$ $\Leftrightarrow$ $\phi[\bar{a}]$ אמת או $\psi[\bar{a}]$ אמת.
+* $M \models (\phi \to \psi)[\bar{a}]$ $\Leftrightarrow$ אם $\phi[\bar{a}]$ אמת, אז $\psi[\bar{a}]$ אמת.
 
 </div>
 
 <div>
 
 **3. כמתים:**
-* $M \models \exists x (\phi(x))[\bar{a}]$ $\Leftrightarrow$ קיים $a \in D$ המקיים את $\phi$.
+(כאן מוסיפים השמה למשתנה הקשור $x$)
+* $M \models \exists x (\phi)[\bar{a}]$ $\Leftrightarrow$ קיים $d \in D$ כך ש: $M \models \phi[\bar{a}, d]$.
 
-* $M \models \forall x (\phi(x))[\bar{a}]$ $\Leftrightarrow$ לכל $a \in D$ מתקיים את $\phi$.
+* $M \models \forall x (\phi)[\bar{a}]$ $\Leftrightarrow$ לכל $d \in D$ מתקיים: $M \models \phi[\bar{a}, d]$.
+
 
 </div>
 
 </div>
-
-
 
 ---
 
-# סמנטיקה של כמתים
+# סמנטיקה של כמתים (בהרחבה)
 
-כשאנחנו "מקלפים" כמת, אנחנו בודקים איברים מהעולם $D$.
+כשאנחנו "מקלפים" כמת, אנחנו עוברים מנוסחה עם $n$ משתנים חופשיים לנוסחה עם $n+1$ משתנים חופשיים (הוספנו את המשתנה שהיה קשור).
 
-נתבונה בנוסחה: $\theta(y_1, \dots) := \exists x (\phi(x, y_1, \dots))$.
+נתבונן בנוסחה: $\theta(y_1, \dots) := \exists x (\phi(x, y_1, \dots))$.
+המשתנים החופשיים ב-$\theta$ הם $y_1, \dots$. המשתנה $x$ קשור.
 
-המבנה $M$ מספק את $\theta$ על הסדרה $b_1, \dots$
+המבנה $M$ מספק את $\theta$ על הסדרה $\bar{b}$
 **אם ורק אם**
 <br>
-**קיים** איבר $a \in D$ (כלשהו בעולם!) כך ש:
-$$M \models \phi(a, b_1, \dots)$$
+**קיים** איבר $d \in D$ (כלשהו בעולם!) כך שאם נוסיף אותו להשמה, הנוסחה הפנימית תתקיים:
+$$M \models \phi[d, b_1, \dots]$$
 
 <div class="mt-8 border-t pt-4">
 

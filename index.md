@@ -29,6 +29,8 @@ lang: heb
 
 - [הרצאות 18-20 : אינדוקציה מבנית](07-structural-induction.html)
 
+- [הרצאות 21-24 : עוצמות](08-cardinals.html)    
+
 
 ---
 

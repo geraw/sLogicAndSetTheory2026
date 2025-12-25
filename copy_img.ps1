@@ -1,0 +1,1 @@
+Copy-Item "C:\Users\geraw\.gemini\antigravity\brain\07f49cfd-eb9f-43ef-8a63-d715afbc6651\infinity_and_beyond_math_1766651820786.png" "c:\Users\geraw\courses\sLogicAndSetTheory2026\images\infinity_and_beyond_math.png"

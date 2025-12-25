@@ -11,7 +11,7 @@ download: true
 exportFilename: 08-cardinals.pdf
 transition: slide
 ---
-# אינדוקציה מבנית
+# עוצמות וקבוצות בנות מנייה
 
 ## הרצאה בקורס: מבוא ללוגיקה ותורת הקבוצות
 

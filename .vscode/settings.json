@@ -1,7 +1,8 @@
 {
     "slidev.include": [
         "**/??-*.md",
-        "slides.md"
+        "slides.md",
+        "index.md"
     ],
     "slidev.preview-sync": true
 }

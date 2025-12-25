@@ -4,8 +4,8 @@ infoLine: true
 author: "גרא וייס"
 title: "אינדוקציה מבנית ולוגיקה"
 htmlAttrs:
-  dir: rtl
-  lang: heb
+    dir: rtl
+    lang: heb
 mdc: true
 download: true
 exportFilename: 07-structural-induction.pdf
@@ -762,17 +762,42 @@ $$ \sigma[v \mapsto a](v_i) = \begin{cases} a & v_i = v \\ \sigma(v_i) & v_i \ne
 7.  אם $\phi$ היא $\forall v_j (\psi)$:
     $M \models_\sigma \phi$ אם"ם לכל $a \in M$ מתקיים $M \models_{\sigma[v_j \mapsto a]} \psi$.
 
+
+---
+
+# איזומורפיזם של מבנים (Isomorphism)
+
+יהיו $M, N$ שני מבנים לשפה $L$.
+**איזומורפיזם** מ-$M$ ל-$N$ הוא פונקציה חח"ע ועל $\pi \colon M \to N$ המקיימת:
+
+1.  **שימור קבועים:** לכל קבוע $c \in C$, מתקיים $\pi(c^M) = c^N$.
+
+<br> 
+
+2.  **שימור פונקציות:** לכל $f \in F$ ואיברים $a_1, \dots, a_{n_f} \in M$:
+    $$ \pi(f^M(a_1, \dots, a_{n_f})) = f^N(\pi(a_1), \dots, \pi(a_{n_f})) $$
+
+<br> 
+
+3.  **שימור יחסים:** לכל $r \in R$ ואיברים $a_1, \dots, a_{n_r} \in M$:
+    $$ (a_1, \dots, a_{n_r}) \in r^M \iff (\pi(a_1), \dots, \pi(a_{n_r})) \in r^N $$
+
+אם קיים איזומורפיזם כזה, נאמר ש-$M$ ו-$N$ **איזומורפיים** ונסמן $M \cong N$.
+
+איזומורפיזם שומר על המבנה הפנימי, ולכן מבנים איזומורפיים "בלתי ניתנים להבחנה" ע"י השפה. 
+
+
 ---
 section: גרפים
 ---
 
 # מקרה פרטי: שפה עם יחס בינארי יחיד (גרפים)
 
-*   תהי $L = \{E\}$ שפה עם סימן יחס בינארי יחיד ($n_E = 2$).
-*   מבנה-$L$ הוא זוג $M = \langle V, E^M \rangle$, כאשר $E^M \subseteq V \times V$.
+*   תהי $L$ שפה עם סימן יחס בינארי יחיד.
+*   מבנה-$L$ הוא זוג $M = \langle V, E \rangle$, באשר $E \subseteq V \times V$.
 *   מבנה זה נקרא **גרף מכוון** (Directed Graph):
     *   $V$ היא קבוצת הצמתים.
-    *   $E^M$ הוא יחס הקשתות.
+    *   $E$ הוא יחס הקשתות.
 
 <div class="absolute top-35 left-20">
   <img src="/directed_graph_example.png" class="h-50" />
@@ -806,26 +831,11 @@ section: גרפים
 
     $$\forall x (\forall y (\forall z ((E(x, y) \land E(y, z)) \to E(x, z))))$$
 
----
 
-# איזומורפיזם של מבנים (Isomorphism)
-
-יהיו $M, N$ שני מבנים לשפה $L$.
-**איזומורפיזם** מ-$M$ ל-$N$ הוא פונקציה חח"ע ועל $\pi \colon M \to N$ המקיימת:
-
-1.  **שימור קבועים:** לכל קבוע $c \in C$, מתקיים $\pi(c^M) = c^N$.
-
-2.  **שימור פונקציות:** לכל $f \in F$ ואיברים $a_1, \dots, a_{n_f} \in M$:
-    $$ \pi(f^M(a_1, \dots, a_{n_f})) = f^N(\pi(a_1), \dots, \pi(a_{n_f})) $$
-
-3.  **שימור יחסים:** לכל $r \in R$ ואיברים $a_1, \dots, a_{n_r} \in M$:
-    $$ (a_1, \dots, a_{n_r}) \in r^M \iff (\pi(a_1), \dots, \pi(a_{n_r})) \in r^N $$
-
-אם קיים איזומורפיזם כזה, נאמר ש-$M$ ו-$N$ **איזומורפיים** ונסמן $M \cong N$.
-איזומורפיזם שומר על המבנה הפנימי, ולכן מבנים איזומורפיים "בלתי ניתנים להבחנה" ע"י השפה. 
 
 ---
 layout: TwoColsHeaderCustom
+hide: true
 ---
 
 
@@ -855,10 +865,138 @@ layout: TwoColsHeaderCustom
 - מהגדרת איזומורפיזם נובע ש-$(x,y) \in E^M$ וגם $(y,x) \in E^M$.
 - מאנטי-סימטריות של $M$, נובע $x=y$.
 - נפעיל את $\pi$: $\pi(x) = \pi(y)$, כלומר $a=b$.
-- ולכן $E^N$ אנטי-סימטרי.
+- ולכן $E^N$ אנטי-סימטרי. 
 
 
+---
 
+# איזומורפיזם של גרפים  
+
+### הגדרה  
+**איזומורפיזם של גרפים** הוא התאמה בין צמתי שני גרפים, $G = \langle V, E \rangle$ ו-$H = \langle V', E'\rangle$,
+<br>
+כך שהמבנה שלהם נשמר.  
+
+### דרישות:  
+1. קיימת פונקציה חח"ע ועל $f\colon V \to V'$.  
+
+2. לכל צמד קודקודים $u, v \in V$:  
+   - $\langle u, v \rangle \in E$ אם ורק אם $\langle f(u), f(v) \rangle \in E'$.  
+
+<br>
+
+### יישומים:  
+- זיהוי דפוסים ברשתות.  
+- השוואת מבני נתונים.  
+- הצפנה ופרוטוקולי אבטחת מידע
+
+
+<div style="position: absolute; top: 150px; left: 50px">
+```mermaid {theme: 'neutral', scale: 0.6, flowchart: {'padding': 8}}
+graph TD
+  subgraph Graph1 [גרף 1]
+    A((A)) --- D((D))
+    A((A)) --- C((C))
+    A((A)) --- B((B))
+    C --> B 
+    C --> D
+  end
+  
+  subgraph Graph2 [גרף 2]
+    1((1)) --- 4((4))
+    1((1)) --- 3((3))
+    1((1)) --- 2((2))
+    2 --- 3
+    3 --- 4
+  end
+
+  %% Mappings between Graph1 and Graph2
+  A <-. f .-> 1
+  B <-. f .-> 2
+  C <-. f .-> 3
+  D <-. f .-> 4
+```
+</div>
+
+---
+
+# סימטריות נשמרת תחת איזומורפיזם
+
+אם $G=\langle V, E \rangle$ ו-$H=\langle V', E' \rangle$ הם גרפים איזומורפיים, אז : 
+<span style="color:blue;">$G$ סימטרי אם ורק אם $H$ סימטרי</span>.
+
+### הוכחה:  
+- <span style="color:blue;"> $G$ סימטרי $\Rightarrow$ $H$ סימטרי</span>
+  * יהי $f$ האיזומורפיזם מ-$G$ ל-$H$.
+  * יהי $\langle u, v \rangle \in E$.
+  * לפי הגדרת האיזומורפיזם, $\langle f(u), f(v) \rangle \in E'$.
+  * מכיוון ש-$H$ סימטרי, $\langle f(v), f(u) \rangle \in E'$.
+  * לכן, $\langle f(v), f(u) \rangle \in E'$.
+  * לפי הגדרת האיזומורפיזם, $\langle v, u \rangle \in E$.
+
+- <span style="color:blue;"> $H$ סימטרי $\Rightarrow$ $G$ סימטרי</span>
+  - אותה ההוכחה עם האיזומורפיזם $g=f^{-1}$ מ-$H$ ל-$G$.
+
+<div style="position: absolute; top: 180px; left: 220px">
+```mermaid {theme: 'neutral', scale: 0.8, flowchart: {'padding': 20}}
+graph TD
+  subgraph Graph1 [G]
+    A((u)) --- B((v))
+    B((v)) --- A((u))
+  end
+  
+  subgraph Graph2 [H]
+    1(("f(u)")) --- 2(("f(v)"))
+    2(("f(v)")) --- 1(("f(u)"))
+  end
+
+  %% Mappings between Graph1 and Graph2
+  A -. f .-> 1
+  B -. f .-> 2
+```
+</div>
+
+---
+
+#  אנטי-סימטריות נשמרת תחת איזומורפיזם
+
+אם $G=\langle V, E \rangle$ ו-$H=\langle V', E' \rangle$ הם גרפים איזומורפיים, אז : 
+<span style="color:blue;">$G$ אנטי-סימטרי אם ורק אם $H$ אנטי-סימטרי</span>.
+
+### הוכחה:
+
+- <span style="color:blue;"> $G$ אנטי-סימטרי $\Rightarrow$ $H$ אנטי-סימטרי</span>
+  * יהי $f$ האיזומורפיזם מ-$G$ ל-$H$.
+  * יהי $\langle u, v \rangle \in E$.
+  * לפי הגדרת האיזומורפיזם, $\langle f(u), f(v) \rangle \in E'$.
+  * מכיוון ש-$H$ אנטי-סימטרי, אם $\langle f(u), f(v) \rangle \in E'$ ו-$\langle f(v), f(u) \rangle \in E'$, אז $f(u) = f(v)$.
+  * לכן, $f(u) = f(v)$.
+  * לפי הגדרת האיזומורפיזם, $u = v$.
+
+- <span style="color:blue;"> $H$ אנטי-סימטרי $\Rightarrow$ $G$ אנטי-סימטרי</span>
+  - אותה ההוכחה עם האיזומורפיזם $g=f^{-1}$ מ-$H$ ל-$G$.
+
+<div style="position: absolute; top: 180px; left: 60px">
+```mermaid {theme: 'neutral', scale: 0.8, flowchart: {'padding': 20}}
+graph TD
+  subgraph Graph1 [G]
+    A((u)) --- B((v))
+    B((v)) --- A((u))
+  end
+  
+  subgraph Graph2 [H]
+    1(("f(u)")) --- 2(("f(v)"))
+    2(("f(v)")) --- 1(("f(u)"))
+  end
+
+  %% Mappings between Graph1 and Graph2
+  A -. f .-> 1
+  B -. f .-> 2
+
+  linkStyle 3 stroke:red,stroke-width:2px,stroke-dasharray: 5 5;  
+  linkStyle 1 stroke:red,stroke-width:2px,stroke-dasharray: 5 5;  
+```
+</div>
 
 
 

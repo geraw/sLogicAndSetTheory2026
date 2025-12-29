@@ -4,8 +4,8 @@ infoLine: true
 author: "גרא וייס"
 title: "אינדוקציה מבנית ולוגיקה"
 htmlAttrs:
-    dir: rtl
-    lang: heb
+  dir: rtl
+  lang: heb
 mdc: true
 download: true
 exportFilename: 07-structural-induction.pdf
@@ -199,6 +199,172 @@ layout: TwoColsHeaderCustom
   <img src="/bubble_sort_induction.svg" class="h-70" />
 </div>
 
+---
+section: עצים
+---
+
+# אינדוקציה מבנית: עץ בינארי מלא 🌲
+
+**הגדרה:** נגדיר את קבוצת העצים הבינאריים המלאים $\mathcal{T}$ באופן אינדוקטיבי:
+
+1.  **בסיס:** צומת בודד $\bullet$ הוא עץ ב-$\mathcal{T}$.
+2.  **צעד:** אם $T_1, T_2 \in \mathcal{T}$ הם עצים בינאריים מלאים, אזי העץ $T = \text{Tree}(\bullet, T_1, T_2)$ (המורכב משורש $\bullet$ ושני תתי-עצים $T_1, T_2$) הוא עץ ב-$\mathcal{T}$.
+
+**דוגמא:** $\text{Tree}(\bullet, \text{Tree}(\bullet, \bullet, \bullet), \bullet)$
+
+<div class="absolute top-70 right-90 w-30">
+
+```mermaid {scale: 0.5}
+graph TD
+    classDef dot fill:#000,stroke:#000,stroke-width:2px;
+    R(( )):::dot
+    L(( )):::dot
+    RightLeaf(( )):::dot
+    LL(( )):::dot
+    LR(( )):::dot
+    
+    R --- L
+    R --- RightLeaf
+    L --- LL
+    L --- LR
+    
+    linkStyle default stroke-width:2px;
+```
+
+</div>
+
+
+
+<div class="grid grid-cols-2 gap-8 mt-6">
+
+<div>
+
+**הגדרת פונקציות עזר:**
+
+עבור עץ $T \in \mathcal{T}$:
+*   $N(T)$ - מספר הצמתים (Nodes).
+
+*   $L(T)$ - מספר העלים (Leaves).
+*   $I(T)$ - מספר הצמתים הפנימיים ($N(T) - L(T)$).
+
+</div>
+
+<div>
+
+**הגדרות רקורסיביות:**
+
+*   **עבור עלה (בסיס):**
+    *   $N(\bullet) = 1, L(\bullet) = 1, I(\bullet) = 0$.
+
+*   **עבור עץ מורכב $T = \text{Tree}(\bullet, T_1, T_2)$:**
+    *   $N(T) = 1 + N(T_1) + N(T_2)$
+    *   $L(T) = L(T_1) + L(T_2)$
+    *   $I(T) = 1 + I(T_1) + I(T_2)$
+
+</div>
+
+</div>
+
+---
+layout: TwoColsHeaderCustom
+---
+
+
+# הוכחה באינדוקציה מבנית: מספר העלים מול הפנימיים
+
+**טענה:** לכל עץ בינארי מלא $T \in \mathcal{T}$ מתקיים: **$L(T) = I(T) + 1$**.
+
+
+**הוכחה באינדוקציה מבנית:**
+
+::left::
+
+<v-click>
+
+**בסיס:** עבור עלה בודד $T = \bullet$:
+*   $L(\bullet) = 1$.
+
+*   $I(\bullet) = 0$.
+*   מתקיים: $1 = 0 + 1$. ✓
+</v-click>
+
+::right::
+
+<v-click>
+
+**צעד:** נניח נכונות עבור $T_1, T_2$. נוכיח עבור $T$ המחובר משניהם.
+*   $L(T) = L(T_1) + L(T_2)$ (מהגדרת העלים).
+
+*   לפי הנחה: $L(T_1) = I(T_1) + 1$ ו-$L(T_2) = I(T_2) + 1$.
+*   נציב: $L(T) = (I(T_1) + 1) + (I(T_2) + 1)$.
+*   נסדר מחדש: $L(T) = (1 + I(T_1) + I(T_2)) + 1$.
+*   נזהה את הביטוי בסוגריים כ-$I(T)$:
+*   **$L(T) = I(T) + 1$**. ✓
+
+
+
+
+<div class="absolute top-15 left-10">
+
+```mermaid {scale: 0.6}
+graph TD
+    classDef leaf fill:#9f9,stroke:#333;
+    classDef internal fill:#f9f,stroke:#333;
+    
+    subgraph T [ העץ החדש $$T\,$$]
+        R(( )):::internal
+        R --> L1($$T_1$$)
+        R --> L2($$T_2$$)
+    end
+    
+    style T fill:#fff,stroke:#333,stroke-dasharray: 5 5
+```
+
+
+</div>
+
+</v-click>
+
+---
+
+# למה דווקא אינדוקציה מבנית? 💡
+
+<div class="grid grid-cols-2 gap-8 mt-6">
+
+<div>
+
+### אינטואיציה לצעד
+אנחנו לוקחים שני עצים "תקינים" (שמקיימים את הנוסחה) ומחברים אותם עם בורג אחד (השורש).
+
+*   העלים של העץ החדש הם סכום העלים של הקודמים.
+
+*   הצמתים הפנימיים הם סכום הקודמים **פלוס השורש החדש**.
+
+זה בדיוק ה- $+1$ בנוסחה שנשמר!
+
+<div class="mt-4 flex justify-center">
+  <img src="/structural_induction_tree_step_hebrew.png" class="h-60" />
+</div>
+
+</div>
+
+<div>
+
+### השוואה לאינדוקציה רגילה
+
+*   **אינדוקציה על גובה ($h$):**
+    *   נניח נכון לעצים בגובה $< h$.
+    
+    *   עץ בגובה $h$ מורכב מתתי-עצים בגבהים שונים (לא בהכרח $h-1$). הניסוח מסורבל יותר.
+
+*   **אינדוקציה על מספר צמתים ($n$):**
+    *   צריך להראות שכל עץ עם $n$ צמתים נבנה מעצים קטנים יותר.
+
+    *   האינדוקציה המבנית "תופרת" את ההוכחה בדיוק לפי צורת הבנייה של האובייקט.
+
+</div>
+
+</div>
 
 ---
 section: תחשיב פסוקים
@@ -287,7 +453,7 @@ layout: two-cols-header
         *   $\hat{v}(\phi \to \psi) = T$ אמ"מ לא ($\hat{v}(\phi)=T$ וגם $\hat{v}(\psi)=F$).
 
 ---
-section: לוגיקה מסדר ראשון (מקרה פשוט)
+section: לוגיקה מסדר ראשון (פשוט)
 ---
 
 # לוגיקה מסדר ראשון (FOL)

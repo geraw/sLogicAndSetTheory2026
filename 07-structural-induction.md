@@ -717,6 +717,11 @@ $$P(t_1, t_2, ..., t_n)$$
 
 # משתנים חופשיים וקשורים 🔗
 
+
+<div class="absolute top-60 left-50 w-70">
+  <img src="/free_bound_variables_caricature_hebrew.png" />
+</div>
+
 מופע של משתנה $x$ הוא **קשור** (Bound) אם הוא תחת השפעת כמת $\exists x$ או $\forall x$. אחרת, הוא **חופשי** (Free).
 
 <div class="space-y-4 mt-4">

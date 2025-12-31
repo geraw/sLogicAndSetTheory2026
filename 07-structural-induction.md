@@ -688,15 +688,15 @@ section: FOL (פשוט)
 
 ---
 
-# הפרדיקט (The Predicate)
+# היחס (פרדיקט)
 ## תיאור תכונות ויחסים
 
-הפרדיקט הוא "תבנית" שמחזירה **אמת** או **שקר** כשאנחנו מציבים בתוכה אובייקטים.
+היחס (הפרדיקט) הוא "תבנית" שמחזירה **אמת** או **שקר** כשאנחנו מציבים בתוכה אובייקטים.
 
 <v-clicks>
 
 * **סימון:** אותיות גדולות ($P, Q, R$) או מילים ($Loves, Happy$).
-* לכל פרדיקט יש **ערכיות (Arity)** – מספר הארגומנטים שהוא מקבל.
+* לכל יחס (פרדיקט) יש **ערכיות (Arity)** – מספר הארגומנטים שהוא מקבל.
 
 </v-clicks>
 
@@ -751,7 +751,7 @@ $$B(t_1, t_2)$$
 ### המקרה הכללי ($n\text{-ary}$)
 $$P(t_1, t_2, ..., t_n)$$
 
-* פרדיקט יכול לקבל $n$ ארגומנטים ($n \ge 0$).
+* יחס (פרדיקט) יכול לקבל $n$ ארגומנטים ($n \ge 0$).
 
 * אם $n=1$: זו תכונה (Property).
 * אם $n=0$: זה פסוק (כמו "יורד גשם").
@@ -764,13 +764,13 @@ $$P(t_1, t_2, ..., t_n)$$
 
 # רגע, מה עם פונקציות?
 
-בנוסף לפרדיקטים, השפה יכולה להכיל גם **פונקציות**. ההבדל הוא בפלט!
+בנוסף ליחסים (פרדיקטים), השפה יכולה להכיל גם **פונקציות**. ההבדל הוא בפלט!
 
 <div class="grid grid-cols-2 gap-10 mt-6">
 
 <div class="border-r-4 border-red-400 pr-4">
 
-### פרדיקט / יחס ($P$)
+### יחס (פרדיקט) ($P$)
 * **פלט:** אמת או שקר ($T/F$).
 
 * **תפקיד:** טוען טענה.
@@ -825,13 +825,15 @@ $$P(t_1, t_2, ..., t_n)$$
 
 * **הבסיס (נוסחאות אטומיות):**
   לכל זוג משתנים $x, y$:
+  
   * $x=y$ היא נוסחה.
 
   * $R(x,y)$ היא נוסחה.
 
 * **צעדי הבנייה:**
+  
   אם $\phi, \psi$ הן נוסחאות שכבר בנינו, גם הבאות הן נוסחאות:
-  * **שלילה:** $(\neg \phi)$
+  * **שלילה:** $\neg \phi$
 
   * **קשרים:** $(\phi \land \psi), (\phi \lor \psi), (\phi \to \psi)$
   * **כימות:** $\exists x (\phi)$ ו-$\forall x (\phi)$
@@ -891,6 +893,66 @@ $\phi_3 := \forall x (\exists y (R(x, y)))$
 </div>
 
 ---
+layout: two-cols-header
+---
+
+# הגדרה אינדוקטיבית: משתנים חופשיים
+
+נגדיר את קבוצת המשתנים החופשיים בנוסחה, $Free(\phi)$, באופן אינדוקטיבי:
+
+::left::
+
+1.  **בסיס :**
+    *   $Free(x = y) = \{x, y\}$
+    *   $Free(R(x, y)) = \{x, y\}$
+
+2.  **צעד (קשרים):** הקשרים אינם משנים מעמד של משתנה.
+    *   $Free(\neg \phi) = Free(\phi)$
+    *   $Free(\phi \circ \psi) = Free(\phi) \cup Free(\psi)$ (עבור $\circ \in \{\land, \lor, \to\}$)
+
+3.  **צעד (כמתים):** הכמת "קושר" את המשתנה שלו.
+    *   $Free(\exists x (\phi)) = Free(\phi) \setminus \{x\}$
+    *   $Free(\forall x (\phi)) = Free(\phi) \setminus \{x\}$
+
+::right::
+
+<div class="mr-4">
+
+<small>
+
+**דוגמאות:**
+$$
+\begin{aligned}
+Free(\exists x (R(x, y) \land R(x, z))) &= Free(R(x, y) \land R(x, z)) \setminus \{x\} \\
+&= (\{x, y\} \cup \{x, z\}) \setminus \{x\} \\
+&= \{y, z\}
+\end{aligned}
+$$
+
+
+$$
+\begin{aligned}
+Free(\forall y (x = y \to R(y, z))) &= Free(x = y \to R(y, z)) \setminus \{y\} \\
+&= (\{x, y\} \cup \{y, z\}) \setminus \{y\} \\
+&= \{x, z\}
+\end{aligned}
+$$
+
+
+$$
+\begin{aligned}
+Free(\exists x (R(x, y)) \land \forall y (R(y, z))) &= Free(\exists x (R(x, y))) \cup Free(\forall y (R(y, z))) \\
+&= (\{x, y\} \setminus \{x\}) \cup (\{y, z\} \setminus \{y\}) \\
+&= \{y, z\}
+\end{aligned}
+$$
+
+</small>
+
+</div>
+
+---
+
 
 # סמנטיקה: מתי זה "אמת"? 
 
@@ -921,7 +983,7 @@ $$M \models \phi[\langle a_1, \dots, a_n \rangle]$$
 **2. קשרים:**
 (עבור אותה השמה $\bar{a}$)
 * $M \models (\phi \land \psi)[\bar{a}]$ $\Leftrightarrow$ גם $\phi[\bar{a}]$ וגם $\psi[\bar{a}]$ אמת.
-* $M \models (\neg \phi)[\bar{a}]$ $\Leftrightarrow$ $\phi[\bar{a}]$ אינה אמת.
+* $M \models \neg \phi[\bar{a}]$ $\Leftrightarrow$ $\phi[\bar{a}]$ אינה אמת.
 
 * $M \models (\phi \lor \psi)[\bar{a}]$ $\Leftrightarrow$ $\phi[\bar{a}]$ אמת או $\psi[\bar{a}]$ אמת.
 * $M \models (\phi \to \psi)[\bar{a}]$ $\Leftrightarrow$ אם $\phi[\bar{a}]$ אמת, אז $\psi[\bar{a}]$ אמת.
@@ -940,7 +1002,7 @@ $$M \models \phi[\langle a_1, \dots, a_n \rangle]$$
 </div>
 
 </div>
-
+  
 
 
 ---

@@ -603,20 +603,6 @@ $$
 <div class="absolute bottom-10 left-10 w-60">
   <img src="/parity_machine.png" class="w-full opacity-90" />
   
-  <!-- Left Input (Top) -->
-  <div class="absolute top-5 left-1/4 transform -translate-x-1/2 text-black font-bold text-xs bg-white/70 px-1 rounded">
-    זוגי
-  </div>
-
-  <!-- Right Input (Top) -->
-  <div class="absolute top-8 right-1/4 transform translate-x-1/2 text-black font-bold text-xs bg-white/70 px-1 rounded">
-    זוגי
-  </div>
-
-  <!-- Output (Bottom) -->
-  <div class="absolute bottom-5 right-10 transform text-black font-bold text-sm bg-white/70 px-1 rounded">
-    זוגי
-  </div>
 </div>
 
 

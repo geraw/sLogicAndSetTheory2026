@@ -494,8 +494,150 @@ layout: two-cols-header
 
 </small>
 
+
+
+
+
 ---
-section: לוגיקה מסדר ראשון (פשוט)
+section: ביטויים חשבוניים
+---
+
+# דוגמה נוספת: ביטויים חשבוניים (Arithmetic Expressions)
+
+נגדיר את קבוצת הביטויים החשבוניים $\mathcal{E}$ באופן אינדוקטיבי:
+
+1.  **בסיס:** כל מספר טבעי $n \in \mathbb{N}$ הוא ביטוי ב-$\mathcal{E}$.
+2.  **צעד:** אם $E_1, E_2 \in \mathcal{E}$ הם ביטויים, אזי גם הביטויים הבאים הם ב-$\mathcal{E}$:
+    *   $(E_1 + E_2)$
+    *   $(E_1 \times E_2)$
+
+**דוגמאות:**
+*   $5$ (בסיס)
+*   $(3 + 5)$ (צעד חיבור)
+*   $((3 + 5) \times 2)$ (צעד כפל)
+
+
+<div class="absolute bottom-20 left-150 w-60">
+
+```mermaid {scale: 0.8}
+graph TD
+    classDef op fill:#f9f,stroke:#333;
+    classDef num fill:#9f9,stroke:#333;
+    
+    Root((x)):::op
+    Plus((+)):::op
+    N2((2)):::num
+    N3((3)):::num
+    N5((5)):::num
+    
+    Root --> Plus
+    Root --> N2
+    Plus --> N3
+    Plus --> N5
+```
+
+</div>
+
+---
+
+# סמנטיקה: הערך של ביטוי
+
+נגדיר פונקציה $Val \colon \mathcal{E} \to \mathbb{N}$ המחשבת את ערך הביטוי באופן רוקרסיבי:
+
+1.  **בסיס:** לכל $n \in \mathbb{N}$, נגדיר $Val(n) = n$.
+2.  **צעד:**
+    *   $Val((E_1 + E_2)) = Val(E_1) + Val(E_2)$
+    *   $Val((E_1 \times E_2)) = Val(E_1) \cdot Val(E_2)$
+
+**דוגמה:**
+$$
+\begin{aligned}
+Val(((3 + 5) \times 2)) &= Val((3 + 5)) \cdot Val(2) \\
+&= (Val(3) + Val(5)) \cdot 2 \\
+&= (3 + 5) \cdot 2 \\
+&= 8 \cdot 2 = 16
+\end{aligned}
+$$
+
+---
+layout: TwoColsHeaderCustom
+---
+
+# תכונה: מספר המספרים מול מספר הפעולות
+
+נסמן:
+*   $N(E)$ - מספר המספרים (האטומים) בביטוי.
+*   $Op(E)$ - מספר הפעולות (חיבור או כפל) בביטוי.
+
+**טענה:** לכל ביטוי $E \in \mathcal{E}$ מתקיים: **$N(E) = Op(E) + 1$**.
+
+::left::
+
+**בסיס:**
+עבור מספר $n$:
+*   $N(n) = 1$ (יש מספר אחד).
+*   $Op(n) = 0$ (אין פעולות).
+*   מתקיים: $1 = 0 + 1$. ✓
+
+::right::
+
+**צעד:**
+נניח עבור $E_1, E_2$ ונוכיח עבור $E = (E_1 \circ E_2)$ (כאשר $\circ \in \{+, \times\}$):
+*   $N(E) = N(E_1) + N(E_2)$
+*   $Op(E) = Op(E_1) + Op(E_2) + 1$ (הוספנו פעולה אחת $\circ$).
+$$
+\begin{aligned}
+N(E) &= N(E_1) + N(E_2) \\
+&= (Op(E_1) + 1) + (Op(E_2) + 1) \quad (\text{עי"פ הנחת האינדוקציה}) \\
+&= (Op(E_1) + Op(E_2) + 1) + 1 \\
+&= Op(E) + 1 \quad \checkmark
+\end{aligned}
+$$
+
+---
+
+# טענה נוספת: שמירת תכונת הזוגיות
+
+**טענה:** אם כל המספרים המופיעים ב-$E$ הם זוגיים, אז הערך $Val(E)$ הוא זוגי.
+
+<div class="absolute bottom-10 left-10 w-60">
+  <img src="/parity_machine.png" class="w-full opacity-90" />
+  
+  <!-- Left Input (Top) -->
+  <div class="absolute top-5 left-1/4 transform -translate-x-1/2 text-black font-bold text-xs bg-white/70 px-1 rounded">
+    זוגי
+  </div>
+
+  <!-- Right Input (Top) -->
+  <div class="absolute top-8 right-1/4 transform translate-x-1/2 text-black font-bold text-xs bg-white/70 px-1 rounded">
+    זוגי
+  </div>
+
+  <!-- Output (Bottom) -->
+  <div class="absolute bottom-5 right-10 transform text-black font-bold text-sm bg-white/70 px-1 rounded">
+    זוגי
+  </div>
+</div>
+
+
+
+**הוכחה באינדוקציה מבנית:**
+
+1.  **בסיס:** $E=n$.
+    *   נתון שכל המספרים ב-$E$ זוגיים $\Leftarrow$ $n$ זוגי.
+    *   $Val(n) = n$, ולכן הערך זוגי. ✓
+
+2.  **צעד:** נניח נכונות עבור $E_1, E_2$. נבדוק עבור $E$:
+    *   אם כל המספרים ב-$E$ זוגיים, אז בפרט כל המספרים ב-$E_1$ וב-$E_2$ זוגיים.
+
+    *   מהנחת האינדוקציה: $Val(E_1)$ זוגי ו-$Val(E_2)$ זוגי.
+    *   **מקרה חיבור:** $Val(E) = Val(E_1) + Val(E_2) = \text{Even} + \text{Even} = \text{Even}$. ✓
+    *   **מקרה כפל:** $Val(E) = Val(E_1) \cdot Val(E_2) = \text{Even} \cdot \text{Even} = \text{Even}$. ✓
+
+**מסקנה:** התכונה נשמרת לכל הביטויים.
+
+---
+section: FOL (פשוט)
 ---
 
 # לוגיקה מסדר ראשון (FOL)
@@ -521,6 +663,9 @@ section: לוגיקה מסדר ראשון (פשוט)
   1.  **תחביר (Syntax)** 🧩 (משתנים, קבועים, כמתים $\forall, \exists$)
 
   2.  **סמנטיקה ומודלים** 🌍 (מתי נוסחה היא "אמת" ומתי "שקר"?)
+
+
+
 
 
 ---
@@ -813,7 +958,7 @@ $$M \models \phi[\langle a_1, \dots, a_n \rangle]$$
 
 
 ---
-section: לוגיקה מסדר ראשון (כללי)
+section: FOL (כללי)
 ---
 
 # הגדרת שפה מסדר ראשון ($L$)

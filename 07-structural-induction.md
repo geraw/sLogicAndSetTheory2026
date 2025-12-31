@@ -1000,7 +1000,7 @@ $$M \models \phi[\langle a_1, \dots, a_n \rangle]$$
 **1. אטומיות:**
 (משתנים חופשיים בלבד)
 * $M \models (x_1 = x_2)[\bar{a}]$ $\iff$ $a_1, a_2$ זהים.
-* $M \models R(x_1, x_2)[\bar{a}]$ $\iff$ $(a_1, a_2) \in R^M$.
+* $M \models R(x_1, x_2)[\bar{a}]$ $\iff$ $\langle a_1, a_2 \rangle \in R^M$.
 
 </div>
 
@@ -1113,21 +1113,6 @@ section: FOL (כללי)
 *   נוסחה יכולה לטעון שוויון בין שמות: $v_1 + v_2 = 0$.
 *   נוסחה יכולה לטעון לקיום איבר המקיים תכונה: $\exists v_1 (v_1 + 0 = 0)$.
 
----
-
-# משתנים חופשיים וקשורים
-
-אנו אומרים שמופע של משתנה $v$ בנוסחה $\phi$ הוא **חופשי** (free) אם הוא אינו נמצא בתוך כמת $\exists v$ או $\forall v$. אחרת אנו אומרים שהוא **קשור** (bound).
-
-**דוגמאות:**
-*   בנוסחה $v_1 + v_2 = 0$, המשתנים $v_1$ ו-$v_2$ הם חופשיים.
-
-*   בנוסחה $\exists v_1 (v_1 + v_2 = 0)$, המשתנה $v_1$ הוא קשור (על ידי הכמת $\exists v_1$), ואילו $v_2$ הוא חופשי.
-
-**הגדרה:** נוסחה $\phi$ היא **חסרת כמתים** (quantifier-free) 
-אם לא מופיעים בה כמתים. 
-
-לחלופין, $\phi$ היא חסרת כמתים אם כל המשתנים המופיעים ב-$\phi$ הם חופשיים.
 
 ---
 
@@ -1212,7 +1197,7 @@ $$ \sigma[v \mapsto a](v_i) = \begin{cases} a & v_i = v \\ \sigma(v_i) & v_i \ne
 <br> 
 
 3.  **שימור יחסים:** לכל $r \in R$ ואיברים $a_1, \dots, a_{n_r} \in M$:
-    $$ (a_1, \dots, a_{n_r}) \in r^M \iff (\pi(a_1), \dots, \pi(a_{n_r})) \in r^N $$
+    $$ \langle a_1, \dots, a_{n_r} \rangle \in r^M \iff \langle \pi(a_1), \dots, \pi(a_{n_r}) \rangle \in r^N $$
 
 אם קיים איזומורפיזם כזה, נאמר ש-$M$ ו-$N$ **איזומורפיים** ונסמן $M \cong N$.
 
@@ -1280,21 +1265,21 @@ hide: true
 **הוכחה (סימטריות):**
 - נניח ש-$E^M$ סימטרי.
 
-- יהיו $a,b \in V_N$ כך ש-$(a,b) \in E^N$.
+- יהיו $a,b \in V_N$ כך ש-$\langle a,b \rangle \in E^N$.
 - $\pi$ על $N$, לכן קיימים $x,y \in M$ כך ש-$\pi(x)=a, \pi(y)=b$.
-- מהגדרת איזומורפיזם: $(a,b) \in E^N \iff (x,y) \in E^M$.
-- מכיוון ש-$E^M$ סימטרי, $(y,x) \in E^M$.
-- שוב מהגדרת איזומורפיזם: $(y,x) \in E^M \iff (b,a) \in E^N$.
-- קיבלנו ש-$(b,a) \in E^N$, ולכן $E^N$ סימטרי.
+- מהגדרת איזומורפיזם: $\langle a,b \rangle \in E^N \iff \langle x,y \rangle \in E^M$.
+- מכיוון ש-$E^M$ סימטרי, $\langle y,x \rangle \in E^M$.
+- שוב מהגדרת איזומורפיזם: $\langle y,x \rangle \in E^M \iff \langle b,a \rangle \in E^N$.
+- קיבלנו ש-$\langle b,a \rangle \in E^N$, ולכן $E^N$ סימטרי.
 
 ::right::
 
 **הוכחה (אנטי-סימטריות):**
 - נניח ש-$E^M$ אנטי-סימטרי.
 
-- יהיו $a,b \in V_N$ כך ש-$(a,b) \in E^N$ וגם $(b,a) \in E^N$.
+- יהיו $a,b \in V_N$ כך ש-$\langle a,b \rangle \in E^N$ וגם $\langle b,a \rangle \in E^N$.
 - קיימים $x,y \in M$ מתאימים (כנ"ל).
-- מהגדרת איזומורפיזם נובע ש-$(x,y) \in E^M$ וגם $(y,x) \in E^M$.
+- מהגדרת איזומורפיזם נובע ש-$\langle x,y \rangle \in E^M$ וגם $\langle y,x \rangle \in E^M$.
 - מאנטי-סימטריות של $M$, נובע $x=y$.
 - נפעיל את $\pi$: $\pi(x) = \pi(y)$, כלומר $a=b$.
 - ולכן $E^N$ אנטי-סימטרי. 
@@ -1358,7 +1343,7 @@ graph TD
 <span style="color:blue;">$G$ סימטרי אם ורק אם $H$ סימטרי</span>.
 
 ### הוכחה:  
-- <span style="color:blue;"> $G$ סימטרי $\Rightarrow$ $H$ סימטרי</span>
+- <span style="color:blue;"> $G$ סימטרי $\Leftarrow$ $H$ סימטרי</span>
   * יהי $f$ האיזומורפיזם מ-$G$ ל-$H$.
   * יהי $\langle u, v \rangle \in E$.
   * לפי הגדרת האיזומורפיזם, $\langle f(u), f(v) \rangle \in E'$.
@@ -1366,7 +1351,7 @@ graph TD
   * לכן, $\langle f(v), f(u) \rangle \in E'$.
   * לפי הגדרת האיזומורפיזם, $\langle v, u \rangle \in E$.
 
-- <span style="color:blue;"> $H$ סימטרי $\Rightarrow$ $G$ סימטרי</span>
+- <span style="color:blue;"> $H$ סימטרי $\Leftarrow$ $G$ סימטרי</span>
   - אותה ההוכחה עם האיזומורפיזם $g=f^{-1}$ מ-$H$ ל-$G$.
 
 <div style="position: absolute; top: 180px; left: 220px">
@@ -1397,7 +1382,7 @@ graph TD
 
 ### הוכחה:
 
-- <span style="color:blue;"> $G$ אנטי-סימטרי $\Rightarrow$ $H$ אנטי-סימטרי</span>
+- <span style="color:blue;"> $G$ אנטי-סימטרי $\Leftarrow$ $H$ אנטי-סימטרי</span>
   * יהי $f$ האיזומורפיזם מ-$G$ ל-$H$.
   * יהי $\langle u, v \rangle \in E$.
   * לפי הגדרת האיזומורפיזם, $\langle f(u), f(v) \rangle \in E'$.
@@ -1405,7 +1390,7 @@ graph TD
   * לכן, $f(u) = f(v)$.
   * לפי הגדרת האיזומורפיזם, $u = v$.
 
-- <span style="color:blue;"> $H$ אנטי-סימטרי $\Rightarrow$ $G$ אנטי-סימטרי</span>
+- <span style="color:blue;"> $H$ אנטי-סימטרי $\Leftarrow$ $G$ אנטי-סימטרי</span>
   - אותה ההוכחה עם האיזומורפיזם $g=f^{-1}$ מ-$H$ ל-$G$.
 
 <div style="position: absolute; top: 180px; left: 60px">

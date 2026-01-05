@@ -226,6 +226,8 @@ $$E = \bigcup \{ E_i \mid i \in \mathbb{N} \}$$
   \end{cases}$$
 
 
+- טענה: $h$ היא פונקציה חד-חד-ערכית ועל.
+
 <div style="position: absolute; top: 150px; left: 100px">
   <div style="text-align: center;">
     <img src="./images/cantor-bernstein.svg" alt="Felix Bernstein" style="height: 120px;" />

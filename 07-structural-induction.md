@@ -1032,6 +1032,61 @@ $$M \models \phi[\langle a_1, \dots, a_n \rangle]$$
 
 
 ---
+layout: two-cols-header
+--- 
+
+# איזומורפיזם ושמירתו
+
+<small>
+
+**הגדרה:** מבנים $M, N$ הם **איזומורפיים** ($M \cong N$) אם קיימת פונקציה חח"ע ועל $\pi : D_M \to D_N$ כך ש:
+$$\langle a, b \rangle \in R^M \iff \langle \pi(a), \pi(b) \rangle \in R^N$$
+
+**משפט:** אם $M \cong N$, אזי לכל נוסחה $\phi$ והשמה $\sigma$:
+$$M \models \phi[\sigma] \iff N \models \phi[\pi \circ \sigma]$$
+
+**הוכחה (אינדוקציה מבנית):**
+1.  **בסיס ($R(x, y)$):** 
+    $$M \models R(x, y)[\bar{a}] \iff \langle a_1, a_2 \rangle \in R^M \iff \langle \pi(a_1), \pi(a_2) \rangle \in R^N \iff N \models R(x, y)[\pi(\bar{a})]$$
+2.  **צעד (קשרים):** נובע ישירות מהגדרת האמת (למשל, $\neg$ הופך אמת לשקר בשני הצדדים).
+
+3.  **צעד (כמתים):**
+
+<div style="margin-top: -15px;"></div>
+
+</small>
+
+
+
+::left::
+
+<small>
+$$
+\begin{aligned}
+M \models \exists x (\psi)[\sigma] &\iff \exists d \in D_M, M \models \psi[\sigma[x \mapsto d]] \\
+&\iff \exists d \in D_M, N \models \psi[\pi \circ \sigma[x \mapsto d]] \quad (\text{לפי הנחה}) \\
+&\iff \exists e \in D_N, N \models \psi[\pi \circ \sigma[x \mapsto \pi^{-1}(e)]] \quad (\text{על  $\pi$ כי}) \\
+&\iff N \models \exists x (\psi)[\pi \circ \sigma]. 
+\end{aligned}
+$$
+</small>
+
+::right::
+
+<small>
+
+$$
+\begin{aligned}
+M \models \forall x (\psi)[\sigma] &\iff \forall d \in D_M, M \models \psi[\sigma[x \mapsto d]] \\
+&\iff \forall d \in D_M, N \models \psi[\pi \circ \sigma[x \mapsto d]] \quad (\text{לפי הנחה}) \\
+&\iff \forall e \in D_N, N \models \psi[\pi \circ \sigma[x \mapsto \pi^{-1}(e)]] \quad (\text{על  $\pi$ כי}) \\
+&\iff N \models \forall x (\psi)[\pi \circ \sigma]. 
+\end{aligned}
+$$
+
+</small>
+
+---
 section: FOL (כללי)
 ---
 
@@ -1113,6 +1168,29 @@ section: FOL (כללי)
 *   נוסחה יכולה לטעון שוויון בין שמות: $v_1 + v_2 = 0$.
 *   נוסחה יכולה לטעון לקיום איבר המקיים תכונה: $\exists v_1 (v_1 + 0 = 0)$.
 
+
+
+
+---
+
+# הגדרה רקורסיבית: משתנים חופשיים (המקרה הכללי)
+
+נסמן ב-$Var(t)$ את קבוצת המשתנים המופיעים בשם $t$.
+נגדיר את קבוצת המשתנים החופשיים בנוסחה $\phi$, המסומנת $Free(\phi)$, באופן אינדוקטיבי:
+
+1.  **בסיס (אטומיות):**
+    *   $Free(t_1 = t_2) = Var(t_1) \cup Var(t_2)$
+    *   $Free(R(t_1, \dots, t_n)) = Var(t_1) \cup \dots \cup Var(t_n)$
+
+2.  **צעד (קשרים):**
+    *   $Free(\neg \phi) = Free(\phi)$
+    *   $Free(\phi \circ \psi) = Free(\phi) \cup Free(\psi)$ (עבור $\circ \in \{\land, \lor, \to\}$)
+
+3.  **צעד (כמתים):**
+    *   $Free(\exists x (\phi)) = Free(\phi) \setminus \{x\}$
+    *   $Free(\forall x (\phi)) = Free(\phi) \setminus \{x\}$
+
+**הגדרה:** נוסחה $\phi$ נקראת **פסוק** (Sentence) אם $Free(\phi) = \emptyset$.
 
 ---
 
@@ -1414,6 +1492,43 @@ graph TD
   linkStyle 1 stroke:red,stroke-width:2px,stroke-dasharray: 5 5;  
 ```
 </div>
+
+---
+layout: two-cols-header
+---
+
+# דוגמה: אינדוקציה על שני משתנים (Double Induction)
+
+**המטרה:** להוכיח את חוק החילוף בחיבור: $m + n = n + m$ (עבור המספרים הטבעיים).
+
+**הגדרה רקורסיבית של חיבור:**
+1.  $x + 0 = x$
+2.  $x + S(y) = S(x + y)$
+
+::left::
+
+**שלב א': אינדוקציה על $n$**
+נוכיח באינדוקציה על $n$ שלכל $m$ מתקיים $m+n = n+m$.
+
+1.  **בסיס ($n=0$):** צריך להוכיח $m+0 = 0+m$.
+    *   אגף שמאל: $m+0 = m$ (הגדרה).
+    *   אגף ימין: $0+m = \dots$ **נתקענו!**
+    *   אין לנו הגדרה ל-$0+m$.
+    *   $\implies$ **נדרשת אינדוקציה עזר על $m$** להוכחת $0+m=m$.
+
+::right::
+
+**שלב ב': שתי אינדוקציות עזר (למות)**
+
+1.  **למה 1:** $0+m = m$.
+    *   בסיס ($m=0$): $0+0=0$.
+    *   צעד ($S(k)$): $0+S(k) = S(0+k) = S(k)$. ✓
+
+2.  **למה 2:** $S(n)+m = S(n+m)$.
+    *   (הוכחה באינדוקציה על $m$).
+
+**סיכום:** כדי להוכיח תכונה פשוטה על שני משתנים, לעיתים נדרשת "אינדוקציה בתוך אינדוקציה".
+
 
 
 

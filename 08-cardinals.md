@@ -66,7 +66,7 @@ section: סדר ושקילות עוצמה
     <img src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Bernstein_Felix.jpg" alt="Felix Bernstein" style="height: 120px;" />
     <p>פליקס ברנשטיין<br>1878-1956</p>
   </div>
-</div>
+</div> 
 
 <!--
 ס
@@ -112,30 +112,32 @@ section: סדר ושקילות עוצמה
 
 - $g$ היא חד-חד-ערכית:
   - נניח $g(S_1) = g(S_2)$ עבור $S_1, S_2 \subseteq A$.
+  
   - אז $f[S_1] = f[S_2]$.
   - מכיוון ש-$f$ היא חד-חד-ערכית, נובע ש-$S_1 = S_2$:
-    - יהי $i \in \{1, 2\}$.
-    - אם $x \in S_i$ אז $f(x) \in f[S_i]$
+    - עבור $i \in \{1, 2\}$, אם $x \in S_i$ אז $f(x) \in f[S_i]$
+
     - מכיוון ש-$f[S_{(2-i)+1}] = f[S_i]$, נובע ש-$f(x) \in f[S_{(2-i)+1}]$
     - מכיוון ש-$f$ חד-חד-ערכית, נובע ש-$x \in S_{(2-i)+1}$.
-
+  
 <div style="position: absolute; top: 215px; left: 200px;">
 
 - $g$ היא על:
   - תהי $T \subseteq B$.
+  
   - נגדיר 
-  $S = f^{-1}(T)$.
+  $S = f^{-1}[T]$.
   - אז $g(S) = T$.
 </div>
 
 
-<div style="position: absolute; top: 350px; left: 80px;">
+<div style="position: absolute; top: 360px; left: 80px;">
   <img src="./images/P-equiv.svg" alt="Math Image" style="width: 300px;"/>
 </div>
 
 ---
 
-# אם קיימת פונקציה על מקבוצה $A$ לקבוצה $B$, אז $B \curlyeqprec A$
+# אם קיימת פונקציה "על" מקבוצה $A$ לקבוצה $B$, אז $B \curlyeqprec A$
 
 - נניח $f\colon A \to B$ היא פונקציה על.
 

@@ -74,28 +74,34 @@ section: סדר ושקילות עוצמה
 
 ---
 
-# יחס שקילות בין קבוצות
+# $\sim$ הוא יחס שקילות בין קבוצות
 
-- $\sim$ הוא יחס שקילות מעל $\mathcal{P}(A)$ עבור כל קבוצה $A$.
+- $\sim$ הוא יחס שקילות מעל $\mathcal{P}(U)$ עבור כל קבוצה $U$.
 
-- **רפלקסיביות**: 
-  - פונקציית הזהות $id_A\colon A \to A$ היא חד-חד-ערכית ועל.
+<small>
 
-
-- **סימטריות**: 
-  - אם $f\colon A \to B$ היא פונקציה חד-חד-ערכית ועל, אז
-    $f^{-1}\colon B \to A$
-    חד-חד-ערכית ועל.
-
-- **טרזיטיביות**: 
-  - נניח $f\colon A \to B$ ו-$g\colon B \to C$ הן פונקציות חד-חד ערכיות ועל.
-  
-  - אז $g \circ f\colon A \to C$ היא פונקציה חד-חד ערכית ועל.
+- **רפלקסיביות ($A \sim A$):** 
+  - פונקציית הזהות $id_A\colon A \to A$ המוגדרת ע"י $id_A(a)=a$ מקיימת:
+    - חח"ע: אם $id_A(a_1) = id_A(a_2)$ אז $a_1 = a_2$.
+    - על: לכל $a \in A$, מתקיים $id_A(a) = a$.
 
 
-<div style="position: absolute; top: 150px; left: 80px;">
-  <img src="./images/GHS-pictogram-skull.svg" alt="Math Image" style="width: 200px;"/>
+- **סימטריות (אם $A \sim B$ אז $B \sim A$):** 
+  - תהי $f\colon A \to B$ הפיכה. אזי $f^{-1}\colon B \to A$ מוגדרת היטב והפיכה.
+    - חח"ע: אם $f^{-1}(b_1) = f^{-1}(b_2) = a$, אז הפעלת $f$ נותנת $b_1 = f(a) = b_2$.
+    - על: לכל $a \in A$, נסמן $b = f(a)$. אז $f^{-1}(b) = a$.
+
+- **טרזיטיביות (אם $A \sim B$ ו-$B \sim C$ אז $A \sim C$):** 
+  - יהיו $f\colon A \to B$ ו-$g\colon B \to C$ הפיכות. נגדיר $h = g \circ f\colon A \to C$.
+  - חח"ע: $h(x)=h(y) \Rightarrow g(f(x))=g(f(y)) \xrightarrow{g \text{ 1-1}} f(x)=f(y) \xrightarrow{f \text{ 1-1}} x=y$.
+  - על: יהי $c \in C$. קיים $b \in B$ כך ש-$g(b)=c$ (כי $g$ על). קיים $a \in A$ כך ש-$f(a)=b$ (כי $f$ על). לכן $h(a)=g(f(a))=g(b)=c$.
+
+</small>
+
+<div style="position: absolute; top: 180px; left: 50px;">
+  <img src="./images/equivalence_bijection_illustration.png" alt="Bijection" style="width: 250px;"/>
 </div>
+
 
 
 ---

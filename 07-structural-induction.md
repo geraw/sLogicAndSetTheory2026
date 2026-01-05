@@ -1510,9 +1510,12 @@ layout: TwoColsHeaderCustom
 
 </small>
 
+<div style="margin-top: -15px;"></div>
+
 ::left::
 
 <small>
+
 
 
 **שלב א': אינדוקציה על $n$**
@@ -1520,6 +1523,7 @@ layout: TwoColsHeaderCustom
 
 1.  **בסיס ($n=0$):** צריך להוכיח $m+0 = 0+m$.
     *   אגף שמאל: $m+0 = m$ (הגדרה).
+    
     *   אגף ימין: $0+m = \dots$ **נתקענו!**
     *   אין לנו הגדרה ל-$0+m$.
     *   $\Leftarrow$ **נדרשת אינדוקציה עזר על $m$** להוכחת $0+m=m$.
@@ -1532,21 +1536,36 @@ layout: TwoColsHeaderCustom
 
 **שלב ב': שתי אינדוקציות עזר (למות)**
 
+
+
 1.  **למה 1:** $0+m = m$.
-    *   בסיס ($m=0$): $0+0=0$.
+
+    <div style="margin-top: -10px;"></div>
+
+    *   בסיס ($m=0$): $0+0=0$.    
     *   צעד ($S(k)$): $0+S(k) = S(0+k) = S(k)$. ✓
 
 2.  **למה 2:** $S(n)+m = S(n+m)$.
-    *   **בסיס ($m=0$):** $S(n)+0 = S(n) = S(n+0)$.
+    
+    <div style="margin-top: -10px;"></div>
+
+    *   **בסיס ($m=0$):** $S(n)+0 = S(n) = S(n+0)$.    
     *   **צעד ($S(m)$):** $S(n)+S(m) = S(S(n)+m) \stackrel{\text{IH}}{=} S(S(n+m)) = S(n+S(m))$.
 
 </small>
 
 ::after::
 
+
+
 <small>
 
-**סיכום:** כדי להוכיח תכונה על שני משתנים, לעיתים נדרשת "אינדוקציה בתוך אינדוקציה".
+**סיום הוכחת שלב א' (צעד האינדוקציה):**
+צריך להוכיח $m+S(n) = S(n)+m$.
+
+<div style="margin-top: -10px;"></div>
+
+$$m+S(n) \stackrel{\text{def}}{=} S(m+n) \stackrel{\text{IH}}{=} S(n+m) \stackrel{\text{Lemma 2}}{=} S(n)+m$$
 
 </small>
 

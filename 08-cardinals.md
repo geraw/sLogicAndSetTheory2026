@@ -137,27 +137,29 @@ section: סדר ושקילות עוצמה
 
 ---
 
-# אם קיימת פונקציה "על" מקבוצה $A$ לקבוצה $B$, אז $B \curlyeqprec A$
+# אם קיימת פונקציה "על" מקבוצה $B$ לקבוצה $A$, אז $A \curlyeqprec B$
 
-- נניח $f\colon A \to B$ היא פונקציה על.
+- נניח $f\colon B \to A$ היא פונקציה על.
 
-- נגדיר את הפונקציה $g\colon B \to A$ כך:
-  - עבור כל $b \in B$, נבחר $a_b \in A$ כך ש-$f(a_b) = b$ (אפשר לעשות זאת כי $f$ היא פונקציה על).
+- נגדיר את הפונקציה $g\colon A \to B$ כך:
+  - עבור כל $a \in A$, נבחר $b_a \in B$ כך ש-$f(b_a) = a$ (אפשר לעשות זאת כי $f$ היא פונקציה על).
 
-  - נגדיר $g(b) = a_b$.
+  - נגדיר $g(a) = b_a$.
 
 - נראה ש-$g$ היא פונקציה חד-חד-ערכית:
-  - נניח $g(b_1) = g(b_2)$ עבור $b_1, b_2 \in B$.
+  - נניח $g(a_1) = g(a_2)$ עבור $a_1, a_2 \in A$.
 
-  - אז $a_{b_1} = a_{b_2}$.
+  - אז $b_{a_1} = b_{a_2}$.
 
-  - מכיוון ש-$f(a_{b_1}) = b_1$ ו-$f(a_{b_2}) = b_2$, נובע ש-$b_1 = b_2$.
+  - מכיוון ש-$f(b_{a_1}) = a_1$ ו-$f(b_{a_2}) = a_2$, נובע ש-$a_1 = a_2$.
 
-- מכאן נובע ש-$g$ היא פונקציה חד-חד-ערכית, ולכן $B \curlyeqprec A$.
+- מכאן נובע ש-$g$ היא פונקציה חד-חד-ערכית, ולכן $A \curlyeqprec B$.
 
-<div style="position: absolute; top: 100px; left: 50px; text-align: center; border: 1px solid brown; padding \colon 5px; display: inline-block; background-color: lightyellow; color: brown;">
+<div style="position: absolute; top: 100px; left: 10px; text-align: center; border: 2px solid brown; padding: 2px; display: inline-block; background-color: lightyellow; color: brown; font-size: 0.8em;">
 
-  הטענה הזו היא "אם ורק אם" כל עוד $A$ לא ריקה
+  הטענה הזו היא "אם ורק אם" כל עוד $A$ לא ריקה.
+  <br> 
+  למשל, עבור $A=\emptyset$ ו-$B=\{1\}$, מתקיים $A \curlyeqprec B$ (פונקציה ריקה), אך לא קיימת פונקציה מ-$B$ ל-$A$.
 </div>
 
 <div style="position: absolute; top: 190px; left: 80px">
@@ -165,13 +167,13 @@ section: סדר ושקילות עוצמה
 ```mermaid
 graph LR
 
-a((a)) --> |f| A((A))
-b((b)) --> |f| A
-c((c)) --> |f| B((B))
-d((d)) --> |f| B
+b1((b1)) --> |f| a1((a1))
+b2((b2)) --> |f| a1
+b3((b3)) --> |f| a2((a2))
+b4((b4)) --> |f| a2
 
-A --> |g| a
-B --> |g| c
+a1 --> |g| b1
+a2 --> |g| b3
 
 linkStyle 0,1,2,3 stroke:green,stroke-width:2px,head-color:green
 linkStyle 4,5 stroke:red,stroke-width:2px,arrowhead-color:red
@@ -276,6 +278,21 @@ $$E = \bigcup \{ E_i \mid i \in \mathbb{N} \}$$
   </div>
 </div>
 
+
+---
+
+ 
+# $\mathbb{N}$ אינה קבוצה סופית
+
+- נניח בשלילה ש-$\mathbb{N}$ היא קבוצה סופית.
+- אזי קיים $n \in \mathbb{N}$ כך ש-$\mathbb{N} \sim \{0, \dots, n-1\}$.
+- תהי $f\colon \{0, \dots, n-1\} \to \mathbb{N}$ פונקציה חד-חד-ערכית ועל.
+- נגדיר $M = \max(\{f(0), \dots, f(n-1)\}) + 1$.
+- מצד אחד, $M \in \mathbb{N}$ (סגירות לחיבור).
+- מצד שני, לכל $i < n$, מתקיים $f(i) < f(i) + 1 \leq M$, ולכן $f(i) \neq M$.
+- כלומר, $M \notin \text{image}(f)$.
+- בסתירה לכך ש-$f$ היא פונקציה על.
+- לכן $\mathbb{N}$ אינה סופית.
 
 ---
 section: קבוצות בנות מנייה

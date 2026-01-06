@@ -211,7 +211,7 @@ linkStyle 4,5 stroke:red,stroke-width:2px,arrowhead-color:red
 section: משפט קנטור ברנשטיין
 ---
 
-# <span style="font-size: 0.8em;">טענת עזר: אם $X \subseteq Y$ ויש פונקציה $f\colon Y \to X$ שהיא חד-חד-ערכית אז $X \sim Y$.</span>
+# <span style="font-size: 0.8em;">טענת עזר: אם $X \subseteq Y$ ויש $f\colon Y \to X$ שהיא חד-חד-ערכית אז $X \sim Y$.</span>
 
 - נגדיר קבוצות $E_n$ באופן רקורסיבי:
   $$E_0 = Y \setminus X$$
@@ -257,9 +257,9 @@ $$E = \bigcup \{ E_i \mid i \in \mathbb{N} \}$$
 # משפט קנטור ברנשטיין: אם $A \curlyeqprec B$ ו-$B \curlyeqprec A$, אז $A \sim B$.
 
 
-  <div style="display: flex; justify-content: center; align-items: center; height: 70%;">
-    <img src="./images/KantorBernstein.svg" alt="Cantor Bernstein" style="height: 70%;" /> 
-  </div>
+<div style="display: flex; justify-content: center; align-items: flex-start; height: 100%; overflow: hidden;">
+  <img src="./images/KantorBernstein_cartoon.png" alt="Cantor Bernstein" style="height: 100%; object-fit: cover; object-position: center -50px;" /> 
+</div>
 
 ---
 
@@ -281,25 +281,31 @@ $$E = \bigcup \{ E_i \mid i \in \mathbb{N} \}$$
 
 <div style="position: absolute; top: 330px; left: 100px;">
   <div style="text-align: center;">
-    <img src="./images/KantorBernstein.svg" alt="Cantoer Bernstein" style="height: 120px;" /> 
+    <img src="./images/KantorBernstein_cartoon.png" alt="Cantor Bernstein" style="height: 320px; object-fit: cover; object-position: center -50px;" /> 
   </div>
 </div>
 
 
 ---
 
- 
 # $\mathbb{N}$ אינה קבוצה סופית
 
 - נניח בשלילה ש-$\mathbb{N}$ היא קבוצה סופית.
-- אזי קיים $n \in \mathbb{N}$ כך ש-$\mathbb{N} \sim \{0, \dots, n-1\}$.
-- תהי $f\colon \{0, \dots, n-1\} \to \mathbb{N}$ פונקציה חד-חד-ערכית ועל.
-- נגדיר $M = \max(\{f(0), \dots, f(n-1)\}) + 1$.
+
+- אזי קיים $n \in \mathbb{N}$ כך ש-$\mathbb{N} \sim \mathbb{N}^{<n}$.
+- תהי $f\colon \mathbb{N}^{<n} \to \mathbb{N}$ פונקציה חד-חד-ערכית ועל.
+- נגדיר $M = \max(\{f(i) \mid i < n\}) + 1$.
 - מצד אחד, $M \in \mathbb{N}$ (סגירות לחיבור).
 - מצד שני, לכל $i < n$, מתקיים $f(i) < f(i) + 1 \leq M$, ולכן $f(i) \neq M$.
 - כלומר, $M \notin \text{image}(f)$.
 - בסתירה לכך ש-$f$ היא פונקציה על.
 - לכן $\mathbb{N}$ אינה סופית.
+
+<div style="position: absolute; top: 100px; left: 80px;">
+  <div style="text-align: center;">
+    <img src="./images/n_is_infinite_cartoon.png" alt="N is infinite proof" style="height: 290px;" />
+  </div>
+</div>
 
 ---
 section: קבוצות בנות מנייה

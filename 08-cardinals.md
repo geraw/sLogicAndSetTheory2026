@@ -298,7 +298,7 @@ $$E = \bigcup \{ E_i \mid i \in \mathbb{N} \}$$
 - מצד אחד, $M \in \mathbb{N}$ (סגירות לחיבור).
 - מצד שני, לכל $i < n$, מתקיים $f(i) < f(i) + 1 \leq M$, ולכן $f(i) \neq M$.
 - כלומר, $M \notin \text{image}(f)$.
-- בסתירה לכך ש-$f$ היא פונקציה על.
+- בסתירה לכך ש-$f$ היא פונקציה על. 
 - לכן $\mathbb{N}$ אינה סופית.
 
 <div style="position: absolute; top: 100px; left: 80px;">
@@ -338,31 +338,77 @@ section: קבוצות בנות מנייה
     </div>
   </div>
 ---
-
+layout: TwoColsHeaderCustom
+---
 # $A$ בת מנייה אם ורק אם $A \curlyeqprec \mathbb{N}$
 
 - ($\Rightarrow$) אם $A$ היא בת מנייה אז $A$ סופית או $A \sim \mathbb{N}$.
-  - אם $A$ סופית, אז קיימת פונקציה חד-חד-ערכית ועל $f\colon A \to \mathbb{N}^{<n}$ עבור $n \in \mathbb{N}$. לכן קיימת פונקציה $g\colon A \to \mathbb{N}$ כאשר $g(a) = f(a)$ לכל $a \in A$, שהיא חד-חד-ערכית מ-$A$ ל-$\mathbb{N}$ ולכן $A \sim \mathbb{N}$.
+  - אם $A$ סופית, אז קיימת פונקציה חח"ע ועל $f\colon A \to \mathbb{N}^{<n}$ עבור $n \in \mathbb{N}$ כלשהו. זאת פונקציה חח"ע מ-$A$ ל-$\mathbb{N}$ ולכן $A \curlyeqprec \mathbb{N}$.
   - אם $A \sim \mathbb{N}$ אז כפי שראינו קודם $A \curlyeqprec \mathbb{N}$.
 
 - ($\Leftarrow$) אם $A \curlyeqprec \mathbb{N}$, אז קיימת פונקציה חד-חד-ערכית $f\colon A \to \mathbb{N}$. נחלק את ההוכחה לשני מקרים: 
 
-  -  אם התמונה של $f$ חסומה. אז כפי שהוכחנו קודם, התמונה של $f$ סופית וקיים $n \in \mathbb{N}$ ופונקציה חד-חד-ערכית ועל $g\colon \text{image}(f) \to \mathbb{N}^{<n}$. לכן $g \circ f$ היא פונקציה חד-חד-ערכית ועל מ-$A$ ל-$\mathbb{N}^{<n}$ ולכן $A$ סופית. מכאן $A$ בת מנייה.
-  - אם התמונה של $f$ אינה חסומה. נגדיר $B = \text{image}(f)$ ונבחן את הפונקציה $g\colon \mathbb{N} \to B$ כך:
-    - $g(i) = \min(B \setminus \{g(0), \ldots, g(i-1)\})$
-    - פונקציה זו מוגדרת אינדוקטיבית ולכן אם $n \in \text{dom}(g)$ אז $m \in \text{dom}(g)$ לכל $m < n$. אם תחום $g$ הוא $\mathbb{N}^{<n}$, אז זה יגרום לכך ש-$B$ חסומה ולכן תחום $g$ הוא $\mathbb{N}$ כי $B$ אינה חסומה.
+::left::
 
+  - **מקרה 1:** $f[A]$ חסומה.
+    - במקרה זה, $f[A] \subseteq \mathbb{N}$ היא תת-קבוצה חסומה ולכן סופית.
+    
+    - קיים $n \in \mathbb{N}$ ופונקציה חח"ע ועל $g\colon f[A] \to \mathbb{N}^{<n}$.
+    - הפונקציה המורכבת $g \circ f \colon A \to \mathbb{N}^{<n}$ היא חח"ע ועל.
+    - לכן $A$ סופית, ובפרט בת מנייה.
+
+::right::
+
+  - **מקרה 2:** $f[A]$ אינה חסומה.
+    - נגדיר פונקציה $g\colon \mathbb{N} \to f[A]$ באופן אינדוקטיבי:
+      $$ g(i) = \min(f[A] \setminus \{g(0), \ldots, g(i-1)\}) $$
+    - הפונקציה מוגדרת לכל $i\in \mathbb{N}$ כי $f[A]$ אינה חסומה ולכן.
+    .
+    - נוכיח, בשקף הבא, ש-$g$ היא פונקציה חח"ע ועל.
+
+    - לכן $f[A] \sim \mathbb{N}$. מכיוון ש-$f$ היא חח"ע ועל מ-$A$ ל-$f[A]$, אז $A \sim f[A]$.
+     מטרנזיטיביות יחס השקילות, נקבל $A \sim \mathbb{N}$.
+
+---
+layout: TwoColsHeaderCustom
 ---
 
 # המשך  
 
- 
-  - נראה ש-$g$ היא פונקציה חד-חד-ערכית ועל:
-    - $g$ היא חד-חד-ערכית: נשים לב ש-$g(i) < g(j)$ עבור $i < j$ כי $g(i)$ הוא המינימום של קבוצה הכוללת את $g(j)$ ו-$g(j)$ הוא מינימום של קבוצה שאינה כוללת את $g(i)$. זה בפרט אומר ש-$g$ היא חד-חד-ערכית.
-    - $g$ היא על: נניח $n \in B$. אז אם $n \notin \{g(0), \ldots, g(n)\}$, אז $g(0), \ldots, g(n) < n$ כי אלו מינימום של קבוצות הכוללות את $n$. זה יגרום לכך שיש $n+1$ איברים ב-$\mathbb{N}$ הקטנים מ-$n$. סתירה. לכן $n \in \{g(0), \ldots, g(n)\}$. מכאן $g$ היא על.
-  - לכן $g$ היא פונקציה חד-חד-ערכית ועל מ-$\mathbb{N}$ ל-$\text{image}(f)$ ו-$g^{-1} \circ f\colon A \to \mathbb{N}$ היא גם פונקציה חד-חד-ערכית ועל ולכן $A \sim \mathbb{N}$.
+- נראה ש-$g$ היא פונקציה חד-חד-ערכית ועל:
+
+::left::
+
+- **$g$ היא חד-חד-ערכית:** 
+  - נניח $g(i) = g(j)$. נרצה להראות ש-$i = j$.
+
+  - נניח בשלילה ש-$i \neq j$. בה"כ נניח $i < j$.
+  - לפי הגדרת $g$, מתקיים $g(j) = \min(f[A] \setminus \{g(0), \dots, g(j-1)\})$.
+  - בפרט $g(j) \notin \{g(0), \dots, g(j-1)\}$.
+  - מצד שני, מכיוון ש-$i < j$, מתקיים $g(i) \in \{g(0), \dots, g(j-1)\}$.
+  - לכן $g(j) \neq g(i)$, סתירה להנחה.
+  - מכאן ש-$i = j$.
+
+::right::
+
+<small>
+
+- **$g$ היא על:**
 
 
+  - יהי $y \in f[A]$. נתבונן בקבוצה $\{g(0), \dots, g(y)\}$.
+  
+  - זוהי קבוצה של $y+1$ מספרים טבעיים שונים (כי $g$ חח"ע).
+  - נניח בשלילה ש-$y$ אינו בתמונה של $g$ (עד $y$). אז לכל $k \le y$ מתקיים $g(k) \neq y$.
+  - לפי הגדרת המינימום, לכל $k \le y$, $g(k) < y$ 
+  <br>
+  (כי $y \in f[A]$ והוא לא נבחר, אז המינימום קטן ממנו).
+  - קיבלנו $y+1$ מספרים טבעיים שונים שכולם קטנים ממש מ-$y$. זאת סתירה כי יש רק $y$ מספרים טבעיים הקטנים מ-$y$: $0, \dots, y-1$.
+  - לכן $y \in \{g(0), \dots, g(y)\}$, כלומר קיימת $i \le y$ כך ש-$g(i) = y$.
+
+
+
+</small>
 ---
 
 # אם $A$ בת מנייה ו-$A' \subseteq A$, אז $A'$ בת מנייה
@@ -436,28 +482,38 @@ section: קבוצות בנות מנייה
 
 # המשך
 
-- כעת נבחן את המקרה שבו $A_i$ אינן בהכרח זרות בזוגות.
-  - נגדיר $B_0, B_1, \ldots, B_{n-1}$ כך:
-    - $B_0 = A_0$
-    - $B_i = A_i \setminus \bigcup_{j=0}^{i-1} B_j$
-  - נראה ש-$\bigcup_{i=0}^{n-1} A_i = \bigcup_{i=0}^{n-1} B_i$:
-    - אם $a \in \bigcup_{i=0}^{n-1} A_i$, אז $a \in A_m$ עבור $m$ כלשהו ולכן $a \in B_m$ או $a \in B_k$ עבור $k < m$. לכן $a \in \bigcup_{i=0}^{n-1} B_i$ ומכאן $\bigcup_{i=0}^{n-1} A_i \subseteq \bigcup_{i=0}^{n-1} B_i$.
-    - מכיוון ש-$B_i \subseteq A_i$, נובע ש-$\bigcup_{i=0}^{n-1} B_i \subseteq \bigcup_{i=0}^{n-1} A_i$ ולכן $\bigcup_{i=0}^{n-1} A_i = \bigcup_{i=0}^{n-1} B_i$.
-  - נראה ש-$B_i \cap B_j = \emptyset$ עבור $i \neq j$:
-    - אם $i \neq j$, נניח ללא הגבלת הכלליות ש-$i > j$. אז $a \in B_i$ גורר $a \notin B_j$.
-  <!-- - אם חלק מה-$B_i$ סופיות, נגדיר $C = \bigcup \{b \in B_i \mid B_i סופית ו-0 \leq i \leq n-1\}$. מכיוון ש-$C$ הוא איחוד סופי של קבוצות סופיות, $C$ סופית.
-  - נגדיר $D = \bigcup \{b \in B_i \mid B_i אינסופית ו-0 \leq i \leq n-1\}$. אז $D$ הוא איחוד סופי של קבוצות בנות מנייה אינסופיות ולכן הוא בת מנייה.
-  - $\bigcup_{i=0}^{n-1} B_i = C \cup D$ ומכיוון שאיחוד של קבוצה בת מנייה וקבוצה סופית הוא בת מנייה, $\bigcup_{i=0}^{n-1} B_i$ בת מנייה ולכן $\bigcup_{i=0}^{n-1} A_i$ בת מנייה. -->
+- כעת נבחן את המקרה שבו $A_i$ אינן בהכרח זרות בזוגות. נגדיר סדרה חדשה של קבוצות  $B_0, B_1, \ldots, B_{n-1}$ כך:
+  $$ B_0 = A_0, \quad B_i = A_i \setminus \bigcup_{j=0}^{i-1} B_j $$
+
+
+
+
+
+  1. **שוויון האיחודים:** $\bigcup_{i=0}^{n-1} A_i = \bigcup_{i=0}^{n-1} B_i$
+     - ברור ש-$B_i \subseteq A_i$, לכן $\bigcup B_i \subseteq \bigcup A_i$.
+     - מצד שני, אם $a \in \bigcup A_i$, נבחר את האינדקס המינימלי $m$ כך ש-$a \in A_m$.
+     - אז $a \notin A_k$ לכל $k < m$, ובפרט $a \notin B_k$.
+     - לכן $a \in A_m \setminus \bigcup_{j=0}^{m-1} B_j = B_m$.
+
+  2. **זרות בזוגות:** $B_i \cap B_j = \emptyset$ לכל $i \neq j$.
+     - נניח $i > j$. לפי ההגדרה, $B_i$ מכילה רק איברים שאינם ב-$B_j$ (שהרי $B_j \subseteq \bigcup_{k=0}^{i-1} B_k$).
+
+
+- לפי מה שראינו בשקף הקודם, $\bigcup_{i=0}^{n-1} B_i$ היא קבוצה בת מנייה אינסופית ולכן $\bigcup_{i=0}^{n-1} A_i$ היא קבוצה בת מנייה אינסופית.
+
+<div style="position: absolute; top: -190px; left: -380px;">
+  <img src="./images/disjoint_sets.png" alt="Disjoint Sets Construction" style="scale:.25;"  />
+</div>
 
 ---
-section: דוגמאות
+section: הראציונאליים
 ---
 
 # $\mathbb{N} \times \mathbb{N}$ היא קבוצה בת מנייה
 
 
-<div style="position: absolute; top: -120px; left: -20px; z-index: -1;">
-  <img src="./images/Cantor_Pairing_Function_Plot.svg" alt="NtoZ" style="scale:0.4" />
+<div style="position: absolute; top: 240px; left: 230px; z-index: -1;">
+  <img src="./images/cantor_pairing_stairs.png" alt="Cantor Pairing Stairs" style="height: 300px;" />
 </div>
 
 
@@ -476,15 +532,15 @@ section: דוגמאות
 נתחיל עם:
  $$C(0) = (0, 0)$$
 
-ו-
+ונמשיך באופן אינדוקטיבי:
 $$C(i+1) = \begin{cases} 
     \langle y+1, 0  \rangle &  C(i)=\langle 0,y \rangle \\
     \langle x-1, y-1\rangle &  C(i)=\langle x,y \rangle, x\neq 0
   \end{cases}$$
 
-<br>
 
 1. פונקציית הזיווג ממפה באופן שיטתי את הזוגות $\langle x, y\rangle$ על ידי מעבר על האלכסונים של $\mathbb{N} \times \mathbb{N}$.
+
 2. בתוך כל אלכסון, הזוגות מזוהים באופן ייחודי מכיוון ש:
     - כל אלכסון $d$ מתאים לכל הזוגות $\langle x, y\rangle$ כך ש-$x + y = d$.
     - הזוגות על האלכסון $d$ ממופים בסדר קבוע שמתחיל מ-$\langle d, 0\rangle$ ונע שמאלה לאורך $\langle d-1, 1 \rangle, \langle d-2, 2\rangle, \dots, \langle 0, d  \rangle$.
@@ -493,9 +549,9 @@ $$C(i+1) = \begin{cases}
 
 
 
-<div style="position: absolute; top: 10px; left: -95px">
+<div style="position: absolute; top: 70px; left: 20px">
   <div>
-    <img src="./images/Cantor_Pairing_Function.svg" alt="NtoZ" style="scale:0.5"  />
+    <img src="./images/cantor_pairing_grid.png" alt="Cantor Pairing Grid" style="height: 200px;" />
   </div>
 </div>
 
@@ -524,22 +580,29 @@ $\mathbb{Q}$ היא בת מנייה.
 section: אריתמטיקה של עוצמות
 ---
 
-# איחוד בן מנייה של קבוצות בנות מנייה הוא בן מנייה
+# איחוד של קבוצה בת מניה של קבוצות בנות מנייה הוא בן מנייה
 
 - נניח שיש לנו קבוצה בת מנייה של קבוצות בנות מנייה: $A = \{A_n \mid n \in \mathbb{N}\}$
 
-- נבנה פונקציה $h \colon \mathbb{N} \times \mathbb{N} \to \bigcup_{n \in \mathbb{N}} A_n$ שהיא על.
-- כל $A_i$ היא קבוצה בת מנייה, ולכן נבחר פונקציה $g_i \colon \mathbb{N} \to A_i$ שהיא על. (היכולת שלנו לבחור פונקציות אלו נובעת מאקסיומת הבחירה).
+- נבנה פונקציה $h \colon \mathbb{N} \times \mathbb{N} \to \bigcup A$ שהיא על.
+- כל $A_i$ היא קבוצה בת מנייה, ולכן נבחר פונקציה $g_i \colon \mathbb{N} \to A_i$ שהיא על. 
+<!-- (היכולת שלנו לבחור פונקציות אלו נובעת מאקסיומת הבחירה). -->
 
 - כעת נגדיר את $h$ כך:  $h(\langle a, b \rangle) = g_a(b)$
 
 - $h$ היא על:
-  - יהי $a \in \bigcup_{n \in \mathbb{N}} A_n$.
+  - יהי $a \in \bigcup A$.
   - אזי $a \in A_i$ עבור איזה שהוא $i \in \mathbb{N}$.
   - לכן, $a \in \text{image}(g_i)$ ולכן קיים $m \in \mathbb{N}$ כך ש-$a = g_i(m)$.
   - מכאן ש-$h(\langle i, m \rangle) = a$.
 
-- מכיוון ש-$h$ היא על, האיחוד $\bigcup_{n \in \mathbb{N}} A_n$ הוא בן מנייה.
+- לכן $\bigcup A \curlyeqprec \mathbb{N} \times \mathbb{N} \sim \mathbb{N}$.
+ 
+- לכן $\bigcup A$ בת מנייה.
+
+<div style="position: absolute; top: 150px; left: 50px;">
+  <img src="./images/countable_union_h_structure.png" alt="h function structure" style="height: 350px;" />
+</div>
 
 ---
 
@@ -553,7 +616,7 @@ section: אריתמטיקה של עוצמות
   
 - המכפלה הקרטזית של הקבוצה הריקה עם כל קבוצה אחרת היא כמובן ריקה.
   
-- **המכפלה הקרטזית של $n$ קבוצות היא בת מנייה**:
+- **המכפלה הקרטזית של $n$ קבוצות בנות מנייה היא בת מנייה**:
    - בסיס האינדוקציה: מכפלה של שתי קבוצות בנות מנייה היא בת מנייה.
    
    - צעד אינדוקציה:   נניח שהמכפלה $A_1 \times A_2 \times \dots \times A_k$ היא בת מנייה.
@@ -574,7 +637,8 @@ section: אריתמטיקה של עוצמות
 
 # $\text{FinSeq}(\mathbb{N})$ היא קבוצה בת מנייה
 
-  $$\text{FinSeq}(\mathbb{N}) = \bigcup_{m \in \mathbb{N}} \{ \langle a_1, \ldots, a_m \rangle  \mid a_i \in \mathbb{N}\}$$
+  $$\text{FinSeq}(\mathbb{N}) = \bigcup \{ \mathbb{N}^m \mid m \in \mathbb{N} \} =    \bigcup \bigl\{ \{\langle a_1, \ldots, a_m \rangle  \mid a_i \in \mathbb{N}\} \mid m \in \mathbb{N}\bigr\}$$
+
 - היא איחוד בן מנייה של קבוצות בנות מנייה ולכן היא בת מנייה.
 
 - אפשר לחשוב על $\text{FinSeq}(\mathbb{N})$ כעל קבוצת כל הרצפים הסופיים של מספרים טבעיים.
@@ -585,36 +649,59 @@ section: אריתמטיקה של עוצמות
 - איך נתאים בין שתי הקבוצות באופן חד-חד ערכי ועל?
 
 ---
+layout: TwoColsHeaderCustom
+cols: 1fr 2fr
+---
 
 # $\text{Fin}(\mathbb{N})$ היא קבוצה בת מנייה
 
+<small>
 
-**הגדרנו**:  
-   $$
-   \text{Fin}_0(\mathbb{N}) = \{\emptyset\}.
-   $$
+- **הגדרנו את $\text{Fin}(\mathbb{N})$ באופן אינדוקטיבי:**
+   1. $\emptyset \in \text{Fin}(\mathbb{N})$.
+   2. אם $A \in \text{Fin}(\mathbb{N})$ ו-$x \in \mathbb{N}$, אז $A \cup \{x\} \in \text{Fin}(\mathbb{N})$.
 
-   $$
-   \text{Fin}_{m+1}(\mathbb{N}) = \{A \cup \{x\} \mid A \in \text{Fin}_m(\mathbb{N}), x \in \mathbb{N} \setminus A\}.
-   $$
+- נגדיר את פונקציית הגודל $size \colon \text{Fin}(\mathbb{N}) \to \mathbb{N}$ באופן רקורסיבי:
+  - $size(\emptyset) = 0$
+  - $size(A \cup \{x\}) = \begin{cases} size(A) + 1 & x \notin A \\ size(A) & x \in A \end{cases}$
+  
 
-<br>
+- כעת ניתן לכתוב את $\text{Fin}(\mathbb{N})$ כאיחוד בן מנייה של הקבוצות בגודל $n$:
+  $\text{Fin}(\mathbb{N}) = \bigcup \{\{ A \in \text{Fin}(\mathbb{N}) \mid size(A) = n \} \mid {n \in \mathbb{N}} \}$
+ 
 
-- <span style="color: blue;">בסיס האינדוקציה</span>:  $\text{Fin}_0(\mathbb{N}) = \{\emptyset\}$ מכילה איבר אחד בלבד ולכן בת מנייה.
 
-<br>
+- נסמן $S_n = \{ A \in \text{Fin}(\mathbb{N}) \mid size(A) = n \}$. נוכיח באינדוקציה שכל $S_n$ היא בת מנייה:
 
-- <span style="color: blue;">  שלב האינדוקציה </span>:
-  בהינתן ש-$\text{Fin}_m(\mathbb{N})$ בת מנייה, נראה ש-$\text{Fin}_{m+1}(\mathbb{N})$ בת מנייה:
-    - כל קבוצה ב-$\text{Fin}_{m+1}(\mathbb{N})$ נוצרת ע"י הוספת איבר $x \in \mathbb{N}$ לקבוצה $A \in \text{Fin}_m(\mathbb{N})$.
-    - $\text{Fin}_m(\mathbb{N})$ בת מנייה וקבוצת האיברים האפשריים $\mathbb{N} \setminus A$ בת מנייה.
-    - מכפלה סופית של קבוצות בנות מנייה היא קבוצה בת מנייה.
+</small>
 
-<br>
+::left::
 
-- <span style="color: blue;">  האיחוד הכולל</span>:
-  $\text{Fin}(\mathbb{N}) = \bigcup_{m \in \mathbb{N}} \text{Fin}_m(\mathbb{N})$ היא איחוד בן מנייה של קבוצות בנות מנייה, ולכן בת מנייה.
+<small>
 
+  - **בסיס:** $S_0 = \{\emptyset\}$ היא סופית ולכן בת מנייה.
+
+</small>
+
+  <img class="absolute" style="top: 60px; left: 50px; width:250px" src="./images/fin_n_decomposition.png" />
+
+::right::
+
+<small>
+
+  - **צעד:** נניח ש-$S_n$ בת מנייה. כל קבוצה ב-$S_{n+1}$ מתקבלת על ידי הוספת $x$ לקבוצה מ-$S_n$.
+  - קיימת פונקציה על $F \colon S_n \times \mathbb{N} \to S_{n+1}$ המוגדרת ע"י $F(A, x) = A \cup \{x\}$.
+  - היות ש-$S_n$ ו-$\mathbb{N}$ בנות מנייה, המכפלה שלהן בת מנייה, ולכן התמונה $S_{n+1}$ בת מנייה.
+
+</small>
+
+::after::
+
+<small>
+
+- **מסקנה:** $\text{Fin}(\mathbb{N})$ היא איחוד בן מנייה של קבוצות בנות מנייה ($S_n$), ולכן היא בת מנייה.
+
+</small>
 
 ---
 section: משפט קנטור

@@ -31,12 +31,11 @@ transition: slide
 </div>
 
 
-- בשלב זה, כדאי להזכיר שוב שאנו מניחים את אקסיומת הבחירה לאורך כל החלק הזה.
+- בשלב זה, כדאי להזכיר שוב שאנחנו מניחים את אקסיומת הבחירה לאורך כל החלק הזה.
 
 - מושגים אלו קשים להבנה, ולכן נמנע מסיבוך הדיון בדיונים פורמליים על תורת הקבוצות.
 
 - עם זאת, צריך לזכור שמושגים אלו אינם פשוטים והשפעות הבחירה על המתמטיקה הן נושא שנחקר עד היום.
-
 
 ---
 section: סדר ושקילות עוצמה
@@ -108,7 +107,7 @@ section: סדר ושקילות עוצמה
 
 # אם $A \sim B$ אז $\mathcal{P}(A) \sim \mathcal{P}(B)$.
 
-- נניח $f \colon A \to B$ היא פונקציה חד-חד-ערכית ועל.
+- נניח  ש-$f \colon A \to B$ היא חד-חד-ערכית ועל.
 
 - נגדיר את הפונקציה 
 <span style="color:blue;">$g \colon \mathcal{P}(A) \to \mathcal{P}(B)$</span>
@@ -212,7 +211,7 @@ linkStyle 4,5 stroke:red,stroke-width:2px,arrowhead-color:red
 section: משפט קנטור ברנשטיין
 ---
 
-# <span style="font-size: 0.8em;">טענת עזר: אם $X \subseteq Y$ ויש פונקציה $f\colon Y \to X$ שהיא חד-חד-ערכית. אז $X \sim Y$.</span>
+# <span style="font-size: 0.8em;">טענת עזר: אם $X \subseteq Y$ ויש פונקציה $f\colon Y \to X$ שהיא חד-חד-ערכית אז $X \sim Y$.</span>
 
 - נגדיר קבוצות $E_n$ באופן רקורסיבי:
   $$E_0 = Y \setminus X$$
@@ -239,13 +238,13 @@ $$E = \bigcup \{ E_i \mid i \in \mathbb{N} \}$$
 # המשך טענת העזר
 
 - $h$ היא פונקציה חד-חד-ערכית:
-   - נניח $y_1 \neq y_2 \in Y$. יש שלוש אפשרויות:
+   - נניח $h(y_1) = h(y_2)$. נראה כי $y_1 = y_2$. יש שלוש אפשרויות:
      
-     1. $y_1, y_2 \in E$:  אז $h(y_1) = f(y_1)$ ו-$h(y_2) = f(y_2)$. מכיוון ש-$f$ חד-חד-ערכית, $y_1 \neq y_2$ גורר $f(y_1) \neq f(y_2)$ ולכן $h(y_1) \neq h(y_2)$.
+     1. $y_1, y_2 \in E$:  אז $f(y_1) = h(y_1) = h(y_2) = f(y_2)$. מכיוון ש-$f$ חד-חד-ערכית, נובע $y_1 = y_2$.
 
-     2. $y_1, y_2 \in Y \setminus E$: אז $h(y_1) = y_1$ ו-$h(y_2) = y_2$. לכן $y_1 \neq y_2$ גורר $h(y_1) \neq h(y_2)$.
+     2. $y_1, y_2 \in Y \setminus E$: אז $y_1 = h(y_1) = h(y_2) = y_2$. לכן $y_1 = y_2$.
 
-     3. $y_1 \in E$ ו-$y_2 \in Y \setminus E$: אז $h(y_1) = f(y_1)$ ו-$h(y_2) = y_2$. מכיוון ש-$y_1 \in E$, יש $n \in \mathbb{N}$ כך ש-$y_1 \in E_n$. אז $f(y_1) \in E_{n+1}$ ו-$f(y_1) \in E$. לכן, מכיוון ש-$y_2 \notin E$, נובע ש-$f(y_1) \neq y_2$ ולכן $h(y_1) \neq h(y_2)$.
+     3. $y_1 \in E$ ו-$y_2 \in Y \setminus E$: נראה שמקרה זה לא ייתכן. במקרה זה $f(y_1) = h(y_1) = h(y_2) = y_2$. מכיוון ש-$y_1 \in E$, יש $n \in \mathbb{N}$ כך ש-$y_1 \in E_n$. אז $y_2 = f(y_1) \in E_{n+1} \subseteq E$. קיבלנו $y_2 \in E$, בסתירה לכך ש-$y_2 \in Y \setminus E$.
 
 - $h$ היא פונקציה על:
    - נניח $x \in X$. אם $x \in Y \setminus E$, אז $h(x) = x$ ולכן $x \in \text{image}(h)$. אם $x \in E$, אז $x \in E_n$ עבור $n \in \mathbb{N}$. מכיוון ש-$E_0 = Y \setminus X$, $x \notin E_0$, ולכן $n > 0$. אם $x \in E_n$ עבור $n > 0$, אז לפי הגדרת $E_n$, יש $y \in E_{n-1}$ כך ש-$x = f(y)$. מכיוון ש-$y \in E_{n-1}$, $y \in E$ ולכן $h(y) = f(y) = x$ ולכן $x \in \text{image}(h)$.
@@ -746,7 +745,7 @@ $$f(\sum_{i=1}^{\infty} d_i 10^{-i})(i) = d_i$$
 </div> -->
 
 
---- 
+---
 
 
 # אם קיימת $F\colon A \to A$ חד-חד-ערכית ולא על, אז $\mathbb{N} \curlyeqprec A$

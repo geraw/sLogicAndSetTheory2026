@@ -208,6 +208,42 @@ linkStyle 4,5 stroke:red,stroke-width:2px,arrowhead-color:red
 
 
 ---
+
+# תרגיל לדוגמא: אם $A \sim B$ וגם $C \sim D$ אז $A \times C \sim B \times D$
+
+
+---
+layout: two-cols-header
+---
+
+# תרגיל לדוגמא: אם $A \sim B$ וגם $C \sim D$ אז $A \times C \sim B \times D$
+
+- נניח $f \colon A \to B$ ו-$g \colon C \to D$ הן פונקציות חד-חד-ערכיות ועל.
+
+- נגדיר פונקציה $h \colon A \times C \to B \times D$ על ידי:
+  $$h(\langle a, c \rangle) = \langle f(a), g(c) \rangle$$
+
+- נראה ש-$h$ היא חד-חד-ערכית ועל:
+
+::left::
+
+  - **חד-חד-ערכית:** 
+    - נניח $h(\langle a_1, c_1 \rangle) = h(\langle a_2, c_2 \rangle)$.
+
+    - אז $\langle f(a_1), g(c_1) \rangle = \langle f(a_2), g(c_2) \rangle$.
+    - לכן $f(a_1) = f(a_2)$ וגם $g(c_1) = g(c_2)$.
+    - מכיוון ש-$f$ ו-$g$ חח"ע, נובע $a_1 = a_2$ ו-$c_1 = c_2$.
+    - לכן $\langle a_1, c_1 \rangle = \langle a_2, c_2 \rangle$.
+
+::right::
+
+  - **על:**
+    - יהי $\langle b, d \rangle \in B \times D$.
+
+    - מכיוון ש-$f$ ו-$g$ על, קיימים $a \in A$ ו-$c \in C$ כך ש-$f(a)=b$ ו-$g(c)=d$.
+    - לכן $h(\langle a, c \rangle) = \langle f(a), g(c) \rangle = \langle b, d \rangle$.
+
+---
 section: משפט קנטור ברנשטיין
 ---
 

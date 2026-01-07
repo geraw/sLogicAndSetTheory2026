@@ -277,7 +277,7 @@ $$E = \bigcup \{ E_i \mid i \in \mathbb{N} \}$$
 
 - $f$ היא פונקציה חד-חד-ערכית ועל מ-$A$ ל-$f[A]$, ולכן $A \sim f[A]$.
 
-- מכאן נובע ש-$A \sim B$.
+- מטרנזיטיביות $\sim$ נובע ש-$A \sim B$.
 
 <div style="position: absolute; top: 330px; left: 100px;">
   <div style="text-align: center;">

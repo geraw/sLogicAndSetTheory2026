@@ -349,9 +349,9 @@ section: קבוצות אינסופיות
 layout: TwoColsHeaderCustom
 ---
 
-
-
 # אם קיימת $f\colon A \to A$ חד-חד-ערכית ולא על, אז $\mathbb{N} \curlyeqprec A$
+
+<div style="margin-top: -15px;"></div>
 
 - נגדיר סדרה $a_0, a_1, \dots$ באופן הבא:
   - נבחר $a_0 \in A \setminus \text{image}(f)$.

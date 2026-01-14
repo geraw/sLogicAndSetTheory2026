@@ -438,6 +438,7 @@ section: קבוצות בנות מנייה
 ---
 layout: TwoColsHeaderCustom
 ---
+
 # $A$ בת מנייה אם ורק אם $A \curlyeqprec \mathbb{N}$
 
 - ($\Rightarrow$) אם $A$ היא בת מנייה אז $A$ סופית או $A \sim \mathbb{N}$.
@@ -460,8 +461,7 @@ layout: TwoColsHeaderCustom
   - **מקרה 2:** $f[A]$ אינה חסומה.
     - נגדיר פונקציה $g\colon \mathbb{N} \to f[A]$ באופן אינדוקטיבי:
       $$ g(i) = \min(f[A] \setminus \{g(0), \ldots, g(i-1)\}) $$
-    - הפונקציה מוגדרת לכל $i\in \mathbb{N}$ כי $f[A]$ אינה חסומה ולכן.
-    .
+    - הפונקציה מוגדרת לכל $i\in \mathbb{N}$ כי $f[A]$ אינה חסומה.
     - נוכיח, בשקף הבא, ש-$g$ היא פונקציה חח"ע ועל.
 
     - לכן $f[A] \sim \mathbb{N}$. מכיוון ש-$f$ היא חח"ע ועל מ-$A$ ל-$f[A]$, אז $A \sim f[A]$.

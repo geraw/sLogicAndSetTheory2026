@@ -637,7 +637,7 @@ section: הראציונאליים
 ונמשיך באופן אינדוקטיבי:
 $$C(i+1) = \begin{cases} 
     \langle y+1, 0  \rangle &  C(i)=\langle 0,y \rangle \\
-    \langle x-1, y-1\rangle &  C(i)=\langle x,y \rangle, x\neq 0
+    \langle x-1, y+1\rangle &  C(i)=\langle x,y \rangle, x\neq 0
   \end{cases}$$
 
 

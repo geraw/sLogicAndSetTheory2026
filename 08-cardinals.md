@@ -952,7 +952,12 @@ $$f(\sum_{i=1}^{\infty} d_i 10^{-i})(i) = d_i$$
   - לכל $n > 0$, נגדיר את $a_n$ כאיבר כלשהו בקבוצה $A \setminus \{a_i \mid i < n\}$.
 - לא ייתכן שקבוצה זו ריקה, כי אז עוצמת הקבוצה $A$ היא $n$ לכל היותר, אבל $A$ אינסופית.
 - לכן האיבר $a_n$ מוגדר היטב.
-- הקבוצה $\{a_n \mid n \in \ הmathbb{N}\}$ היא תת קבוצה של $A$, ועוצמתה $\aleph_0$.
+- הקבוצה $\{a_n \mid n \in \mathbb{N}\}$ היא תת קבוצה של $A$, ועוצמתה $\aleph_0$.
+
+<div style="position: absolute; top: 250px; left: 90px;">
+  <img src="./images/infinite_set_subset_aleph0.png" alt="Infinite Set Subset" style="width: 250px;" />
+</div>
+
 
 ---
 

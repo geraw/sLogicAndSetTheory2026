@@ -942,50 +942,7 @@ $$f(\sum_{i=1}^{\infty} d_i 10^{-i})(i) = d_i$$
 
 ---
 
-# תרגיל לדוגמה: לכל קבוצה אינסופית קיימת תת קבוצה שעוצמתה $\aleph_0$ 
 
-
-- תהי $A$ קבוצה אינסופית.
-
-- נגדיר סדרה של איברים $a_0, a_1, a_2, \ldots$ כך:
-  - $a_0 \in A$.
-  - לכל $n > 0$, נגדיר את $a_n$ כאיבר כלשהו בקבוצה $A \setminus \{a_i \mid i < n\}$.
-- לא ייתכן שקבוצה זו ריקה, כי אז עוצמת הקבוצה $A$ היא $n$ לכל היותר, אבל $A$ אינסופית.
-- לכן האיבר $a_n$ מוגדר היטב.
-- הקבוצה $\{a_n \mid n \in \mathbb{N}\}$ היא תת קבוצה של $A$, ועוצמתה $\aleph_0$.
-
-<div style="position: absolute; top: 220px; left: 30px;">
-  <img src="./images/infinite_set_subset_aleph0.png" alt="Infinite Set Subset" style="width: 350px;" />
-</div>
-
-
----
-
-
-# תרגיל לדוגמה: $\mathbb{R} \setminus \mathbb{N} \sim \mathbb{R}$
-
-- $\mathbb{Z} \setminus \mathbb{N} \sim \mathbb{N}$:
-  - $\mathbb{Z} \setminus \mathbb{N}$ היא תת קבוצה של $\mathbb{Z}$, ולכן היא בת מניה.
-  
-  - בנוסף היא אינסופית.
-
-
-- תהי $f\colon \mathbb{Z} \to \mathbb{Z} \setminus \mathbb{N}$ פונקציה חד-חד-ערכית ועל.
-
-- נגדיר $g\colon \mathbb{R} \to \mathbb{R} \setminus \mathbb{N}$ על פי:
-  $$g(x) = \begin{cases} 
-  f(x) & x \in \mathbb{Z} \\
-  x & x \in \mathbb{R} \setminus \mathbb{Z} 
-  \end{cases}$$
-- ניתן לראות בקלות שזו פונקציה חד-חד-ערכית ועל.
-
-<div style="position: absolute; top: 130px; left: 40px;">
-  <img src="./images/r_minus_n_bijection.png" alt="R minus N bijection" style="width: 250px;" />
-</div>
-
-
-
----
 
 # הקטע הפתוח $(0,1)$ שקול לעוצמה של $\mathbb{R}$
 
@@ -1045,6 +1002,49 @@ $$f(\sum_{i=1}^{\infty} d_i 10^{-i})(i) = d_i$$
 
 - סיכום:  לפי קנטור-ברנשטיין: $\{0,1\}^\mathbb{N} \sim \mathbb{R}$.
 
+
+---
+
+# תרגיל לדוגמה: לכל קבוצה אינסופית קיימת תת קבוצה שעוצמתה $\aleph_0$ 
+
+
+- תהי $A$ קבוצה אינסופית.
+
+- נגדיר סדרה של איברים $a_0, a_1, a_2, \ldots$ כך:
+  - $a_0 \in A$.
+  - לכל $n > 0$, נגדיר את $a_n$ כאיבר כלשהו בקבוצה $A \setminus \{a_i \mid i < n\}$.
+- לא ייתכן שקבוצה זו ריקה, כי אז עוצמת הקבוצה $A$ היא $n$ לכל היותר, אבל $A$ אינסופית.
+- לכן האיבר $a_n$ מוגדר היטב.
+- הקבוצה $\{a_n \mid n \in \mathbb{N}\}$ היא תת קבוצה של $A$, ועוצמתה $\aleph_0$.
+
+<div style="position: absolute; top: 220px; left: 30px;">
+  <img src="./images/infinite_set_subset_aleph0.png" alt="Infinite Set Subset" style="width: 350px;" />
+</div>
+
+
+---
+
+
+# תרגיל לדוגמה: $\mathbb{R} \setminus \mathbb{N} \sim \mathbb{R}$
+
+- $\mathbb{Z} \setminus \mathbb{N} \sim \mathbb{N}$:
+  - $\mathbb{Z} \setminus \mathbb{N}$ היא תת קבוצה של $\mathbb{Z}$, ולכן היא בת מניה.
+  
+  - בנוסף היא אינסופית.
+
+
+- תהי $f\colon \mathbb{Z} \to \mathbb{Z} \setminus \mathbb{N}$ פונקציה חד-חד-ערכית ועל.
+
+- נגדיר $g\colon \mathbb{R} \to \mathbb{R} \setminus \mathbb{N}$ על פי:
+  $$g(x) = \begin{cases} 
+  f(x) & x \in \mathbb{Z} \\
+  x & x \in \mathbb{R} \setminus \mathbb{Z} 
+  \end{cases}$$
+- ניתן לראות בקלות שזו פונקציה חד-חד-ערכית ועל.
+
+<div style="position: absolute; top: 130px; left: 40px;">
+  <img src="./images/r_minus_n_bijection.png" alt="R minus N bijection" style="width: 250px;" />
+</div>
 
 
 ---

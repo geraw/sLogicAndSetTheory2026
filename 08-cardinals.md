@@ -936,23 +936,23 @@ $$f(\sum_{i=1}^{\infty} d_i 10^{-i})(i) = d_i$$
 - קיבלנו סתירה בשני המקרים, ולכן ההנחה ש-$\mathcal{P}(A) \sim  A$ אינה נכונה.
 
 
-<div style="position: absolute; top: 200px; left: 150px;">
-  <img src="./images/CantorTheoremFalseAttempt.svg" alt="arctan plot" style="width: 240px;" />
+<div style="position: absolute; top: 150px; left: 70px;">
+  <img src="./images/cantor_paradox_hebrew.png" alt="Cantor Paradox Contradiction" style="width: 350px;" />
 </div>
 
 ---
 
+# תרגיל לדוגמה: לכל קבוצה אינסופית קיימת תת קבוצה שעוצמתה $\aleph_0$ 
 
-# לכל קבוצה אינסופית קיימת תת קבוצה שעוצמתה $\aleph_0$
 
-### הוכחה:
 - תהי $A$ קבוצה אינסופית.
+
 - נגדיר סדרה של איברים $a_0, a_1, a_2, \ldots$ כך:
   - $a_0 \in A$.
   - לכל $n > 0$, נגדיר את $a_n$ כאיבר כלשהו בקבוצה $A \setminus \{a_i \mid i < n\}$.
 - לא ייתכן שקבוצה זו ריקה, כי אז עוצמת הקבוצה $A$ היא $n$ לכל היותר, אבל $A$ אינסופית.
-- לכן האיבר $a_n$ מוגדר.
-- הקבוצה $\{a_n \mid n \in \mathbb{N}\}$ היא תת קבוצה של $A$, ועוצמתה $\aleph_0$.
+- לכן האיבר $a_n$ מוגדר היטב.
+- הקבוצה $\{a_n \mid n \in \ הmathbb{N}\}$ היא תת קבוצה של $A$, ועוצמתה $\aleph_0$.
 
 ---
 

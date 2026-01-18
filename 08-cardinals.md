@@ -803,6 +803,31 @@ cols: 1fr 2fr
 </small>
 
 ---
+
+# אריתמטיקה של עוצמות (סיכום)
+
+- **הגדרות:**
+  
+  - **חיבור:** $|A| + |B| = |A \uplus B|$ (איחוד זר).
+  - **כפל:** $|A| \cdot |B| = |A \times B|$ (מכפלה קרטזית).
+  - **חזקה:** $|A|^{|B|} = |A^B|$ (קבוצת הפונקציות מ-$B$ ל-$A$).
+
+- **תכונות עיקריות:**
+  
+  - **חילוף וקיבוץ:** חיבור וכפל של עוצמות הם חילופיים וקיבוציים (אסוציאטיביים).
+  
+  - **פילוג:** הכפל מתפלג מעל החיבור: $\kappa \cdot (\mu + \lambda) = \kappa \cdot \mu + \kappa \cdot \lambda$.
+
+  - **חוקי חזקות:**
+    1. $\kappa^{\mu + \lambda} = \kappa^\mu \cdot \kappa^\lambda$
+    2. $(\kappa \cdot \mu)^\lambda = \kappa^\lambda \cdot \mu^\lambda$
+    3. $(\kappa^\mu)^\lambda = \kappa^{\mu \cdot \lambda}$
+
+<div style="position: absolute; top: 150px; left: 10px;">
+  <img src="./images/cardinal_exponentiation_laws.png" alt="Cardinal Exponentiation Laws" style="width: 300px;" />
+</div>
+
+---
 section: משפט קנטור
 ---
 # $\mathbb{\{0,1\}^N}$ אינה קבוצה בת מנייה
@@ -1064,3 +1089,28 @@ $$f(\sum_{i=1}^{\infty} d_i 10^{-i})(i) = d_i$$
 - אבל $\mathcal{P}(\mathcal{P}(\mathbb{N}))$ היא קבוצה גדולה יותר מ-$\mathcal{P}(\mathbb{N})$.
 
 - קיבלנו סתירה, ולכן $\mathcal{P}(\mathcal{P}(\mathbb{N} \times \mathbb{N})) \not\sim \mathbb{R}$.
+
+
+---
+
+# תרגיל לדוגמה: $(\{0,1\}^\mathbb{N})^\mathbb{N} \sim \mathbb{R}$
+
+- נחשב את העוצמה של הקבוצה $(\{0,1\}^\mathbb{N})^\mathbb{N}$:
+  $$|(\{0,1\}^\mathbb{N})^\mathbb{N}| = (2^{\aleph_0})^{\aleph_0}$$
+
+- לפי חוקי חזקות של עוצמות ($(a^b)^c = a^{b \cdot c}$):
+  $$(2^{\aleph_0})^{\aleph_0} = 2^{\aleph_0 \cdot \aleph_0}$$
+
+- ידוע כי $\aleph_0 \cdot \aleph_0 = \aleph_0$.
+
+- לכן:
+  $$2^{\aleph_0 \cdot \aleph_0} = 2^{\aleph_0}$$
+
+- וידוע כי $2^{\aleph_0} = \mathfrak{c}$ (עוצמת הרצף).
+
+- לכן:
+  $$(\{0,1\}^\mathbb{N})^\mathbb{N} \sim \mathbb{R}$$
+
+
+
+

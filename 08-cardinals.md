@@ -608,7 +608,7 @@ layout: TwoColsHeaderCustom
 </div>
 
 ---
-section: הראציונאליים
+section: הרציונליים
 ---
 
 # $\mathbb{N} \times \mathbb{N}$ היא קבוצה בת מנייה
@@ -714,7 +714,7 @@ section: אריתמטיקה של עוצמות
   נרחיב את הגדרת המכפלה הקרטזית של $n$ קבוצות:
   $$A_1 \times \cdots \times A_n = \{ \langle a_1, \ldots, a_n \rangle \mid a_1 \in A_1, \ldots, a_n \in A_n\}$$
 
-- האלמנטים של קבוצות אלו נקראים $n$-יות סדורות. אניה סדורה בת 2 אברים היא פשוט זוג סדור.
+- האלמנטים של קבוצות אלו נקראים $n$-יות. אניה בת 2 אברים היא פשוט זוג סדור. האקדמיה העברית קיבלה את המילה "סדורה" במקום אניה.
   
 - המכפלה הקרטזית של הקבוצה הריקה עם כל קבוצה אחרת היא כמובן ריקה.
   
@@ -731,9 +731,6 @@ section: אריתמטיקה של עוצמות
      -  קל לראות שהפונקציה $f\colon A_1 \times A_2 \times \dots \times A_k \times A_{k+1} \to (A_1 \times A_2 \times \dots \times A_k) \times A_{k+1}$ המקיימת 
      $f(\langle a_1, \ldots, a_k, a_{k+1} \rangle) = \langle \langle a_1, \ldots, a_k \rangle, a_{k+1} \rangle$
      היא חד-חד-ערכית ועל.
-
-
-
 
 ---
 
@@ -971,17 +968,17 @@ $$f(\sum_{i=1}^{\infty} d_i 10^{-i})(i) = d_i$$
 ---
 
 
-# $\mathcal{P}(2^{\mathbb{N} \times \mathbb{N}}) \not\sim \mathbb{R}$
+# $\mathcal{P}(\mathcal{P}(\mathbb{N} \times \mathbb{N})) \not\sim \mathbb{R}$
 
-- נניח בשלילה ש-$\mathcal{P}(2^{\mathbb{N} \times \mathbb{N}}) \sim \mathbb{R}$.
+- נניח בשלילה ש-$\mathcal{P}(\mathcal{P}(\mathbb{N} \times \mathbb{N})) \sim \mathbb{R}$.
 
-- ידוע ש-$\mathbb{R} \sim 2^{\mathbb{N}}$.
-- לכן, לפי ההנחה, $\mathcal{P}(2^{\mathbb{N} \times \mathbb{N}}) \sim 2^{\mathbb{N}}$.
+- ידוע ש-$\mathbb{R} \sim \mathcal{P}(\mathbb{N})$.
+- לכן, לפי ההנחה, $\mathcal{P}(\mathcal{P}(\mathbb{N} \times \mathbb{N})) \sim \mathcal{P}(\mathbb{N})$.
 
-- ידוע גם ש-$2^{\mathbb{N} \times \mathbb{N}} \sim 2^{\mathbb{N}}$.
+- ידוע גם ש-$\mathcal{P}(\mathbb{N} \times \mathbb{N}) \sim \mathcal{P}(\mathbb{N})$.
 
-- מכאן נובע ש-$\mathcal{P}(2^{\mathbb{N} \times \mathbb{N}}) \sim \mathcal{P}(2^{\mathbb{N}})$.
+- מכאן נובע ש-$\mathcal{P}(\mathcal{P}(\mathbb{N} \times \mathbb{N})) \sim \mathcal{P}(\mathcal{P}(\mathbb{N}))$.
 
-- אבל $\mathcal{P}(2^{\mathbb{N}})$ היא קבוצה גדולה יותר מ-$2^{\mathbb{N}}$.
+- אבל $\mathcal{P}(\mathcal{P}(\mathbb{N}))$ היא קבוצה גדולה יותר מ-$\mathcal{P}(\mathbb{N})$.
 
-- קיבלנו סתירה, ולכן $\mathcal{P}(2^{\mathbb{N} \times \mathbb{N}}) \not\sim \mathbb{R}$.
+- קיבלנו סתירה, ולכן $\mathcal{P}(\mathcal{P}(\mathbb{N} \times \mathbb{N})) \not\sim \mathbb{R}$.

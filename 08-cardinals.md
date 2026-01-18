@@ -984,10 +984,73 @@ $$f(\sum_{i=1}^{\infty} d_i 10^{-i})(i) = d_i$$
 </div>
 
 
+
+---
+
+# הקטע הפתוח $(0,1)$ שקול לעוצמה של $\mathbb{R}$
+
+- נראה כי $(0,1) \sim \mathbb{R}$ על ידי הצגת פונקציה חד-חד-ערכית ועל.
+
+- נגדיר $f \colon (0,1) \to \mathbb{R}$ ע"י:
+  $$f(x) = \tan\left(\pi x - \frac{\pi}{2}\right)$$
+
+- **תכונות הפונקציה:**
+  - הפונקציה רציפה ומונוטונית עולה בקטע $(0,1)$.
+  - כאשר $x \to 0^+$, $f(x) \to -\infty$.
+  - כאשר $x \to 1^-$, $f(x) \to +\infty$.
+  - לכן הפונקציה מקבלת כל ערך ממשי בטווח $(-\infty, \infty)$ פעם אחת בדיוק.
+  
+- מכאן ש-$f$ היא חד-חד-ערכית ועל, ולכן $(0,1) \sim \mathbb{R}$.
+
+<div style="position: absolute; top: 150px; left: 60px;">
+  <img src="./images/r_to_01_bijection_plot.png" alt="Tangent Bijection" style="width: 250px;" />
+</div>
+
+---
+
+#  $\{0,1\}^\mathbb{N} \sim \mathbb{R}$
+
+- כיוון ראשון: $\{0,1\}^\mathbb{N} \curlyeqprec \mathbb{R}$
+  - נגדיר פונקציה $f \colon \{0,1\}^\mathbb{N} \to \mathbb{R}$ בצורה הבאה:
+    - תהי $a = (a_0, a_1, a_2, \ldots) \in \{0,1\}^\mathbb{N}$.
+    - נגדיר את $f(a)$ להיות המספר הממשי שהפיתוח העשרוני שלו מורכב מהספרות של $a$:
+      $$f(a) = 0.a_0a_1a_2\ldots = \sum_{n=0}^{\infty} \frac{a_n}{10^{n+1}}$$
+
+  - **הפונקציה $f$ חד-חד-ערכית:**
+    - הפיתוח העשרוני של $f(a)$ מכיל רק את הספרות 0 ו-1.
+    - במספרים ממשיים, לייצוג עשרוני יש כפילות רק אם הוא מסתיים ב-9 אינסופי או ב-0 אינסופי. כאן אין 9, ולכן הייצוג יחיד.
+    - כלומר, אם $a \neq b$, אז המספרים $f(a)$ ו-$f(b)$ יהיו שונים לפחות בספרה אחת בפיתוח העשרוני, ולכן $f(a) \neq f(b)$.
+
+<div style="position: absolute; top: 50px; left: 50px;">
+  <img src="./images/binary_sequence_to_real_injection.png" alt="Binary Sequence to Real" style="width: 250px;" />
+</div>
+
+---
+
+#  $\{0,1\}^\mathbb{N} \sim \mathbb{R}$ (המשך)
+
+- כיוון שני: $\mathbb{R} \curlyeqprec \{0,1\}^\mathbb{N}$
+
+  - ידוע ש-$\mathbb{R} \sim (0,1)$. לכן מספיק להראות ש-$(0,1) \curlyeqprec \{0,1\}^\mathbb{N}$.
+
+  - לכל מספר ממש $x \in (0,1)$ יש פיתוח בינארי יחיד עם מקדמים $b_n \in \{0,1\}$ (אם נמנעים מפיתוח שמסתיים ב-1 אינסופי):
+    $$x = 0.b_1b_2b_3\ldots_2 = \sum_{n=1}^{\infty} \frac{b_n}{2^n}$$
+
+  - נגדיר $g \colon (0,1) \to \{0,1\}^\mathbb{N}$ כך שתעביר את $x$ לסדרת הספרות הבינאריות שלו:
+    $g(x) = (b_1, b_2, b_3, \ldots)$
+
+  - **הפונקציה $g$ חד-חד-ערכית:**
+    - אם $x \neq y$, אז בהכרח יש להם פיתוח בינארי שונה (בהנחה שבחרנו את הייצוג הקנוני שאינו מסתיים ב-1 אינסופי).
+    - לכן הסדרות שונות, כלומר $g(x) \neq g(y)$.
+
+- סיכום:  לפי קנטור-ברנשטיין: $\{0,1\}^\mathbb{N} \sim \mathbb{R}$.
+
+
+
 ---
 
 
-# $\mathcal{P}(\mathcal{P}(\mathbb{N} \times \mathbb{N})) \not\sim \mathbb{R}$
+# תרגיל לדוגמה: $\mathcal{P}(\mathcal{P}(\mathbb{N} \times \mathbb{N})) \not\sim \mathbb{R}$
 
 - נניח בשלילה ש-$\mathcal{P}(\mathcal{P}(\mathbb{N} \times \mathbb{N})) \sim \mathbb{R}$.
 

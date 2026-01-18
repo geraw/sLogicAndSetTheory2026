@@ -873,7 +873,7 @@ section: משפט קנטור
 
 ---
 
-# $\mathbb{R}$ אינה קבוצה בת מנייה
+# $\mathbb{R}$ אינה קבוצה בת מנייה - הוכחה נכונה
 
 - נניח בשלילה ש-$\mathbb{R}$ היא קבוצה בת מנייה.
 
@@ -886,21 +886,44 @@ $$\left\{ \sum_{i=1}^{\infty} d_i 10^{-i} \colon \forall i \in \mathbb{N}( d_i \
 - לכן קיימת פונקציה חד-חד ערכית ועל ממנה לקבוצה $\{0,1\}^\mathbb{N}$:
 
 
+
+
+
 $$f(\sum_{i=1}^{\infty} d_i 10^{-i})(i) = d_i$$
 
 
 - בסתירה לכך ש-$\{0,1\}^\mathbb{N}$ אינה בת מנייה.
 
+---
+
+#  $\mathcal{P}(A) \sim \{0,1\}^A$
+
+- נראה כי יש התאמה חד-חד-ערכית ועל בין קבוצת החזקה $\mathcal{P}(A)$ לבין קבוצת הפונקציות מ-$A$ ל-$\left\{0,1\right\}$.
+
+- לכל תת-קבוצה $S \subseteq A$ נתאים את **הפונקציה המציינת** שלה (Indicator Function), $\chi_S \colon A \to \{0,1\}$, המוגדרת כך:
+  $$\chi_S(x) = \begin{cases} 
+      1 & x \in S \\
+      0 & x \notin S 
+  \end{cases}$$
+
+- פונקציה זו מחזירה $1$ עבור איברים שנמצאים ב-$S$, ו-$0$ עבור איברים שאינם ב-$S$.
+- זוהי התאמה חד-חד-ערכית ועל, ולכן $\mathcal{P}(A) \sim \{0,1\}^A$.
+
+<div style="position: absolute; top: 250px; left: 50px;">
+  <div style="text-align: center;">
+    <img src="./images/powerset_indicator_bijection.png" alt="Bijection Example" style="height: 250px;" />
+  </div>
+</div>
 
 ---
 
 # משפט קנטור: $\mathcal{P}(A) \not\sim  A$
-
+ 
 - נניח בשלילה ש-$\mathcal{P}(A) \sim  A$
 
 - אזי קיימת פונקציה חד-חד-ערכית ועל $f \colon A \to \mathcal{P}(A)$.
 
-- נבנה קבוצה $B \subseteq A$ כך ש-$B = \{a \in A \mid a \notin f(a)\}$.
+- נבנה קבוצה $B \subseteq A$  באמצעות הכלל $B = \{a \in A \mid a \notin f(a)\}$.
 
 - מכיוון ש-$f$ היא על, קיים $b \in A$ כך ש-$f(b) = B$.
 
@@ -910,34 +933,15 @@ $$f(\sum_{i=1}^{\infty} d_i 10^{-i})(i) = d_i$$
 
   - אם $b \notin B$, אז לפי הגדרת $B$, $b \in f(b)$, כלומר $b \in B$.
 
-- קיבלנו סתירה, ולכן ההנחה ש-$\mathcal{P}(A) \sim  A$ אינה נכונה.
+- קיבלנו סתירה בשני המקרים, ולכן ההנחה ש-$\mathcal{P}(A) \sim  A$ אינה נכונה.
 
 
 <div style="position: absolute; top: 200px; left: 150px;">
   <img src="./images/CantorTheoremFalseAttempt.svg" alt="arctan plot" style="width: 240px;" />
 </div>
 
-<!-- --- 
-
-# השערת הרצף
-
-### השערת הרצף:
-- השערת הרצף היא השערה בתורת הקבוצות שהוצעה על ידי גאורג קנטור.
-- ההשערה טוענת שאין קבוצה בעלת עוצמה בין העוצמה של המספרים הטבעיים ($\aleph_0$) לבין העוצמה של המספרים הממשיים ($2^{\aleph_0}$).
-
-### נוסח ההשערה:
-- אין קבוצה $A$ כך ש-$\aleph_0 < |A| < 2^{\aleph_0}$.
-
-### תוצאות:
-- השערת הרצף היא בלתי תלויה באקסיומות של תורת הקבוצות (ZF). כלומר, לא ניתן להוכיח או להפריך אותה מתוך האקסיומות של ZF.
-- השערת הרצף הוכחה כבלתי תלויה על ידי קורט גדל ופול כהן.
-
-<div style="text-align: center;">
-  <img src="./images/ContinuumHypothesis.png" alt="Continuum Hypothesis" style="width: 400px;" />
-</div> -->
-
-
 ---
+
 
 # לכל קבוצה אינסופית קיימת תת קבוצה שעוצמתה $\aleph_0$
 

@@ -211,7 +211,6 @@ linkStyle 4,5 stroke:red,stroke-width:2px,arrowhead-color:red
 
 # תרגיל לדוגמא: אם $A \sim B$ וגם $C \sim D$ אז $A \times C \sim B \times D$
 
-
 ---
 layout: two-cols-header
 ---
@@ -244,7 +243,7 @@ layout: two-cols-header
     - לכן $h(\langle a, c \rangle) = \langle f(a), g(c) \rangle = \langle b, d \rangle$.
 
 ---
-section: משפט קנטור ברנשטיין
+section: קנטור ברנשטיין
 ---
 
 # <span style="font-size: 0.8em;">טענת עזר: אם $X \subseteq Y$ ויש $f\colon Y \to X$ שהיא חד-חד-ערכית אז $X \sim Y$.</span>
@@ -679,7 +678,7 @@ $\mathbb{Q}$ היא בת מנייה.
 
 
 ---
-section: אריתמטיקה של עוצמות
+section: אריתמטיקת עוצמות
 ---
 
 # איחוד של קבוצה בת מניה של קבוצות בנות מנייה הוא בן מנייה
@@ -1029,9 +1028,9 @@ $$f(\sum_{i=1}^{\infty} d_i 10^{-i})(i) = d_i$$
 
 
 ---
-
-# תרגיל לדוגמה: לכל קבוצה אינסופית קיימת תת קבוצה שעוצמתה $\aleph_0$ 
-
+section: תרגילים
+# תרגיל לדוגמה: לכל קבוצה אינסופית קיימת תת קבוצה שעוצמתה $\aleph_0$
+---
 
 - תהי $A$ קבוצה אינסופית.
 

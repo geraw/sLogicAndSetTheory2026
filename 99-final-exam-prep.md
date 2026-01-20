@@ -328,7 +328,7 @@ $x$ \ $y$
 <td style="padding: 2px 8px;">✅</td>
 </tr>
 </tbody>
-</table>
+</table> 
 </div>
 
 <small>

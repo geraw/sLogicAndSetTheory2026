@@ -884,6 +884,7 @@ $[f] < [g]$ אומר ש-$f \le g$ כמעט תמיד, אבל הקבוצה $\{ n \
 
 # פתרון: קבוצות ניתנות לפיצול - סעיף ג.4
 
+
 **ג.4. עוצמת תתי-הקבוצות השקולות ל-$A$:**
 *   תהי $\mathcal{S} = \{ B \in \mathcal{P}(A) \mid B \sim A \}$.
 *   ברור ש-$\mathcal{S} \subseteq \mathcal{P}(A)$, לכן $|\mathcal{S}| \le |\mathcal{P}(A)|$.
@@ -891,6 +892,13 @@ $[f] < [g]$ אומר ש-$f \le g$ כמעט תמיד, אבל הקבוצה $\{ n \
 *   נתונה החלוקה $A = X \cup Y$ עם $X \sim A, Y \sim A$.
 *   לכל תת-קבוצה $Z \subseteq Y$, נגדיר התאמה $\psi(Z) = X \cup Z$.
 *   הקבוצה $X \cup Z$ מכילה את $X$ ולכן $|X \cup Z| \ge |X| = |A|$. חסומה ע"י $|A|$. לכן $X \cup Z \in \mathcal{S}$.
-*   ההתאמה $\psi$ חח"ע: אם $X \cup Z_1 = X \cup Z_2$, נחתוך עם $Y$: $(X \cup Z_1) \cap Y = Z_1$ (כי $X \cap Y = \emptyset$ ו-$Z_i \subseteq Y$).
+*   ההתאמה $\psi$ חח"ע: נניח $X \cup Z_1 = X \cup Z_2$.
+    *   נחתוך את שני האגפים עם $Y$:
+        $(X \cup Z_1) \cap Y = (X \cup Z_2) \cap Y$
+    *   נשתמש בפילוג:
+        $(X \cap Y) \cup (Z_1 \cap Y) = (X \cap Y) \cup (Z_2 \cap Y)$
+    *   מכיוון ש-$X \cap Y = \emptyset$ ו-$Z_1, Z_2 \subseteq Y$ (ולכן $Z_i \cap Y = Z_i$), נקבל:
+        $\emptyset \cup Z_1 = \emptyset \cup Z_2 \implies Z_1 = Z_2$
 *   לכן $|\mathcal{S}| \ge |\mathcal{P}(Y)| = |\mathcal{P}(A)|$ (כי $Y \sim A$).
 *   משפט קנטור-ברנשטיין מסיים את ההוכחה.
+

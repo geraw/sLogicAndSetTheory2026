@@ -23,6 +23,226 @@ lineNumbers: false
 
 ---
 
+# שאלות מהמבחן לדוגמה מספר 6
+<div class="text-xl">
+
+**11. (30 נק')** תהא $F: \mathbb{N} \to \mathbb{N}$.
+נגדיר יחס שקילות מעל $\mathcal{P}(\mathbb{N})$:
+
+$$ \langle A, B \rangle \in E \iff F[A] = F[B] $$
+
+**(א) (10 נק')** הוכיחו שקיימות לפחות 2 מחלקות שקילות ב-$\mathcal{P}(\mathbb{N})/E$.
+
+**(ב) (10 נק')** מבלי להסתמך על טענות שהוכחו בכיתה, הוכיחו ש-$F$ חח״ע אם ורק אם $E = Id_{\mathcal{P}(\mathbb{N})}$.
+
+**(ג) (10 נק')** הוכיחו שאם $F$ על אז $\mathcal{P}(\mathbb{N})/E \sim \mathcal{P}(\mathbb{N})$.
+
+</div>
+
+---
+
+# פתרון: סעיף א' - קיום מחלקות שקילות
+
+**הוכחה שקיימות לפחות 2 מחלקות שקילות:**
+
+*   נתבונן בשתי קבוצות: $\emptyset$ ו-$\mathbb{N}$.
+*   התמונה של הקבוצה הריקה היא תמיד ריקה:
+    $$F[\emptyset] = \{ F(x) \mid x \in \emptyset \} = \emptyset$$
+*   התמונה של $\mathbb{N}$ היא הטווח של הפונקציה (או התמונה שלה):
+    $$F[\mathbb{N}] = \{ F(x) \mid x \in \mathbb{N} \} \neq \emptyset$$
+    (כי הטווח הוא $\mathbb{N}$ שאינה ריקה, והפונקציה מלאה).
+*   לערך כלשהו $y \in F[\mathbb{N}]$ (למשל $F(0)$) אין מקור ב-$\emptyset$, לכן הקבוצות שונות.
+*   קיבלנו $F[\emptyset] \neq F[\mathbb{N}]$, כלומר $\langle \emptyset, \mathbb{N} \rangle \notin E$.
+*   מכאן ש-$[\emptyset]_E \neq [\mathbb{N}]_E$, כלומר קיימות לפחות שתי מחלקות שקילות שונות.
+
+---
+
+# פתרון: סעיף ב' - חח"ע וזהות
+
+**צ"ל: $F$ חח"ע $\iff$ $E = Id_{\mathcal{P}(\mathbb{N})}$**
+
+
+<div class="grid grid-cols-2 gap-10">
+
+<div>
+
+$\Longleftarrow$ **כיוון ראשון:** נניח $F$ חח"ע. נוכיח $E = Id$.
+*   יהיו $A, B \in \mathcal{P}(\mathbb{N})$ כך ש-$\langle A, B \rangle \in E$, 
+
+* כלומר $F[A] = F[B]$. 
+
+* נוכיח $A=B$:
+
+    * יהי $x \in A$. אזי $F(x) \in F[A]$.
+
+    * מכיוון ש-$F[A]=F[B]$, אזי $F(x) \in F[B]$.
+    * כלומר, קיים $y \in B$ כך ש-$F(x) = F(y)$.
+    * מכיוון ש-$F$ חח"ע, נובע ש-$x=y$. לכן $x \in B$.
+    * הראינו $A \subseteq B$. באותו אופן $B \subseteq A$. לכן $A=B$.
+
+</div>
+
+<div>
+
+$\Longrightarrow$ **כיוון שני:** נניח $E = Id$. נוכיח $F$ חח"ע.
+*   נניח בשלילה ש-$F$ לא חח"ע. 
+* אזי קיימים $x \neq y$ כך ש-$F(x) = F(y)$.
+
+* נגדיר יחידונים $A = \{x\}$ ו-$B = \{y\}$.
+* $F[A] = \{F(x)\} = \{F(y)\} = F[B]$. לכן $\langle A, B \rangle \in E$.
+* אבל $x \neq y \implies \{x\} \neq \{y\} \implies A \neq B$.
+* קיבלנו זוג ב-$E$ שאינו ב-$Id$. סתירה.
+
+</div>
+
+</div>
+
+
+---
+
+# פתרון: סעיף ג' - עוצמת המנה
+
+**נתון:** $F$ על. **צ"ל:** $\mathcal{P}(\mathbb{N})/E \sim \mathcal{P}(\mathbb{N})$.
+
+*   נגדיר העתקה $\Phi: \mathcal{P}(\mathbb{N})/E \to \mathcal{P}(\mathbb{N})$ ע"י $\Phi([A]_E) = F[A]$.
+*   **הגדרה היטב:** אם $[A]=[B]$ אז $\langle A, B \rangle \in E$, לכן $F[A]=F[B]$. הערך תלוי רק במחלקה.
+*   **חח"ע:** נניח $\Phi([A]) = \Phi([B])$. אזי $F[A] = F[B]$. לפי הגדרת היחס, $\langle A, B \rangle \in E$, משמע $[A]=[B]$.
+*   **על:** תהי $Y \subseteq \mathbb{N}$ (תת-קבוצה בטווח).
+    *   נגדיר $A = F^{-1}[Y] = \{ n \in \mathbb{N} \mid F(n) \in Y \}$.
+    *   נחשב את $\Phi([A]) = F[A] = F[F^{-1}[Y]]$.
+    *   תמיד מתקיים $F[F^{-1}[Y]] \subseteq Y$.
+    *   מכיוון ש-$F$ **על**, לכל $y \in Y$ קיים מקור $x$ כך ש-$F(x)=y$, ולכן $y \in F[F^{-1}[Y]]$.
+    *   סה"כ $F[A] = Y$, כלומר $\Phi([A]) = Y$.
+*   לסיכום: $\Phi$ הפיכה, ולכן הקבוצות שוות עוצמה.
+
+---
+
+# שאלה 12
+
+<div class="text-xl">
+
+**שאלה 12:**
+
+**(א) (10 נק')** הוכיחו שלכל קבוצות $A, B, C$ אם $B \cap C = \emptyset$ אז $A^B \times A^C \sim A^{B \cup C}$.
+
+**(ב) (10 נק')** הוכיחו שקיימת חלוקה $D$ של $\mathbb{N}$ כך ש-$D \sim \mathbb{N}$ ולכל $T \in D$, $T \sim \mathbb{N}$.
+
+</div>
+
+---
+
+# פתרון: סעיף א' - אריתמטיקה של עוצמות
+
+**צ"ל: $A^B \times A^C \sim A^{B \cup C}$ בהינתן $B \cap C = \emptyset$.**
+
+*   נגדיר פונקציה $\Phi: A^B \times A^C \to A^{B \cup C}$.
+*   האיברים ב-$A^B \times A^C$ הם זוגות סדורים $\langle f, g \rangle$, באשר $f: B \to A$ ו-$g: C \to A$.
+*   נגדיר את התמונה $h = \Phi(\langle f, g \rangle)$ כפונקציה $h: B \cup C \to A$ באופן הבא:
+    $$ h(x) = \begin{cases} f(x) & x \in B \\ g(x) & x \in C \end{cases} $$
+*   **הגדרה היטב:** מכיוון ש-$B \cap C = \emptyset$, כל $x \in B \cup C$ נמצא בדיוק באחת מהקבוצות, לכן $h(x)$ מוגדר היטב ויחיד.
+*   **חח"ע:** נניח $\Phi(\langle f_1, g_1 \rangle) = \Phi(\langle f_2, g_2 \rangle)$. אז $h_1 = h_2$.
+    *   לכל $x \in B$, $f_1(x) = h_1(x) = h_2(x) = f_2(x)$, לכן $f_1 = f_2$.
+    *   לכל $x \in C$, $g_1(x) = h_1(x) = h_2(x) = g_2(x)$, לכן $g_1 = g_2$.
+    *   מכאן $\langle f_1, g_1 \rangle = \langle f_2, g_2 \rangle$.
+*   **על:** תהי $h \in A^{B \cup C}$. נגדיר $f = h|_B$ ו-$g = h|_C$. בבירור $\Phi(\langle f, g \rangle) = h$.
+*   מצאנו פונקציה הפיכה, לכן הקבוצות שוות עוצמה.
+
+---
+
+# פתרון: סעיף ב' - חלוקה אינסופית של הטבעיים
+
+**צ"ל: קיימת חלוקה $D$ של $\mathbb{N}$ כך ש-$|D|=\aleph_0$ ולכל $T \in D$, $|T|=\aleph_0$.**
+
+*   נשתמש בפונקצית הזיווג של קנטור (או כל פונקציה הפיכה אחרת) $J: \mathbb{N} \times \mathbb{N} \to \mathbb{N}$.
+*   האוסף $\{ \{k\} \times \mathbb{N} \mid k \in \mathbb{N} \}$ הוא חלוקה של $\mathbb{N} \times \mathbb{N}$.
+    (כל זוג סדור שייך בדיוק לשורה אחת $k$).
+*   נגדיר את קבוצות החלוקה $T_k$ כתמונות של השורות הללו תחת $J$:
+    $$ T_k = \{ J(k, n) \mid n \in \mathbb{N} \} $$
+*   נגדיר את החלוקה $D = \{ T_k \mid k \in \mathbb{N} \}$.
+*   **תכונות:**
+    1.  מכיוון ש-$J$ הפיכה, החלוקה במישור מועתקת לחלוקה ב-$\mathbb{N}$.
+    2.  עוצמת החלוקה: הפונקציה $k \mapsto T_k$ היא חח"ע, לכן $|D| = |\mathbb{N}| = \aleph_0$.
+    3.  עוצמת האיברים: לכל $k$, הפונקציה $n \mapsto J(k, n)$ היא חח"ע ועל מ-$\mathbb{N}$ ל-$T_k$. לכן $|T_k| = \aleph_0$.
+
+---
+
+# שאלה 13
+
+<div class="text-xl">
+
+**שאלה 13:**
+יהי $R$ יחס מעל קבוצה $A$ ונסמן $T = \{S \subseteq A \times A \mid S \text{ טרנזיטיבי} \land R \subseteq S\}$.
+
+**(א) (10 נק')** הוכיחו מבלי להסתמך על טענות שהוכחו בכיתה ש-$\bigcap T \in T$.
+
+**(ב) (20 נק')** נגדיר בצורה אינדוקטיבית יחסים מעל $A$ לכל $i \in \mathbb{N}$:
+*   $R_0 = R$
+*   $R_{i+1} = R_i \cup \{\langle x,y \rangle \mid \exists z(\langle x,z \rangle \in R_i \land \langle z,y \rangle \in R_i)\}$
+
+הוכיחו ש-$\bigcap T = \bigcup \{R_i \mid i \in \mathbb{N}\}$.
+
+</div>
+
+---
+
+# פתרון: סעיף א' - סגור טרנזיטיבי
+
+**צ"ל: $\bigcap T \in T$.**
+כלומר, עלינו להוכיח כי חיתוך הקבוצות ב-$T$ הוא יחס טרנזיטיבי ושהוא מכיל את $R$.
+
+1.  **מכיל את $R$:**
+    *   לכל $S \in T$, מתקיים $R \subseteq S$ (לפי הגדרת $T$).
+    *   לכן $R \subseteq \bigcap \{S \mid S \in T\} = \bigcap T$.
+
+2.  **טרנזיטיביות:**
+    *   יהיו $\langle x, y \rangle \in \bigcap T$ ו-$\langle y, z \rangle \in \bigcap T$.
+    *   משמעות הדבר היא שלכל $S \in T$, $\langle x, y \rangle \in S$ וגם $\langle y, z \rangle \in S$.
+    *   מכיוון שכל $S \in T$ הוא יחס טרנזיטיבי, נובע כי $\langle x, z \rangle \in S$ לכל $S \in T$.
+    *   לכן $\langle x, z \rangle \in \bigcap T$.
+    *   כלומר, היחס $\bigcap T$ הוא טרנזיטיבי.
+
+**מסקנה:** $\bigcap T \in T$.
+
+---
+
+# פתרון: סעיף ב' - איחוד אינדוקטיבי (חלק 1)
+
+**נסמן $R^* = \bigcup_{i \in \mathbb{N}} R_i$. צ"ל: $R^* = \bigcap T$.**
+
+**כיוון 1: $\bigcap T \subseteq R^*$**
+*   נוכיח כי $R^* \in T$ (כלומר טרנזיטיבי ומכיל את $R$). אם כן, אז $\bigcap T \subseteq R^*$ לפי הגדרת החיתוך (כי $\bigcap T$ מוכל בכל איבר ב-$T$).
+*   **הכלה:** $R = R_0 \subseteq \bigcup R_i = R^*$.
+*   **טרנזיטיביות:**
+    *   נניח $\langle x, y \rangle \in R^*$ ו-$\langle y, z \rangle \in R^*$.
+    *   אזי קיימים $i, j$ כך ש-$\langle x, y \rangle \in R_i$ ו-$\langle y, z \rangle \in R_j$.
+    *   נסמן $k = \max(i, j)$. כיוון שזו סדרה עולה של קבוצות ($R_n \subseteq R_{n+1}$), אזי הזוגות נמצאים ב-$R_k$.
+    *   לפי הגדרת $R_{k+1}$, אם יש "מסלול" ב-$R_k$, הזוג $\langle x, z \rangle$ מתווסף ל-$R_{k+1}$.
+    *   לכן $\langle x, z \rangle \in R_{k+1} \subseteq R^*$.
+*   לסיכום $R^* \in T$, ולכן $\bigcap T \subseteq R^*$.
+
+---
+
+# פתרון: סעיף ב' - איחוד אינדוקטיבי (חלק 2)
+
+**כיוון 2: $R^* \subseteq \bigcap T$**
+*   עלינו להראות שלכל $S \in T$, מתקיים $R^* \subseteq S$.
+*   מספיק להראות שלכל $i$, $R_i \subseteq S$ (כי אז האיחוד מוכל ב-$S$).
+*   נוכיח באינדוקציה על $i$:
+    *   **בסיס ($i=0$):** $R_0 = R$. נתון $S \in T \implies R \subseteq S$. מתקיים.
+    *   **צעד ($i \to i+1$):** נניח $R_i \subseteq S$.
+        *   יהי $\langle x, y \rangle \in R_{i+1}$.
+        *   אפשרות א': $\langle x, y \rangle \in R_i$. מהנחת האינדוקציה, ב-$S$.
+        *   אפשרות ב': קיים $z$ כך ש-$\langle x, z \rangle \in R_i$ ו-$\langle z, y \rangle \in R_i$.
+        *   מהנחת האינדוקציה, $\langle x, z \rangle \in S$ ו-$\langle z, y \rangle \in S$.
+        *   מכיוון ש-$S$ טרנזיטיבי, $\langle x, y \rangle \in S$.
+    *   לכן $R_{i+1} \subseteq S$.
+*   מכאן $R^* \subseteq S$ לכל $S \in T$, ולכן $R^* \subseteq \bigcap T$.
+
+---
+
+
+
+
 # יחסים ותכונותיהם
 
 **שאלה:** עבור כל אחד מהיחסים הבאים (המוגדרים מעל $\mathcal{P}(\mathbb{N})$ או $\mathcal{P}(\mathbb{N}) \setminus \{\emptyset\}$), קבעו אילו תכונות הוא אילו תכונות הוא מקיים:

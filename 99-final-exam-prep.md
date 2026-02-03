@@ -26,7 +26,7 @@ lineNumbers: false
 # שאלות מהמבחן לדוגמה מספר 6
 <div class="text-xl">
 
-**11. (30 נק')** תהא $F: \mathbb{N} \to \mathbb{N}$.
+**11. (30 נק')** תהא $F \col \mathbb{N} \to \mathbb{N}$.
 נגדיר יחס שקילות מעל $\mathcal{P}(\mathbb{N})$:
 
 $$ \langle A, B \rangle \in E \iff F[A] = F[B] $$
@@ -135,9 +135,9 @@ $\Longrightarrow$ **כיוון שני:** נניח $E = Id$. נוכיח $F$ חח"
 
 **צ"ל: $A^B \times A^C \sim A^{B \cup C}$ בהינתן $B \cap C = \emptyset$.**
 
-*   נגדיר פונקציה $\Phi: A^B \times A^C \to A^{B \cup C}$.
-*   האיברים ב-$A^B \times A^C$ הם זוגות סדורים $\langle f, g \rangle$, באשר $f: B \to A$ ו-$g: C \to A$.
-*   נגדיר את התמונה $h = \Phi(\langle f, g \rangle)$ כפונקציה $h: B \cup C \to A$ באופן הבא:
+*   נגדיר פונקציה $\Phi \col A^B \times A^C \to A^{B \cup C}$.
+*   האיברים ב-$A^B \times A^C$ הם זוגות סדורים $\langle f, g \rangle$, באשר $f \col B \to A$ ו-$g \col C \to A$.
+*   נגדיר את התמונה $h = \Phi(\langle f, g \rangle)$ כפונקציה $h \col B \cup C \to A$ באופן הבא:
     $$ h(x) = \begin{cases} f(x) & x \in B \\ g(x) & x \in C \end{cases} $$
 *   **הגדרה היטב:** מכיוון ש-$B \cap C = \emptyset$, כל $x \in B \cup C$ נמצא בדיוק באחת מהקבוצות, לכן $h(x)$ מוגדר היטב ויחיד.
 *   **חח"ע:** נניח $\Phi(\langle f_1, g_1 \rangle) = \Phi(\langle f_2, g_2 \rangle)$. אז $h_1 = h_2$.
@@ -153,7 +153,7 @@ $\Longrightarrow$ **כיוון שני:** נניח $E = Id$. נוכיח $F$ חח"
 
 **צ"ל: קיימת חלוקה $D$ של $\mathbb{N}$ כך ש-$|D|=\aleph_0$ ולכל $T \in D$, $|T|=\aleph_0$.**
 
-*   נשתמש בפונקצית הזיווג של קנטור (או כל פונקציה הפיכה אחרת) $J: \mathbb{N} \times \mathbb{N} \to \mathbb{N}$.
+*   נשתמש בפונקצית הזיווג של קנטור (או כל פונקציה הפיכה אחרת) $J \col \mathbb{N} \times \mathbb{N} \to \mathbb{N}$.
 *   האוסף $\{ \{k\} \times \mathbb{N} \mid k \in \mathbb{N} \}$ הוא חלוקה של $\mathbb{N} \times \mathbb{N}$.
     (כל זוג סדור שייך בדיוק לשורה אחת $k$).
 *   נגדיר את קבוצות החלוקה $T_k$ כתמונות של השורות הללו תחת $J$:
@@ -237,6 +237,108 @@ $\Longrightarrow$ **כיוון שני:** נניח $E = Id$. נוכיח $F$ חח"
         *   מכיוון ש-$S$ טרנזיטיבי, $\langle x, y \rangle \in S$.
     *   לכן $R_{i+1} \subseteq S$.
 *   מכאן $R^* \subseteq S$ לכל $S \in T$, ולכן $R^* \subseteq \bigcap T$.
+
+---
+
+# שאלה 14
+
+<div class="text-xl">
+
+**שאלה 14:** (32 נק')
+יהיו $A$ ו-$B$ קבוצות ותהא $f \col A \to B$. נגדיר הפונקציה הבאה:
+$g \col \mathcal{P}(B) \to \mathcal{P}(A)$ כך שלכל $Y \in \mathcal{P}(B)$,
+$$g(Y) = f^{-1}[Y]$$
+
+**(א) (16 נק')** הוכיחו ש-$f$ על $B$ אמ"מ $g$ חח"ע.
+
+**(ב) (16 נק')** הוכיחו ש-$f$ חח"ע אמ"מ $g$ על $\mathcal{P}(A)$.
+
+</div>
+
+---
+
+# פתרון: סעיף א' - העתקות מושרות (חלק 1)
+
+**צ"ל: $f$ על $\iff$ $g$ חח"ע.**
+
+<!-- <small> -->
+
+<div class="grid grid-cols-2 gap-4">
+
+<div>
+
+$\Longleftarrow$ **כיוון ראשון:** נניח $f$ על. נראה ש-$g$ חח"ע.
+*   יהיו $Y_1, Y_2 \subseteq B$ כך ש-$g(Y_1) = g(Y_2)$.
+
+*   כלומר $f^{-1}[Y_1] = f^{-1}[Y_2]$.
+*   נפעיל את תמונת $f$ על שני האגפים: $f[f^{-1}[Y_1]] = f[f^{-1}[Y_2]]$.
+*   מכיוון ש-$f$ **על**, לכל $Y \subseteq B$ מתקיים $f[f^{-1}[Y]] = Y$:
+    *   תמיד $f[f^{-1}[Y]] \subseteq Y$.
+    *   מצד שני, אם $y \in Y$, קיים $x$ כך ש-$f(x)=y$ (כי $f$ על).
+    *   לכן $x \in f^{-1}[Y]$ ולכן $y \in f[f^{-1}[Y]]$.
+*   לכן קיבלנו $Y_1 = Y_2$.
+*   כלומר $g$ חח"ע.
+
+</div>
+
+<div>
+
+$\Longrightarrow$ **כיוון שני:** נניח $g$ חח"ע. נראה ש-$f$ על.
+*   נניח בשלילה ש-$f$ אינה על. אזי קיים $y \in B \setminus \text{Im}(f)$.
+
+*   נגדיר $Y_1 = \{y\}$ ו-$Y_2 = \emptyset$.
+*   $g(Y_1) = f^{-1}[\{y\}]$. מכיוון ש-$y$ אינו בתמונה, אין $x$ כך ש-$f(x)=y$, לכן $f^{-1}[\{y\}] = \emptyset$.
+*   $g(Y_2) = f^{-1}[\emptyset] = \emptyset$.
+*   קיבלנו $g(Y_1) = g(Y_2) = \emptyset$, אך $Y_1 \neq Y_2$.
+*   סתירה לכך ש-$g$ חח"ע. לכן $f$ על.
+
+</div>
+
+</div>
+
+<!-- </small> -->
+
+---
+
+# פתרון: סעיף ב' - העתקות מושרות (חלק 2)
+
+**צ"ל: $f$ חח"ע $\iff$ $g$ על.**
+
+<!-- <small> -->
+
+<div class="grid grid-cols-2 gap-4">
+
+<div>
+
+$\Longleftarrow$ **כיוון ראשון:** נניח $f$ חח"ע. נראה ש-$g$ על $\mathcal{P}(A)$.
+*   תהי $X \subseteq A$. עלינו למצוא $Y \subseteq B$ כך ש-$g(Y) = X$.
+*   נסמן $Y = f[X] = \{ f(x) \mid x \in X \}$.
+*   נחשב את $g(Y) = f^{-1}[f[X]]$.
+*   מכיוון ש-$f$ **חח"ע**, לכל קבוצה $X \subseteq A$ מתקיים $f^{-1}[f[X]] = X$:
+    *   תמיד $X \subseteq f^{-1}[f[X]]$.
+    *   מצד שני, אם $z \in f^{-1}[f[X]]$, אז $f(z) \in f[X]$.
+    *   כלומר $f(z)=f(x)$ עבור $x \in X$.
+    *   מכיוון ש-$f$ חח"ע, $z=x \in X$.
+*   לכן $g(Y) = X$.
+*   כלומר לכל $X$ יש מקור, אז $g$ על.
+
+</div>
+
+<div>
+
+$\Longrightarrow$ **כיוון שני:** נניח $g$ על. נראה ש-$f$ חח"ע.
+*   נניח בשלילה ש-$f$ אינה חח"ע. אזי קיימים $x_1 \neq x_2$ כך ש-$f(x_1) = f(x_2) = y$.
+*   נתבונן בקבוצה $X = \{x_1\}$.
+*   מכיוון ש-$g$ על, קיים $Y \subseteq B$ כך ש-$g(Y) = X$, כלומר $f^{-1}[Y] = \{x_1\}$.
+*   אם $y \in Y$: אז $x_1 \in f^{-1}[Y]$ וגם $x_2 \in f^{-1}[Y]$ (כי $f(x_2)=y$). אבל $f^{-1}[Y]$ מכילה רק את $x_1$. סתירה ($x_1 \neq x_2$).
+*   אם $y \notin Y$: אז $x_1 \notin f^{-1}[Y]$ (כי $f(x_1)=y$). סתירה לכך ש-$f^{-1}[Y]=\{x_1\}$.
+*   בכל מקרה קיבלנו סתירה, לכן $f$ חח"ע.
+
+</div>
+
+</div>
+
+<!-- </small> -->
 
 ---
 

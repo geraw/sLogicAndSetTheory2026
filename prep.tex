@@ -1,0 +1,375 @@
+%!TeX program = xelatex
+\documentclass[a4paper,11pt]{article}
+\usepackage{polyglossia}
+\setdefaultlanguage{hebrew}
+\setotherlanguage{english}
+\newfontfamily\hebrewfont[Script=Hebrew]{David CLM} % או כל פונט עברי אחר שיש לך, למשל Arial
+\newfontfamily\hebrewfontsf[Script=Hebrew]{Miriam CLM}
+\newfontfamily\hebrewfonttt[Script=Hebrew]{Miriam Mono CLM}
+
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\geometry{margin=2cm}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\setlist[itemize]{label=-}
+
+\title{מבחן תרגול מסכם - לוגיקה ותורת הקבוצות}
+\author{תרגול נוסף - סימולציה}
+\date{\today}
+
+\newcommand{\powerset}{\mathcal{P}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\liff}{\leftrightarrow} 
+
+\begin{document}
+
+\maketitle
+
+\section*{חלק א': הגדרות (20 שאלות)}
+\textbf{הוראה:} בכל שאלה מטה, יש להקיף בעיגול את הביטוי ששקול להגדרת המונח הנתון.
+
+\begin{enumerate}
+    \item \textbf{החיתוך של \(A\) ו-\(B\) (\(A \cap B\)):}
+          \begin{enumerate}
+              \item \(\{x : x \in A \lor x \in B\}\)
+              \item \(\{x : x \notin A \to x \in B\}\)
+              \item \(\{x : \neg(x \in A \to x \notin B)\}\)
+              \item \(\{x : x \subseteq A \land x \subseteq B\}\)
+          \end{enumerate}
+
+    \item \textbf{\(A\) מוכלת ממש ב-\(B\) (\(A \subsetneq B\)):}
+          \begin{enumerate}
+              \item \(\forall x(x \in A \to x \in B)\)
+              \item \((\forall x(x \in A \to x \in B)) \land (\exists y(y \in B \land y \notin A))\)
+              \item \(A \cup B = B\)
+              \item \(A \setminus B = (B \setminus A) \cap A\)
+          \end{enumerate}
+
+    \item \textbf{הפרש סימטרי (\(A \Delta B\)):}
+          \begin{enumerate}
+              \item \((A \setminus B) \cap (B \setminus A)\)
+              \item \((A \cup B) \setminus (A \cap B)\)
+              \item \(\{x : x \in A \liff x \in B\}\)
+              \item \(A \cup B\)
+          \end{enumerate}
+
+    \item \textbf{קבוצת החזקה (\(\powerset(A)\)):}
+          \begin{enumerate}
+              \item \(\{B : (A \cap B) \cup (A \Delta B) = A\}\)
+              \item \(\{B : (A \cup B) \cap (A \Delta B) = B\}\)
+              \item \(\{B : B \setminus A = B\}\)
+              \item \(\{B : A \cap B = A\}\)
+          \end{enumerate}
+
+    \item \textbf{מכפלה קרטזית (\(A \times B\)):}
+          \begin{enumerate}
+              \item \(\{\{a,b\} : a \in A, b \in B\}\)
+              \item \(\{(a,b) : a \in A \lor b \in B\}\)
+              \item \(\{\langle a,b \rangle : a \in A \land b \in B\}\)
+              \item \(\{f : B \to A\}\)
+          \end{enumerate}
+
+    \item \textbf{יחס רפלקסיבי מעל \(A\):}
+          \begin{enumerate}
+              \item \(R \cap Id_A = Id_A\)
+              \item \(R \circ R^{-1} = Id_A\)
+              \item \(R \cup Id_A = R\)
+              \item \(Id_A \subseteq R^{-1}\)
+          \end{enumerate}
+
+    \item \textbf{יחס סימטרי:}
+          \begin{enumerate}
+              \item \(R \cap R^{-1} = \emptyset\)
+              \item \(R = R^{-1}\)
+              \item \(\forall x,y,z (xRy \land yRz \to xRz)\)
+              \item \(R \subseteq Id_A\)
+          \end{enumerate}
+
+    \item \textbf{יחס אנטי-סימטרי:}
+          \begin{enumerate}
+              \item \(\forall x,y ((xRy \land yRx) \to x=y)\)
+              \item \(\forall x,y (\neg(xRy) \lor \neg(yRx))\)
+              \item \(R \cap R^{-1} = \emptyset\)
+              \item לא קיים \(x\) כך ש-\(xRx\)
+          \end{enumerate}
+
+    \item \textbf{יחס טרנזיטיבי:}
+          \begin{enumerate}
+              \item \(R \circ R \subseteq R\)
+              \item \(R \cup R^{-1} = A \times A\)
+              \item \(\forall x \in A \exists y \in A (xRy)\)
+              \item \(R \circ R = R\)
+          \end{enumerate}
+
+    \item \textbf{מחלקת שקילות של \(x\) (\([x]_E\)):}
+          \begin{enumerate}
+              \item \(\{y \in A : xEy\}\)
+              \item \(\{y \in A : xEy \land x \neq y\}\)
+              \item \(\{ \langle x,y \rangle : y \in A \}\)
+              \item \(A / E\)
+          \end{enumerate}
+
+    \item \textbf{פונקציה חח"ע (\(f: A \to B\)):}
+          \begin{enumerate}
+              \item \(\forall y \in B \exists! x \in A (f(x)=y)\)
+              \item \(\forall x_1, x_2 \in A (f(x_1) = f(x_2) \to x_1 = x_2)\)
+              \item \(f(A) = B\)
+              \item \(f \circ f^{-1} = Id_B\)
+          \end{enumerate}
+
+    \item \textbf{פונקציה על (\(f: A \to B\)):}
+          \begin{enumerate}
+              \item \(Im(f) = B\)
+              \item \(|A| \ge |B|\)
+              \item \(\forall x \in A \exists y \in B (f(x)=y)\)
+              \item \(f^{-1}\) היא פונקציה
+          \end{enumerate}
+
+    \item \textbf{תמונה הפוכה של קבוצה (\(f^{-1}[Y]\)):}
+          \begin{enumerate}
+              \item \(\{f(y) : y \in Y\}\)
+              \item \(\{x \in A : f(x) \in Y\}\)
+              \item \(\{x \in A : f(x) \subseteq Y\}\)
+              \item \(B \setminus f[A]\)
+          \end{enumerate}
+
+    \item \textbf{איבר מינימלי ב-\((A, R)\):}
+          \begin{enumerate}
+              \item \(x \in A\) כך שלכל \(y \in A\) מתקיים \(xRy\)
+              \item \(x \in A\) כך שלכל \(y \in A\), אם \(yRx\) אז \(y=x\)
+              \item \(x \in A\) כך שלא קיים \(y\) עם \(xRy\)
+              \item האיבר הקטן ביותר בשרשרת
+          \end{enumerate}
+
+    \item \textbf{חסם מלעיל של קבוצה \(B \subseteq A\) ב-\((A, R)\):}
+          \begin{enumerate}
+              \item \(x \in B\) כך שלכל \(b \in B\) מתקיים \(bRx\)
+              \item \(x \in A\) כך שלכל \(b \in B\) מתקיים \(bRx\)
+              \item איבר מקסימלי ב-\(B\)
+              \item הסופרמום של \(B\)
+          \end{enumerate}
+
+    \item \textbf{קבוצה סדורה היטב:}
+          \begin{enumerate}
+              \item יחס סדר מלא שבו לכל תת-קבוצה לא ריקה יש איבר ראשון (מינימום)
+              \item יחס סדר שבו אין שרשראות יורדות אינסופיות
+              \item יחס סדר מלא שבו לכל תת-קבוצה יש חסם מלעיל
+              \item יחס סדר שבו כל אנטי-שרשרת היא סופית
+          \end{enumerate}
+
+    \item \textbf{שוויון עוצמות (\(|A|=|B|\)):}
+          \begin{enumerate}
+              \item \(A=B\)
+              \item קיימת פונקציה חח"ע ועל \(f: A \to B\)
+              \item \(A \subseteq B\) וגם \(B \subseteq A\)
+              \item קיימת פונקציה חח"ע מ-\(A\) ל-\(B\) ופונקציה על מ-\(A\) ל-\(B\)
+          \end{enumerate}
+
+    \item \textbf{קבוצה בת-מניה:}
+          \begin{enumerate}
+              \item קבוצה סופית
+              \item קבוצה שוות עוצמה ל-\(\N\) או סופית
+              \item קבוצה שוות עוצמה ל-\(\R\)
+              \item קבוצה שאינה סופית
+          \end{enumerate}
+
+    \item \textbf{עוצמת הרצף (\(\aleph\)):}
+          \begin{enumerate}
+              \item \(|\N|\)
+              \item \(|\powerset(\N)|\)
+              \item \(|\Q|\)
+              \item \(|\N \times \N|\)
+          \end{enumerate}
+
+    \item \textbf{פונקציית האינדיקטור (\(\chi_B\) עבור \(B \subseteq A\)):}
+          \begin{enumerate}
+              \item פונקציה המחזירה 1 אם \(x \in B\) ו-0 אחרת
+              \item פונקציית הזהות על \(B\)
+              \item הפונקציה הריקה
+              \item הצמצום של \(f\) ל-\(B\)
+          \end{enumerate}
+
+\end{enumerate}
+
+\newpage
+\section*{חלק ב': שאלות רב-ברירה - לוגיקה וגרירות (20 שאלות)}
+\textbf{הוראה:} בכל שאלה מופיעים שני משפטים (משפט 1 ומשפט 2). קבעו את הקשר הלוגי ביניהם:
+
+\begin{itemize}
+    \item א: משפט 1 גורר את משפט 2 בלבד.
+    \item ב: משפט 2 גורר את משפט 1 בלבד.
+    \item ג: המשפטים שקולים.
+    \item ד: אף טענה לא גוררת את השנייה / כל התשובות האחרות שגויות.
+\end{itemize}
+
+\begin{enumerate}
+    \item תהיינה \(A, B\) קבוצות.
+          \\ \textbf{משפט 1:} \(A \setminus B = \emptyset\)
+          \\ \textbf{משפט 2:} \(A \subseteq B\)
+
+    \item תהיינה \(A, B\) קבוצות.
+          \\ \textbf{משפט 1:} \(\powerset(A) \subseteq \powerset(B)\)
+          \\ \textbf{משפט 2:} \(A \subseteq B\)
+
+    \item יהי \(R\) יחס מעל \(A\).
+          \\ \textbf{משפט 1:} \(R\) יחס סימטרי וטרנזיטיבי.
+          \\ \textbf{משפט 2:} \(R\) יחס שקילות.
+
+    \item יהי \(R\) יחס מעל \(A\).
+          \\ \textbf{משפט 1:} \(R \cap R^{-1} \subseteq Id_A\)
+          \\ \textbf{משפט 2:} \(R\) אנטי-סימטרי.
+
+    \item תהי \(f: A \to B\) פונקציה.
+          \\ \textbf{משפט 1:} \(f\) הפיכה (ביג'קציה).
+          \\ \textbf{משפט 2:} ל-\(f\) יש הפכי שמאלי והפכי ימני.
+
+    \item תהי \(f: A \to B\) פונקציה.
+          \\ \textbf{משפט 1:} \(f\) חח"ע.
+          \\ \textbf{משפט 2:} לכל \(C \subseteq A\) מתקיים \(f^{-1}[f[C]] = C\).
+
+    \item יהיו \(f: A \to B\) ו-\(g: B \to C\).
+          \\ \textbf{משפט 1:} \(g \circ f\) חח"ע.
+          \\ \textbf{משפט 2:} \(f\) חח``ע וגם \(g\) חח''ע.
+
+    \item יהיו \(f: A \to B\) ו-\(g: B \to C\).
+          \\ \textbf{משפט 1:} \(g \circ f\) על \(C\).
+          \\ \textbf{משפט 2:} \(g\) על \(C\).
+
+    \item יהיו \(A, B\) קבוצות.
+          \\ \textbf{משפט 1:} \(A \times B\) אינסופית.
+          \\ \textbf{משפט 2:} \(A\) אינסופית או \(B\) אינסופית (או שתיהן).
+
+    \item תהי \(\mathcal{F}\) משפחה של קבוצות.
+          \\ \textbf{משפט 1:} לכל \(A, B \in \mathcal{F}\) מתקיים \(A \cap B = \emptyset\).
+          \\ \textbf{משפט 2:} \(\mathcal{F}\) היא חלוקה של \(\bigcup \mathcal{F}\).
+
+    \item יהי \(E\) יחס שקילות מעל \(A\).
+          \\ \textbf{משפט 1:} \(|A/E| = |A|\).
+          \\ \textbf{משפט 2:} כל מחלקות השקילות הן יחידונים (singletons).
+
+    \item יהי \((A, \le)\) יחס סדר חלקי ו-\(B \subseteq A\).
+          \\ \textbf{משפט 1:} ל-\(B\) יש מינימום.
+          \\ \textbf{משפט 2:} ל-\(B\) יש איבר מינימלי יחיד.
+
+    \item יהי \((A, \le)\) יחס סדר חלקי.
+          \\ \textbf{משפט 1:} הסדר הוא קווי (מלא).
+          \\ \textbf{משפט 2:} כל תת-קבוצה סופית של \(A\) היא שרשרת.
+
+    \item יהי \((A, \le)\) סדר טוב.
+          \\ \textbf{משפט 1:} \(A\) סופית.
+          \\ \textbf{משפט 2:} ל-\(A\) יש מקסימום.
+
+    \item תהיינה \(A, B\) קבוצות.
+          \\ \textbf{משפט 1:} \(|A \times B| = |A|\).
+          \\ \textbf{משפט 2:} \(|B| = 1\).
+
+    \item תהיינה \(A, B\) קבוצות אינסופיות.
+          \\ \textbf{משפט 1:} \(|A| \le |B|\).
+          \\ \textbf{משפט 2:} \(|\powerset(A)| \le |\powerset(B)|\).
+
+    \item תהיינה \(A, B\) קבוצות זרות.
+          \\ \textbf{משפט 1:} \(|A \cup B| = |A| + |B|\).
+          \\ \textbf{משפט 2:} תמיד נכון (בהגדרת חיבור עוצמות).
+
+    \item יהי \(R\) יחס סדר חלקי מעל קבוצה סופית \(A\).
+          \\ \textbf{משפט 1:} ל-\(A\) יש איבר מקסימלי.
+          \\ \textbf{משפט 2:} ל-\(A\) יש איבר מקסימום.
+
+    \item תהי \(f: A \to A\) פונקציה.
+          \\ \textbf{משפט 1:} \(f\) חח"ע.
+          \\ \textbf{משפט 2:} \(f\) על.
+          (הנחה: \(A\) קבוצה סופית).
+
+    \item תהיינה \(A, B\) קבוצות.
+          \\ \textbf{משפט 1:} \(A \Delta B = B \Delta A\).
+          \\ \textbf{משפט 2:} \(A \cap B = B \cap A\).
+
+    \item יהי \(R\) יחס מעל \(A\).
+          \\ \textbf{משפט 1:} \(R \cup R^{-1}\) הוא יחס סימטרי.
+          \\ \textbf{משפט 2:} \(R\) הוא יחס סימטרי.
+
+\end{enumerate}
+
+\newpage
+\section*{חלק ג': הוכחות (20 שאלות)}
+\textbf{הוראה:} ענו על השאלות הבאות בפירוט. הקפידו על כתיבה פורמלית ומדויקת.
+
+\begin{enumerate}
+    \item \textbf{זהויות קבוצות:}
+          הוכיחו או הפריכו: לכל שלוש קבוצות \(A, B, C\), מתקיים:
+          \[ A \setminus (B \cap C) = (A \setminus B) \cup (A \setminus C) \]
+
+    \item \textbf{חזקה וסימטרי:}
+          הוכיחו: לכל קבוצות \(A, B\), אם \(\powerset(A) \cup \powerset(B) = \powerset(A \cup B)\), אזי \(A \subseteq B\) או \(B \subseteq A\).
+
+    \item \textbf{תמונות של פונקציות:}
+          תהי \(f: A \to B\) פונקציה. הוכיחו כי \(f\) חח"ע אם ורק אם לכל \(X, Y \subseteq A\) מתקיים \(f[X \cap Y] = f[X] \cap f[Y]\).
+
+    \item \textbf{הרכבת יחסים:}
+          יהיו \(R, S\) יחסי שקילות מעל \(A\). הוכיחו: \(R \circ S\) הוא יחס שקילות אם ורק אם \(R \circ S = S \circ R\).
+
+    \item \textbf{יחס מושרה:}
+          תהי \(f: A \to B\) פונקציה. נגדיר יחס \(E\) על \(A\) ע"י: \(xEy \iff f(x)=f(y)\).
+          \begin{enumerate}
+              \item הוכיחו ש-\(E\) יחס שקילות.
+              \item בנו פונקציה חח"ע ועל \(g: A/E \to Im(f)\).
+          \end{enumerate}
+
+    \item \textbf{סדר חלקי:}
+          יהי \((A, \le)\) יחס סדר חלקי. נגדיר יחס \(R\) על \(A\) ע"י: \(xRy \iff (x \le y) \lor (y \le x)\). הוכיחו כי אם \(R\) הוא יחס שקילות, אזי לכל רכיב קשירות (מחלקת שקילות) ב-\(R\) יש מבנה של שרשרת.
+
+    \item \textbf{פונקציות וקבוצות חזקה:}
+          תהי \(f: A \to B\). נגדיר \(F: \powerset(A) \to \powerset(B)\) ע"י \(F(X) = \{f(x) : x \in X\}\).
+          הוכיחו: \(f\) על אם ורק אם \(F\) על.
+
+    \item \textbf{קבוצת השבת:}
+          תהי \(f: A \to A\). נגדיר \(Fix(f) = \{x \in A : f(x)=x\}\).
+          הוכיחו שאם \(f \circ f = f\), אזי \(f\) היא ההטלה (Projecton) על \(Fix(f)\) (כלומר \(f(A) = Fix(f)\)).
+
+    \item \textbf{עוצמות - משפט קנטור:}
+          הוכיחו שאין פונקציה מ-\(A\) על \(\powerset(A)\). (יש לכתוב את ההוכחה במלואה).
+
+    \item \textbf{חשבון עוצמות:}
+          הוכיחו או הפריכו: אם \(|A \setminus B| = |B \setminus A|\), אזי \(|A| = |B|\).
+
+    \item \textbf{סדר טוב:}
+          תהי \((A, \le)\) קבוצה סדורה היטב. תהי \(f: A \to A\) פונקציה שומרת סדר (כלומר \(x < y \implies f(x) < f(y)\)). הוכיחו שלכל \(x \in A\) מתקיים \(x \le f(x)\).
+
+    \item \textbf{אנטי-סימטריה ואיחוד:}
+          יהיו \(R_1, R_2\) יחסים אנטי-סימטריים מעל \(A\).
+          הוכיחו או הפריכו: \(R_1 \cup R_2\) הוא בהכרח אנטי-סימטרי.
+
+    \item \textbf{חלוקות:}
+          תהי \(\Pi\) חלוקה של קבוצה \(A\). נגדיר יחס \(R\) כך: \(xRy \iff \exists P \in \Pi (x \in P \land y \in P)\). הוכיחו ש-\(R\) יחס שקילות וש-\(A/R = \Pi\).
+
+    \item \textbf{איזומורפיזם של סדרים:}
+          יהיו \((A, \le_A)\) ו-\((B, \le_B)\) קבוצות סדורות חלקית. נניח ש-\(f: A \to B\) היא איזומורפיזם סדר.
+          הוכיחו: \(x\) הוא איבר מינימלי ב-\(A\) אם ורק אם \(f(x)\) הוא איבר מינימלי ב-\(B\).
+
+    \item \textbf{פונקציות אופייניות:}
+          יהיו \(A, B\) תתי-קבוצות של \(U\). הוכיחו: \(\chi_{A \Delta B}(x) = (\chi_A(x) - \chi_B(x))^2\) לכל \(x \in U\).
+
+    \item \textbf{עוצמות אינסופיות:}
+          תהי \(A\) קבוצה אינסופית ו-\(x \in A\). הוכיחו: \(|A| = |A \setminus \{x\}|\).
+
+    \item \textbf{טרנזיטיביות:}
+          יהי \(R\) יחס רפלקסיבי וטרנזיטיבי מעל \(A\). הוכיחו כי \(R \cap R^{-1}\) הוא יחס שקילות מעל \(A\).
+
+    \item \textbf{פונקציות הפיכות:}
+          יהיו \(f: A \to B\) ו-\(g: B \to A\). נניח כי \(g \circ f = Id_A\).
+          הוכיחו ש-\(f\) חח"ע ו-\(g\) על. האם \(f\) בהכרח על? נמקו.
+
+    \item \textbf{משפט קנטור-ברנשטיין:}
+          תהיינה \(A, B\) קבוצות כך ש-\(A \subseteq B \subseteq C\) ונתון ש-\(|A| = |C|\). הוכיחו ש-\(|B| = |A|\).
+
+    \item \textbf{איחוד משפחות:}
+          תהי \(\{A_i\}_{i \in I}\) משפחה של קבוצות.
+          הוכיחו: \((\bigcup_{i \in I} A_i) \cap B = \bigcup_{i \in I} (A_i \cap B)\).
+
+\end{enumerate}
+
+\end{document}

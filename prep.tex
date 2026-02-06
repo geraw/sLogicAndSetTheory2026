@@ -84,23 +84,23 @@
     \item \textbf{יחס סימטרי:}
           \begin{enumerate}
               \item \(R \cap R^{-1} = \emptyset\)
-              \item \(R = R^{-1}\)
-              \item \(\forall x,y,z (xRy \land yRz \to xRz)\)
-              \item \(R \subseteq Id_A\)
+              \item \(R \subseteq R^{-1}\)
+              \item \(R \cap R^{-1} \subseteq Id_A\)
+              \item \(R \circ R \subseteq R\)
           \end{enumerate}
 
     \item \textbf{יחס אנטי-סימטרי:}
           \begin{enumerate}
-              \item \(\forall x,y ((xRy \land yRx) \to x=y)\)
+              \item \(R \cap R^{-1} \subseteq Id_A\)
               \item \(\forall x,y (\neg(xRy) \lor \neg(yRx))\)
-              \item \(R \cap R^{-1} = \emptyset\)
-              \item לא קיים \(x\) כך ש-\(xRx\)
+              \item \(R \Delta R^{-1} = R \cup R^{-1}\)
+              \item \(R \cap R^{-1} = Id_A\)
           \end{enumerate}
 
     \item \textbf{יחס טרנזיטיבי:}
           \begin{enumerate}
               \item \(R \circ R \subseteq R\)
-              \item \(R \cup R^{-1} = A \times A\)
+              \item \(R \circ R^{-1} = Id_A\)
               \item \(\forall x \in A \exists y \in A (xRy)\)
               \item \(R \circ R = R\)
           \end{enumerate}

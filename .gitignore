@@ -17,3 +17,13 @@ resources/בחנים/בוחן תשעז - פתרון.pdf
 resources/בחנים/בוחן תשעז - שאלון.pdf
 resources/בחנים/בוחן תשפ - פתרון.pdf
 resources/בחנים/בוחן תשפ - שאלון.pdf
+
+# TeX artifacts
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+*.xdv

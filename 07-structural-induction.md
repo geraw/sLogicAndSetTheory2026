@@ -1387,6 +1387,7 @@ hide: true
 
 
 <div style="position: absolute; top: 150px; left: 50px">
+
 ```mermaid {theme: 'neutral', scale: 0.6, flowchart: {'padding': 8}}
 graph TD
   subgraph Graph1 [גרף 1]
@@ -1433,6 +1434,7 @@ graph TD
   - אותה ההוכחה עם האיזומורפיזם $g=f^{-1}$ מ-$H$ ל-$G$.
 
 <div style="position: absolute; top: 180px; left: 220px">
+
 ```mermaid {theme: 'neutral', scale: 0.8, flowchart: {'padding': 20}}
 graph TD
   subgraph Graph1 [G]
@@ -1472,6 +1474,7 @@ graph TD
   - אותה ההוכחה עם האיזומורפיזם $g=f^{-1}$ מ-$H$ ל-$G$.
 
 <div style="position: absolute; top: 180px; left: 60px">
+
 ```mermaid {theme: 'neutral', scale: 0.8, flowchart: {'padding': 20}}
 graph TD
   subgraph Graph1 [G]

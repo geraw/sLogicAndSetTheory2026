@@ -26,9 +26,27 @@ section: פתיחה
   
 - לפתח אינטואיציה אלגוריתמית והוכחתית (אינדוקציה ואינדוקציה מבנית)
   
-- להכין בסיס מוצק ללימודים מתקדמים במדמ״ח ומתמטיקה
+- להכין בסיס מוצק ללימודים מתקדמים במדמ״ח ובהנדסת תוכנה
 
 <img src="/images/למה אנחנו כאן.png" class="absolute top-40 right-180 w-100 h-100 opacity-80" />
+
+---
+
+# דוגמה: קוד מסוכני AI - עם הוכחה
+
+- חלק גדל והולך מהקוד נכתב היום בידי סוכני בינה מלאכותית.
+  
+- איך נדע שהקוד נכון? בדיקות (tests) מכסות רק חלק זעיר מהקלטים האפשריים.
+  
+- מגמה מתפתחת: הסוכן מגיש את הקוד **יחד עם הוכחה פורמלית** שהוא עומד במפרט.
+  
+- את ההוכחה בודק כלי אוטומטי (למשל Lean או Dafny), כך שאין צורך "לסמוך" על הסוכן.
+  
+- כדי לנסח מפרט ולקרוא הוכחה צריך בדיוק את מה שנלמד בקורס: קשרים, כמתים ומבני הוכחה.
+  - למשל, המפרט של מיון: $\forall i\,(i<n-1 \to b[i]\le b[i+1])$,<br>
+    וגם: $b$ הוא סידור מחדש (תמורה) של $a$.
+
+<img src="/images/code_with_proof_handoff.png" class="absolute top-78 left-6 w-110 mix-blend-multiply" />
 
 
 
@@ -192,14 +210,16 @@ section: מבוא לשפה המתמטית ולוגיקה
 
 ---
 
-# בניית טענות מתמטיות
+# בניית טענות מתמטיות: הסימונים המקובלים
+
+בשקף זה נגדיר את **הסימונים המקובלים** לקשרים ולכמתים. נשתמש בהם לאורך כל הקורס, והם מקובלים גם בספרות המתמטית ובמדעי המחשב בכלל.
 
 - קשרים - מרכיבים טענות חדשות מטענות קיימות:
   - $\alpha\vee\beta$ <span style="color:#2563eb;"> ⟶ <em>"$\alpha$ או $\beta$". נקרא קשר הדיסיונקציה (disjunction).</em></span>
-  - $\alpha\wedge\beta$ <span style="color:#2563eb;"> ⟶ <em>"$\alpha$ וגם $\beta$". נקרא קשר הקונקונקציה (conjunction).</em></span>
+  - $\alpha\wedge\beta$ <span style="color:#2563eb;"> ⟶ <em>"$\alpha$ וגם $\beta$". נקרא קשר הקוניונקציה (conjunction).</em></span>
   - $\alpha\to\beta$ <span style="color:#2563eb;"> ⟶ <em>"אם $\alpha$ אז $\beta$" / "$\alpha$ גורר $\beta$". נקרא קשר הגרירה (implication).</em></span>
   - $\alpha\leftrightarrow\beta$ <span style="color:#2563eb;"> ⟶ <em>"$\alpha$ אם ורק אם $\beta$". נקרא קשר האם־ורק־אם (biconditional / iff).</em></span>
-  - $\neg\alpha$ <span style="color:#2563eb;"> ⟶ <em>"לא $\alpha$". נקרא קשר ההשלילה (negation).</em></span>
+  - $\neg\alpha$ <span style="color:#2563eb;"> ⟶ <em>"לא $\alpha$". נקרא קשר השלילה (negation).</em></span>
 
 - כמתים - כאשר הטענה תלויה במשתנה $x$:
   - $\forall x\,(\alpha)$ → <span style="color:#2563eb;"><em>"לכל $x$ מתקיים $\alpha$". נקרא הכמת הכולל (universal quantifier).</em></span>
@@ -208,6 +228,20 @@ section: מבוא לשפה המתמטית ולוגיקה
   
 - השפה המתמטית גמישה: אותו רעיון ניתן לנסח בכמה אופנים.  
   אל תשננו נוסח מילולי בלבד - הבינו את המשמעות ובחרו ניסוח שנוח לכם.
+
+<div class="absolute top-57 left-16 w-88 text-center text-sm">
+  <img src="/images/forall_smart_or_no_logic.png" class="w-88 mix-blend-multiply" />
+
+  "לכל $x$: $x$ חכם או $x$ לא לומד לוגיקה" &nbsp;😉
+
+  <div dir="ltr">
+
+  $\forall x\,\big(S(x) \vee \neg L(x)\big) \;\equiv\; \forall x\,\big(L(x) \to S(x)\big)$
+
+  </div>
+
+  $S(x)$: "$x$ חכם", &nbsp; $L(x)$: "$x$ לומד לוגיקה"
+</div>
 
 ---
 
@@ -232,7 +266,9 @@ section: מבוא לשפה המתמטית ולוגיקה
 הטבלה מגדירה איך אנחנו בונים טענות מורכבות מתוך טענות פשוטות.
 
 
-נשתמש בטבלאות אמת כדי להוכיח שקילות בין טענות.
+נשתמש בטבלאות אמת כדי להוכיח שקילות בין טענות - אבל זו **רק אחת הדרכים** לעשות זאת.
+
+דרכים נוספות: מעבר בשרשרת של שקילויות ידועות, או טיעון מילולי ישיר.
 
 ---
 
@@ -247,7 +283,69 @@ section: מבוא לשפה המתמטית ולוגיקה
   - $\alpha \equiv \beta$ הוא **טענה שלנו** (במטא-שפה) על כך שהפסוק $\alpha \leftrightarrow \beta$ הוא טאוטולוגיה (אמיתי תמיד).
 
 - נלמד שקילויות שימושיות רבות ונשתמש בהן כדי לפשט טענות מורכבות.
-- נראה גם כיצד להוכיח שקילות בין טענות באמצעות טבלאות אמת.
+- נראה גם כיצד להוכיח שקילות בין טענות באמצעות טבלאות אמת וגם באמצעות **טיעונים לוגיים**.
+
+<div class="dlg">
+<div class="dlg-line left">
+<img src="/images/avatar_logician.png" />
+<div class="dlg-bubble">
+
+או שתביא מטריה,<br>או שתירטב (או שניהם).
+
+</div>
+</div>
+<div class="dlg-line right">
+<img src="/images/avatar_student_skeptic.png" />
+<div class="dlg-bubble">
+
+התכוונת שאם **לא** אביא מטריה -<br>אז אירטב?
+
+</div>
+</div>
+<div class="dlg-line left">
+<img src="/images/avatar_logician_rain.png" />
+<div class="dlg-bubble">
+
+זה בדיוק מה שאמרתי! 🌧️
+
+$\neg p \to q \;\equiv\; p \vee q$
+
+</div>
+</div>
+<div class="dlg-legend">
+
+$p$: "תביא מטריה", &nbsp; $q$: "תירטב"
+
+</div>
+</div>
+
+<style>
+.dlg { position: absolute; left: 1.5rem; top: 13rem; width: 22rem; display: flex; flex-direction: column; gap: 2.6rem; direction: ltr; }
+.dlg-line { display: flex; align-items: center; gap: 16px; }
+.dlg-line.left { flex-direction: row; }
+.dlg-line.right { flex-direction: row-reverse; }
+.dlg-line img {
+  flex: none; width: 4.2rem; height: 4.2rem; border-radius: 50%;
+  border: 3px solid #1f2937; object-fit: cover;
+}
+.dlg-bubble {
+  position: relative; flex: 1; padding: 8px 12px; text-align: center; direction: rtl;
+  background: #fff; border: 2.5px solid #1f2937; border-radius: 18px;
+  font-size: 0.95rem; line-height: 1.4; box-shadow: 3px 3px 0 #1f2937;
+}
+.dlg-bubble p { margin: 0; }
+.dlg-bubble::before {
+  content: ""; position: absolute; top: 50%; width: 16px; height: 16px; margin-top: -8px;
+  background: #fff; border: 2.5px solid #1f2937; transform: rotate(45deg);
+}
+.dlg-line.left .dlg-bubble::before { left: -10px; border-top: none; border-right: none; }
+.dlg-line.right .dlg-bubble::before { right: -10px; border-bottom: none; border-left: none; }
+.dlg-line.left .dlg-bubble { background: #eff6ff; }
+.dlg-line.left .dlg-bubble::before { background: #eff6ff; }
+.dlg-line.right .dlg-bubble, .dlg-line.right .dlg-bubble::before { background: #fef3c7; }
+.dlg-legend { text-align: center; font-size: 0.8rem; margin-top: -1.2rem; direction: rtl; }
+.dlg-legend p { margin: 0; }
+</style>
 
 ---
 

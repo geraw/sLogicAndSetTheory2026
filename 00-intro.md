@@ -312,7 +312,7 @@ $\alpha \vee \beta$ אמיתי גם כששתיהן אמיתיות.
 - נלמד שקילויות שימושיות רבות ונשתמש בהן כדי לפשט טענות מורכבות.
 - נראה גם כיצד להוכיח שקילות בין טענות באמצעות טבלאות אמת וגם באמצעות **טיעונים לוגיים**.
 
-<div class="dlg">
+<div v-click class="dlg">
 <div class="dlg-line left">
 <img src="/images/avatar_logician.png" />
 <div class="dlg-bubble">

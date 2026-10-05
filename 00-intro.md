@@ -255,7 +255,7 @@ section: מבוא לשפה המתמטית ולוגיקה
 
 | $\alpha$ | $\beta$ | $\neg\alpha$ | $\alpha\vee\beta$ | $\alpha\wedge\beta$ | $\alpha\to\beta$ | $\alpha\leftrightarrow\beta$ |
 |:--:|:--:|:--:|:--:|:--:|:--:|:--:|
-| $T$ | $T$ | $F$ | $T$ | $T$ | $T$ | $T$ |
+| $T$ | $T$ | $F$ | <span v-mark.circle.red="1">$T$</span> | $T$ | $T$ | $T$ |
 | $T$ | $F$ | $F$ | $T$ | $F$ | $F$ | $F$ |
 | $F$ | $T$ | $T$ | $T$ | $F$ | $T$ | $F$ |
 | $F$ | $F$ | $T$ | $F$ | $F$ | $T$ | $T$ |
@@ -269,6 +269,33 @@ section: מבוא לשפה המתמטית ולוגיקה
 נשתמש בטבלאות אמת כדי להוכיח שקילות בין טענות - אבל זו **רק אחת הדרכים** לעשות זאת.
 
 דרכים נוספות: מעבר בשרשרת של שקילויות ידועות, או טיעון מילולי ישיר.
+
+<div v-click="1" class="absolute top-40 left-6 w-68 p-3 text-sm leading-snug bg-red-50 border-2 border-red-600 rounded-xl">
+
+במתמטיקה "או" הוא תמיד **"או כולל"** (inclusive or):<br>
+$\alpha \vee \beta$ אמיתי גם כששתיהן אמיתיות.
+
+לעומתו, **"או מוציא"** (XOR),<br>
+"אחד מהשניים אבל לא שניהם",<br>
+היה נותן בשורה הזו $F$.
+
+</div>
+
+<svg v-click="1" class="hand-arrow absolute top-0 left-0 pointer-events-none" width="980" height="552" viewBox="0 0 980 552">
+  <g fill="none" stroke="#dc2626" stroke-linecap="round" stroke-linejoin="round">
+    <path class="draw" pathLength="1" stroke-width="3" d="M249 268 C 268 286, 300 282, 320 262 C 332 252, 350 247, 372 248 C 392 250, 404 256, 434 243" />
+    <path class="draw" pathLength="1" stroke-width="1.2" opacity="0.55" d="M251 270 C 271 287, 302 280, 321 260 C 334 251, 352 249, 373 250 C 393 252, 405 257, 433 244" />
+    <path class="draw head" pathLength="1" stroke-width="3" transform="translate(2 -3) rotate(-25 432 246)" d="M417 236 C 423 240, 428 243, 432 246 C 427 249, 421 253, 416 257" />
+  </g>
+</svg>
+
+<style>
+.hand-arrow { z-index: 20; }
+.hand-arrow .draw { stroke-dasharray: 1; stroke-dashoffset: 0; }
+.slidev-vclick-target:not(.slidev-vclick-hidden) .draw { animation: hand-draw 0.7s ease-out both; }
+.slidev-vclick-target:not(.slidev-vclick-hidden) .draw.head { animation-delay: 0.6s; animation-duration: 0.25s; }
+@keyframes hand-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+</style>
 
 ---
 

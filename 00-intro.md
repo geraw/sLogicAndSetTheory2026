@@ -335,13 +335,13 @@ $\alpha \vee \beta$ אמיתי גם כששתיהן אמיתיות.
 
 זה בדיוק מה שאמרתי! 🌧️
 
-$\neg p \to q \;\equiv\; p \vee q$
+$\neg \alpha \to \beta \;\equiv\; \alpha \vee \beta$
 
 </div>
 </div>
 <div class="dlg-legend">
 
-$p$: "תביא מטריה", &nbsp; $q$: "תירטב"
+$\alpha$: "תביא מטריה", &nbsp; $\beta$: "תירטב"
 
 </div>
 </div>
@@ -412,6 +412,12 @@ $p$: "תביא מטריה", &nbsp; $q$: "תירטב"
 - **שלילת גרירה:** $\neg(\alpha\to\beta)\equiv \alpha\wedge\neg\beta$ <span style="color:#2563eb;">⟶ משמעות של “אם לא אז”.</span>  
 
 - **כלל ההיפוך (קונטרפוזיציה):** $\alpha\to\beta \equiv \neg\beta\to\neg\alpha$ <span style="color:#2563eb;">⟶ מאפשר להחליף הנחות ומסקנות.</span>
+
+<br>
+
+<div class="text-center text-3xl font-bold" style="color:#7c3aed;">איך נוכיח טענות אלה?</div>
+
+<div v-click class="text-center text-4xl font-bold mt-4" style="color:#ea580c;">נסו להוכיח בעצמכם! ✍️</div>
 
 
 ---

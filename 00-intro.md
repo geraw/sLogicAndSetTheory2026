@@ -201,7 +201,7 @@ section: השפה המתמטית
 
 כל ביטוי מתמטי תקין הוא אחד משני סוגים:
 
-<div class="grid grid-cols-2 gap-8 mt-4">
+<div class="nouns grid grid-cols-2 gap-8 mt-6 mb-8">
 <div class="p-3 rounded-xl border-2 border-blue-400 bg-blue-50">
 
 **שם עצם** - מציין אובייקט מתמטי<br>(מספר, קבוצה, פונקציה...)
@@ -227,11 +227,10 @@ section: השפה המתמטית
 - כשיש בביטוי משתנה כמו $x$, שערכו לא נקבע, הוא נקרא **משתנה חופשי**. נחזור לכך בהמשך.
 - על כל ביטוי כדאי לשאול: **האם זה שם עצם או טענה?** למשל, "$3+4$ הוא אמת" הוא משפט חסר משמעות.
 
-<div v-click class="mt-2">
-
-**סווגו:** &nbsp; $\{x\}$ &nbsp;·&nbsp; $x\in\{x\}$ &nbsp;·&nbsp; $2^{10}$ &nbsp;·&nbsp; $\forall n\,(n+0=n)$ &nbsp;·&nbsp; $1+{}=2$
-
-</div>
+<style>
+.nouns li { margin-top: 0.6rem; margin-bottom: 0.6rem; }
+.slidev-layout > ul > li { margin-top: 1rem; }
+</style>
 
 ---
 

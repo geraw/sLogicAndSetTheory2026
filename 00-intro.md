@@ -291,31 +291,118 @@ section: השפה המתמטית
 
 # המילה הראשית
 
-- בכל טענה מורכבת יש **מילה ראשית**: הקשר או הכמת **החיצוני ביותר**.
-- המילה הראשית קובעת שלושה דברים:
-  - **מה הטענה אומרת**: "וגם", "או", "אם... אז", "לכל" או "יש".
-  - **איך מוכיחים אותה**: לכל מילה ראשית יש תבנית הוכחה משלה.
-  - **איך שוללים אותה**: לכל מילה ראשית יש כלל שלילה משלו.
-- מפרקים טענה כמו בצל: מזהים את המילה הראשית, ואז ממשיכים לחלקים שבתוכה.
+- בכל טענה מורכבת יש **מילה ראשית**: הקשר או הכמת **החיצוני ביותר**. היא קובעת מה הטענה אומרת, איך מוכיחים אותה ואיך שוללים אותה.
+- מפרקים טענה כמו בצל: מזהים את המילה הראשית, ואז ממשיכים פנימה. למשל, מעל המספרים הממשיים:
 
-<div class="formula-box mt-3 mb-2">
+<div class="mw-grid">
+<div>
 
-$\forall a\,\forall b\,\big(a\neq b \to \exists q\,(q\in\mathbb{Q}\wedge(a<q<b \vee b<q<a))\big)$
+<div class="mw-formula" dir="ltr">
+
+<span v-click="1" class="lv lv1"><span class="w">$\forall x$</span> <span v-click="2" class="lv lv2">$($ $x>0$ <span class="w">$\to$</span> <span v-click="3" class="lv lv3"><span class="w">$\exists y$</span> <span v-click="4" class="lv lv4">$($ $y>0$ <span class="w">$\wedge$</span> $y\cdot y=x$ $)$</span></span> $)$</span></span>
 
 </div>
 
-<v-clicks>
+<div v-click="1" class="step s1">
 
-1. המילה הראשית: $\forall a\,\forall b$, כלומר "לכל $a,b$ ..."
-2. בתוכה: $\to$, כלומר "אם $a\neq b$ אז ..."
-3. במסקנה של הגרירה: $\exists q$, כלומר "יש $q$ ..."
-4. בתוך ה"יש": $\wedge$, ובחלק השני שלה: $\vee$
+<b>$\forall x$</b> &nbsp;"לכל $x$ ...": המילה הראשית של כל הטענה
 
-</v-clicks>
+</div>
+<div v-click="2" class="step s2">
 
-- גם הסוגריים קובעים: ב־$\neg(\alpha\wedge\beta)$ המילה הראשית היא $\neg$, וב־$\neg\alpha\wedge\beta$ היא $\wedge$.
+<b>$\to$</b> &nbsp;"אם $x>0$ אז ...": המילה הראשית בתוך ה"לכל"
 
-<div class="text-center text-xl font-bold mt-3" style="color:#7c3aed;">נשאל "מהי המילה הראשית?" בכל דוגמה בקורס</div>
+</div>
+<div v-click="3" class="step s3">
+
+<b>$\exists y$</b> &nbsp;"יש $y$ ...": המילה הראשית במסקנה של הגרירה
+
+</div>
+<div v-click="4" class="step s4">
+
+<b>$\wedge$</b> &nbsp;"$y>0$ וגם $y\cdot y=x$": המילה הראשית בתוך ה"יש"
+
+</div>
+
+<div v-click="5" class="mt-3">
+
+בעברית: לכל $x$ חיובי יש $y$ חיובי כך ש־$y\cdot y=x$.
+
+גם הסוגריים קובעים: ב־$\neg(\alpha\wedge\beta)$ המילה הראשית היא $\neg$, וב־$\neg\alpha\wedge\beta$ היא $\wedge$.
+
+</div>
+
+</div>
+<div class="mw-tree" dir="ltr">
+<svg width="360" height="290" viewBox="0 0 360 290">
+  <g v-click="2" stroke="#dc2626"><line x1="180" y1="20" x2="180" y2="82" /><line x1="180" y1="82" x2="80" y2="144" /></g>
+  <g v-click="3" stroke="#16a34a"><line x1="180" y1="82" x2="265" y2="144" /></g>
+  <g v-click="4" stroke="#7c3aed"><line x1="265" y1="144" x2="265" y2="206" /><line x1="265" y1="206" x2="195" y2="268" /><line x1="265" y1="206" x2="320" y2="268" /></g>
+</svg>
+<div v-click="1" class="node c1" style="left:180px; top:20px;">
+
+$\forall x$
+
+</div>
+<div v-click="2" class="node c2" style="left:180px; top:82px;">
+
+$\to$
+
+</div>
+<div v-click="2" class="node leaf" style="left:80px; top:144px;">
+
+$x>0$
+
+</div>
+<div v-click="3" class="node c3" style="left:265px; top:144px;">
+
+$\exists y$
+
+</div>
+<div v-click="4" class="node c4" style="left:265px; top:206px;">
+
+$\wedge$
+
+</div>
+<div v-click="4" class="node leaf" style="left:195px; top:268px;">
+
+$y>0$
+
+</div>
+<div v-click="4" class="node leaf" style="left:320px; top:268px;">
+
+$y\cdot y=x$
+
+</div>
+</div>
+</div>
+
+<div class="text-center text-xl font-bold mt-2" style="color:#7c3aed;">נשאל "מהי המילה הראשית?" בכל דוגמה בקורס</div>
+
+<style>
+.mw-grid { display: grid; grid-template-columns: 1fr 360px; gap: 1.5rem; margin-top: 0.6rem; }
+.mw-formula { font-size: 1.25rem; text-align: center; margin: 0.4rem 0 0.8rem; }
+.mw-formula p { margin: 0; }
+/* Each layer stays visible; a click only colors its box and its main word */
+.slidev-layout .lv.slidev-vclick-hidden { opacity: 1 !important; }
+.lv { display: inline-block; padding: 2px 5px; border: 2px solid transparent; border-radius: 8px; transition: border-color .3s, background-color .3s; }
+.lv.slidev-vclick-hidden { border-color: transparent !important; background: transparent !important; }
+.lv.slidev-vclick-hidden > .w { color: inherit !important; font-weight: normal; }
+.lv1 { border-color: #2563eb; } .lv1 > .w { color: #2563eb; font-weight: bold; }
+.lv2 { border-color: #dc2626; } .lv2 > .w { color: #dc2626; font-weight: bold; }
+.lv3 { border-color: #16a34a; } .lv3 > .w { color: #16a34a; font-weight: bold; }
+.lv4 { border-color: #7c3aed; background: rgba(124,58,237,.06); } .lv4 > .w { color: #7c3aed; font-weight: bold; }
+.step { margin: 0.15rem 0; } .step p { margin: 0; }
+.s1 b { color: #2563eb; } .s2 b { color: #dc2626; } .s3 b { color: #16a34a; } .s4 b { color: #7c3aed; }
+.mw-tree { position: relative; width: 360px; height: 290px; }
+.mw-tree svg { position: absolute; inset: 0; }
+.mw-tree line { stroke-width: 2.5; }
+.node { position: absolute; transform: translate(-50%, -50%); padding: 1px 10px; border: 2.5px solid; border-radius: 999px; background: #fff; font-size: 1.1rem; white-space: nowrap; z-index: 1; }
+.node p { margin: 0; }
+.node.c1 { border-color: #2563eb; color: #2563eb; } .node.c2 { border-color: #dc2626; color: #dc2626; }
+.node.c3 { border-color: #16a34a; color: #16a34a; } .node.c4 { border-color: #7c3aed; color: #7c3aed; }
+.node.leaf { border-color: #9ca3af; border-radius: 6px; color: #374151; }
+</style>
 
 ---
 section: קשרים וטבלאות אמת

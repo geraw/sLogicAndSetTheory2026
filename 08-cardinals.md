@@ -162,7 +162,7 @@ section: סדר ושקילות עוצמה
 
 <div style="position: absolute; top: 100px; left: 10px; text-align: center; border: 2px solid brown; padding: 2px; display: inline-block; background-color: lightyellow; color: brown; font-size: 0.8em;">
 
-  הטענה הזו היא "אם ורק אם" כל עוד $A$ לא ריקה.
+  הטענה הזו היא "אם ורק אם" כל עוד $A$ לא ריקה (הכיוון ההפוך - בשקף הבא).
   <br> 
   למשל, עבור $A=\emptyset$ ו-$B=\{1\}$, מתקיים $A \curlyeqprec B$ (פונקציה ריקה), אך לא קיימת פונקציה מ-$B$ ל-$A$.
 </div>
@@ -188,6 +188,21 @@ linkStyle 4,5 stroke:red,stroke-width:2px,arrowhead-color:red
 
 ---
 
+# הכיוון ההפוך: אם $A \curlyeqprec B$ ו-$A \neq \emptyset$, אז קיימת פונקציה "על" מ-$B$ ל-$A$
+
+- נניח $g\colon A \to B$ חד-חד-ערכית, ונבחר איבר כלשהו $a_0 \in A$ (אפשר כי $A \neq \emptyset$).
+
+- נגדיר $f\colon B \to A$ כך:
+  $$f(b) = \begin{cases} g^{-1}(b) & b \in g[A] \\ a_0 & b \notin g[A] \end{cases}$$
+  - כאשר $b \in g[A]$, יש $a \in A$ **יחיד** כך ש-$g(a) = b$ (כי $g$ חח"ע), ו-$g^{-1}(b)$ הוא ה-$a$ הזה. לכן $f$ מוגדרת היטב.
+
+- $f$ היא על:
+  - יהי $a \in A$. אז $g(a) \in g[A]$, ולכן $f(g(a)) = g^{-1}(g(a)) = a$.
+
+- **מסקנה:** עבור $A \neq \emptyset$: קיימת פונקציה על מ-$B$ ל-$A$ $\iff$ $A \curlyeqprec B$.
+
+---
+
 # אם $E$ יחס שקילות מעל $A$, אז $A/E \curlyeqprec A$
 
 
@@ -200,6 +215,8 @@ linkStyle 4,5 stroke:red,stroke-width:2px,arrowhead-color:red
   - נניח $[a] \in A/E$.
 
   - אז $f(a) = [a]$ ולכן $[a] \in \text{image}(f)$.
+
+- לכן לפי הטענה הקודמת $A/E \curlyeqprec A$.
 
 
 <div style="position: absolute; top: 280px; left: 150px;">
@@ -563,7 +580,7 @@ layout: TwoColsHeaderCustom
 - <span style="color: blue;">  נתחיל במקרה המיוחד שבו $A_0, A_1, \ldots, A_{n-1}$ זרות בזוגות. </span>
   - נניח $A_0, A_1, \ldots, A_{n-1}$ זרות בזוגות ובנות מנייה אינסופיות.
   - אז קיימות פונקציות חד-חד-ערכיות ועל $f_i: A_i \to \mathbb{N}$.
-  - נבחן את $\mathbb{N}/R$ באשר $R$ היחס $R = \{ \langle i, j \rangle \mid j \equiv m \pmod n\}$.
+  - נבחן את $\mathbb{N}/R$ באשר $R$ היחס $R = \{ \langle i, j \rangle \in \mathbb{N}\times\mathbb{N} \mid i \equiv j \pmod n\}$.
   - זוהי קבוצת מחלקות השקילות $[0], [1], \ldots, [n-1]$. כל אחת ממחלקות אלו היא תת-קבוצה אינסופית של $\mathbb{N}$ ולכן כולן בנות מנייה אינסופיות ו-$\mathbb{N} \sim [i]$ לכל $0 \leq i \leq n-1$.
   - נניח $g_i: \mathbb{N} \to [i]$ הן פונקציות חד-חד-ערכיות ועל המעידות על כך.
   - נבחן את הפונקציה $h: \bigcup_{i=0}^{n-1} A_i \to \mathbb{N}$ המוגדרת כ-$h(a) = g_i(f_i(a))$ אם $a \in A_i$.
@@ -613,7 +630,7 @@ section: הרציונליים
 # $\mathbb{N} \times \mathbb{N}$ היא קבוצה בת מנייה
 
 
-<div style="position: absolute; top: 240px; left: 230px; z-index: -1;">
+<div style="position: absolute; top: 240px; left: 30px; z-index: -1;">
   <img src="./images/cantor_pairing_stairs.png" alt="Cantor Pairing Stairs" style="height: 300px;" />
 </div>
 
@@ -621,7 +638,12 @@ section: הרציונליים
 - נגדיר את הפונקציה $f\colon \mathbb{N} \times \mathbb{N} \to \mathbb{N}$ כך:
   $$f(x, y) = \frac{(x+y)(x+y+1)}{2} + y$$
 
-- זאת פונקציה חד-חד ערכית ועל:
+- זאת פונקציה חד-חד ערכית ועל (ההסבר בשקף הבא).
+
+- **דרך נוספת, דרך קנטור-ברנשטיין:**
+  - $g(x,y) = 2^x 3^y$ היא חח"ע (יחידות הפירוק לגורמים ראשוניים), ולכן $\mathbb{N} \times \mathbb{N} \curlyeqprec \mathbb{N}$.
+  - $x \mapsto \langle x, 0 \rangle$ היא חח"ע, ולכן $\mathbb{N} \curlyeqprec \mathbb{N} \times \mathbb{N}$.
+  - לפי משפט קנטור-ברנשטיין, $\mathbb{N} \times \mathbb{N} \sim \mathbb{N}$.
 
 
 ---
@@ -661,20 +683,19 @@ $$C(i+1) = \begin{cases}
 # מסקנה: $\mathbb{Q}$ היא קבוצה בת מנייה
 
 
-$$\mathbb{Q} = (\mathbb{N} \times \mathbb{N}) / R$$
+- נזכיר את ההגדרה (מהפרק על יחסי שקילות):
+$$\mathbb{Q} = (\mathbb{Z}\times(\mathbb{Z}\setminus\{0\}))/\sim \qquad \text{כאשר} \qquad \sim\;=\{\langle\langle a,b\rangle,\langle x,y\rangle\rangle \mid ay = xb\}$$
 
-באשר
+- $\mathbb{Z}$ בת מנייה אינסופית, וגם $\mathbb{Z}\setminus\{0\}$ (תת-קבוצה אינסופית של $\mathbb{Z}$). לכן $\mathbb{Z} \sim \mathbb{N}$ ו-$\mathbb{Z}\setminus\{0\} \sim \mathbb{N}$.
 
-$$R = \{ \langle \langle a_1, b_1 \rangle, \langle a_2, b_2 \rangle \rangle \mid a_1 \cdot b_2 = a_2 \cdot b_1 \}$$
+- לפי התרגיל על מכפלות ($A \sim B$ ו-$C \sim D$ $\Rightarrow$ $A \times C \sim B \times D$):
+$$\mathbb{Z}\times(\mathbb{Z}\setminus\{0\}) \sim \mathbb{N} \times \mathbb{N} \sim \mathbb{N}$$
 
+- הוכחנו שמרחב המנה קטן-עוצמה מהקבוצה עצמה לכל יחס שקילות (בעזרת הפונקציה על $\langle a,b\rangle \mapsto [\langle a,b\rangle]$), ולכן
+$$\mathbb{Q} \curlyeqprec \mathbb{Z}\times(\mathbb{Z}\setminus\{0\}) \sim \mathbb{N}$$
 
-הוכחנו שמרחב המנה קטן עוצמה מהמרחב עצמו לכל יחס ולכן
-
-$$\mathbb{Q} \curlyeqprec \mathbb{N} \times \mathbb{N} \sim \mathbb{N}$$
-
-הוכחנו גם שכל קבוצה שהיא קטנת עוצמה מקבוצה בת-מנייה היא בת מנייה 
- לכן
-$\mathbb{Q}$ היא בת מנייה.
+- כל קבוצה קטנת-עוצמה מקבוצה בת-מנייה היא בת מנייה, ולכן $\mathbb{Q}$ בת מנייה.
+- $\mathbb{Q}$ אינסופית ($n \mapsto \frac{n}{1}$ חח"ע מ-$\mathbb{N}$ ל-$\mathbb{Q}$), ולכן $|\mathbb{Q}| = \aleph_0$.
 
 
 ---
@@ -741,10 +762,16 @@ section: אריתמטיקת עוצמות
 
 - אפשר לחשוב על $\text{FinSeq}(\mathbb{N})$ כעל קבוצת כל הרצפים הסופיים של מספרים טבעיים.
 
-- גם כל הפונקציות מ-
+- גם קבוצת כל הפונקציות מקטע התחלתי סופי $\mathbb{N}^{<n}$ ל-$\mathbb{N}$ היא בת מנייה:
   $$\bigcup \{  \mathbb{N}^{\mathbb{N}^{<n}} \mid n \in \mathbb{N} \}$$
 
 - איך נתאים בין שתי הקבוצות באופן חד-חד ערכי ועל?
+
+<v-click>
+
+- לסדרה $\langle a_1, \ldots, a_m \rangle$ נתאים את הפונקציה $f\colon \mathbb{N}^{<m} \to \mathbb{N}$ המוגדרת ע"י $f(i) = a_{i+1}$.
+
+</v-click>
 
 ---
 layout: TwoColsHeaderCustom
@@ -755,7 +782,7 @@ cols: 1fr 2fr
 
 <small>
 
-- **הגדרנו את $\text{Fin}(\mathbb{N})$ באופן אינדוקטיבי:**
+- **ראינו ש-$\text{Fin}(\mathbb{N})$ שווה לקבוצה המוגדרת אינדוקטיבית:**
    1. $\emptyset \in \text{Fin}(\mathbb{N})$.
    2. אם $A \in \text{Fin}(\mathbb{N})$ ו-$x \in \mathbb{N}$, אז $A \cup \{x\} \in \text{Fin}(\mathbb{N})$.
 
@@ -966,6 +993,23 @@ $$f(\sum_{i=1}^{\infty} d_i 10^{-i})(i) = d_i$$
 
 ---
 
+# מסקנות ממשפט קנטור: $A \prec \mathcal{P}(A)$
+
+- הפונקציה $a \mapsto \{a\}$ מ-$A$ ל-$\mathcal{P}(A)$ היא חח"ע (אם $\{a\} = \{b\}$ אז $a = b$), ולכן $A \curlyeqprec \mathcal{P}(A)$.
+
+- יחד עם משפט קנטור: $A \curlyeqprec \mathcal{P}(A)$ אבל $A \not\sim \mathcal{P}(A)$. נסמן זאת $A \prec \mathcal{P}(A)$.
+
+- בפרט $\mathcal{P}(A) \not\curlyeqprec A$: אחרת, לפי קנטור-ברנשטיין, היינו מקבלים $A \sim \mathcal{P}(A)$.
+
+- **מסקנה: $\mathcal{P}(\mathbb{N})$ אינה בת מנייה.**
+  - אילו $\mathcal{P}(\mathbb{N})$ הייתה בת מנייה, היה מתקיים $\mathcal{P}(\mathbb{N}) \curlyeqprec \mathbb{N}$, בסתירה לסעיף הקודם.
+  - (זה מתיישב עם $\mathcal{P}(\mathbb{N}) \sim \{0,1\}^\mathbb{N}$ ועם האלכסון של קנטור.)
+
+- אין "עוצמה גדולה ביותר":
+  $$\mathbb{N} \prec \mathcal{P}(\mathbb{N}) \prec \mathcal{P}(\mathcal{P}(\mathbb{N})) \prec \cdots$$
+
+---
+
 
 
 # הקטע הפתוח $(0,1)$ שקול לעוצמה של $\mathbb{R}$
@@ -1026,11 +1070,28 @@ $$f(\sum_{i=1}^{\infty} d_i 10^{-i})(i) = d_i$$
 
 - סיכום:  לפי קנטור-ברנשטיין: $\mathbb{R} \sim \{0,1\}^\mathbb{N}$ ולכן $\mathbb{R} \sim \mathcal{P}(\mathbb{N})$.
 
+---
+
+# $\mathbb{R} \times \mathbb{R} \sim \mathbb{R}$
+
+- נגדיר $F\colon \{0,1\}^\mathbb{N} \times \{0,1\}^\mathbb{N} \to \{0,1\}^\mathbb{N}$ ע"י "שזירה": $F(\langle a, b \rangle) = c$ כאשר
+  $$c(2n) = a(n), \qquad c(2n+1) = b(n)$$
+  כלומר $c = a_0\, b_0\, a_1\, b_1\, a_2\, b_2 \ldots$
+
+- **$F$ חח"ע:** אם $F(\langle a, b \rangle) = F(\langle a', b' \rangle) = c$, אז לכל $n$: $a(n) = c(2n) = a'(n)$ ו-$b(n) = c(2n+1) = b'(n)$. לכן $a = a'$ ו-$b = b'$.
+
+- **$F$ על:** לכל $c \in \{0,1\}^\mathbb{N}$ נגדיר $a(n) = c(2n)$ ו-$b(n) = c(2n+1)$. אז $F(\langle a, b \rangle) = c$.
+
+- לכן $\{0,1\}^\mathbb{N} \times \{0,1\}^\mathbb{N} \sim \{0,1\}^\mathbb{N}$.
+
+- מכיוון ש-$\mathbb{R} \sim \{0,1\}^\mathbb{N}$, לפי התרגיל על מכפלות:
+  $$\mathbb{R} \times \mathbb{R} \sim \{0,1\}^\mathbb{N} \times \{0,1\}^\mathbb{N} \sim \{0,1\}^\mathbb{N} \sim \mathbb{R}$$
 
 ---
 section: תרגילים
-# תרגיל לדוגמה: לכל קבוצה אינסופית קיימת תת קבוצה שעוצמתה $\aleph_0$
 ---
+
+# תרגיל לדוגמה: לכל קבוצה אינסופית קיימת תת קבוצה שעוצמתה $\aleph_0$
 
 - תהי $A$ קבוצה אינסופית.
 
@@ -1092,27 +1153,6 @@ section: תרגילים
 
 ---
 
-# תרגיל לדוגמה: $(\{0,1\}^\mathbb{N})^\mathbb{N} \sim \mathbb{R}$
-
-- נחשב את העוצמה של הקבוצה $(\{0,1\}^\mathbb{N})^\mathbb{N}$:
-  $$|(\{0,1\}^\mathbb{N})^\mathbb{N}| = (2^{\aleph_0})^{\aleph_0}$$
-
-- לפי חוקי חזקות של עוצמות ($(a^b)^c = a^{b \cdot c}$):
-  $$(2^{\aleph_0})^{\aleph_0} = 2^{\aleph_0 \cdot \aleph_0}$$
-
-- ידוע כי $\aleph_0 \cdot \aleph_0 = \aleph_0$.
-
-- לכן:
-  $$2^{\aleph_0 \cdot \aleph_0} = 2^{\aleph_0}$$
-
-- וידוע כי $2^{\aleph_0} = \mathfrak{c}$ (עוצמת הרצף).
-
-- לכן:
-  $$(\{0,1\}^\mathbb{N})^\mathbb{N} \sim \mathbb{R}$$
-
-
----
-
 # תרגיל לדוגמה: הוכחת הזהות $(A^B)^C \sim A^{B \times C}$
 
 - נגדיר התאמה $F \colon (A^B)^C \to A^{B \times C}$.
@@ -1132,7 +1172,22 @@ section: תרגילים
   - לכל $c \in C$ ולכל $b \in B$, מתקיים $(f_1(c))(b) = g(b,c) = (f_2(c))(b)$.
   - לכן הפונקציות $f_1(c)$ ו-$f_2(c)$ זהות לכל $c$, כלומר $f_1 = f_2$.
 
+---
 
+# תרגיל לדוגמה: $(\{0,1\}^\mathbb{N})^\mathbb{N} \sim \mathbb{R}$
 
+- נחשב את העוצמה של הקבוצה $(\{0,1\}^\mathbb{N})^\mathbb{N}$:
+  $$|(\{0,1\}^\mathbb{N})^\mathbb{N}| = (2^{\aleph_0})^{\aleph_0}$$
 
+- לפי חוקי חזקות של עוצמות ($(a^b)^c = a^{b \cdot c}$):
+  $$(2^{\aleph_0})^{\aleph_0} = 2^{\aleph_0 \cdot \aleph_0}$$
 
+- ידוע כי $\aleph_0 \cdot \aleph_0 = \aleph_0$.
+
+- לכן:
+  $$2^{\aleph_0 \cdot \aleph_0} = 2^{\aleph_0}$$
+
+- וידוע כי $2^{\aleph_0} = \mathfrak{c}$ (עוצמת הרצף).
+
+- לכן:
+  $$(\{0,1\}^\mathbb{N})^\mathbb{N} \sim \mathbb{R}$$

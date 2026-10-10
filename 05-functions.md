@@ -261,6 +261,14 @@ dir: rtl
 
 </v-click>
 
+::bottom::
+
+<div v-click class="text-sm">
+
+- **הערה:** כיוון ש־$\operatorname{dom}(f\cap g)=\{a\in\operatorname{dom}(f)\cap\operatorname{dom}(g)\mid f(a)=g(a)\}$, התנאי שקול ל־$\operatorname{dom}(f\cap g)=\operatorname{dom}(f)\cap\operatorname{dom}(g)$.
+
+</div>
+
 ---
 
 # פונקציה חח"ע
@@ -322,7 +330,7 @@ layout: TwoColsHeaderCustom
 - ($\Rightarrow$) נניח ש־$f$ חח"ע.
   - יהיו $\langle a,b_1\rangle, \langle a,b_2\rangle \in f^{-1}$.
   - אז $\langle b_1, a\rangle, \langle b_2, a\rangle \in f$.
-  - מחד־ערכיות של $f$ נקבל $b_1=b_2$.  
+  - כלומר $f(b_1)=f(b_2)=a$, ומכך ש־$f$ חח"ע נקבל $b_1=b_2$.
 
 ::right::
 
@@ -334,6 +342,7 @@ layout: TwoColsHeaderCustom
 ::after::
 
 - **מסקנה:** אם $f^{-1}$ פונקציה, אז היא גם חח"ע.
+  - כי $(f^{-1})^{-1}=f$ היא פונקציה, ולכן לפי הטענה (מופעלת על $f^{-1}$) נקבל ש־$f^{-1}$ חח"ע.
 
   
 - תזכורת: $\operatorname{dom}(f^{-1})=\operatorname{img}(f)$ ו-$\operatorname{img}(f^{-1})=\operatorname{dom}(f)$.
@@ -346,11 +355,11 @@ layout: TwoColsHeaderCustom
 
 
 - $f \colon A \to B$ נקראת "**עַל**" אם לכל $b \in B$ יש $a \in A$ עם $f(a)=b$
-זה, כמובן, שקול ללהגיד ש  $\operatorname{img}(f) = B$.
+זה, כמובן, שקול להגיד ש  $\operatorname{img}(f) = B$.
 
 - דוגמאות לפונקציות עַל:
   - $f=\{\langle 1,a\rangle,\langle 2,b\rangle,\langle 3,c\rangle\}\colon \{1,2,3\}\to\{a,b,c\}$ - על כי כל ערך ב־$B$ הוא תמונה של ערך ב־$A$.
-  - $f\colon \mathbb{Z}\to\mathbb{Z},\ f(x)=x+1$ - על כי לכל $y \in \mathbb{ז}$ קיים $x=y-1$ כך ש־$f(x)=y$.
+  - $f\colon \mathbb{Z}\to\mathbb{Z},\ f(x)=x+1$ - על כי לכל $y \in \mathbb{Z}$ קיים $x=y-1$ כך ש־$f(x)=y$.
 
 - דוגמאות שלא עַל:
   - $h=\{\langle 1,a\rangle,\langle 2,a\rangle,\langle 3,b\rangle\}\colon \{1,2,3\}\to\{a,b,c\}$ לא על כי $c$ אינו תמונה של אף ערך ב־$A$.
@@ -399,6 +408,66 @@ layout: TwoColsHeaderCustom
 </div>
 
 </v-click>
+
+---
+
+# הקבוצה $B^A$
+
+- **הגדרה:** $B^A=\{f \mid f\colon A\to B\}$ - קבוצת כל הפונקציות מ-$A$ ל-$B$.
+
+- **דוגמה:** $A=\{1,2,3\}$, $B=\{1,2\}$. נרשום כל $f \in B^A$ לפי הערכים $f(1),f(2),f(3)$:
+
+<table class="ba-table text-center">
+<tr><th><i>f</i>(1)</th><td>1</td><td>1</td><td>1</td><td>1</td><td>2</td><td>2</td><td>2</td><td>2</td></tr>
+<tr><th><i>f</i>(2)</th><td>1</td><td>1</td><td>2</td><td>2</td><td>1</td><td>1</td><td>2</td><td>2</td></tr>
+<tr><th><i>f</i>(3)</th><td>1</td><td>2</td><td>1</td><td>2</td><td>1</td><td>2</td><td>1</td><td>2</td></tr>
+<tr v-click><th dir="rtl">חח"ע?</th><td>✗</td><td>✗</td><td>✗</td><td>✗</td><td>✗</td><td>✗</td><td>✗</td><td>✗</td></tr>
+<tr v-click><th dir="rtl">על?</th><td>✗</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✗</td></tr>
+</table>
+
+- יש $8$ פונקציות. אילו מהן חח"ע? אילו על?
+
+<v-click>
+
+- **אף אחת** אינה חח"ע: שלושה איברים ושני ערכים - שניים מהם חייבים לקבל אותו ערך (עקרון שובך היונים).
+- $6$ הפונקציות שאינן קבועות הן **על**; $2$ הפונקציות הקבועות אינן על.
+</v-click>
+
+<style>
+.ba-table { width: auto; margin: 0.5rem auto; }
+.ba-table td, .ba-table th { padding: 0.15rem 0.7rem; }
+</style>
+
+---
+
+# הקבוצה $B^A$ - דוגמה נוספת
+
+- **דוגמה:** $A=\{1,2\}$, $B=\{1,2,3\}$. נרשום כל $f \in B^A$ לפי הערכים $f(1),f(2)$:
+
+<table class="ba-table text-center">
+<tr><th><i>f</i>(1)</th><td>1</td><td>1</td><td>1</td><td>2</td><td>2</td><td>2</td><td>3</td><td>3</td><td>3</td></tr>
+<tr><th><i>f</i>(2)</th><td>1</td><td>2</td><td>3</td><td>1</td><td>2</td><td>3</td><td>1</td><td>2</td><td>3</td></tr>
+<tr v-click><th dir="rtl">חח"ע?</th><td>✗</td><td>✓</td><td>✓</td><td>✓</td><td>✗</td><td>✓</td><td>✓</td><td>✓</td><td>✗</td></tr>
+<tr v-click><th dir="rtl">על?</th><td>✗</td><td>✗</td><td>✗</td><td>✗</td><td>✗</td><td>✗</td><td>✗</td><td>✗</td><td>✗</td></tr>
+</table>
+
+- יש $9$ פונקציות. אילו מהן חח"ע? אילו על?
+
+<v-click>
+
+- **אף אחת** אינה על: התמונה מכילה לכל היותר $2$ איברים, ו-$|B|=3$.
+- $6$ הפונקציות שבהן $f(1)\neq f(2)$ הן **חח"ע**; $3$ הפונקציות הקבועות אינן חח"ע.
+</v-click>
+
+<v-click>
+
+- **הערה:** אם $A,B$ סופיות אז $|B^A|=|B|^{|A|}$ - לכל אחד מ-$|A|$ האיברים בוחרים באופן בלתי תלוי ערך מתוך $|B|$ אפשרויות. <br> למשל $2^3=8$ ו-$3^2=9$. זה מסביר את הסימון $B^A$.
+</v-click>
+
+<style>
+.ba-table { width: auto; margin: 0.5rem auto; }
+.ba-table td, .ba-table th { padding: 0.15rem 0.7rem; }
+</style>
 
 ---
 
@@ -656,8 +725,13 @@ layout: two-cols-header
   <img src="/images/function_composition_hebrew.png" class="rounded shadow-lg border border-gray-200" />
 </div>
 
-<br>
-<br>
+<div v-click class="text-sm">
+
+- **למה?** באופן כללי, $\operatorname{dom}(g\circ f)=\{a\in\operatorname{dom}(f)\mid f(a)\in\operatorname{dom}(g)\}=f^{-1}[\operatorname{dom}(g)]$. <br>
+  לכן אם $\operatorname{img}(f)\subseteq\operatorname{dom}(g)$ אז $\operatorname{dom}(g\circ f)=\operatorname{dom}(f)$ ו-$g\circ f\colon A\to C$ <br>
+  (כלומר, $\operatorname{dom}(g)$ הוא טווח חוקי של $f$).
+
+</div>
 
 ::left::
 
@@ -828,31 +902,39 @@ layout: two-cols-header
 
 
 ---
+layout: TwoColsHeaderCustom
+---
 
-# דוגמה נגדית: כש-$f$ לא חח"ע
+# אם $f$ חח"ע אז $f^{-1}[f[X]]=X$
 
-נראה דוגמה שבה $f^{-1}[f[X]] \neq X$.
+**טענה:** אם $f$ חח"ע ו-$X \subseteq \operatorname{dom}(f)$, אז $f^{-1}[f[X]]=X$.
 
-- נגדיר $f: \mathbb{R} \to \mathbb{R}$ ע"י $f(x) = x^2$.
-- נבחר $X = \{2\}$.
+::left::
 
 <v-click>
 
-1. נחשב את התמונה של $X$:
-   $$f[X] = \{f(2)\} = \{4\}$$
-
-2. נחשב את הקדם־תמונה של התוצאה:
-   $$f^{-1}[\{4\}] = \{x \in \mathbb{R} \mid x^2 = 4\} = \{-2, 2\}$$
-
-3. קיבלנו:
-   $$f^{-1}[f[X]] = \{-2, 2\} \neq \{2\} = X$$
-
+- ($\supseteq$) (תמיד נכון, גם בלי חח"ע)
+  - יהי $x \in X$.
+  - אז $f(x) \in f[X]$.
+  - לכן, לפי הגדרת קדם־תמונה, $x \in f^{-1}[f[X]]$.
 </v-click>
 
+::right::
+
 <v-click>
 
-**מסקנה:** אם $f$ לא חח"ע, הפעולה $f^{-1} \circ f$ עשויה "להרחיב" את הקבוצה המקורית.
+- ($\subseteq$)
+  - יהי $a \in f^{-1}[f[X]]$.
+  - אז $f(a) \in f[X]$.
+  - לכן קיים $x \in X$ כך ש-$f(a)=f(x)$.
+  - כיוון ש-$f$ חח"ע, נובע $a=x$, ולכן $a \in X$.
+</v-click>
 
+::after::
+
+<v-click>
+
+- **הערה:** הדוגמה $f(x)=x^2$ עם $X=\{2\}$ מראה שבלי חח"ע ההכלה ($\subseteq$) עלולה להיכשל: $f^{-1}[f[X]]=\{-2,2\}$.
 </v-click>
 
 ---
@@ -860,7 +942,7 @@ layout: two-cols-header
 # יחסים מעל מרחב מנה
 
 תהי $A$ קבוצה ו-$E$ יחס שקילות על $A$.
-נגדיר יחס $R$ על $A/E$ (קבוצת המנה) בעזרת נציגים: $[a] R [b] \iff a S b$.
+יהי $S$ יחס על $A$. נגדיר יחס $R$ על $A/E$ (קבוצת המנה) בעזרת נציגים: $[a] R [b] \iff a S b$.
 
 **הגדרה:** היחס $R$ **מוגדר היטב** אם ערך האמת שלו אינו תלוי בנציגים שנבחרו.
 כלומר:
@@ -916,6 +998,81 @@ $$a_1 E a_2 \implies f(a_1) = f(a_2)$$
   <img src="/images/well_defined_binary_ops_hebrew.png" class="h-60 rounded shadow-lg border border-gray-200" />
 </div>
 
+
+---
+
+# קדם־סדר
+
+- **הגדרה:** יחס $\preceq$ על $A$ נקרא **קדם־סדר** אם הוא:
+  1. **רפלקסיבי**: $\forall a\in A\; (a \preceq a)$.
+  2. **טרנזיטיבי**: $\forall a,b,c\in A\; \bigl((a \preceq b \land b \preceq c) \to a \preceq c\bigr)$.
+
+- כלומר, כמו יחס סדר חלקי - אבל **בלי** דרישת האנטי-סימטריות.
+
+**דוגמאות:**
+<v-click>
+
+- היחס "מחלק" על $\mathbb{Z}$: רפלקסיבי ($a = a \cdot 1$) וטרנזיטיבי (אם $b = ak$ ו-$c = bm$ אז $c = a(km)$).
+  - אבל **לא** אנטי-סימטרי: $2 \mid -2$ וגם $-2 \mid 2$, אך $2 \neq -2$.
+</v-click>
+
+<v-click>
+
+- היחס $x \preceq y \iff |x| \le |y|$ על $\mathbb{Z}$ הוא קדם־סדר, ושוב לא אנטי-סימטרי: $1 \preceq -1$ וגם $-1 \preceq 1$.
+</v-click>
+
+<v-click>
+
+- (באופן לא פורמלי) על קבוצות: $X \preceq Y$ אם קיימת $f\colon X \to Y$ חח"ע - נחזור לזה כשנדבר על עוצמות.
+</v-click>
+
+---
+
+# מקדם־סדר ליחס שקילות
+
+תהי $\preceq$ קדם־סדר על $A$. נגדיר: $\;a \sim b \iff a \preceq b \land b \preceq a$.
+
+**טענה:** $\sim$ הוא יחס שקילות על $A$.
+
+**הוכחה:**
+<v-clicks>
+
+- **רפלקסיביות:** $a \preceq a$, ולכן $a \sim a$.
+- **סימטריות:** ההגדרה של $a \sim b$ סימטרית ב-$a$ וב-$b$.
+- **טרנזיטיביות:** אם $a \sim b$ ו-$b \sim c$, אז $a \preceq b \preceq c$ וגם $c \preceq b \preceq a$. <br> מטרנזיטיביות של $\preceq$ נקבל $a \preceq c$ וגם $c \preceq a$, כלומר $a \sim c$.
+
+</v-clicks>
+
+<v-click>
+
+**דוגמה:** עבור "מחלק" על $\mathbb{Z}$: $\;a \sim b \iff (a \mid b \land b \mid a) \iff b = \pm a$.
+- לכן מחלקות השקילות הן $[n] = \{n,-n\}$, כלומר: $\{0\},\ \{1,-1\},\ \{2,-2\},\ \dots$
+</v-click>
+
+---
+
+# הסדר החלקי המושרה על $A/{\sim}$
+
+נגדיר על $A/{\sim}$: $\;[a] \sqsubseteq [b] \iff a \preceq b$.
+
+<v-click>
+
+**מוגדר היטב:** צריך להראות ש-$a \sim a' \land b \sim b' \implies (a \preceq b \iff a' \preceq b')$.
+- אם $a \preceq b$, אז $a' \preceq a \preceq b \preceq b'$, ומטרנזיטיביות $a' \preceq b'$. הכיוון השני סימטרי.
+</v-click>
+
+<v-click>
+
+**$\sqsubseteq$ הוא יחס סדר חלקי:**
+- **רפלקסיביות וטרנזיטיביות:** עוברות ישירות מ-$\preceq$ דרך הנציגים.
+- **אנטי-סימטריות:** אם $[a] \sqsubseteq [b]$ וגם $[b] \sqsubseteq [a]$, אז $a \preceq b$ וגם $b \preceq a$. <br> כלומר $a \sim b$, ולכן $[a] = [b]$.
+</v-click>
+
+<v-click>
+
+**דוגמה:** עבור "מחלק" על $\mathbb{Z}$: $\;\{a,-a\} \sqsubseteq \{b,-b\} \iff a \mid b$.
+- אם נזהה כל מחלקה $\{n,-n\}$ עם הנציג $|n| \in \mathbb{N}$, נקבל בדיוק את היחס "מחלק" על $\mathbb{N}$ - שהוא סדר חלקי.
+</v-click>
 
 ---
 
@@ -1001,6 +1158,42 @@ $$
 <div class="absolute top-20 left-10">
   <img src="/images/rational_numbers_lattice_hebrew.png" class="h-100 rounded shadow-lg border border-gray-200" />
 </div>
+
+---
+
+# החיבור והכפל ב-$\mathbb{Q}$ מוגדרים היטב
+
+**טענה:** אם $(a,b) \sim (a',b')$ ו-$(c,d) \sim (c',d')$, אז:
+$(ac,bd) \sim (a'c',b'd')$ וגם $(ad+bc,bd) \sim (a'd'+b'c',b'd')$.
+
+**הוכחה:**
+<v-click>
+
+- הנתון: $ab' = ba'$ ו-$cd' = dc'$.
+- כיוון ש-$b,d \neq 0$ גם $bd \neq 0$ (וכך גם $b'd' \neq 0$), ולכן הזוגות שקיבלנו שייכים ל-$S$.
+</v-click>
+
+<v-click>
+
+- **כפל:** $\;ac \cdot b'd' = (ab')(cd') = (ba')(dc') = bd \cdot a'c'$.
+</v-click>
+
+<v-click>
+
+- **חיבור:**
+$$
+\begin{aligned}
+(ad+bc) \cdot b'd' &= (ab')dd' + (cd')bb' \\
+&= (ba')dd' + (dc')bb' \\
+&= bd \cdot (a'd' + b'c')
+\end{aligned}
+$$
+</v-click>
+
+<v-click>
+
+- בשני המקרים קיבלנו בדיוק את תנאי השקילות, ולכן התוצאה אינה תלויה בבחירת הנציגים.
+</v-click>
 
 ---
 

@@ -439,7 +439,11 @@ const nodes2 = posets.map(p => ({
 
 </script>
 
-<br>
+<div class="text-sm" style="position: absolute; bottom: 40px; right: 40px; width: 230px;">
+
+האיברים המירביים בדיאגרמה (השורה העליונה) הם בדיוק 6 הסדרים הקוויים על $\{1,2,3\}$.
+
+</div>
 
 
 
@@ -566,7 +570,7 @@ section: מושגים
 
 # דוגמה
 
-- תהי $\mathcal{F} \subseteq \mathcal{P}(A)$ המקיימת:
+- תהי $\mathcal{F} \subseteq \mathcal{P}(X)$ **סופית** ולא ריקה, המקיימת:
 
   - אם $A,B \in \mathcal{F}$ אז $A \cap B \in \mathcal{F}$
 
@@ -575,11 +579,15 @@ section: מושגים
 
 - **החיתוך האונארי** $\bigcap \mathcal{F}$ הוא ה**מינימום** של $(\mathcal{F}, \subseteq)$.
 
-  - הוא מוכל בכל איבר $A \in \mathcal{F}$.
+  - הוא שייך ל-$\mathcal{F}$ (חיתוך של מספר סופי של איברים), ומוכל בכל איבר $A \in \mathcal{F}$.
 
 - **האיחוד האונארי** $\bigcup \mathcal{F}$ הוא ה**מקסימום** של $(\mathcal{F}, \subseteq)$.
 
-  - הוא מכיל כל איבר $A \in \mathcal{F}$.
+  - הוא שייך ל-$\mathcal{F}$ (מאותה סיבה), ומכיל כל איבר $A \in \mathcal{F}$.
+
+- הסופיות נחוצה:
+  - $\mathcal{F}=\{\{n,n+1,n+2,\dots\} \mid n\in\mathbb{N}\}$ סגורה לחיתוך ולאיחוד,
+  - אך $\bigcap\mathcal{F}=\emptyset\notin\mathcal{F}$.
 
 <div style="position: absolute; top: 130px; left:120px;">
   <HasseDiagram
@@ -627,9 +635,9 @@ $$R = \{\langle a,b \rangle \in (\mathbb{N} \setminus\{0\}) \times (\mathbb{N} \
 
   <v-click>
 
-    - **תשובה:** המספר $1$ הוא האיבר המינימליедин.
+    - **תשובה:** המספר $1$ הוא האיבר המינימלי היחיד.
       
-      - הוא גםפ **מינימום** (כי הוא מחלק כל מספר טבעי).
+      - הוא גם **מינימום** (כי הוא מחלק כל מספר טבעי).
 
   </v-click>
 
@@ -651,7 +659,7 @@ $$R = \{\langle a,b \rangle \in (\mathbb{N} \setminus\{0\}) \times (\mathbb{N} \
 # עוקב מיידי, איברים ניתנים להשוואה, סדר קווי, שרשראות ואנטי-שרשראות
 
 
-- איבר $b$ הוא **עוקב מיידי** של $a$ אם $a \le_R b$ ואין $c$ שונה משניהם כך ש-$a \le_R c \le_R b$.
+- איבר $b$ הוא **עוקב מיידי** של $a$ אם $a \le_R b$, $a \neq b$, ואין $c$ שונה משניהם כך ש-$a \le_R c \le_R b$.
   
 - שני איברים $a, b \in A$ **ניתנים להשוואה** אם $a \le_R b$ או $b \le_R a$.
 
@@ -720,29 +728,26 @@ $$R = \{\langle a,b \rangle \in (\mathbb{N} \setminus\{0\}) \times (\mathbb{N} \
 
 ---
 
-# אם יש מקסימום אז הוא יחיד והוא מקסימלי, <br>  ואם יש מינימום אז הוא יחיד והוא מינימלי
+# אם יש מינימום אז הוא המזערי היחיד, <br>  ואם יש מקסימום אז הוא המירבי היחיד
 
 <v-clicks depth="2">
 
 - נניח שיש בקס"ח $P = (V, \leq_P)$
-  איבר מקסימום  $m$. נוכיח כי הוא יחיד.
-  - נניח בשלילה שקיים $m' \in V$
-    נוסף כך ש-$m' \neq m$
-    ו-$m'$ מקסימום.
-  - לפי ההגדרה של מקסימום, לכל $v \in V$ מתקיים $v \leq_P m$ וגם $v \leq_P m'$.
-  - לכן, לפי אנטי-סימטריות, נקבל ש-$m = m'$.
-  -  קיבלנו סתירה. לפיכך, אם יש מקסימום, הוא יחיד.
- 
-- כעת נוכיח כי $m$ הוא גם איבר מקסימלי.
-  - נניח בשלילה כי קיים $v \in V$ כך ש-$m \neq v$ ו-$m \leq_P v$.
-  -  לפי ההגדרה של מקסימום, לכל $u \in V$ מתקיים $u \leq_P m$, ולכן גם $v \leq_P m$.
-  -   לפי אנטי-סימטריות מקבלים $m=v$.
-  - קיבלנו סתירה. לפיכך, אין איבר $v$
-     שונה מ-$m$ המקיים
-     $m \leq_P v$, 
-     כלומר $m$ הוא איבר מקסימלי.
+  איבר מינימום  $m$. 
 
-- **תרגיל**: הוכיחו את הטענה לגבי מינימום באותו אופן.
+- **$m$ הוא איבר מזערי:**
+  - נניח בשלילה כי קיים $v \in V$ כך ש-$v \neq m$ ו-$v \leq_P m$.
+  - לפי ההגדרה של מינימום, $m \leq_P v$.
+  - לפי אנטי-סימטריות מקבלים $m=v$ – סתירה. לכן $m$ מזערי.
+ 
+- **אין איבר מזערי אחר:**
+  - יהי $m' \in V$ איבר מזערי כלשהו.
+  - לפי ההגדרה של מינימום, $m \leq_P m'$.
+  - מכיוון ש-$m'$ מזערי, אין איבר **שונה** ממנו שקטן ממנו. לכן $m = m'$.
+
+- **מסקנה:** $m$ הוא המזערי היחיד. בפרט, המינימום יחיד (כל מינימום הוא מזערי, ולכן שווה ל-$m$).
+
+- **תרגיל**: הוכיחו באותו אופן שאם יש מקסימום אז הוא המירבי היחיד.
 
 </v-clicks>
 
@@ -813,9 +818,9 @@ $$R = \{\langle a,b \rangle \in (\mathbb{N} \setminus\{0\}) \times (\mathbb{N} \
   - לכן, לכל $x \neq m$, $m \leq x$.
   - כלומר, $m$ הוא מינימום.
 
-- **תרגיל**:  הוכיחו, באותו האופן כי אם יש איבר מירבי אז הוא מקסימלי.
+- **תרגיל**:  הוכיחו, באותו האופן כי אם יש איבר מירבי אז הוא מקסימום.
 
-- **מסקנה**: ביחס סדר קווי יכול להיות לכל היותר מינמלי אחד ומקסימלי אחד.    
+- **מסקנה**: ביחס סדר קווי יכול להיות לכל היותר איבר מזערי אחד ואיבר מירבי אחד.    
   - ייתכן שלא יהיה מינימום או מקסימום כלל.
     - דוגמא: ב-$(\mathbb{R}, \leq)$ אין מינימום ואין מקסימום.
     - ב-$(\mathbb{N}, \leq)$ יש מינימום (המספר 0) ואין מקסימום.
@@ -826,9 +831,9 @@ $$R = \{\langle a,b \rangle \in (\mathbb{N} \setminus\{0\}) \times (\mathbb{N} \
 
 # עוקב מיידי לפי סדר קווי הוא יחיד כשהוא קיים
 
-- ביחס סדר קווי, לכל איבר (מלבד המקסימום) יש עוקב מיידי יחיד.
+- ביחס סדר קווי, אם לאיבר יש עוקב מיידי, אז הוא יחיד (ייתכן שאין עוקב מיידי כלל, למשל ב-$(\mathbb{Q},\le)$).
 
-- **תזכורת**: איבר $b$ הוא **עוקב מיידי** של $a$ אם $a \le_R b$ ואין $c$ שונה משניהם כך ש-$a \le_R c \le_R b$.
+- **תזכורת**: איבר $b$ הוא **עוקב מיידי** של $a$ אם $a \le_R b$, $a \neq b$, ואין $c$ שונה משניהם כך ש-$a \le_R c \le_R b$.
 
 - הוכחה:
   <v-clicks depth="2">
@@ -837,12 +842,10 @@ $$R = \{\langle a,b \rangle \in (\mathbb{N} \setminus\{0\}) \times (\mathbb{N} \
   - נניח בשלילה שקיים $x' \neq x$ שגם הוא עוקב מיידי של $y$.
   - מכיוון שמדובר בסדר קווי כל שני איברים ניתנים להשוואה
   - לכן, או ש-$x \leq x'$ או ש-$x' \leq x$.
-    - אם $x \leq x'$ אז $y \leq x \leq x'$,
+    - אם $x \leq x'$ אז $y \leq x \leq x'$ ו-$x$ שונה מ-$y$ ומ-$x'$,
       סתירה לכך ש-$x'$ הוא עוקב מיידי של $y$.
-
-    - אם $x' \leq x$ אז $y \leq x' \leq x$,
+    - אם $x' \leq x$ אז $y \leq x' \leq x$ ו-$x'$ שונה מ-$y$ ומ-$x$,
       סתירה לכך ש-$x$ הוא עוקב מיידי של $y$.
-
     - קיבלנו סתירה בשני המקרים.
   - לפיכך, אם יש עוקב מיידי, הוא יחיד
 
@@ -857,7 +860,52 @@ $$R = \{\langle a,b \rangle \in (\mathbb{N} \setminus\{0\}) \times (\mathbb{N} \
 
 ---
 
-# יחס סדר מקסימלי (תחת הכלה) הוא סדר קווי 
+# סדר חלקי שאינו קווי אינו מקסימלי (תחת הכלה)
+
+<v-clicks depth="2">
+
+- **דוגמה:** $R = \{\langle 1,1\rangle,\langle 2,2\rangle,\langle 3,3\rangle\}$ (יחס השוויון על $\{1,2,3\}$).
+  - $1$ ו-$2$ אינם ניתנים להשוואה ב-$R$, ולכן $R$ אינו קווי.
+  - $R' = R \cup \{\langle 1,2\rangle\}$ הוא יחס סדר חלקי, ו-$R \subsetneq R'$. לכן $R$ אינו מקסימלי.
+
+</v-clicks>
+
+<div v-click="1" style="display: flex; justify-content: space-around; align-items: center; margin: 4px 0;">
+  <div>
+    <HasseDiagram
+      :nodes="[{id:'1',label:'1'},{id:'2',label:'2'},{id:'3',label:'3'}]"
+      :relations="[]"
+      :nodeRadius="15"
+      :levelGap="60"
+      :nodeGap="80"
+    />
+    <div style="text-align: center;">R</div>
+  </div>
+  <div v-click="3">
+    <HasseDiagram
+      :nodes="[{id:'1',label:'1'},{id:'2',label:'2'},{id:'3',label:'3'}]"
+      :relations="[['1','2']]"
+      :nodeRadius="15"
+      :levelGap="60"
+      :nodeGap="80"
+    />
+    <div style="text-align: center;">R' = R ∪ {⟨1,2⟩}</div>
+  </div>
+</div>
+
+<v-clicks>
+
+- **באופן כללי:** אם $a,b \in A$ אינם ניתנים להשוואה ב-$R$, אז
+  $$R' \;=\; R \;\cup\; \{\langle x,y\rangle\in A\times A \mid x\le_R a \text{ ו- } b\le_R y\}$$
+  הוא יחס סדר חלקי המכיל ממש את $R$ (כי $\langle a,b\rangle\in R'\setminus R$).
+- בדוגמה ($a=1$, $b=2$) מתקבל בדיוק $R' = R \cup \{\langle 1,2\rangle\}$.
+- ההוכחה ש-$R'$ הוא סדר חלקי – לקריאה עצמית (בשקף הבא).
+
+</v-clicks>
+
+---
+
+# יחס סדר מקסימלי (תחת הכלה) הוא סדר קווי (לקריאה עצמית)
 
 - נניח בשלילה ש-$R$  מקסימלי ואינו קווי: קיימים $a,b \in A$ כך שאין $a≤_R b$ וגם אין $b \leq_R a$.
 
@@ -948,7 +996,7 @@ $$R = \{\langle a,b \rangle \in (\mathbb{N} \setminus\{0\}) \times (\mathbb{N} \
 
 <div style="margin-top: 16px;">
 
-<b>מסקנה:</b> בכל המקרים, אם $\langle x,y\rangle \in R'$ וגם $\langle y,x\rangle \in R'`, אז $x = y$, ולכן $R'$ אנטי-סימטרי.
+<b>מסקנה:</b> בכל המקרים, אם $\langle x,y\rangle \in R'$ וגם $\langle y,x\rangle \in R'$, אז $x = y$, ולכן $R'$ אנטי-סימטרי.
 </div>
 
 </template>
@@ -989,15 +1037,133 @@ $$R = \{\langle a,b \rangle \in (\mathbb{N} \setminus\{0\}) \times (\mathbb{N} \
 
 <div style="margin-top: 16px;">
 
-<b>מסקנה משולבת של שני השקפים האחרונים:</b> יחס סדר הוא קווי אם ורק אם הוא הוא מקסימלי לפי יחס ההכלה.
+<b>מסקנה משולבת של שני השקפים האחרונים:</b> יחס סדר הוא קווי אם ורק אם הוא מקסימלי לפי יחס ההכלה.
 </div>
 
 
 ---
-section: תרגילים
+layout: TwoColsHeaderCustom
+cols: 55% 45%
+gap: 24px
 ---
 
-# סדר לקסיקוגרפי
+# שרשרת ואנטי-שרשרת מקסימליות
+
+- שרשרת $C$ היא **מקסימלית** אם אין שרשרת $C'$ כך ש-$C \subsetneq C'$.
+- באופן דומה, אנטי-שרשרת $D$ היא **מקסימלית** אם אין אנטי-שרשרת $D'$ כך ש-$D \subsetneq D'$.
+
+<script setup lang="ts">
+
+// Boolean lattice 2^{ {1,2,3} } ordered by ⊂ (same as in the Hasse-diagram slide)
+const elems = ['∅','{1}','{2}','{3}','{1,2}','{1,3}','{2,3}','{1,2,3}']
+const nodes = elems.map(id => ({ id, label: id }))
+const subset = (A:string,B:string) => {
+  const toSet = (s:string)=> new Set(s.replace(/[{}\\s]/g,'').split(',').filter(Boolean))
+  const X = toSet(A), Y = toSet(B)
+  if (A==='∅') return Y.size>0
+  if (B==='∅') return false
+  return [...X].every(x=>Y.has(x)) && X.size < Y.size
+}
+const relations: [string,string][] = []
+for (const a of elems) for (const b of elems) if (subset(a,b)) relations.push([a,b])
+
+// Which nodes to highlight after each click: `on` = the chain/antichain, `add` = an element that can be added
+const highlights: Record<number, { on: string[], add?: string[] }> = {
+  1: { on: ['∅','{1}','{1,2}','{1,2,3}'] },
+  2: { on: ['∅','{1,2,3}'], add: ['{1}'] },
+  3: { on: ['{1}','{2,3}'] },
+  4: { on: ['{1}','{2}','{3}'] },
+  5: { on: ['{1}','{2}'], add: ['{3}'] },
+  6: { on: ['{1}','{2,3}'] },
+}
+const fillOf = (id: string, k: number) => {
+  const h = highlights[k]
+  if (h?.on.includes(id)) return '#f9d56e'
+  if (h?.add?.includes(id)) return '#f4a6a6'
+  return '#bce8beff'
+}
+</script>
+
+::left::
+
+**דוגמאות ב-$(\mathcal{P}(\{1,2,3\}),\subseteq)$:**
+
+<v-clicks>
+
+- $\{\emptyset,\{1\},\{1,2\},\{1,2,3\}\}$: שרשרת מקסימלית.
+- $\{\emptyset,\{1,2,3\}\}$: שרשרת **לא** מקסימלית (אפשר להוסיף את $\{1\}$).
+- $\{\{1\},\{2,3\}\}$: אנטי-שרשרת מקסימלית בגודל 2.
+- $\{\{1\},\{2\},\{3\}\}$: אנטי-שרשרת מקסימלית בגודל 3.
+- $\{\{1\},\{2\}\}$: אנטי-שרשרת **לא** מקסימלית (אפשר להוסיף את $\{3\}$).
+- **מקסימלית $\neq$ הגדולה ביותר:** $\{\{1\},\{2,3\}\}$ מקסימלית, אך יש אנטי-שרשראות גדולות ממנה.
+
+</v-clicks>
+
+::right::
+
+<div class="flex items-center justify-center" style="margin-top: -20px;">
+<HasseDiagram
+  :nodes="nodes"
+  :relations="relations"
+  :nodeRadius="22"
+  :levelGap="75"
+  :nodeGap="95"
+  edgeColor="#08381dff"
+  nodeStroke="#0c7e28ff"
+  nodeFill="#bce8beff"
+>
+  <template #node="{ node }">
+    <ellipse :rx="33" :ry="22" :fill="fillOf(node.id, $clicks)" stroke="#0c7e28ff" :stroke-width="2" />
+    <text text-anchor="middle" dominant-baseline="central" style="font-size: 15px;">{{ node.label }}</text>
+  </template>
+</HasseDiagram>
+</div>
+
+---
+
+# שרשרת ואנטי-שרשרת מקסימליות ב-$(\mathbb{N}\setminus\{0\}, \mid)$
+
+<v-clicks depth="2">
+
+- $C = \{2^n \mid n\in\mathbb{N}\} = \{1,2,4,8,\dots\}$ היא **שרשרת מקסימלית**:
+  - $C$ שרשרת: אם $n \le m$ אז $2^n \mid 2^m$.
+  - נניח ש-$c$ ניתן להשוואה עם כל איברי $C$. ניקח $n$ כך ש-$2^n > c$. אז $2^n \nmid c$, ולכן $c \mid 2^n$.
+  - לכן $c$ הוא חזקה של $2$, כלומר $c \in C$. אי אפשר להוסיף ל-$C$ אף איבר.
+
+<br>
+
+- קבוצת הראשוניים $\{2,3,5,7,\dots\}$ היא **אנטי-שרשרת מקסימלית**:
+  - זו אנטי-שרשרת: אם $p \mid q$ עבור ראשוניים $p,q$ אז $p = q$.
+  - $1$ מחלק כל ראשוני, ולכל $n > 1$ יש מחלק ראשוני $p \mid n$.
+  - לכן כל איבר שאינו ראשוני ניתן להשוואה עם ראשוני כלשהו, ואי אפשר להוסיף אותו.
+
+</v-clicks>
+
+---
+
+# סדר לקסיקוגרפי – הגדרה כללית
+
+- יהיו $(A,\le_A)$ ו-$(B,\le_B)$ קס"ח. נסמן $a <_A a'$ אם $a \le_A a'$ ו-$a \neq a'$.
+
+- **הגדרה:** הסדר הלקסיקוגרפי על $A \times B$:
+  $$\langle a_1,b_1\rangle \le_{lex} \langle a_2,b_2\rangle \iff a_1 <_A a_2 \;\lor\; \bigl(a_1 = a_2 \land b_1 \le_B b_2\bigr)$$
+
+- כמו במילון: משווים לפי הרכיב הראשון, ורק אם הוא שווה – לפי הרכיב השני.
+
+- נסמן $p <_{lex} q$ אם $p \le_{lex} q$ ו-$p \neq q$.
+
+<v-clicks depth="2">
+
+- **טענה:** $\le_{lex}$ הוא יחס סדר חלקי על $A \times B$.
+  - ההוכחה שזהו סדר חלקי – עבודה עצמית (בשקף הבא נראה אותה עבור $\mathbb{N}\times\mathbb{N}$).
+
+- **טענה:** אם $\le_A$ ו-$\le_B$ הם סדרים קוויים, אז $\le_{lex}$ הוא סדר קווי על $A \times B$.
+
+</v-clicks>
+
+---
+
+# סדר לקסיקוגרפי על $\mathbb{N} \times \mathbb{N}$
 
 **הגדרה:** על הקבוצה $\mathbb{N} \times \mathbb{N}$ נגדיר יחס $\le_{lex}$ כך:
 $(a,b) \le_{lex} (c,d)$ אם ($a < c$) או ($a = c$ וגם $b \le d$).
@@ -1030,6 +1196,79 @@ $(a,b) \le_{lex} (c,d)$ אם ($a < c$) או ($a = c$ וגם $b \le d$).
 
 ---
 layout: TwoColsHeaderCustom
+cols: 52% 48%
+gap: 24px
+---
+
+# $(\mathbb{N} \times \mathbb{N}, \le_{lex})$
+
+::left::
+
+<v-clicks depth="2">
+
+- זהו **סדר קווי** (סדר לקסיקוגרפי של שני סדרים קוויים).
+- העוקב המיידי של $\langle a,b\rangle$ הוא $\langle a,b+1\rangle$:
+  - אם $\langle a,b\rangle <_{lex} \langle c,d\rangle \le_{lex} \langle a,b+1\rangle$, אז $c=a$ ו-$b < d \le b+1$, כלומר $d=b+1$.
+  - בפרט, **לכל** איבר יש עוקב מיידי.
+- $\langle 1,0\rangle$ **אינו מזערי**: $\langle 0,0\rangle <_{lex} \langle 1,0\rangle$.
+- אבל $\langle 1,0\rangle$ **אינו עוקב מיידי של אף איבר**:
+  - האיברים הקטנים ממנו הם בדיוק $\langle 0,n\rangle$, $n\in\mathbb{N}$.
+  - לכל $n$: $\langle 0,n\rangle <_{lex} \langle 0,n+1\rangle <_{lex} \langle 1,0\rangle$.
+
+</v-clicks>
+
+::right::
+
+<div class="flex items-center justify-center" style="margin-top: 10px;">
+<svg viewBox="0 0 420 290" width="420" height="290" xmlns="http://www.w3.org/2000/svg" style="direction: ltr;">
+  <defs><marker id="lexarrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#08381d"/></marker></defs>
+  <line x1="79.0" y1="35" x2="95.0" y2="35" stroke="#08381d" stroke-width="2" marker-end="url(#lexarrow)"/>
+  <line x1="164.0" y1="35" x2="180.0" y2="35" stroke="#08381d" stroke-width="2" marker-end="url(#lexarrow)"/>
+  <line x1="249.0" y1="35" x2="265.0" y2="35" stroke="#08381d" stroke-width="2" marker-end="url(#lexarrow)"/>
+  <line x1="334.0" y1="35" x2="354.0" y2="35" stroke="#08381d" stroke-width="2" marker-end="url(#lexarrow)"/>
+  <text x="372.0" y="35" text-anchor="middle" dominant-baseline="central" style="font-size: 18px;">⋯</text>
+  <path d="M 372.0 47 C 372.0 87, 45 62.0, 45 102.0" fill="none" stroke="#08381d" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#lexarrow)"/>
+  <line x1="79.0" y1="120" x2="95.0" y2="120" stroke="#08381d" stroke-width="2" marker-end="url(#lexarrow)"/>
+  <line x1="164.0" y1="120" x2="180.0" y2="120" stroke="#08381d" stroke-width="2" marker-end="url(#lexarrow)"/>
+  <line x1="249.0" y1="120" x2="265.0" y2="120" stroke="#08381d" stroke-width="2" marker-end="url(#lexarrow)"/>
+  <line x1="334.0" y1="120" x2="354.0" y2="120" stroke="#08381d" stroke-width="2" marker-end="url(#lexarrow)"/>
+  <text x="372.0" y="120" text-anchor="middle" dominant-baseline="central" style="font-size: 18px;">⋯</text>
+  <path d="M 372.0 132 C 372.0 172, 45 147.0, 45 187.0" fill="none" stroke="#08381d" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#lexarrow)"/>
+  <line x1="79.0" y1="205" x2="95.0" y2="205" stroke="#08381d" stroke-width="2" marker-end="url(#lexarrow)"/>
+  <line x1="164.0" y1="205" x2="180.0" y2="205" stroke="#08381d" stroke-width="2" marker-end="url(#lexarrow)"/>
+  <line x1="249.0" y1="205" x2="265.0" y2="205" stroke="#08381d" stroke-width="2" marker-end="url(#lexarrow)"/>
+  <line x1="334.0" y1="205" x2="354.0" y2="205" stroke="#08381d" stroke-width="2" marker-end="url(#lexarrow)"/>
+  <text x="372.0" y="205" text-anchor="middle" dominant-baseline="central" style="font-size: 18px;">⋯</text>
+  <rect x="13.0" y="20.0" width="64" height="30" rx="14" fill="#bce8be" stroke="#0c7e28" stroke-width="2"/>
+  <text x="45" y="35" text-anchor="middle" dominant-baseline="central" style="font-size: 15px;">⟨0,0⟩</text>
+  <rect x="98.0" y="20.0" width="64" height="30" rx="14" fill="#bce8be" stroke="#0c7e28" stroke-width="2"/>
+  <text x="130" y="35" text-anchor="middle" dominant-baseline="central" style="font-size: 15px;">⟨0,1⟩</text>
+  <rect x="183.0" y="20.0" width="64" height="30" rx="14" fill="#bce8be" stroke="#0c7e28" stroke-width="2"/>
+  <text x="215" y="35" text-anchor="middle" dominant-baseline="central" style="font-size: 15px;">⟨0,2⟩</text>
+  <rect x="268.0" y="20.0" width="64" height="30" rx="14" fill="#bce8be" stroke="#0c7e28" stroke-width="2"/>
+  <text x="300" y="35" text-anchor="middle" dominant-baseline="central" style="font-size: 15px;">⟨0,3⟩</text>
+  <rect x="13.0" y="105.0" width="64" height="30" rx="14" fill="#bce8be" stroke="#c0392b" stroke-width="3"/>
+  <text x="45" y="120" text-anchor="middle" dominant-baseline="central" style="font-size: 15px;">⟨1,0⟩</text>
+  <rect x="98.0" y="105.0" width="64" height="30" rx="14" fill="#bce8be" stroke="#0c7e28" stroke-width="2"/>
+  <text x="130" y="120" text-anchor="middle" dominant-baseline="central" style="font-size: 15px;">⟨1,1⟩</text>
+  <rect x="183.0" y="105.0" width="64" height="30" rx="14" fill="#bce8be" stroke="#0c7e28" stroke-width="2"/>
+  <text x="215" y="120" text-anchor="middle" dominant-baseline="central" style="font-size: 15px;">⟨1,2⟩</text>
+  <rect x="268.0" y="105.0" width="64" height="30" rx="14" fill="#bce8be" stroke="#0c7e28" stroke-width="2"/>
+  <text x="300" y="120" text-anchor="middle" dominant-baseline="central" style="font-size: 15px;">⟨1,3⟩</text>
+  <rect x="13.0" y="190.0" width="64" height="30" rx="14" fill="#bce8be" stroke="#0c7e28" stroke-width="2"/>
+  <text x="45" y="205" text-anchor="middle" dominant-baseline="central" style="font-size: 15px;">⟨2,0⟩</text>
+  <rect x="98.0" y="190.0" width="64" height="30" rx="14" fill="#bce8be" stroke="#0c7e28" stroke-width="2"/>
+  <text x="130" y="205" text-anchor="middle" dominant-baseline="central" style="font-size: 15px;">⟨2,1⟩</text>
+  <rect x="183.0" y="190.0" width="64" height="30" rx="14" fill="#bce8be" stroke="#0c7e28" stroke-width="2"/>
+  <text x="215" y="205" text-anchor="middle" dominant-baseline="central" style="font-size: 15px;">⟨2,2⟩</text>
+  <rect x="268.0" y="190.0" width="64" height="30" rx="14" fill="#bce8be" stroke="#0c7e28" stroke-width="2"/>
+  <text x="300" y="205" text-anchor="middle" dominant-baseline="central" style="font-size: 15px;">⟨2,3⟩</text>
+  <text x="45" y="250" text-anchor="middle" dominant-baseline="central" style="font-size: 18px;">⋮</text>
+</svg>
+</div>
+
+---
+layout: TwoColsHeaderCustom
 ---
 
 # היחס הלקסיקוגרפי של שני יחסי סדר קווי הוא יחס סדר קווי
@@ -1039,7 +1278,7 @@ layout: TwoColsHeaderCustom
 
 
 **הוכחה:**
-- כבר ראינו ש-$\le_{lex}$ הוא יחס סדר חלקי. נותר להוכיח שכל שני איברים ניתנים להשוואה.
+- לפי הטענה מהגדרת הסדר הלקסיקוגרפי, $\le_{lex}$ הוא יחס סדר חלקי. נותר להוכיח שכל שני איברים ניתנים להשוואה.
 - יהיו $(a_1, b_1), (a_2, b_2) \in A \times B$ שני איברים שונים.
 
 
@@ -1064,6 +1303,8 @@ layout: TwoColsHeaderCustom
 
 
 
+---
+section: תרגילים
 ---
 
 # סדר המכפלה
@@ -1115,6 +1356,8 @@ $\langle a,b \rangle \le_{prod} \langle c,d \rangle$ אם $a \le c$ וגם $b \l
 $$ \mathcal{F} = \{ \{1, 2\}, \{1, 3\}, \{2, 3\} \} $$
 אף קבוצה כאן לא מוכלת באחרת.
 (משפט שפרנר קובע באופן כללי שהאנטי-שרשרת הגדולה ביותר היא אוסף התת-קבוצות בגודל $\lfloor n/2 \rfloor$).
+
+**שימו לב:** "גודל מירבי" שונה מ"מקסימלית ביחס להכלה": $\{\{1\},\{2,3\}\}$ מקסימלית ביחס להכלה, אך גודלה רק 2.
 
 </v-click>
 

@@ -26,12 +26,11 @@ section: זוגות סדורים
 - **הגדרה:**
   - זוג סדור הוא אובייקט $\langle a,b\rangle$ שבו $a$ האיבר הראשון ו־$b$ האיבר השני.
   - **שוויון זוגות**: $\langle a,b\rangle=\langle c,d\rangle \iff a=c \land b=d$.
-  
-  - **סימון הטלות**: אם $p=\langle a,b\rangle$ אז $\pi_0(p)=a$ ו־$\pi_1(p)=b$.
+  - $a$ נקרא **הרכיב** (או **הקואורדינטה**) הראשון של הזוג, ו־$b$ הרכיב (הקואורדינטה) השני.
+  - **סימון הטלות**: אם $p=\langle a,b\rangle$ אז $\pi_0(p)=a$ ו־$\pi_1(p)=b$ (הרכיב הראשון והרכיב השני של $p$).
 
 - דוגמאות:
   - $\langle 1,3\rangle \neq \langle 3,1\rangle$.
-
   - אם $p=\langle 2,\{2\}\rangle$ אז $\pi_0(p)=2$, $\pi_1(p)=\{2\}$.
 
 - הערה: תאורטית, גם זוגות סדורים הם בעצם קבוצות, למשל, במודל הנקרא  ייצוג קרטובסקי - $\langle a,b\rangle := \{\{a\},\{a,b\}\}$.
@@ -431,32 +430,43 @@ section: יחסים
 
 # יחסים
 
-- הגדרה: **יחס מ-$A$ ל-$B$** הוא תת-קבוצה של $A \times B$. יחס  מ-$A$ ל-$A$ נקרא **יחס על $A$**.
+- **הגדרה:** **יחס** הוא קבוצה של זוגות סדורים.
 
-  - לדוגמה, אם $A = \{1, 2, 3\}$ ו-$B = \{a, b\}$, אז $R = \{\langle 1, a \rangle, \langle 2, b \rangle\}$ הוא יחס מ-$A$ ל-$B$.
+- **יחס מ-$A$ ל-$B$** הוא יחס $R$ המקיים $R \subseteq A \times B$.
 
+- אם $R \subseteq A \times A$ נאמר ש-$R$ **יחס על** (או **מעל**) $A$.
 
-- **תחום היחס (Domain):** התחום של יחס $R \subseteq A \times B$ הוא הקבוצה 
+- דוגמאות:
 
+  - אם $A = \{1, 2, 3\}$ ו-$B = \{a, b\}$, אז $R = \{\langle 1, a \rangle, \langle 2, b \rangle\}$ הוא יחס מ-$A$ ל-$B$.
 
+  - $\{\langle 1, 2 \rangle, \langle 2, 2 \rangle\}$ הוא יחס מעל $\{1,2\}$ (וגם מעל $\{1,2,3\}$).
+
+  - $\emptyset$ הוא יחס (אין בו איברים שאינם זוגות סדורים).
+
+  - $\{1, \langle 1, 2 \rangle\}$ **אינו** יחס, כי $1$ אינו זוג סדור.
+
+---
+
+# תחום ותמונה של יחס
+
+- **תחום היחס (Domain):** התחום של יחס $R$ הוא הקבוצה 
 
 <div class="formula-box">
 
-  $$\operatorname{dom}(R) = \left\{ x \in A \mid \exists y \in B \, \bigl(\langle x, y \rangle \in R \bigr) \right\}$$
+  $$\operatorname{dom}(R) = \left\{ x \mid \exists y \, \bigl(\langle x, y \rangle \in R \bigr) \right\}$$
 
 </div>
 
-
-
-- **תמונה היחס (Image):** התמונה של $R$ היא הקבוצה 
-
+- **תמונת היחס (Image):** התמונה של $R$ (מסומנת גם $\operatorname{image}(R)$) היא הקבוצה 
 
 <div class="formula-box">
 
-  $$\operatorname{img}(R) = \left\{ y \in B \mid \exists x \in A \, \bigl(\langle x, y \rangle \in R \bigr) \right\}$$
+  $$\operatorname{img}(R) = \left\{ y \mid \exists x \, \bigl(\langle x, y \rangle \in R \bigr) \right\}$$
 
 </div>
 
+- אם $R \subseteq A \times B$ אז $\operatorname{dom}(R) = \{ x \in A \mid \exists y \in B \, (\langle x, y \rangle \in R)\} \subseteq A$ ובאופן דומה $\operatorname{img}(R) \subseteq B$.
 
 - **תכונה:** $R \subseteq \operatorname{dom}(R) \times \operatorname{img}(R)$.
 
@@ -622,8 +632,7 @@ $$S$$
 
 # היחס ההופכי
 
-- הגדרה: עבור יחס $R\subseteq A\times B$ 
--$A$ ו-$B$, נגדיר יחס מ-$B$ ל-$A$ הנקרא **היחס ההופכי של $R$** ונסמן אותו $R^{-1}$
+- הגדרה: עבור יחס $R\subseteq A\times B$, נגדיר יחס מ-$B$ ל-$A$ הנקרא **היחס ההופכי של $R$** ונסמן אותו $R^{-1}$
   
 <div class="formula-box">
 
@@ -636,10 +645,10 @@ $$S$$
 - דוגמה: אם $R=\{\langle1,a\rangle,\langle2,b\rangle\}$ אז $R^{-1}=\{\langle a,1\rangle,\langle b,2\rangle\}$.
 
 - תכונות:
-  - $\operatorname{dom}(R^{-1})=\operatorname{img}(R)$.
+  - $\operatorname{img}(R^{-1})=\operatorname{dom}(R)$.
     
-    - אם $x \in \operatorname{dom}(R^{-1})$ אז קיים $y$ כך ש $\langle x,y\rangle\in R^{-1}$, ולכן $x\in \operatorname{img}(R)$.
-    - אם $x \in \operatorname{img}(R)$ אז קיים $y$ כך ש $\langle y,x\rangle\in R$, ולכן $x\in \operatorname{dom}(R^{-1})$.
+    - אם $x \in \operatorname{img}(R^{-1})$ אז קיים $y$ כך ש $\langle y,x\rangle\in R^{-1}$, כלומר $\langle x,y\rangle\in R$, ולכן $x\in \operatorname{dom}(R)$.
+    - אם $x \in \operatorname{dom}(R)$ אז קיים $y$ כך ש $\langle x,y\rangle\in R$, כלומר $\langle y,x\rangle\in R^{-1}$, ולכן $x\in \operatorname{img}(R^{-1})$.
 
   - $(R^{-1})^{-1}=R$  
     -  $\langle y,x\rangle\in R^{-1}$ אם ורק אם $\langle x,y\rangle\in R$ ולכן $\langle y,x\rangle\in (R^{-1})^{-1}$.
@@ -647,8 +656,11 @@ $$S$$
 
     <!-- -  $\langle x,y\rangle\in R$  אם ורק אם $\langle y,x\rangle\in R^{-1}$ ולכן $\langle x,y\rangle\in (R^{-1})^{-1}$. -->
 
-  - $\operatorname{img}(R^{-1})=\operatorname{dom}(R)$ **$\longrightarrow$ תרגיל**
-    <!-- - אם $\langle y,x\rangle\in R^{-1}$ אז קיים $x,y$ כך ש $\langle x,y\rangle\in R$, ולכן $x\in \operatorname{dom}(R)$. -->
+  - $\operatorname{dom}(R^{-1})=\operatorname{img}(R)$ **$\longrightarrow$ תרגיל**
+    <!--
+    - אם $x \in \operatorname{dom}(R^{-1})$ אז קיים $y$ כך ש $\langle x,y\rangle\in R^{-1}$, ולכן $x\in \operatorname{img}(R)$.
+    - אם $x \in \operatorname{img}(R)$ אז קיים $y$ כך ש $\langle y,x\rangle\in R$, ולכן $x\in \operatorname{dom}(R^{-1})$.
+    -->
   
 
 
@@ -683,20 +695,57 @@ $$R^{-1}$$
 
 
 ---
+
+# גרפים
+
+- **הגדרה:** **גרף** הוא זוג סדור $\langle A,R\rangle$ כאשר $A\neq\emptyset$ ו־$R\subseteq A\times A$.
+
+  - איברי $A$ נקראים **קודקודים** ואיברי $R$ נקראים **קשתות**.
+
+- **דוגמה:** $G=\langle \{1,2,3,4\},\ \{\langle 1,2\rangle,\langle 2,3\rangle,\langle 3,3\rangle\}\rangle$
+
+  - הקודקוד $4$ שייך לגרף אף שאינו מופיע באף קשת.
+
+- **הערה:** תכונות כמו "$R$ רפלקסיבי מעל $A$" תלויות גם ב-$A$ ולא רק ב-$R$.
+
+  - כלומר, אלו תכונות של הזוג $\langle A,R\rangle$ (של הגרף), ולא של היחס $R$ לבדו.
+
+<div class="absolute top-1.6/3 left-1/9" style="scale:.7;">
+<GraphCytoscape 
+  :nodes=" [
+    { id: '1', x: 100, y: 100, label: '1' },
+    { id: '2', x: 300, y: 100, label: '2' },
+    { id: '3', x: 200, y: 0, label: '3' },
+    { id: '4', x: 400, y: 0, label: '4' },
+  ]"
+  :edges=" [
+    { source: '1', target: '2' },
+    { source: '2', target: '3' },
+    { source: '3', target: '3', loopDirection: '0deg' },
+  ]"/>
+</div>
+
+---
 section: תכונות של יחסים
 ---
 
-# רפלקסיביות על $A$
+# רפלקסיביות מעל $A$
 
-- **הגדרה:** יחס $R$ על קבוצה $A$ נקרא רפלקסיבי על $A$ אם לכל $a \in A$, $a \, R \, a$.
+- **הגדרה:** יחס $R\subseteq A\times A$ נקרא **רפלקסיבי מעל $A$** (או רפלקסיבי על $A$) אם לכל $a \in A$, $a \, R \, a$.
 
-- נשים לב לכך שאיננו מגדירים מתי יחס הוא רפלקסיבי אלא מתי הוא רפלקסיבי **על $A$**
+- נשים לב לכך שאיננו מגדירים מתי יחס הוא רפלקסיבי אלא מתי הוא רפלקסיבי **מעל $A$**
+
+<v-click>
+
+- לדוגמה, $R=\{\langle 1,1\rangle\}$ רפלקסיבי מעל $\{1\}$ אבל <span style="color:red">אינו</span> רפלקסיבי מעל $\{1,2\}$ (כי $\langle 2,2\rangle\notin R$).
+
+</v-click>
 
 - אם נצייר את היחס $R$ על $A$ בעזרת חיצים בין אברי $A$,
   <br>
   אז בציור של יחס רפלקסיבי כל איבר של $A$ מחובר בלולאה אל עצמו (חיצים נוספים אפשריים)
 
-<div class="absolute top-1.3/3 left-1/9" style="scale:.7;">
+<div class="absolute top-1.55/3 left-1/9" style="scale:.7;">
 <GraphCytoscape 
   :nodes=" [
     { id: '1', x: 100, y: 100, label: '1' },
@@ -716,13 +765,13 @@ section: תכונות של יחסים
 
 $$R = \{\langle 1,1 \rangle, \langle 2,2 \rangle, \langle 3,3 \rangle, \langle 1,2 \rangle, \langle 3,1 \rangle, \langle 2,3 \rangle\}$$
 
-רפלקסיבי על הקבוצה $\{1,2,3\}$.
+רפלקסיבי מעל הקבוצה $\{1,2,3\}$.
 </div>
 </div>
 
 
 
-<div class="absolute top-1.3/3 left-5/9" style="scale:.7;">
+<div class="absolute top-1.55/3 left-5/9" style="scale:.7;">
 <GraphCytoscape 
   :nodes=" [
     { id: '1', x: 100, y: 100, label: '1' },
@@ -739,7 +788,7 @@ $$R = \{\langle 1,1 \rangle, \langle 2,2 \rangle, \langle 3,3 \rangle, \langle 1
 <div style="text-align: center; margin-top: -1rem; scale: 1.4;">
 
 $$R = \{\langle 1,1 \rangle, \langle 2,2 \rangle, \langle 3,1 \rangle, \langle 3,2 \rangle\}$$
- לא רפלקסיבי על הקבוצה $\{1,2,3\}$.
+ לא רפלקסיבי מעל הקבוצה $\{1,2,3\}$.
 </div>
 </div>
 
@@ -916,7 +965,7 @@ $$R = \{\langle 1,2 \rangle, \langle 2,1 \rangle, \langle 2,3 \rangle, \langle 3
 
 ---
 
-# שלמות
+# שלמות (קוויות)
 
 - **הגדרה:** יחס $R$ על קבוצה $A$ נקרא שלם אם לכל $a,b\in A$, $a\,R\,b$ או $b\,R\,a$ 
   - אנחנו לא משתמשים באו-מוציא, כך שאפשר שגם $a\,R\,b$ וגם $b\,R\,a$.
@@ -982,6 +1031,26 @@ $$R = \{\langle 1,2 \rangle, \langle 2,1 \rangle, \langle 2,3 \rangle, \langle 3
 - שימו לב: השלילה של הסימטריות (כלומר "לא סימטרי") אינה זהה לאנטי-סימטריות. יתכנו יחסים שהם גם סימטריים וגם אנטי-סימטריים, וכן יחסים שאינם סימטריים ואינם אנטי-סימטריים.
 
 ---
+
+# אילו תכונות תלויות ב-$A$?
+
+- בהגדרות של סימטריות, אנטי-סימטריות וטרנזיטיביות אפשר לכמת על **כל** $x,y,z$ ולא רק על איברי $A$:
+
+  - **סימטרי:** $\forall x\,\forall y\,\bigl(x\,R\,y \to y\,R\,x\bigr)$
+
+  - **אנטי-סימטרי:** $\forall x\,\forall y\,\bigl((x\,R\,y \land y\,R\,x) \to x=y\bigr)$
+
+  - **טרנזיטיבי:** $\forall x\,\forall y\,\forall z\,\bigl((x\,R\,y \land y\,R\,z) \to x\,R\,z\bigr)$
+
+- כאשר $R\subseteq A\times A$ זה שקול להגדרות שראינו, כי אם $x\,R\,y$ אז בהכרח $x,y\in A$.
+
+- לכן תכונות אלו **אינן** תלויות ב-$A$, ונאמר פשוט "$R$ סימטרי", "$R$ אנטי-סימטרי", "$R$ טרנזיטיבי".
+
+- לעומת זאת, רפלקסיביות **כן** תלויה ב-$A$ (וכך גם שלמות):
+
+  - $\{\langle 1,1\rangle\}$ רפלקסיבי מעל $\{1\}$, אבל <span style="color:red">אינו</span> רפלקסיבי מעל $\{1,2\}$.
+
+---
 section: דוגמאות
 ---
 
@@ -1039,6 +1108,73 @@ section: דוגמאות
   </v-click>
 
 ---
+
+# תרגול: טרנזיטיביות מעל $A=\{1,2,3\}$
+
+**(א)** כתבו שלושה יחסים מעל $A$ שאינם טרנזיטיביים, ולכל אחד ציינו איזה זוג חסר.
+
+<v-clicks>
+
+- $\{\langle 1,2\rangle,\langle 2,3\rangle\}$ <span style="color:red">✗</span> - חסר $\langle 1,3\rangle$ (כי $1\,R\,2$ ו־$2\,R\,3$).
+
+- $\{\langle 1,2\rangle,\langle 2,1\rangle\}$ <span style="color:red">✗</span> - חסר $\langle 1,1\rangle$ (כי $1\,R\,2$ ו־$2\,R\,1$). שימו לב: $z$ יכול להיות שווה ל־$x$!
+
+- $\{\langle 1,2\rangle,\langle 2,3\rangle,\langle 3,1\rangle\}$ <span style="color:red">✗</span> - חסר למשל $\langle 1,3\rangle$ (וגם $\langle 2,1\rangle$ ו־$\langle 3,2\rangle$).
+
+</v-clicks>
+
+<br>
+
+**(ב)** כתבו יחס מעל $A$ שהוא טרנזיטיבי ואנטי-סימטרי, אך אינו רפלקסיבי מעל $A$.
+
+<v-click>
+
+- $\emptyset$ - טרנזיטיבי ואנטי-סימטרי באופן ריק, ו־$\langle 1,1\rangle\notin\emptyset$.
+
+- גם $\{\langle 1,2\rangle\}$ מתאים: אין זוגות להרכיב, אין חץ דו-כיווני, ו־$\langle 1,1\rangle\notin R$.
+
+</v-click>
+
+---
+layout: two-cols-header
+---
+
+# תרגול: בדיקה ממצה של טרנזיטיביות
+
+- **שיטה:** עוברים על כל זוג $x\,R\,y$, ולכל $z$ עם $y\,R\,z$ בודקים ש־$x\,R\,z$.
+
+**(ג)** האם היחסים הבאים (מעל $\{1,2,3\}$) טרנזיטיביים?
+
+::left::
+
+$R_1=\{\langle 1,1\rangle,\langle 1,2\rangle,\langle 1,3\rangle,\langle 2,2\rangle,\langle 3,3\rangle\}$
+
+<v-click>
+
+- $1\,R_1\,1$: עם כל $1\,R_1\,z$ נדרש $1\,R_1\,z$ <span style="color:green">✓</span>
+- $1\,R_1\,2$: עם $2\,R_1\,2$ נדרש $1\,R_1\,2$ <span style="color:green">✓</span>
+- $1\,R_1\,3$: עם $3\,R_1\,3$ נדרש $1\,R_1\,3$ <span style="color:green">✓</span>
+- $2\,R_1\,2$, $3\,R_1\,3$: נדרש רק $2\,R_1\,2$, $3\,R_1\,3$ <span style="color:green">✓</span>
+- **מסקנה:** $R_1$ טרנזיטיבי <span style="color:green">✓</span>
+
+</v-click>
+
+::right::
+
+$R_2=\{\langle 1,2\rangle,\langle 1,3\rangle,\langle 2,2\rangle,\langle 2,3\rangle,\langle 3,2\rangle\}$
+
+<v-click>
+
+- $1\,R_2\,2$: עם $2\,R_2\,z$ ($z=2,3$) נדרש $1\,R_2\,z$ <span style="color:green">✓</span>
+- $1\,R_2\,3$: עם $3\,R_2\,2$ נדרש $1\,R_2\,2$ <span style="color:green">✓</span>
+- $2\,R_2\,2$: עם $2\,R_2\,z$ נדרש $2\,R_2\,z$ <span style="color:green">✓</span>
+- $2\,R_2\,3$: עם $3\,R_2\,2$ נדרש $2\,R_2\,2$ <span style="color:green">✓</span>
+- $3\,R_2\,2$: עם $2\,R_2\,3$ נדרש $3\,R_2\,3$ <span style="color:red">✗</span>
+- **מסקנה:** $R_2$ <span style="color:red">אינו</span> טרנזיטיבי (חסר $\langle 3,3\rangle$).
+
+</v-click>
+
+---
 section: חיתוך ואיחוד יחסים
 ---
 
@@ -1085,7 +1221,7 @@ section: חיתוך ואיחוד יחסים
   ]"/>
 <div style="text-align: center; margin-top: -1rem;">
 
-  <span style="color:blue"> $B$</span>
+  <span style="color:blue"> $S$</span>
 </div>
 </div>
 
@@ -1102,7 +1238,7 @@ section: חיתוך ואיחוד יחסים
   ]"/>
 <div style="text-align: center; margin-top: -1rem;">
 
-  <span style="color:purple"> $R \cap B$</span>
+  <span style="color:purple"> $R \cap S$</span>
 </div>
 </div>
 
@@ -1122,7 +1258,7 @@ layout: two-cols-header
   
   - **רפלקסיביות**:
     - אם כל $S \in \mathcal{Q}$  רפלקסיבי על $A$, גם $\bigcap \mathcal{Q}$ רפלקסיבי על $A$.
-    - אם $T = \bigcap \mathcal{Q}$  רפלקסיבי על $A$, גם כל $S \in \mathcal{Q}$  רפלקסיבי על $A$.
+    - אם $T = \bigcap \mathcal{Q}$  רפלקסיבי על $A$, גם כל $S \in \mathcal{Q}$  רפלקסיבי על $A$. **$\longrightarrow$ תרגיל**
 
 
   - **שלמות**:
@@ -1173,18 +1309,13 @@ layout: two-cols-header
 
 # חיתוך ורפלקסיביות
 
-1. **טענה:** אם כל $S \in \mathcal{Q}$ רפלקסיבי, אז $\bigcap \mathcal{Q}$ רפלקסיבי.
+1. **טענה:** אם כל $S \in \mathcal{Q}$ רפלקסיבי מעל $A$, אז $\bigcap \mathcal{Q}$ רפלקסיבי מעל $A$.
    - **הוכחה:**
      - יהי $x \in A$.
-     - לכל $S \in \mathcal{Q}$, $S$ רפלקסיבי ולכן $\langle x,x \rangle \in S$.
+     - לכל $S \in \mathcal{Q}$, $S$ רפלקסיבי מעל $A$ ולכן $\langle x,x \rangle \in S$.
      - לכן $\langle x,x \rangle \in \bigcap \mathcal{Q}$.
 
-2. **טענה:** אם $\bigcap \mathcal{Q}$ רפלקסיבי, אז כל $S \in \mathcal{Q}$ רפלקסיבי.
-   - **הוכחה:**
-     - נתון ש-$\bigcap \mathcal{Q}$ רפלקסיבי.
-     - יהי $S_0 \in \mathcal{Q}$.
-     - מתקיים $\bigcap \mathcal{Q} \subseteq S_0$.
-     - לכל $x \in A$, $\langle x,x \rangle \in \bigcap \mathcal{Q}$ ולכן $\langle x,x \rangle \in S_0$.
+2. **טענה:** אם $\bigcap \mathcal{Q}$ רפלקסיבי מעל $A$, אז כל $S \in \mathcal{Q}$ רפלקסיבי מעל $A$. **$\longrightarrow$ תרגיל**
 
 ---
 
@@ -1203,9 +1334,9 @@ layout: two-cols-header
 
 4. **טענה:** אם יש ב-$\mathcal{Q}$ שני יחסים אנטי-סימטרים שונים, אז $\bigcap \mathcal{Q}$ אינו שלם.
 
-- הנחה: יש ב־$\mathcal{S}$ שני יחסים אנטי-סימטריים שונים, נסמנם $R$ ו-$S$.
+- הנחה: יש ב־$\mathcal{Q}$ שני יחסים אנטי-סימטריים שונים, נסמנם $R$ ו-$S$.
 
-- נניח בדרך השלילה ש־$T=\bigcap\mathcal{S}$ שלם על $A$.
+- נניח בדרך השלילה ש־$T=\bigcap\mathcal{Q}$ שלם על $A$.
 - אז לכל $x\in A$ יש $\langle x,x\rangle\in T$ (ולכן גם ב־$R\cap S$).
 - מאחר ש־$R\neq S$ קיים זוג $\langle x,y\rangle$ שבו הם נבדלים; נניח $\langle x,y\rangle\in R$ ו־$\langle x,y\rangle\notin S$.
 - אם $x=y$ אז היינו מקבלים $\langle x,x\rangle\notin S$, בסתירה לעיל, לכן $x\neq y$.
@@ -1274,14 +1405,14 @@ $$R \cap S$$
 
 # חיתוך וטרנזיטיביות
 
-5. **טענה:** אם כל $R\in\mathcal{S}$ טרנזיטיבי, אז $T=\bigcap\mathcal{S}$ טרנזיטיבי.
+5. **טענה:** אם כל $R\in\mathcal{Q}$ טרנזיטיבי, אז $T=\bigcap\mathcal{Q}$ טרנזיטיבי.
 
 **הוכחה:**
 - נניח $a,b,c\in A$ ו־$\langle a,b\rangle,\langle b,c\rangle\in T$.
 
-- לפי הגדרת החיתוך: לכל $R\in\mathcal{S}$ מתקיים $\langle a,b\rangle,\langle b,c\rangle\in R$.
-- מאחר שכל $R\in\mathcal{S}$ טרנזיטיבי, נובע שלכל $R\in\mathcal{S}$ גם $\langle a,c\rangle\in R$.
-- לכן לפי הגדרת החיתוך $\langle a,c\rangle\in\bigcap\mathcal{S}=T$.
+- לפי הגדרת החיתוך: לכל $R\in\mathcal{Q}$ מתקיים $\langle a,b\rangle,\langle b,c\rangle\in R$.
+- מאחר שכל $R\in\mathcal{Q}$ טרנזיטיבי, נובע שלכל $R\in\mathcal{Q}$ גם $\langle a,c\rangle\in R$.
+- לכן לפי הגדרת החיתוך $\langle a,c\rangle\in\bigcap\mathcal{Q}=T$.
 - מסקנה: $T$ טרנזיטיבי. ∎
 
 
@@ -1411,7 +1542,7 @@ layout: two-cols-header
 
 <v-clicks depth=1>
 
-- **איחוד שומר רפלקסיביות**:
+- **איחוד שומר רפלקסיביות** (כאשר $\mathcal{S}$ לא ריקה):
   - אם לכל $R\in\mathcal{S}$ וּלכל $x\in A$ מתקיים $\langle x,x\rangle\in R$, 
 
   - אז לכל $x\in A$  מתקיים גם $\langle x,x\rangle\in\bigcup\mathcal{S}$.

@@ -114,7 +114,7 @@ layout: two-cols-header
       - פונקציה חח"ע ועל היא בפרט חח"ע.
       - לכן לא קיימת פונקציה חח"ע ועל.
 
-- הוכחת עקרון שובך היונים באינדוקציה נמצאת בתרגול העצמי - מומלץ להשתמש במשאב זה.
+- הוכחת עקרון שובך היונים באינדוקציה נמצאת בתרגול העצמי. <br> **החומר בתרגולים העצמיים הוא חלק מחומר הקורס – חובה לעבור עליו!**
 
 <div class="absolute top-90 left-20 w-55">
   <img src="/images/pigeons_in_holes_no_text.png" class="rounded-lg shadow-lg w-full" />
@@ -157,10 +157,10 @@ section: קבוצות סופיות
 
 # שקילות עוצמה בין קבוצות סופיות
 
-**טענה:** אם $A$ ו-$B$ הן קבוצות סופיות ו-$A \sim B$, אזי $|A| = |B|$.
+**טענה:** אם $A$ סופית ו-$A \sim B$, אז $B$ סופית ו-$|B| = |A|$.
 
 **הוכחה:**
-- נניח ש-$|A| = n$. נוכיח ש-$|B| = n$.
+- נניח ש-$|A| = n$. נוכיח ש-$B$ סופית ו-$|B| = n$.
 
 - כיוון ש-$|A| = n$, קיימת פונקציה חח"ע ועל $f \colon A \to \mathbb{N}^{<n}$.
 - כיוון ש-$A \sim B$, קיימת פונקציה חח"ע ועל $g \colon A \to B$.
@@ -168,7 +168,7 @@ section: קבוצות סופיות
 - כיוון ש-$g$ חח"ע ועל, גם $g^{-1}$ חח"ע ועל.
 - הוכחתם בתרגילים שהרכבה של פונקציות חח"ע ועל היא חח"ע ועל.
 - לכן $f \circ g^{-1}$ היא פונקציה חח"ע ועל.
-    - מכאן נובע ש-$B \sim \mathbb{N}^{<n}$, ולכן $|B| = n$.
+    - מכאן נובע ש-$B \sim \mathbb{N}^{<n}$, ולכן $B$ סופית ו-$|B| = n$.
 
 <img src="/images/bijection_composition_comic.png" class="absolute top-50 left-20 w-100" />
 
@@ -188,31 +188,6 @@ section: קבוצות סופיות
 
 
 <img src="/images/verification.png" class="absolute top-80 left-40 w-90 "  />
-
----
-
-# תת קבוצה של קבוצה סופית היא קבוצה סופית 
-
-**טענה:** אם $A$ קבוצה סופית ו-$B \subseteq A$, אז $B$ גם קבוצה סופית.
-
-<v-click>
-
-**הוכחה:**
-- תהי $f \colon A \to \mathbb{N}^{<n}$ פונקציה חח"ע ועל ( קיימת כזאת כי $A$ סופית).
-
-- נתבונן בקבוצת התמונות $S = \{f(b) \mid b \in B\} \subseteq \mathbb{N}^{<n}$.
-- נסמן את איברי $S$ לפי הסדר: $k_0 < k_1 < \ldots < k_{m-1}$.
-- נגדיר פונקציה $g \colon B \to \mathbb{N}^{<m}$ באופן הבא: לכל $b \in B$, אם $f(b) = k_i$ אז $g(b) = i$.
-- הפונקציה $g$ היא חח"ע ועל, ולכן $B$ סופית (בגודל $m$).
-
-<img src="/images/subset_proof_comic_hebrew.png" class="absolute top-50 left-10 w-80 rounded-lg shadow-lg" />
-
-<br>
-
-מסקנה מההוכחה: אם מורידים $k$ איברים מ-$A$, נשאר לנו $n-k$ איברים.
-
-</v-click>
-
 
 ---
 
@@ -261,33 +236,6 @@ $$|A \times B| = |A| \cdot |B|$$
 <div class="absolute top-60 left-20 w-60 flex flex-col items-center">
   <img src="/images/cartesian_product_mapping.png" class="w-full" />
   <div class="text-sm font-bold -mt-62   text-center bg-white/90 rounded px-2 shadow-sm text-black">מעבר על טבלה <br> כשסופרים שורה שורה</div>
-</div>
-
-</v-click>
-
-
----
-
-# גודל קבוצת החזקה
-
-**טענה:** אם $|A| = n$, אז $|\mathcal{P}(A)| = 2^n$.
-
-<v-click>
-
-**רעיון הוכחה:**
-- נזכיר: מספר הפונקציות מ-$A$ ל-$\{0,1\}$ הוא $2^{|A|} = 2^n$.
-- נבנה התאמה חח"ע ועל $H$ בין $\mathcal{P}(A)$ לבין קבוצת הפונקציות $\{0,1\}^A$.
-- לכל תת-קבוצה $B \subseteq A$, נגדיר פונקציה מציינת $\chi_B \colon A \to \{0,1\}$:
-  $$ \chi_B(x) = \begin{cases} 1 & x \in B \\ 0 & x \notin B \end{cases} $$
-- קל לראות ש-$H(B) = \chi_B$ חח"ע ועל (כל פונקציה מגדירה תת-קבוצה באופן יחיד).
-- לכן מספר התת-קבוצות שווה למספר הפונקציות, שהוא $2^n$.
-
-<div class="absolute top-60 left-20 w-80 flex flex-col items-center">
-  <div class="text-sm font-bold -mb-5 text-center bg-white/90 rounded px-2 shadow-sm text-black">
-  
-  פונקציה מציינת $\chi_B$ עבור קבוצה $B$
-  </div>
-  <img src="/images/characteristic_function_chi.png" class="w-50" />
 </div>
 
 </v-click>
@@ -353,6 +301,59 @@ section: אינדוקציה
 
 </div>
  
+</v-click>
+
+---
+layout: TwoColsHeaderCustom
+---
+
+# הסרת איבר מקבוצה סופית
+
+**טענה:** אם $|A| = n+1$ ו-$a \in A$, אז $|A \setminus \{a\}| = n$.
+
+<div class="text-sm">
+
+**נשתמש בשתי עובדות (ללא הוכחה):**
+1. צמצום של פונקציה חח"ע הוא פונקציה חח"ע ועל התמונה שלו: $f|_X \colon X \to f[X]$.
+2. איחוד של שתי פונקציות חח"ע ועל, שתחומיהן זרים ותמונותיהן זרות, הוא פונקציה חח"ע ועל מאיחוד התחומים לאיחוד התמונות.
+
+</div>
+
+::left::
+
+<v-click>
+
+**הוכחה – ישירה, בלי אינדוקציה:**
+- תהי $f \colon A \to \mathbb{N}^{<n+1}$ חח"ע ועל.
+- **מקרה 1: $f(a) = n$.**
+  - אז $f[A \setminus \{a\}] = \mathbb{N}^{<n+1} \setminus \{n\} = \mathbb{N}^{<n}$.
+  - לפי עובדה 1, $f|_{A \setminus \{a\}} \colon A \setminus \{a\} \to \mathbb{N}^{<n}$ חח"ע ועל.
+
+</v-click>
+
+::right::
+
+<v-click>
+
+- **מקרה 2: $f(a) = k \neq n$.**
+  - נסמן $c = f^{-1}(n)$. אז $c \neq a$.
+  - נגדיר $g = f|_{A \setminus \{a,c\}} \cup \{\langle c,k \rangle\}$.
+  - לפי עובדה 1, $f|_{A \setminus \{a,c\}}$ חח"ע ועל $\mathbb{N}^{<n} \setminus \{k\}$.
+  - $\{\langle c,k \rangle\}$ חח"ע ועל מ-$\{c\}$ ל-$\{k\}$.
+  - לפי עובדה 2, $g \colon A \setminus \{a\} \to \mathbb{N}^{<n}$ חח"ע ועל.
+
+</v-click>
+
+::after::
+
+<v-click>
+
+<div class="text-sm">
+
+**הערה:** בהפעלה חוזרת של הטענה (פורמלית – באינדוקציה על $k$, שנכיר מיד) מקבלים: אם מורידים $k \le n$ איברים מקבוצה בגודל $n$, נשארים $n-k$ איברים.
+
+</div>
+
 </v-click>
 
 ---
@@ -455,7 +456,7 @@ layout: two-cols-header
 
 **צעד ($n \to n+1$):**
 - נניח שלכל קבוצה $A$ בגודל $n$, קיימת חח"ע ועל $f \colon \mathcal{P}(A) \to \mathbb{N}^{<2^n}$.
-- תהי $B$ בגודל $n+1$. נבחר $b \in B$ ונסמן $A = B \setminus \{b\}$ (גודל $n$).
+- תהי $B$ בגודל $n+1$. נבחר $b \in B$ ונסמן $A = B \setminus \{b\}$ (גודל $n$, לפי **הסרת איבר**).
 - נגדיר $g \colon \mathcal{P}(B) \to \mathbb{N}^{<2^{n+1}}$ ע"י:
   $$ g(X) = \begin{cases} f(X) & b \notin X \\ f(X \setminus \{b\}) + 2^n & b \in X \end{cases} $$
 - קל לוודא ש-$g$ חח"ע ועל (ממפה את תתי-הקבוצות ללא $b$ לחצי הראשון, ואת אלו עם $b$ לחצי השני).
@@ -471,6 +472,37 @@ layout: two-cols-header
 </div>
 
 </v-click>
+
+---
+
+# $\mathcal{P}(A) \sim \{0,1\}^A$
+
+**טענה:** לכל קבוצה $A$ (לא בהכרח סופית) מתקיים $\mathcal{P}(A) \sim \{0,1\}^A$.
+
+<v-click>
+
+**הוכחה:**
+- לכל תת-קבוצה $B \subseteq A$, נגדיר פונקציה מציינת $\chi_B \colon A \to \{0,1\}$:
+  $$ \chi_B(x) = \begin{cases} 1 & x \in B \\ 0 & x \notin B \end{cases} $$
+- נגדיר $H \colon \mathcal{P}(A) \to \{0,1\}^A$ ע"י $H(B) = \chi_B$.
+- **חח"ע:** אם $B \neq C$, קיים $x$ ששייך לאחת מהן ולא לשנייה, ואז $\chi_B(x) \neq \chi_C(x)$.
+- **על:** לכל $h \colon A \to \{0,1\}$ מתקיים $h = \chi_B$ עבור $B = \{x \in A \mid h(x) = 1\}$.
+
+</v-click>
+
+<v-click>
+
+- **מסקנה:** אם $|A| = n$, אז לפי הטענה הקודמת $|\{0,1\}^A| = |\mathcal{P}(A)| = 2^n$.
+
+</v-click>
+
+<div class="absolute top-60 left-20 w-80 flex flex-col items-center">
+  <div class="text-sm font-bold -mb-5 text-center bg-white/90 rounded px-2 shadow-sm text-black">
+  
+  פונקציה מציינת $\chi_B$ עבור קבוצה $B$
+  </div>
+  <img src="/images/characteristic_function_chi.png" class="w-50" />
+</div>
 
 
 
@@ -669,9 +701,9 @@ layout: two-cols-header
 
 ---
 
-# עקרון הסדר הטוב $\Leftarrow$ אינדוקציה חלשה
+# עקרון הסדר הטוב $\Leftarrow$ אינדוקציה רגילה
 
-**טענה:** עקרון הסדר הטוב גורר את עקרון האינדוקציה החלשה.
+**טענה:** עקרון הסדר הטוב גורר את עקרון האינדוקציה הרגילה.
 
 **הוכחה:**
 
@@ -689,20 +721,95 @@ layout: two-cols-header
 
 ---
 
-# אינדוקציה חזקה $\Leftarrow$ עקרון הסדר הטוב
+# אינדוקציה שלמה $\Leftarrow$ עקרון הסדר הטוב
 
-**טענה:** עקרון האינדוקציה החזקה גורר את עקרון הסדר הטוב.
+**טענה:** עקרון האינדוקציה השלמה גורר את עקרון הסדר הטוב.
 
 **הוכחה:**
 
-- נניח שאינדוקציה חזקה מתקיימת. תהי $S \subseteq \mathbb{N}$ קבוצה ללא איבר מינימלי. נוכיח ש-$S = \emptyset$.
+- נניח שאינדוקציה שלמה מתקיימת. תהי $S \subseteq \mathbb{N}$ קבוצה ללא איבר מינימלי. נוכיח ש-$S = \emptyset$.
 
-- נגדיר $A = \mathbb{N} \setminus S$. נוכיח ש-$A = \mathbb{N}$ באינדוקציה חזקה.
+- נגדיר $A = \mathbb{N} \setminus S$. נוכיח ש-$A = \mathbb{N}$ באינדוקציה שלמה.
 - נניח כי $\mathbb{N}^{<n} \subseteq A$ (כלומר כל המספרים הקטנים מ-$n$ אינם ב-$S$).
 - אם $n \in S$, אז הוא היה חייב להיות המינימום של $S$ (כי אין ב-$S$ איברים קטנים ממנו).
 - אבל ל-$S$ אין מינימום, ולכן $n \notin S$, כלומר $n \in A$.
-- לפיכך $\mathbb{N}^{<n} \subseteq A \implies n \in A$. לפי אינדוקציה חזקה, $A=\mathbb{N}$.
+- לפיכך $\mathbb{N}^{<n} \subseteq A \implies \mathbb{N}^{<n+1} \subseteq A$. לפי אינדוקציה שלמה, $A=\mathbb{N}$.
 - לכן $S = \emptyset$.
+
+---
+
+# קבוצה חסומה ב-$\mathbb{N}$ היא סופית
+
+**טענה:** כל קבוצה חסומה $S \subseteq \mathbb{N}$ היא סופית.
+
+<v-click>
+
+**הוכחה:** נוכיח באינדוקציה על $n$ את הטענה $P(n)$: כל $S \subseteq \mathbb{N}^{<n}$ היא סופית.
+
+- **בסיס ($n=0$):** אם $S \subseteq \mathbb{N}^{<0} = \emptyset$ אז $S = \emptyset$, והיא סופית (בגודל $0$).
+- **צעד ($n \to n+1$):** נניח $P(n)$ ותהי $S \subseteq \mathbb{N}^{<n+1}$.
+  - מתקיים $S \setminus \{n\} \subseteq \mathbb{N}^{<n}$, ולכן לפי הנחת האינדוקציה $S \setminus \{n\}$ סופית.
+  - **אם $n \notin S$:** $S = S \setminus \{n\}$, ולכן $S$ סופית.
+  - **אם $n \in S$:** $S = (S \setminus \{n\}) \cup \{n\}$ כאשר $n \notin S \setminus \{n\}$. <br> לפי הטענה על **הוספת איבר לקבוצה סופית**, $S$ סופית (בגודל $|S \setminus \{n\}| + 1$).
+- לכן $P(n)$ נכונה לכל $n \in \mathbb{N}$.
+
+</v-click>
+
+<v-click>
+
+- כעת, אם $S$ חסומה, קיים $n$ כך ש-$S \subseteq \mathbb{N}^{<n}$, ולפי $P(n)$ הקבוצה $S$ סופית.
+
+</v-click>
+
+---
+
+# תת-קבוצה סופית של $\mathbb{N}$ היא חסומה
+
+**טענה:** אם $S \subseteq \mathbb{N}$ קבוצה סופית, אז $S$ חסומה.
+
+<v-click>
+
+**הוכחה:** נוכיח באינדוקציה על $n$ את הטענה $P(n)$: כל $S \subseteq \mathbb{N}$ עם $|S| = n$ היא חסומה.
+
+- **בסיס ($n=0$):** אם $|S| = 0$ אז $S = \emptyset \subseteq \mathbb{N}^{<0}$, ולכן $S$ חסומה.
+- **צעד ($n \to n+1$):** נניח $P(n)$ ותהי $S \subseteq \mathbb{N}$ עם $|S| = n+1$.
+  - $S \neq \emptyset$, לכן נוכל לבחור $s \in S$.
+  - לפי הטענה על **הסרת איבר מקבוצה סופית**, $|S \setminus \{s\}| = n$.
+  - לפי הנחת האינדוקציה, קיים $m$ כך ש-$S \setminus \{s\} \subseteq \mathbb{N}^{<m}$.
+  - נסמן $k = \max(m, s+1)$. אז $S \setminus \{s\} \subseteq \mathbb{N}^{<m} \subseteq \mathbb{N}^{<k}$, וגם $s \in \mathbb{N}^{<s+1} \subseteq \mathbb{N}^{<k}$.
+  - לכן $S \subseteq \mathbb{N}^{<k}$, כלומר $S$ חסומה.
+
+</v-click>
+
+<v-click>
+
+<div class="text-center mt-4 text-xl">
+
+**ביחד עם הטענה הקודמת:** &nbsp; $S \subseteq \mathbb{N}$ סופית $\iff$ $S$ חסומה.
+
+</div>
+
+</v-click>
+
+---
+
+# תת קבוצה של קבוצה סופית היא קבוצה סופית
+
+**מסקנה:** אם $A$ קבוצה סופית ו-$B \subseteq A$, אז $B$ גם קבוצה סופית.
+
+<v-click>
+
+**הוכחה:**
+- תהי $f \colon A \to \mathbb{N}^{<n}$ פונקציה חח"ע ועל (קיימת כזאת כי $A$ סופית).
+
+- נתבונן בתמונה $f[B] = \{f(b) \mid b \in B\} \subseteq \mathbb{N}^{<n}$.
+- $f[B]$ חסומה, ולכן לפי הטענה **קבוצה חסומה ב-$\mathbb{N}$ היא סופית**, $f[B]$ סופית.
+- הצמצום $f|_B \colon B \to f[B]$ הוא חח"ע ועל, ולכן $B \sim f[B]$.
+- לפי הטענה על **שקילות עוצמה בין קבוצות סופיות**, $B$ סופית.
+
+<img src="/images/subset_proof_comic_hebrew.png" class="absolute top-50 left-10 w-80 rounded-lg shadow-lg" />
+
+</v-click>
 
 ---
 section: הגדרה רקורסיבית
@@ -843,9 +950,10 @@ section: הגדרה רקורסיבית
 
 - לפי הנחה, $A \neq \emptyset$.
 - לפי עקרון הסדר הטוב, ל-$A$ יש איבר מינימלי, נסמנו $m$.
-- מכיוון ש-$m \ge 2$, אפשר לכתוב $m = 2q + r$ כאשר $r \in \{0,1\}$ ו-$q < m$.
-- מכיוון ש-$q < m$, המספר $q$ ניתן לרישום בבסיס 2: $q = (b_k b_{k-1} \cdots b_1 b_0)_2$.
-- לכן $m = 2q + r = (b_k b_{k-1} \cdots b_1 b_0 r)_2$ - סתירה למינימליות של $m$!
+- מכיוון ש-$m \ge 2$, אפשר לכתוב $m = 2q + r$ כאשר $r \in \{0,1\}$ ו-$1 \le q < m$.
+- **אם $q = 1$:** $m = (1r)_2$ - סתירה לכך ש-$m \in A$!
+- **אם $q \ge 2$:** כיוון ש-$q < m$ ו-$m$ מינימלי ב-$A$, הרי ש-$q \notin A$, ולכן $q = (b_k b_{k-1} \cdots b_1 b_0)_2$.
+  - לכן $m = 2q + r = (b_k b_{k-1} \cdots b_1 b_0 r)_2$ - סתירה לכך ש-$m \in A$!
 
 </v-click>
 

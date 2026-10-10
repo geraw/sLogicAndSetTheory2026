@@ -150,6 +150,50 @@ layout: two-cols-header
   וזו התמונה של $A$ תחת $f$.
 
 ---
+layout: TwoColsHeaderCustom
+---
+
+# Comprehension מול Replacement: משתנים קשורים
+
+::left::
+
+- **הפרדה (Comprehension):** בוחרים איברים מתוך קבוצה נתונה:
+
+<div class="formula-box">
+
+$$ \{\, x \in A \mid \varphi(x) \,\} $$
+</div>
+
+  - המשתנה הקשור $x$ מופיע **משמאל** ל-"$\mid$".
+  - $A$ ופרמטרים נוספים ב-$\varphi$ הם משתנים **חופשיים**.
+  - דוגמה: ב-$\{\, x \in \mathbb{N} \mid x > k \,\}$ המשתנה $x$ קשור, ו-$k$ חופשי.
+  - **שייכות:** $y \in \{\, x \in A \mid \varphi(x) \,\} \iff y \in A \land \varphi(y)$
+
+::right::
+
+- **תבנית (Replacement):** מפעילים תבנית על כל איברי קבוצה:
+
+<div class="formula-box">
+
+$$ \{\, f(x) \mid x \in A \,\} $$
+</div>
+
+  - המשתנים הקשורים מופיעים **מימין** ל-"$\mid$".
+  - אפשר כמה משתנים קשורים: $\{\, a \cdot b : a, b \in \mathbb{N} \,\}$.
+  - הסימן "$:$" משמעותו כמו "$\mid$".
+
+<div v-click="1">
+
+  - **שייכות:** $y \in \{\, 2a+1 : a \in \mathbb{N} \,\} \iff \exists a \in \mathbb{N}\, (y = 2a+1)$
+  - "**קיים**" ולא "לכל": $7$ שייך לקבוצה בזכות העד $a = 3$ (טעות נפוצה!).
+
+</div>
+
+::after::
+
+- **שינוי שם של משתנה קשור אינו משנה את הקבוצה:** $\{\, x \in A \mid \varphi(x) \,\} = \{\, z \in A \mid \varphi(z) \,\}$, &nbsp; $\{\, 2a+1 : a \in \mathbb{N} \,\} = \{\, 2k+1 : k \in \mathbb{N} \,\}$.
+
+---
 section: יחסים בין קבוצות
 ---
 
@@ -499,27 +543,6 @@ section: תרגילים פתורים
 
 ---
 
-# תרגיל: הוכיחו שהקבוצה הריקה מוכלת בכל קבוצה
-
-**טענה:** לכל קבוצה $A$ מתקיים $\emptyset \subseteq A$.
-
-**הוכחה (בדרך השלילה):**
-
-1. תהי $A$ קבוצה כלשהי.
-
-2. נניח בשלילה ש-$\emptyset \not\subseteq A$.
-
-3. לפי הגדרת שלילת ההכלה, קיים איבר $x$ כך ש-$x \in \emptyset$ וגם $x \notin A$.
-
-4. אבל לפי הגדרת הקבוצה הריקה, $\forall x (x \notin \emptyset)$.
-
-5. זו סתירה להנחה שקיים $x$ כך ש-$x \in \emptyset$.
-
-6. לכן ההנחה שגויה, ומתקיים $\emptyset \subseteq A$. ∎
-
-
----
-
 # הוכיחו: $\emptyset \neq \{\emptyset\}$
 <br>
 
@@ -537,7 +560,7 @@ section: תרגילים פתורים
 - נניח בשלילה ש- $\{\emptyset\} = \{\{\emptyset\}\}$.
 
 - שתי הקבוצות הן יחידונים. שוויון ביניהן גורר שוויון בין איבריהן היחידים.
-- מכאן, $\emptyset = \{\emptyset\}$, וזו סתירה למה שהוכחנו בתרגיל 1.
+- מכאן, $\emptyset = \{\emptyset\}$, וזו סתירה למה שהוכחנו בתרגיל הקודם.
   
 <br>
 
@@ -557,7 +580,7 @@ section: תרגילים פתורים
 
 - **הוכחה:** עלינו להוכיח הכלה ואי-שוויון.
 
-- **הכלה:** יהי $x \in \{\emptyset\}$. מכאן $x=\emptyset$. האיבר $\emptyset$ נמצא גם בקבוצה הימנית, ולכן $\{\emptyset\} \subseteq \{\emptyset, \{\emptyset\,\}$.
+- **הכלה:** יהי $x \in \{\emptyset\}$. מכאן $x=\emptyset$. האיבר $\emptyset$ נמצא גם בקבוצה הימנית, ולכן $\{\emptyset\} \subseteq \{\emptyset, \{\emptyset\}\}$.
 
 - **אי-שוויון:** האיבר $\{\emptyset\}$ נמצא בקבוצה הימנית, אך אינו נמצא בקבוצה השמאלית (שאיברה היחיד הוא $\emptyset$). לכן הקבוצות אינן שוות.
 
@@ -753,6 +776,59 @@ layout: two-cols-header
 
 
 ---
+layout: TwoColsHeaderCustom
+---
+
+# טענות בסיסיות
+
+- **(א)** $A \subseteq A \cup B$: &nbsp; יהי $x \in A$. אז $x \in A \lor x \in B$, כלומר $x \in A \cup B$.
+
+- **(ב)** $A \cap B \subseteq A$: &nbsp; יהי $x \in A \cap B$. אז $x \in A \land x \in B$, ובפרט $x \in A$.
+
+- **(ג)** $X \subseteq A \cap B \iff (X \subseteq A \land X \subseteq B)$:
+
+::left::
+
+- **($\Rightarrow$)** נניח $X \subseteq A \cap B$.
+  - לפי (ב) $A \cap B \subseteq A$, ומטרנזיטיביות ההכלה $X \subseteq A$.
+  - באופן דומה (עם $A \cap B = B \cap A \subseteq B$): $X \subseteq B$.
+
+::right::
+
+- **($\Leftarrow$)** נניח $X \subseteq A$ וגם $X \subseteq B$.
+  - יהי $x \in X$. אז $x \in A$ (כי $X \subseteq A$) וגם $x \in B$ (כי $X \subseteq B$).
+  - לכן $x \in A \cap B$, ומכאן $X \subseteq A \cap B$.
+
+::after::
+
+- במילים: $A \cap B$ היא הקבוצה **הגדולה ביותר** המוכלת גם ב-$A$ וגם ב-$B$.
+
+---
+layout: TwoColsHeaderCustom
+---
+
+# תבנית: איך מוכיחים שקבוצה ריקה? &nbsp; $A \setminus B = \emptyset \iff A \subseteq B$
+
+- **להוכיח $S = \emptyset$:** מניחים $x \in S$ ומגיעים לסתירה (כך מוכיחים $\forall x\,(x \notin S)$).
+- **להשתמש בהנחה $S = \emptyset$:** אם הגענו ל-$x \in S$ - זו סתירה.
+
+::left::
+
+- **($\Rightarrow$)** נניח $A \setminus B = \emptyset$.
+  - יהי $x \in A$. נניח בשלילה ש-$x \notin B$.
+  - אז $x \in A \land x \notin B$, כלומר $x \in A \setminus B = \emptyset$.
+  - **סתירה** (לקבוצה הריקה אין איברים). לכן $x \in B$.
+  - הראינו $A \subseteq B$.
+
+::right::
+
+- **($\Leftarrow$)** נניח $A \subseteq B$.
+  - נניח בשלילה שקיים $x \in A \setminus B$.
+  - אז $x \in A$, ומ-$A \subseteq B$ נקבל $x \in B$.
+  - אבל גם $x \notin B$ (הגדרת ההפרש) - **סתירה**.
+  - לכן אין איבר ב-$A \setminus B$, כלומר $A \setminus B = \emptyset$.
+
+---
 
 # דוגמה: הוכחת אסוציאטיביות האיחוד
 
@@ -770,7 +846,7 @@ layout: two-cols-header
   - אסוציאטיביות של $\lor$: $x\in A\lor(x\in B\lor x\in C) \iff (x\in A\lor x\in B)\lor x\in C$.
   - לכן $x\in (A\cup B)\cup C$.
 
-- סיכום: לכל $x$ מתקיים $x\in (A\cup B)\cup C \iff x\in A\cup(B\cup C)$, ולכן $(A\cup B)\cup C = A\cup(B\cup C)`. 
+- סיכום: לכל $x$ מתקיים $x\in (A\cup B)\cup C \iff x\in A\cup(B\cup C)$, ולכן $(A\cup B)\cup C = A\cup(B\cup C)$. 
 
 ---
 
@@ -844,7 +920,7 @@ $x \in A \setminus (B \cap C)$ ו-$x \in (A \setminus B) \cup (A \setminus C)$ �
     - $x \in A \setminus (B \cap C)$  **אם ורק אם** $x \in A \land x \notin (B \cap C)$ (לפי הגדרת ההפרש)
     
     - ... **אם ורק אם** $x \in A \land (x \notin B \lor x \notin C)$ (לפי חוקי דה-מורגן)
-    - ... **אם ורק אם** $(x \in A \land x \notin B) \lor (x \in A \land x \notin C)$ (לפי אסוציאטיביות של "או")
+    - ... **אם ורק אם** $(x \in A \land x \notin B) \lor (x \in A \land x \notin C)$ (לפי דיסטריבוטיביות של "וגם" מעל "או")
     - ... **אם ורק אם** $x \in (A \setminus B) \lor x \in (A \setminus C)$ (לפי הגדרת ההפרש)
     - ... **אם ורק אם** $x \in (A \setminus B) \cup (A \setminus C)$ (לפי הגדרת האיחוד)
   
@@ -1423,7 +1499,7 @@ layout: two-cols-header
   - תהי $X \in \mathcal{P}(A \cap B)$.
  
   - לפי הגדרת קבוצת החזקה, $X \subseteq A \cap B$.
-  - לפי תכונה שהוכחנו לחיתוך, $X \subseteq A$ ו-$X \subseteq B$.
+  - לפי טענה (ג) ב"טענות בסיסיות", $X \subseteq A$ ו-$X \subseteq B$.
   - לכן, $X \in \mathcal{P}(A)$ ו-$X \in \mathcal{P}(B)$.
   - לפי הגדרת חיתוך, $X \in \mathcal{P}(A) \cap \mathcal{P}(B)$.
 
@@ -1435,7 +1511,7 @@ layout: two-cols-header
   
   - לפי הגדרת חיתוך, $X \in \mathcal{P}(A)$ ו-$X \in \mathcal{P}(B)$.
   - לפי הגדרת קבוצת החזקה, $X \subseteq A$ ו-$X \subseteq B$.
-  - לפי תכונה שהוכחנו לחיתוך, $X \subseteq A \cap B$.
+  - לפי טענה (ג) ב"טענות בסיסיות", $X \subseteq A \cap B$.
   - לכן, $X \in \mathcal{P}(A \cap B)$.
 
 ---
@@ -1450,11 +1526,11 @@ layout: two-cols-header
    
    - $\mathcal{P}(A) \cup \mathcal{P}(B) = \{\emptyset, \{1\}\} \cup \{\emptyset, \{2\}\} = \{\emptyset, \{1\}, \{2\}\}$.
    
-   - קיבלנו ש-$\{1,2\} \in \mathcal{P}(A \cup B)$ אבל $\{1,2} \notin \mathcal{P}(A) \cup \mathcal{P}(B)$.
+   - קיבלנו ש-$\{1,2\} \in \mathcal{P}(A \cup B)$ אבל $\{1,2\} \notin \mathcal{P}(A) \cup \mathcal{P}(B)$.
    
    - לכן, $\mathcal{P}(A \cup B) \neq \mathcal{P}(A) \cup \mathcal{P}(B)$.
 
-- כפי שנראה בשקף הבא: **הטענה על איחוד נכונה כאשר $A \subseteq B$ או $B \subseteq A$**.
+- כפי שנראה בשקפים הבאים: **הטענה על איחוד נכונה אם ורק אם $A \subseteq B$ או $B \subseteq A$**.
 
 </span>
 
@@ -1463,7 +1539,9 @@ layout: two-cols-header
 layout: TwoColsHeaderCustom
 ---
 
-# אם $A \subseteq B$ אז $\mathcal{P}(A \cup B) = \mathcal{P}(A) \cup \mathcal{P}(B)$
+# $\mathcal{P}(A \cup B) = \mathcal{P}(A) \cup \mathcal{P}(B)$ אם ורק אם $A \subseteq B$ או $B \subseteq A$
+
+**הכיוון "אם":** נניח $A \subseteq B$ ונוכיח הכלה בשני הכיוונים.
 
 ::left::
 
@@ -1496,7 +1574,23 @@ layout: TwoColsHeaderCustom
 
 - הוכחנו הכלה דו-דיוונית ולכן $\mathcal{P}(A \cup B) = \mathcal{P}(A) \cup \mathcal{P}(B)$ כאשר $A \subseteq B$.
 
-- **מסקנה מחילופיות החיתוך**: אם $B \subseteq A$ אז $\mathcal{P}(A \cup B) = \mathcal{P}(A) \cup \mathcal{P}(B)$.
+- **מסקנה מחילופיות האיחוד**: אם $B \subseteq A$ אז $\mathcal{P}(A \cup B) = \mathcal{P}(A) \cup \mathcal{P}(B)$.
+
+---
+
+# הכיוון "רק אם": אם $\mathcal{P}(A \cup B) = \mathcal{P}(A) \cup \mathcal{P}(B)$ אז $A \subseteq B$ או $B \subseteq A$
+
+- **הוכחה (בדרך הקונטרה-פוזיטיב):** נניח ש-$A \not\subseteq B$ **וגם** $B \not\subseteq A$, ונראה ש-$\mathcal{P}(A \cup B) \neq \mathcal{P}(A) \cup \mathcal{P}(B)$.
+  (זו שלילת המסקנה: $\neg(A \subseteq B \lor B \subseteq A) \equiv A \not\subseteq B \land B \not\subseteq A$.)
+
+  - מ-$A \not\subseteq B$: קיים $a \in A$ כך ש-$a \notin B$.
+  - מ-$B \not\subseteq A$: קיים $b \in B$ כך ש-$b \notin A$.
+  - $a, b \in A \cup B$, ולכן $\{a, b\} \subseteq A \cup B$, כלומר $\{a, b\} \in \mathcal{P}(A \cup B)$.
+  - $\{a, b\} \notin \mathcal{P}(A)$, כי $b \in \{a, b\}$ אבל $b \notin A$.
+  - $\{a, b\} \notin \mathcal{P}(B)$, כי $a \in \{a, b\}$ אבל $a \notin B$.
+  - לכן $\{a, b\} \in \mathcal{P}(A \cup B)$ אבל $\{a, b\} \notin \mathcal{P}(A) \cup \mathcal{P}(B)$, ומכאן $\mathcal{P}(A \cup B) \neq \mathcal{P}(A) \cup \mathcal{P}(B)$. ∎
+
+- **שימו לב:** זו בדיוק ההפרכה שראינו קודם ($A = \{1\}$, $B = \{2\}$, $\{a,b\} = \{1,2\}$), בגרסה כללית.
 
 ---
 section: פעולות אונריות 
@@ -1530,10 +1624,9 @@ $$\bigcap X = \{ a \mid \forall A \in X (a \in A) \}$$
   - $\bigcap X$ הוא אוסף האיברים המשותפים לכל הקבוצות של $X$.
 
 <br>  
-<br>  
 
 
-- **דגש חשוב:** אם $X = \emptyset$, אז $\bigcup \emptyset = \emptyset$, אך $\bigcap \emptyset$ אינו מוגדר (כי אין תנאי שכל איבר מקיים).
+- **דגש חשוב:** $\bigcup \emptyset = \emptyset$, אך $\bigcap \emptyset$ אינו מוגדר: כל עצם $a$ מקיים באופן ריק $\forall A \in \emptyset\,(a \in A)$, ולכן $\bigcap \emptyset$ היה "קבוצת כל העצמים" - שאינה קבוצה (פרדוקס ראסל).
 
 ---
 
@@ -1552,6 +1645,79 @@ $$\bigcap X = \{ a \mid \forall A \in X (a \in A) \}$$
 - עבור $Y = \{\,\{1,3,7\}, \{2,3,7\}, \{1,2,6,7\}, \{3,7\}\}$ נקבל: $\bigcap Y = \{7\}$, $\bigcup Y = \{1,2,3,6,7\}$.
 
 - $\bigcap\mathcal{P}(A) \subseteq \bigcup\mathcal{P}(A)$ לכל $A$.
+
+---
+
+# איך מוכיחים שייכות לאיחוד/חיתוך אונרי, ומה נותנת הנחת שייכות
+
+<div class="grid grid-cols-2 gap-x-8 gap-y-4 mt-4">
+
+<div v-click="1">
+
+**להוכיח $a \in \bigcup X$:**
+- מציגים **עד**: קבוצה מסוימת $A \in X$, ומראים ש-$a \in A$.
+
+</div>
+
+<div v-click="2">
+
+**מההנחה $a \in \bigcup X$:**
+- מקבלים שקיימת $A \in X$ עם $a \in A$.
+- אנחנו **נותנים לה שם**, אבל **לא בוחרים** אותה - אין לנו שליטה מי היא.
+
+</div>
+
+<div v-click="3">
+
+**להוכיח $a \in \bigcap X$:**
+- לוקחים $A \in X$ **שרירותית**, ומראים ש-$a \in A$.
+
+</div>
+
+<div v-click="4">
+
+**מההנחה $a \in \bigcap X$:**
+- מותר להציב: $a \in A$ לכל $A \in X$ **שנבחר** - כל אחת שנוח לנו.
+
+</div>
+
+</div>
+
+<div v-click="5">
+
+- **שלילות:**
+  - $a \notin \bigcup X \iff \forall A \in X\; (a \notin A)$
+  - $a \notin \bigcap X \iff \exists A \in X\; (a \notin A)$
+
+- **טעות נפוצה:** להחליף בין "קיים" ל"לכל". זכרו: $\bigcup$ הולך עם **קיים**, $\bigcap$ הולך עם **לכל**.
+
+</div>
+
+---
+layout: TwoColsHeaderCustom
+---
+
+# דוגמה: שימוש בתבניות
+
+**טענה:** תהי $X$ קבוצה של קבוצות ותהי $A \in X$ (בפרט $X \neq \emptyset$, ולכן $\bigcap X$ מוגדר). אז $\bigcap X \subseteq A \subseteq \bigcup X$.
+
+::left::
+
+- **$\bigcap X \subseteq A$:**
+  - יהי $a \in \bigcap X$.
+  - מההנחה $a \in \bigcap X$ מותר להציב **כל** קבוצה ב-$X$ שנבחר.
+  - נבחר את $A \in X$, ונקבל $a \in A$.
+
+::right::
+
+- **$A \subseteq \bigcup X$:**
+  - יהי $a \in A$.
+  - כדי להוכיח $a \in \bigcup X$ צריך **עד**.
+  - $A$ עצמה היא העד: $A \in X$ ו-$a \in A$, ולכן $a \in \bigcup X$.
+
+::after::
+
+- שימו לב: בחלק הראשון **השתמשנו** בהנחת שייכות לחיתוך, ובחלק השני **הוכחנו** שייכות לאיחוד.
 
 ---
 
@@ -1672,7 +1838,7 @@ layout: TwoColsHeaderCustom
 - **קיום:** נגדיר $U = \bigcup X$. 
   - תנאי 1: לכל $S \in X$, ברור ש-$S \subseteq \bigcup X = U$.
   - תנאי 2: תהי $T$ קבוצה כך שלכל $S \in X$ מתקיים $S \subseteq T$. 
-    - יהי $a \in I = \bigcup X$.
+    - יהי $a \in U = \bigcup X$.
     - אז קיימת $S \in X$ כך ש-$a \in S$.
     - מכיוון ש-$S \subseteq T$, נקבל $a \in T$.
     - לכן $U \subseteq T$.
@@ -1772,25 +1938,106 @@ layout: TwoColsHeaderCustom
 ::right::
 
 <style>
-.right-small { font-size: 0.85em; line-height: 1.3; }
+.right-small { font-size: 0.8em; line-height: 1.25; }
 </style>
 <div class="right-small">
 
-- (1 $\Leftarrow$ 2): 
+- ($1 \Rightarrow 2$): 
   - אם $X=\mathcal{P}(A)$ אז $\bigcup X = A$.
   - לכל $x \in A$, $\{x\} \subseteq A$ ולכן $\{x\} \in \mathcal{P}(A) = X$.
   - אם $\mathcal{Y} \subseteq X = \mathcal{P}(A)$ אז לכל $S \in \mathcal{Y}$ מתקיים $S \subseteq A$ ולכן $\bigcup \mathcal{Y} \subseteq A$ ומכאן $\bigcup \mathcal{Y} \in \mathcal{P}(A) = X$.
 
-- (2 $\Leftarrow$ 3):
+- ($2 \Rightarrow 3$):
   - לכל $S \in X$, $S \subseteq \bigcup X = A$.
   - עבור $\mathcal{Y} = \{\,\{x\} \mid x \in A \}$ מתקיים $\mathcal{Y} \subseteq X$ ולכן $\bigcup \mathcal{Y} = A \in X$.
-  - אם $T \in X$ ו-$S \subseteq T$ אז $S \subseteq A$ ולכן $S \in X$ (סגירות לאיחודים).
+  - אם $T \in X$ ו-$S \subseteq T$ אז $S \subseteq A$, ולכן $S = \bigcup\{\{x\} \mid x \in S\} \in X$ (יחידונים + סגירות לאיחודים).
 
-- (3 $\Leftarrow$ 1):
+- ($3 \Rightarrow 1$):
   - לכל $S \in X$, $S \subseteq A$.
-  - לכל $S \subseteq A$, $S \in X$ (סגירות לירידה).
+  - לכל $S \subseteq A$, $S \in X$ (כי $A \in X$, וסגירות לירידה).
   - לכן $X = \mathcal{P}(A)$.
 </div>
+
+---
+section: חלוקות
+---
+
+# חלוקה של קבוצה
+
+- **הגדרה:** תהי $A$ קבוצה. קבוצה $S$ היא **חלוקה** של $A$ אם:
+
+<div class="formula-box">
+
+$$ S \subseteq \mathcal{P}(A) \setminus \{\emptyset\} \quad\land\quad \forall a \in A\; \exists! t \in S\; (a \in t) $$
+</div>
+
+  - איברי $S$ (ה"מחלקות") הם תת-קבוצות **לא ריקות** של $A$, וכל איבר של $A$ שייך **למחלקה אחת בדיוק**.
+  - $\exists! t \in S\, (a \in t)$ פירושו: $\exists t \in S\, \big(a \in t \land \forall t' \in S\, (a \in t' \to t' = t)\big)$.
+
+<div class="grid grid-cols-2 gap-8">
+<div>
+
+- **דוגמאות:**
+  - $\{\{2k \mid k \in \mathbb{N}\},\ \{2k+1 \mid k \in \mathbb{N}\}\}$ - חלוקה של $\mathbb{N}$ לזוגיים ואי-זוגיים.
+  - אם $A \neq \emptyset$ אז $\{A\}$ היא חלוקה של $A$.
+  - $\{\{x\} \mid x \in A\}$ (תבנית על קבוצה) - חלוקה של $A$ ליחידונים.
+
+</div>
+<div>
+
+- **לא דוגמאות** (עבור $A = \{1,2,3\}$):
+  - $\{\{1,2\}, \{2,3\}\}$ - חפיפה: $2$ שייך לשתי מחלקות.
+  - $\{\{1\}, \{2\}\}$ - האיבר $3$ אינו שייך לאף מחלקה.
+  - $\{\emptyset, \{1\}, \{2,3\}\}$ - מכילה את $\emptyset$.
+
+</div>
+</div>
+
+---
+layout: TwoColsHeaderCustom
+---
+
+# הגדרה שקולה של חלוקה
+
+**טענה:** $S$ היא חלוקה של $A$ אם ורק אם מתקיימים שלושת התנאים:
+(1) $S \subseteq \mathcal{P}(A) \setminus \{\emptyset\}$ &nbsp; (2) $\bigcup S = A$ &nbsp; (3) $\forall x, y \in S\; (x \cap y = \emptyset \lor x = y)$
+
+::left::
+
+- **($\Rightarrow$)** נניח ש-$S$ חלוקה של $A$. תנאי (1) נתון.
+  - **(2), $\subseteq$:** כל $t \in S$ מקיים $t \subseteq A$, ולכן $\bigcup S \subseteq A$.
+  - **(2), $\supseteq$:** יהי $a \in A$. קיים $t \in S$ עם $a \in t$, ולכן $a \in \bigcup S$.
+  - **(3):** יהיו $x, y \in S$ ונניח $x \cap y \neq \emptyset$. יהי $a \in x \cap y$. אז $a \in x \subseteq A$, ו-$a$ שייך גם ל-$x$ וגם ל-$y$. מיחידות המחלקה של $a$: $x = y$.
+
+::right::
+
+- **($\Leftarrow$)** נניח (1), (2), (3). תנאי (1) הוא החלק הראשון בהגדרה. יהי $a \in A$.
+  - **קיום:** $a \in A = \bigcup S$, ולכן קיימת $t \in S$ עם $a \in t$.
+  - **יחידות:** יהיו $t, t' \in S$ עם $a \in t$ ו-$a \in t'$. אז $a \in t \cap t'$, כלומר $t \cap t' \neq \emptyset$, ולפי (3) $t = t'$.
+
+::after::
+
+- מסקנה: אפשר להשתמש בכל אחת משתי ההגדרות, לפי הנוחות.
+
+---
+
+# משפט: חלוקה המוכלת בחלוקה שווה לה
+
+- **משפט:** אם $S$ ו-$T$ חלוקות של $A$ ו-$S \subseteq T$, אז $S = T$.
+
+- **הוכחה:** נתון $S \subseteq T$, ולכן נותר להוכיח $T \subseteq S$.
+  - תהי $t \in T$. מכיוון ש-$T \subseteq \mathcal{P}(A) \setminus \{\emptyset\}$, מתקיים $t \neq \emptyset$, ולכן יש איבר $a \in t$.
+  - מכיוון ש-$t \subseteq A$, מתקיים $a \in A$.
+  - $S$ חלוקה של $A$, ולכן קיימת $s \in S$ כך ש-$a \in s$.
+  - מכיוון ש-$S \subseteq T$, מתקיים $s \in T$.
+  - כעת $s, t \in T$ ושתיהן מכילות את $a$. מיחידות המחלקה של $a$ **בחלוקה $T$**: $s = t$.
+  - לכן $t = s \in S$. הראינו $T \subseteq S$, ומהכלה הדדית $S = T$. ∎
+
+<span v-click="1">
+
+- **למה צריך את התנאי $t \neq \emptyset$?** בלעדיו הטענה נכשלת: עבור $A = \{1\}$, $S = \{\{1\}\}$ ו-$T = \{\{1\}, \emptyset\}$ מתקיים $S \subsetneq T$, ובכל זאת כל איבר של $A$ שייך למחלקה אחת בדיוק גם ב-$T$.
+
+</span>
 
 ---
  

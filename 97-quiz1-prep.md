@@ -13,8 +13,7 @@ download: true
 # הכנה לבוחן הראשון
 ## מצגת בקורס "מבוא ללוגיקה ותורת הקבוצות"
 
-שאלות חזרה: לוגיקה, קבוצות, מכפלה קרטזית ויחסים
-(ללא תכונות של יחסים)
+שאלות חזרה: לוגיקה, קבוצות, מכפלה קרטזית, יחסים ותכונות של יחסים
 
 <div class="abs-br m-6 flex gap-2">
   <a href="https://github.com/slidevjs/slidev" target="_blank" alt="GitHub"
@@ -244,13 +243,13 @@ $$
 
 ---
 
-# יחסים: תחום ויחס הפוך
+# יחסים: תחום, יחס הפוך ותכונות
 
 **שאלה 6:**
 יהי $R = \{ \langle 1, 2 \rangle, \langle 2, 3 \rangle, \langle 3, 1 \rangle \}$ יחס על $A = \{1, 2, 3\}$.
 1. מהו $dom(R)$?
 2. מהו $R^{-1}$?
-3. חשבו את $R \circ R$ (הרכבה).
+3. האם $R$ טרנזיטיבי? האם $R$ אנטי-סימטרי?
 
 <v-click>
 
@@ -259,13 +258,101 @@ $$
 1. **תחום:** $dom(R) = \{1, 2, 3\}$ (כל האיברים שמופיעים ברכיב הראשון).
 2. **יחס הפוך:** הופכים את הזוגות.
    $$ R^{-1} = \{ \langle 2, 1 \rangle, \langle 3, 2 \rangle, \langle 1, 3 \rangle \} $$
-3. **הרכבה ($R \circ R$):** מחפשים $\langle x,y \rangle \in R$ ו-$\langle y,z \rangle \in R$ כדי ליצור $\langle x,z \rangle$.
-   - $\langle 1,2 \rangle \in R, \langle 2,3 \rangle \in R \implies \langle 1,3 \rangle \in R \circ R$
-   - $\langle 2,3 \rangle \in R, \langle 3,1 \rangle \in R \implies \langle 2,1 \rangle \in R \circ R$
-   - $\langle 3,1 \rangle \in R, \langle 1,2 \rangle \in R \implies \langle 3,2 \rangle \in R \circ R$
-   $$ R \circ R = \{ \langle 1, 3 \rangle, \langle 2, 1 \rangle, \langle 3, 2 \rangle \} $$
+3. **תכונות:**
+   - **טרנזיטיבי** <span style="color:red">✗</span> - $\langle 1,2 \rangle, \langle 2,3 \rangle \in R$ אבל $\langle 1,3 \rangle \notin R$.
+   - **אנטי-סימטרי** <span style="color:green">✓</span> - אין $x \neq y$ עם $\langle x,y \rangle \in R$ וגם $\langle y,x \rangle \in R$ (אף זוג של $R$ אינו מופיע ב-$R^{-1}$).
 
 </v-click>
+
+---
+layout: two-cols-header
+---
+
+# תכונות של יחסים: הוכיחו או הפריכו (1)
+
+1. לכל שני יחסים סימטריים $R,S$, היחס $R \cup S$ סימטרי.
+2. לכל שני יחסים טרנזיטיביים $R,S$, היחס $R \cup S$ טרנזיטיבי.
+3. לכל יחס $R$: אם $R$ סימטרי וגם אנטי-סימטרי, אז לכל $\langle x,y \rangle \in R$ מתקיים $x=y$.
+4. האם $\emptyset$ סימטרי? אנטי-סימטרי? טרנזיטיבי? רפלקסיבי מעל $A$?
+
+::left::
+
+<v-click>
+
+1. **נכון** <span style="color:green">✓</span> - יהי $\langle x,y \rangle \in R \cup S$. אם $\langle x,y \rangle \in R$ אז מסימטריות $\langle y,x \rangle \in R \subseteq R \cup S$; ובאופן דומה אם $\langle x,y \rangle \in S$.
+
+</v-click>
+
+<v-click>
+
+2. **לא נכון** <span style="color:red">✗</span> - $R = \{\langle 1,2 \rangle\}$, $S = \{\langle 2,1 \rangle\}$ טרנזיטיביים (באופן ריק), אבל ב-$R \cup S$ יש $\langle 1,2 \rangle, \langle 2,1 \rangle$ ואין $\langle 1,1 \rangle$.
+
+</v-click>
+
+::right::
+
+<v-click>
+
+3. **נכון** <span style="color:green">✓</span> - יהי $\langle x,y \rangle \in R$. מסימטריות $\langle y,x \rangle \in R$, ומאנטי-סימטריות (כי $x\,R\,y$ וגם $y\,R\,x$) נקבל $x=y$.
+
+</v-click>
+
+<v-click>
+
+4. $\emptyset$ סימטרי, אנטי-סימטרי וטרנזיטיבי <span style="color:green">✓</span> (באופן ריק - אין זוגות שעליהם התנאי נבדק). רפלקסיבי מעל $A$ **רק אם** $A=\emptyset$: אם $a \in A$ אז $\langle a,a \rangle \notin \emptyset$.
+
+</v-click>
+
+<style>
+.two-cols-header {
+  column-gap: 40px;
+}
+</style>
+
+---
+layout: two-cols-header
+---
+
+# תכונות של יחסים: הוכיחו או הפריכו (2)
+
+5. לכל שני יחסים טרנזיטיביים $R,S$, היחס $R \cap S$ טרנזיטיבי.
+6. לכל יחס $R$: $R$ סימטרי אם ורק אם $R = R^{-1}$.
+7. לכל יחס $R$, היחס $R \cup R^{-1}$ סימטרי.
+8. לכל יחס $R$: אם $R$ סימטרי וגם אנטי-סימטרי, אז $R$ טרנזיטיבי.
+
+::left::
+
+<v-click>
+
+5. **נכון** <span style="color:green">✓</span> - נניח $\langle x,y \rangle, \langle y,z \rangle \in R \cap S$. אז שניהם ב-$R$, ומטרנזיטיביות $\langle x,z \rangle \in R$; באותו אופן $\langle x,z \rangle \in S$. לכן $\langle x,z \rangle \in R \cap S$.
+
+</v-click>
+
+<v-click>
+
+6. **נכון** <span style="color:green">✓</span> - ($\Rightarrow$) אם $\langle x,y \rangle \in R$ אז $\langle y,x \rangle \in R$, כלומר $\langle x,y \rangle \in R^{-1}$; וההכלה ההפוכה באותו אופן. ($\Leftarrow$) אם $\langle x,y \rangle \in R$ אז $\langle y,x \rangle \in R^{-1} = R$.
+
+</v-click>
+
+::right::
+
+<v-click>
+
+7. **נכון** <span style="color:green">✓</span> - יהי $\langle x,y \rangle \in R \cup R^{-1}$. אם $\langle x,y \rangle \in R$ אז $\langle y,x \rangle \in R^{-1}$; ואם $\langle x,y \rangle \in R^{-1}$ אז $\langle y,x \rangle \in R$. בשני המקרים $\langle y,x \rangle \in R \cup R^{-1}$.
+
+</v-click>
+
+<v-click>
+
+8. **נכון** <span style="color:green">✓</span> - נניח $x\,R\,y$ ו-$y\,R\,z$. לפי שאלה 3, $x=y$ (ו-$y=z$). לכן $x\,R\,z$ הוא בדיוק $y\,R\,z$, שנתון.
+
+</v-click>
+
+<style>
+.two-cols-header {
+  column-gap: 40px;
+}
+</style>
 
 ---
 

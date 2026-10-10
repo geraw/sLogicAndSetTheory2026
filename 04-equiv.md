@@ -296,6 +296,26 @@ section: מחלקות וקבוצת מנה
 
 ---
 
+# דוגמה: $\mathbb{Z}/\equiv_3$
+
+- נזכיר: $a \equiv_3 b \iff \exists k\in\mathbb{Z}\;(a-b=3k)$.
+
+<v-clicks depth="2">
+
+- מחלקות השקילות:
+  - $[0]_{\equiv_3} = \{\dots,-6,-3,0,3,6,\dots\}$
+  - $[1]_{\equiv_3} = \{\dots,-5,-2,1,4,7,\dots\}$
+  - $[2]_{\equiv_3} = \{\dots,-4,-1,2,5,8,\dots\}$
+
+- קבוצת המנה: $\mathbb{Z}/\equiv_3 \;=\; \{[0]_{\equiv_3},\,[1]_{\equiv_3},\,[2]_{\equiv_3}\}$ – שלושה איברים בלבד.
+
+- שמות שונים, אותה מחלקה: $[0]_{\equiv_3}=[3]_{\equiv_3}=[-3]_{\equiv_3}$ (כי $0 \equiv_3 3 \equiv_3 -3$).
+  - באופן כללי: $[a]_{\equiv_3}=[b]_{\equiv_3} \iff a\equiv_3 b$.
+
+</v-clicks>
+
+---
+
 # דוגמה: על $\mathcal{P}(\{1,2,3\})$ עם $1\notin A\,\Delta\,B$
 
 - נגדיר על $\mathcal{P}(\{1,2,3\})$:
@@ -351,9 +371,10 @@ layout: two-cols-header
 
 ---
 
-# חלוקה של קבוצה
+# תזכורת: חלוקה של קבוצה
 
-**חלוקה** $P$ של קבוצה $X$ היא אוסף של תת-קבוצות לא ריקות של $X$, שהן **זרות בזוגות** ו**מכסות** את $X$ (כלומר $X$ שווה לאיחוד שלהן):
+בפרק על קבוצות הגדרנו: $P$ **חלוקה** של $X$ אם $P\subseteq\mathcal P(X)\setminus\{\emptyset\}$ ולכל $x\in X$ קיימת $S\in P$ **יחידה** כך ש־$x\in S$.
+וראינו שזה שקול לכך ש־$P$ אוסף של תת-קבוצות לא ריקות של $X$, **זרות בזוגות**, ש**מכסות** את $X$:
 
 <div class="formula-box" style="text-align: left; padding-left: 2rem;">
 
@@ -701,7 +722,8 @@ class: gap-20
   - מכיוון ש-$P$ חלוקה, קיים $S \in P$ כך ש-$a \in S$.
   - נראה ש-$[a] = S$:
     - יהי $x\in S$. אז $x\sim_P a$ כי $a\in S$. לכן $x\in [a]$
-    - יהי $x\in [a]$. אז $x\sim_P a$ כי $a\in S$. לכן $x\in S$
+    - יהי $x\in [a]$. אז $x\sim_P a$, כלומר קיים $S'\in P$ כך ש-$x,a\in S'$.
+      מכיוון ש-$a\in S\cap S'$ והחלוקה זרה בזוגות, $S'=S$. לכן $x\in S$
   
   - לכן $[a] \in P$
 
@@ -716,7 +738,8 @@ class: gap-20
   - $S$ לא ריקה, אז ניקח $a \in S$.
   - נראה ש-$[a] = S$:
     - יהי $x\in S$. אז $x\sim_P a$ כי $a\in S$. לכן $x\in [a]$
-    - יהי $x\in [a]$. אז $x\sim_P a$ כי $a\in S$. לכן $x\in S$
+    - יהי $x\in [a]$. אז $x\sim_P a$, כלומר קיים $S'\in P$ כך ש-$x,a\in S'$.
+      מכיוון ש-$a\in S\cap S'$ והחלוקה זרה בזוגות, $S'=S$. לכן $x\in S$
     
   - לכן $S \in A/\sim_P$
 </v-clicks>
@@ -800,7 +823,7 @@ section: מוגדר היטב
 
     <div class="formula-box" style="direction: rtl;">
     
-    אם $\langle a,b\rangle\sim\langle a',b'\rangle$ ו-$\langle x,y\rangle\sim\langle x',y'\rangle$ אז $[\langle ay+xb,by\rangle]\sim[\langle a'y'+x'b',b'y'\rangle]$
+    אם $\langle a,b\rangle\sim\langle a',b'\rangle$ ו-$\langle x,y\rangle\sim\langle x',y'\rangle$ אז $[\langle ay+xb,by\rangle]=[\langle a'y'+x'b',b'y'\rangle]$
     </div>
 
   - בדיקת עקביות על דוגמאות:
@@ -949,24 +972,21 @@ section: מערכות נציגים
 
 <v-clicks depth="2">
 
-- $\mathcal{F}=\mathcal{P}(\mathbb{N})\setminus\{\emptyset\}$ (כל תת-קבוצות הטבעיים הלא-ריקות):
+- $\mathbb{Z}/\equiv_3$ (המחלקות $[0],[1],[2]$):
 
-  - <span style="color: green;">✓</span> **מערכת נציגים**: בכל $A$ נבחר את $\min A$; אז $S=\{\min A \mid A\in\mathcal{F}\}$
-
-
-- $\mathcal{F}=\mathcal{P}(\mathbb{Z})\setminus\{\emptyset\}$ (כל תת-קבוצות השלמים הלא-ריקות):
-
-  - <span style="color: green;">✓</span> **מערכת נציגים**: לכל $A$ נבחר איבר במינימום של $|a|$; בשוויון בין $a$ ו-$-a$ נבחר את החיובי
+  - <span style="color: green;">✓</span> **מערכת נציגים**: $\{0,1,2\}$ (השארית בחלוקה ב-3). גם $\{3,-2,8\}$ היא מערכת נציגים.
 
 
-- $\mathcal{F}=\mathcal{P}(\mathbb{Q})\setminus\{\emptyset\}$ (כל תת-קבוצות הרציונליים הלא-ריקות):
+- $\mathbb{Q} = (\mathbb{Z}\times(\mathbb{Z}\setminus\{0\}))/\sim$:
 
-  - <span style="color: green;">✓</span> **מערכת נציגים**: לכל $A$ נבחר נציג קנוני בצמצום עם מכנה חיובי; מבין $A$ נעדיף מכנה מינימלי ואז $|מונה|$ מינימלי
+  - <span style="color: green;">✓</span> **מערכת נציגים**: השברים המצומצמים עם מכנה חיובי, $\{\langle a,b\rangle \mid b>0,\ \gcd(a,b)=1\}$.
 
 
-- $\mathcal{F}=\mathcal{P}(\mathbb{R})\setminus\{\emptyset\}$ (כל תת-קבוצות הממשיים הלא-ריקות):
+- $\mathbb{R}/\sim$ כאשר $x\sim y \iff x-y\in\mathbb{Q}$:
 
-  - <span style="color: red;">✗</span> **מערכת נציגים**: אין דרך לבחור נציגים באופן מפורש (למשל, לבחור את המינימום או המקסימום) כי לא כל תת-קבוצה של $\mathbb{R}$ מכילה כזה.
+  - כל מחלקה היא "הזזה" של $\mathbb{Q}$: $[x]_\sim=\{x+q \mid q\in\mathbb{Q}\}$. למשל $[0]_\sim=\mathbb{Q}$, ו-$[\sqrt{2}]_\sim = \{\sqrt{2}+q \mid q\in\mathbb{Q}\}$.
+
+  - <span style="color: red;">✗</span> **מערכת נציגים**: אין דרך לכתוב במפורש מערכת נציגים (למשל, אין למחלקות מינימום). כדי להבטיח שקיימת כזו נזדקק לאקסיומה נוספת.
 
 </v-clicks>
 

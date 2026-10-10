@@ -68,24 +68,24 @@ section: אינדוקציה מבנית
 
 ---
 
-# דוגמה: הגדרה רקורסיבית של $\mathrm{Fin}(\mathbb{N})$
+# דוגמה: הגדרה אינדוקטיבית של קבוצה $\mathcal F$
  
 
 $\mathrm{Fin}(\mathbb N)$ היא הקבוצה של כל תתי־הקבוצות הסופיות של $\mathbb N$.
-נגדיר אותה כבנייה אינדוקטיבית (מבנית):
+נגדיר קבוצה **חדשה** $\mathcal F$ בבנייה אינדוקטיבית (מבנית), ונוכיח ש־$\mathcal F=\mathrm{Fin}(\mathbb N)$:
 
 
 ## שלב בסיס
 
 $$
-\emptyset \in \mathrm{Fin}(\mathbb N)
+\emptyset \in \mathcal F
 $$
 
 
 ## צעד בנייה
-לכל $A \in \mathrm{Fin}(\mathbb N)$ ולכל $n\in\mathbb N$:
+לכל $A \in \mathcal F$ ולכל $n\in\mathbb N$:
 $$
-A \cup \{n\} \in \mathrm{Fin}(\mathbb N)
+A \cup \{n\} \in \mathcal F
 $$
 
 
@@ -93,18 +93,20 @@ $$
 מתחילים מ־$\emptyset$  
 ומוסיפים איברים אחד־אחד - מספר סופי של פעמים.
 
+**יש להוכיח שוויון בין שתי הקבוצות:** $\mathcal F\subseteq\mathrm{Fin}(\mathbb N)$ וגם $\mathrm{Fin}(\mathbb N)\subseteq\mathcal F$.
+
 ---
 
-# אינדוקציה מבנית על $\mathrm{Fin}(\mathbb N)$
+# אינדוקציה מבנית על $\mathcal F$
 
-כדי להוכיח תכונה $P(A)$ לכל $A\in\mathrm{Fin}(\mathbb N)$ מספיק:
+כדי להוכיח תכונה $P(A)$ לכל $A\in\mathcal F$ מספיק:
 
 - להוכיח $P(\emptyset)$
 - להראות:
 $
 P(A)\Rightarrow P(A\cup\{n\})
 $
-לכל $A\in\mathrm{Fin}(\mathbb N)$ ולכל $n\in\mathbb N$.
+לכל $A\in\mathcal F$ ולכל $n\in\mathbb N$.
 
 <div class="flex justify-center mt-8">
   <img src="/fin_n_induction_tree_v4.png" class="h-80" />
@@ -112,9 +114,9 @@ $
 
 ---
 
-# דוגמה: כוחה של אינדוקציה מבנית
+# כיוון ראשון: $\mathcal F\subseteq\mathrm{Fin}(\mathbb N)$ (כוחה של אינדוקציה מבנית)
 
-**טענה:** לכל $A \in \mathrm{Fin}(\mathbb N)$, הקבוצה $A$ היא סופית (קיימת התאמה חח"ע ועל ל-$\mathbb{N}^{<k}$ עבור $k$ כלשהו).
+**טענה:** לכל $A \in \mathcal F$, הקבוצה $A$ היא סופית (קיימת התאמה חח"ע ועל ל-$\mathbb{N}^{<k}$ עבור $k$ כלשהו).
 
 1.  **בסיס ($\emptyset$):**
     - נבחר $k=0$. מתקיים $\emptyset = \mathbb{N}^{<0}$.
@@ -135,9 +137,9 @@ $
 layout: TwoColsHeaderCustom
 ---
 
-# כיוון שני: כל תת-קבוצה סופית היא ב-$\mathrm{Fin}(\mathbb N)$
+# כיוון שני: $\mathrm{Fin}(\mathbb N)\subseteq\mathcal F$
 
-**טענה:** תהא $A \subseteq \mathbb{N}$. אם $A$ סופית, אז $A \in \mathrm{Fin}(\mathbb{N})$.
+**טענה:** תהא $A \subseteq \mathbb{N}$. אם $A$ סופית, אז $A \in \mathcal F$.
 
 **הוכחה:** באינדוקציה (רגילה) על גודל הקבוצה $|A|$.
 
@@ -146,7 +148,7 @@ layout: TwoColsHeaderCustom
 **בסיס האינדוקציה:**
 - אם $|A|=0$, אז $A = \emptyset$.
 
-- לפי הגדרת הבסיס של $\mathrm{Fin}(\mathbb{N})$, מתקיים $\emptyset \in \mathrm{Fin}(\mathbb{N})$.
+- לפי הגדרת הבסיס של $\mathcal F$, מתקיים $\emptyset \in \mathcal F$.
 
 ::right::
 
@@ -156,10 +158,16 @@ layout: TwoColsHeaderCustom
 - תהא $A$ קבוצה בגודל $k+1$.
 - נבחר איבר כלשהו $n \in A$.
 - נגדיר $A' = A \setminus \{n\}$. מתקיים $|A'| = k$.
-- לפי הנחת האינדוקציה, $A' \in \mathrm{Fin}(\mathbb{N})$.
-- לפי כלל הבנייה, $(A' \cup \{n\}) \in \mathrm{Fin}(\mathbb{N})$.
+- לפי הנחת האינדוקציה, $A' \in \mathcal F$.
+- לפי כלל הבנייה, $(A' \cup \{n\}) \in \mathcal F$.
 
-- אבל $A' \cup \{n\} = (A \setminus \{n\}) \cup \{n\} = A$, ולכן $A \in \mathrm{Fin}(\mathbb{N})$.
+- אבל $A' \cup \{n\} = (A \setminus \{n\}) \cup \{n\} = A$, ולכן $A \in \mathcal F$.
+
+<div class="absolute bottom-16 right-14 p-2 border-r-4 border-blue-500 bg-blue-50">
+
+**מסקנה:** משני הכיוונים, $\mathcal F=\mathrm{Fin}(\mathbb N)$.
+
+</div>
 
 ---
 
@@ -382,13 +390,17 @@ section: תחשיב פסוקים
     - $(\phi \lor \psi) \in \mathrm{PROP}(Atoms)$
     - $(\phi \to \psi) \in \mathrm{PROP}(Atoms)$
 
-**הערה:** אנו מקפידים על סוגריים מסביב לכל פעולה בינארית כדי למנוע דו-משמעות.
+**הערה:** אנו מקפידים על סוגריים מסביב לכל פעולה בינארית כדי למנוע דו-משמעות (סביב $\neg$ אין צורך).
 
-**דוגמאות:**
-- $P$ - פסוק אטומי.
-- $(\neg P)$ - פסוק.
-- $((P \land Q) \to (\neg R))$ - פסוק תקין.
-- $P \land Q$ - אינו פסוק לפי ההגדרה הפורמלית (חסרים סוגריים).
+**דוגמאות:** $P$ (פסוק אטומי), $\neg P$, $((P \land Q) \to \neg R)$ - פסוקים תקינים.<br>
+$P \land Q$ - אינו פסוק לפי ההגדרה הפורמלית (חסרים סוגריים).
+
+<div v-click class="mt-2 p-2 border-r-4 border-blue-500 bg-blue-50 text-sm" style="width: 62%">
+
+**גרסה מינימלית:** $Atoms=\{P,Q\}$, ורק שני כללים: אם $\phi$ פסוק אז $\neg\phi$ פסוק; אם $\phi,\psi$ פסוקים אז $(\phi\land\psi)$ פסוק.
+למשל: $(P\land Q)$, $\neg(P\land Q)$, $(\neg P\land\neg\neg Q)$.
+
+</div>
 
 <div class="absolute bottom-20 left-15">
   <img src="/prop_formula_construction_kit.png" class="h-60" />
@@ -418,7 +430,7 @@ layout: two-cols-header
 
 ::right::
 
-3.  **צעד (בינארי):** נניח $T(\phi)$ ו-$T(\psi)$. נבדוק עבור $(\phi \circ \psi)$ כאשר $\circ \in \{\land, \lor, \to\}$:
+3.  **צעד (בינארי):** נניח $T(\phi)$ ו-$T(\psi)$. נבדוק עבור $(\phi \circ \psi)$ כאשר $\circ \in \{\land, \lor, \to\}$ (בגרסה המינימלית: רק $\land$):
     - $L((\phi \circ \psi)) = 1 + L(\phi) + L(\psi)$.
     - $R((\phi \circ \psi)) = R(\phi) + R(\psi) + 1$.
     - מההנחות $L(\phi)=R(\phi)$ ו-$L(\psi)=R(\psi)$.
@@ -479,7 +491,7 @@ layout: two-cols-header
 
 2.  **צעד (שלילה):** $\phi = \neg \psi$.
     *   הנחה: הטענה נכונה עבור $\psi$. (כלומר $\hat{v}_1(\psi) = \hat{v}_2(\psi)$ כי האטומים של $\psi$ הם אותם אטומים).
-    *   $\hat{v}_1(\phi) = T \iff \hat{v}_1(\psi) = F \iff \hat{v}_1(\psi) = F \iff \hat{v}_2(\phi) = T$ (בגלל ההנחה). ✓
+    *   $\hat{v}_1(\phi) = T \iff \hat{v}_1(\psi) = F \iff \hat{v}_2(\psi) = F \iff \hat{v}_2(\phi) = T$ (בגלל ההנחה). ✓
 
 3.  **צעד (בינארי):**   $\phi = \psi_1 \circ \psi_2$ (כאשר $\circ \in \{\land, \lor, \to\}$).
     *   הנחה: הטענה נכונה עבור $\psi_1$ ו-$\psi_2$.
@@ -964,9 +976,9 @@ $$
 
     *   למשל: $D = \{1, 2, 3\}$.
 
-2.  **הפירוש של היחס $R^M$:** תת-קבוצה של $D^k$ שמגדירה מתי היחס מתקיים.
+2.  **הפירוש של היחס $R^M$:** תת-קבוצה של $D^2 = D\times D$ שמגדירה מתי היחס מתקיים.
 
-    *   למשל: $R^M = \{\langle 1, 2 \rangle, \langle 2, 3 \rangle\}$ (יחס "קטן מ-1").
+    *   למשל: $R^M = \{\langle 1, 2 \rangle, \langle 2, 3 \rangle\}$ (היחס "$y=x+1$", כלומר "$x$ קטן מ-$y$ בדיוק ב-1").
 
 <br>
 
@@ -1088,6 +1100,13 @@ $$
 
 ---
 section: FOL (כללי)
+layout: center
+---
+
+# לוגיקה מסדר ראשון: שפה כללית
+
+### חומר להרצאות 25–26 (שמות עצם ונוסחאות בשפה כללית)
+
 ---
 
 # הגדרת שפה מסדר ראשון ($L$)
@@ -1288,7 +1307,7 @@ section: גרפים
 
 # מקרה פרטי: שפה עם יחס בינארי יחיד (גרפים)
 
-*   תהי $L$ שפה עם סימן יחס בינארי יחיד.
+*   תהי $L$ שפה עם סימן יחס בינארי יחיד (קודם סימנו אותו $R$; בהקשר של גרפים נסמן אותו גם $E$).
 *   מבנה-$L$ הוא זוג $M = \langle V, E \rangle$, באשר $E \subseteq V \times V$.
 *   מבנה זה נקרא **גרף מכוון** (Directed Graph):
     *   $V$ היא קבוצת הצמתים.
@@ -1306,25 +1325,15 @@ section: גרפים
 
 - ניתן לתאר תכונות של גרפים בשפה שבנינו:
 
-  - **רפלקסיביות (Reflexivity):**
-    <div style="margin-top: -25px;"></div>
+  - **רפלקסיביות (Reflexivity):** $\;\forall x (E(x, x))$
 
-    $$\forall x (E(x, x))$$
-    
-  - **סימטריות (Symmetry):**
-    <div style="margin-top: -25px;"></div>
+  - **סימטריות (Symmetry):** $\;\forall x (\forall y (E(x, y) \to E(y, x)))$
 
-    $$\forall x (\forall y (E(x, y) \to E(y, x)))$$
+  - **אנטי-סימטריות (Anti-Symmetry):** $\;\forall x (\forall y ((E(x, y) \land E(y, x)) \to x = y))$
 
-  - **אנטי-סימטריות (Anti-Symmetry):**
-    <div style="margin-top: -25px;"></div>
+  - **טרנזיטיביות (Transitivity):** $\;\forall x (\forall y (\forall z ((E(x, y) \land E(y, z)) \to E(x, z))))$
 
-    $$\forall x (\forall y ((E(x, y) \land E(y, x)) \to x = y))$$
-
-  - **טרנזיטיביות (Transitivity):**
-    <div style="margin-top: -25px;"></div>
-
-    $$\forall x (\forall y (\forall z ((E(x, y) \land E(y, z)) \to E(x, z))))$$
+  - **קוויות (Linearity):** $\;\forall x (\forall y (E(x, y) \lor E(y, x)))$
 
 
 
@@ -1422,15 +1431,14 @@ graph TD
 <span style="color:blue;">$G$ סימטרי אם ורק אם $H$ סימטרי</span>.
 
 ### הוכחה:  
-- <span style="color:blue;"> $G$ סימטרי $\Leftarrow$ $H$ סימטרי</span>
+- <span style="color:blue;">אם $H$ סימטרי אז $G$ סימטרי:</span>
   * יהי $f$ האיזומורפיזם מ-$G$ ל-$H$.
   * יהי $\langle u, v \rangle \in E$.
   * לפי הגדרת האיזומורפיזם, $\langle f(u), f(v) \rangle \in E'$.
   * מכיוון ש-$H$ סימטרי, $\langle f(v), f(u) \rangle \in E'$.
-  * לכן, $\langle f(v), f(u) \rangle \in E'$.
   * לפי הגדרת האיזומורפיזם, $\langle v, u \rangle \in E$.
 
-- <span style="color:blue;"> $H$ סימטרי $\Leftarrow$ $G$ סימטרי</span>
+- <span style="color:blue;">אם $G$ סימטרי אז $H$ סימטרי:</span>
   - אותה ההוכחה עם האיזומורפיזם $g=f^{-1}$ מ-$H$ ל-$G$.
 
 <div style="position: absolute; top: 180px; left: 220px">
@@ -1462,15 +1470,14 @@ graph TD
 
 ### הוכחה:
 
-- <span style="color:blue;"> $G$ אנטי-סימטרי $\Leftarrow$ $H$ אנטי-סימטרי</span>
+- <span style="color:blue;">אם $H$ אנטי-סימטרי אז $G$ אנטי-סימטרי:</span>
   * יהי $f$ האיזומורפיזם מ-$G$ ל-$H$.
-  * יהי $\langle u, v \rangle \in E$.
-  * לפי הגדרת האיזומורפיזם, $\langle f(u), f(v) \rangle \in E'$.
-  * מכיוון ש-$H$ אנטי-סימטרי, אם $\langle f(u), f(v) \rangle \in E'$ ו-$\langle f(v), f(u) \rangle \in E'$, אז $f(u) = f(v)$.
-  * לכן, $f(u) = f(v)$.
-  * לפי הגדרת האיזומורפיזם, $u = v$.
+  * יהיו $u, v \in V$ כך ש-$\langle u, v \rangle \in E$ **וגם** $\langle v, u \rangle \in E$.
+  * לפי הגדרת האיזומורפיזם, $\langle f(u), f(v) \rangle \in E'$ וגם $\langle f(v), f(u) \rangle \in E'$.
+  * מכיוון ש-$H$ אנטי-סימטרי, $f(u) = f(v)$.
+  * מכיוון ש-$f$ חח"ע, $u = v$.
 
-- <span style="color:blue;"> $H$ אנטי-סימטרי $\Leftarrow$ $G$ אנטי-סימטרי</span>
+- <span style="color:blue;">אם $G$ אנטי-סימטרי אז $H$ אנטי-סימטרי:</span>
   - אותה ההוכחה עם האיזומורפיזם $g=f^{-1}$ מ-$H$ ל-$G$.
 
 <div style="position: absolute; top: 180px; left: 60px">
